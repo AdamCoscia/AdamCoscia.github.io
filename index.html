@@ -21,6 +21,27 @@
     hr {
       margin: 2em 0;
     }
+
+    #intro-text {
+      letter-spacing: 0.1em;
+      font-size: calc(12px + 0.25vw);
+      text-transform: capitalize;
+    }
+
+    #intro-text a {
+      font-weight: bold;
+    }
+
+    #news-list {
+      font-size: calc(13px + 0.05vw);
+      letter-spacing: 0.1em;
+      text-transform: none;
+    }
+
+    #news-item {
+      border-top: none;
+      padding: 0;
+    }
   </style>
 </head>
 
@@ -28,7 +49,7 @@
   <!-- Wrapper -->
   <div id="wrapper">
     <!-- Console -->
-    <section id="main" style="width: 35em;">
+    <section id="main" style="width: 35em">
       <!-- Header -->
       <header>
         <span class="avatar">
@@ -39,36 +60,31 @@
                 border-radius: 20%;
               " />
         </span>
-        <h1 style="font-weight: bold;">
+        <h1 style="font-weight: bold">
           <a href="index.html" class="logo">Adam Coscia</a>
         </h1>
       </header>
       <!--- Introduction-->
       <div id="introduction">
-        <p style="
-              letter-spacing: 0.1em;
-              font-size: calc(12px + 0.25vw);
-              text-transform: capitalize;
-            ">
+        <p id="intro-text">
           First-year
-          <a href="https://www.ic.gatech.edu/academics/human-centered-computing-phd-program" target="_blank"
-            style="font-weight: bold;">HCC</a>
+          <a href="https://www.ic.gatech.edu/academics/human-centered-computing-phd-program" target="_blank">HCC</a>
           Ph.D. Student
           <br />
           Working with
-          <a href="https://va.gatech.edu/endert/" target="_blank" style="font-weight: bold;">Alex Endert</a>
+          <a href="https://va.gatech.edu/endert/" target="_blank">Alex Endert</a>
           in the
-          <a href="https://gtvalab.github.io/" target="_blank" style="font-weight: bold;">VA.lab</a>
+          <a href="https://gtvalab.github.io/" target="_blank">VA.lab</a>
           <br />
-          <a href="https://www.ic.gatech.edu/" target="_blank" style="font-weight: bold;">Interactive Computing</a>
+          <a href="https://www.ic.gatech.edu/" target="_blank">Interactive Computing</a>
           @
-          <a href="https://www.gatech.edu/" target="_blank" style="font-weight: bold;">Georgia Tech</a>
+          <a href="https://www.gatech.edu/" target="_blank">Georgia Tech</a>
         </p>
       </div>
       <!-- Nav List -->
       <hr />
-      <div id="page-nav-list" style="margin-bottom: 1.5em;">
-        <ul class="actions special" style="font-size: calc(14px + 0.05vw); margin-bottom: 0.75em;">
+      <div id="page-nav-list" style="margin-bottom: 1.5em">
+        <ul class="actions special" style="font-size: calc(14px + 0.05vw); margin-bottom: 0.75em">
           <li>
             <span class="icon solid fa-newspaper"></span>
             <a href="news.html">News</a>
@@ -86,7 +102,7 @@
             <a href="cv.html">CV</a>
           </li>
         </ul>
-        <ul class="actions special" style="font-size: calc(14px + 0.05vw); margin-bottom: 0.75em;">
+        <ul class="actions special" style="font-size: calc(14px + 0.05vw); margin-bottom: 0.75em">
           <li>
             <span class="icon solid fa-gamepad"></span>
             <a href="jumpman.html">Games</a>
@@ -103,11 +119,28 @@
             -->
         </ul>
       </div>
-      <!-- Description -->
-      <div style="text-align: left;">
+      <!-- Recent News -->
+      <div style="text-align: left">
+        <ul id="news-list" class="alt">
+          <!-- News Item -->
+          <li id="news-item">
+            <span style="font-weight: bold">08/2020 &#187;</span>
+            Joined HCC Ph.D. program at GT!
+          </li>
+          <!-- News Item -->
+          <li id="news-item">
+            <span style="font-weight: bold">06/2020 &#187;</span>
+            Wrote an introductory article on Data Science!
+            <a href="https://www.ewaab.org/post/what-is-data-science-how-does-it-work-and-why-is-it-important"
+              target="blank_" class="icon solid fa-external-link-square-alt"></a>
+          </li>
+        </ul>
+      </div>
+      <!-- Overview -->
+      <div style="text-align: left">
         <!-- About Me -->
         <header id="about-me">
-          <h2 style="font-weight: bold; margin: 0 0 0.25em 0;">
+          <h2 style="font-weight: bold; margin: 0 0 0.25em 0">
             <span class="icon solid fa-user"></span>
             About Me
           </h2>
@@ -119,25 +152,22 @@
             ">
           Hey! I joined the HCC Ph.D. program at GT in Fall 2020. I did my
           undergrad at
-          <a href="https://www.stevens.edu/" target="blank_" style="font-weight: bold;">
+          <a href="https://www.stevens.edu/" target="blank_" style="font-weight: bold">
             Stevens Inst of Tech
           </a>
-          where I earned a B.S. in Physics and minors in Math and CS.
-          <br />
-          The hard technical skills in Math/CS help me develop practical
-          data-driven programs that bring insights to research teams in
-          academia and industry.
-          <br />
-          Yet it's the soft human-centered skills I learned from seasoned
-          Physicists&mdash;how to <i>think</i> through a problem, collect
-          information, and dissemenate it&mdash; that I believe can and should
-          be more accesible to <i>everyone</i>. How? That's what I hope to
-          research: making techincal, data-driven discoveries more
+          where I earned a B.S. in Physics and minors in Math and CS. The hard
+          technical skills in Math/CS help me develop practical data-driven
+          programs that bring insights to research teams in academia and
+          industry. Yet it's the soft human-centered skills I learned from
+          seasoned Physicists&mdash;how to <i>think</i> through a problem,
+          collect information, and dissemenate it&mdash; that I believe can
+          and should be more accesible to <i>everyone</i>. How? That's what I
+          hope to research: making techincal, data-driven discoveries more
           human-centric.
         </p>
         <!-- Research Interests -->
         <header id="research-interests">
-          <h2 style="font-weight: bold; margin: 0 0 0.25em 0;">
+          <h2 style="font-weight: bold; margin: 0 0 0.25em 0">
             <span class="icon solid fa-book"></span>
             Research Interests
           </h2>
@@ -147,27 +177,26 @@
               font-size: 10pt;
               text-transform: none;
             ">
-          As such, I've undertaken
-          <a href="https://gtvalab.github.io/projects/bias.html" target="blank_" style="font-weight: bold;">
+          I've undertaken
+          <a href="https://gtvalab.github.io/projects/bias.html" target="blank_" style="font-weight: bold">
             on-going research
           </a>
           in the
-          <a href="https://gtvalab.github.io/" target="blank_" style="font-weight: bold;">
+          <a href="https://gtvalab.github.io/" target="blank_" style="font-weight: bold">
             Visualization Analytics Lab
           </a>
           that examines cognitive bias in interactive displays, where humans
-          are an integral part of the data visualization process.
-          <br />
-          One day, I hope to expand my focus to include research in
-          large-scale information displays that allow users to understand
-          large, multi-faceted, and often complex data without needing to be a
+          are an integral part of the data visualization process. One day, I
+          hope to expand my focus to include research in large-scale
+          information displays that allow users to understand large,
+          multi-faceted, and often complex data without needing to be a
           subject-matter expert&mdash;bridging technical prowess and
           human-centered goals for everyday thinkers and leaders!
         </p>
       </div>
       <!-- Contact -->
       <hr />
-      <p style="letter-spacing: 0.1em; font-size: calc(10px + 0.4vw);">
+      <p style="letter-spacing: 0.1em; font-size: calc(10px + 0.4vw)">
         Technology Square Research Building <br />
         85 5th St NW, Atlanta, GA 30332-0760
       </p>

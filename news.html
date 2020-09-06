@@ -17,56 +17,100 @@
   <noscript>
     <link rel="stylesheet" href="assets/css/noscript.css" />
   </noscript>
+  <style>
+    #icon {
+      flex-shrink: 0;
+      width: 55px;
+    }
+
+    #title {
+      flex-shrink: 0;
+      padding-left: 1em;
+      width: 100px;
+      text-align: center;
+      font-weight: bold;
+      font-size: calc(9pt + 0.25vw);
+    }
+
+    #link {
+      flex-shrink: 0;
+      padding-left: 1em;
+      width: 55px;
+      border: 0;
+    }
+
+    #content {
+      flex-shrink: 1;
+      padding-left: 1em;
+      font-size: calc(8pt + 0.2vw);
+    }
+
+    #link-text {
+      all: unset;
+      font-weight: bold;
+    }
+  </style>
 </head>
 
 <body class="is-preload">
   <!-- Wrapper -->
-  <div id="wrapper" style="overflow: auto;">
+  <div id="wrapper" style="overflow: auto">
     <!-- Console -->
-    <section id="main" style="width: auto;">
+    <section id="main" style="width: auto; max-width: 50em">
       <!-- Header -->
       <header>
         <h1><a href="index.html" class="logo">Adam Coscia</a></h1>
         <p>HCC PhD Student @ Georgia Tech</p>
       </header>
-      <!-- Contact -->
-      <div id="contact-icons">
-        <ul class="icons">
-          <!-- School Email -->
-          <li>
-            <a href="mailto:acoscia6@gatech.edu" class="icon solid fa-envelope"></a>
-          </li>
-          <!-- Google Scholar -->
-          <li>
-            <a href="" class="icon solid fa-graduation-cap" target="_blank"></a>
-          </li>
-          <!-- GitHub -->
-          <li>
-            <a href="https://github.com/AdamCoscia" class="icon brands fa-github" target="_blank"></a>
-          </li>
-          <!-- Twitter -->
-          <li>
-            <a href="https://twitter.com/AdamCoscia" class="icon brands fa-twitter" target="_blank"></a>
-          </li>
-          <!-- LinkedIn -->
-          <li>
-            <a href="https://www.linkedin.com/in/adam-coscia" class="icon brands fa-linkedin" target="_blank"></a>
-          </li>
-        </ul>
-      </div>
       <!-- News -->
       <hr />
-      <div id="about">
-        <p>Latest news coming soon!</p>
-      </div>
+      <ul class="icons" style="text-align: left; letter-spacing: 0.1em; text-transform: none">
+        <!-- News Item -->
+        <li style="display: flex">
+          <!-- Icon -->
+          <a id="icon" class="icon solid fa-book"></a>
+          <!-- Title -->
+          <span id="title">Joined Georgia Tech!</span>
+          <!-- Link -->
+          <a id="link" href="https://gtvalab.github.io/" target="_blank"
+            class="icon solid fa-external-link-square-alt"></a>
+          <!-- Content -->
+          <span id="content">
+            <span style="font-weight: bold">08/2020 &#187;</span>
+            I'm working in the Visual Analytics Lab, under the supervision of
+            <a id="link-text" href="https://va.gatech.edu/endert/" target="_blank">
+              Alex Endert.
+            </a>
+          </span>
+        </li>
+        <!-- News Item -->
+        <li style="display: flex">
+          <!-- Icon -->
+          <a id="icon" class="icon solid fa-pen"></a>
+          <!-- Title -->
+          <span id="title"> Wrote an Article! </span>
+          <!-- Link -->
+          <a id="link" href="https://www.ewaab.org/post/what-is-data-science-how-does-it-work-and-why-is-it-important"
+            target="_blank" class="icon solid fa-external-link-square-alt"></a>
+          <!-- Content -->
+          <span id="content">
+            <span style="font-weight: bold">06/2020 &#187;</span>
+            Wrote an article for
+            <a id="link-text" href="https://www.ewaab.org/" target="_blank">
+              Encouraging Women Across All Borders
+            </a>
+            on the what, why, and how of data science for absolute beginners!
+          </span>
+        </li>
+      </ul>
       <!-- Footer -->
-      <footer id="footer" style="color: inherit;">
+      <footer id="footer" style="color: inherit">
         <ul class="copyright">
           <li>&copy; 2020 Adam Coscia</li>
-          <li style="border-left: solid 1px rgba(0, 0, 0, 0.25);">
+          <li style="border-left: solid 1px rgba(0, 0, 0, 0.25)">
             Back to <a href="news.html#wrapper">top</a>
           </li>
-          <li style="border-left: solid 1px rgba(0, 0, 0, 0.25);">
+          <li style="border-left: solid 1px rgba(0, 0, 0, 0.25)">
             Return <a href="index.html">home</a>
           </li>
         </ul>
