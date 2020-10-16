@@ -102,10 +102,6 @@
         <!-- Second Row (Public) -->
         <ul class="actions special" style="font-size: calc(14px + 0.05vw); margin-bottom: 0.75em">
           <li>
-            <span class="icon solid fa-newspaper"></span>
-            <a href="news.html">News</a>
-          </li>
-          <li>
             <span class="icon solid fa-users"></span>
             <a href="community.html">Community</a>
           </li>
@@ -129,13 +125,18 @@
         -->
       </div>
       <!-- Recent News -->
+      <div>
+        <span class="icon solid fa-newspaper"></span>
+        <a href="news.html">Recent News</a>
+      </div>
       <div style="text-align: left">
         <ul id="news-list" class="alt">
           <!-- News Item -->
           <li id="news-item">
             <span style="font-weight: bold">10/2020 &#187;</span>
             First Paper Accepted! (TREX @ IEEE VIS'20)
-            <a href="https://trexvis.github.io/Workshop2020/papers.html" class="icon solid fa-external-link-square-alt"></a>
+            <a href="https://trexvis.github.io/Workshop2020/papers.html" target="blank_"
+              class="icon solid fa-external-link-square-alt"></a>
           </li>
           <!-- News Item -->
           <li id="news-item">
@@ -146,7 +147,7 @@
           <!-- News Item -->
           <li id="news-item">
             <span style="font-weight: bold">08/2020 &#187;</span>
-            Joined the HCC PhD program and VA.lab at GT!!
+            Joined HCC PhD program and VA.lab at GT
             <a href="https://gtvalab.github.io/#people" target="_blank"
               class="icon solid fa-external-link-square-alt"></a>
           </li>
@@ -222,15 +223,17 @@
       </div>
       <!-- Contact -->
       <hr />
-      <p style="letter-spacing: 0.1em; font-size: calc(10px + 0.4vw)">
+      <p id="address" style="letter-spacing: 0.1em; font-size: calc(10px + 0.4vw)">
         Technology Square Research Building <br />
         85 5th St NW, Atlanta, GA 30332-0760
       </p>
-      <div itemscope itemtype="https://schema.org/Person">
-        <a itemprop="sameAs" content="https://orcid.org/0000-0002-0429-9295"
-          href="https://orcid.org/0000-0002-0429-9295" target="orcid.widget" rel="me noopener noreferrer"
-          style="vertical-align: top"><img src="https://orcid.org/sites/default/files/images/orcid_16x16.png"
-            style="width: 1em; margin-right: 0.5em" alt="ORCID iD icon" />https://orcid.org/0000-0002-0429-9295</a>
+      <div id="orcid" style="margin: 0 0 1.5em 0">
+        <div itemscope itemtype="https://schema.org/Person">
+          <a itemprop="sameAs" content="https://orcid.org/0000-0002-0429-9295"
+            href="https://orcid.org/0000-0002-0429-9295" target="orcid.widget" rel="me noopener noreferrer"
+            style="vertical-align: top"><img src="https://orcid.org/sites/default/files/images/orcid_16x16.png"
+              style="width: 1em; margin-right: 0.5em" alt="ORCID iD icon" />https://orcid.org/0000-0002-0429-9295</a>
+        </div>
       </div>
       <div id="contact-icons">
         <ul class="icons">
