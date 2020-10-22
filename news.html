@@ -18,36 +18,78 @@
     <link rel="stylesheet" href="assets/css/noscript.css" />
   </noscript>
   <style>
-    #icon {
-      flex-shrink: 0;
-      width: 55px;
+    hr {
+      margin: 1em 0 2em 0;
+    }
+
+    .row {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      width: 100%;
+      margin: 0 0 0.75em 0;
+    }
+
+    .column {
+      margin-bottom: 1em;
+      display: flex;
+      flex-direction: column;
+      flex-basis: 100%;
+      flex: 1;
+      justify-content: center;
+    }
+
+    .icon:before {
+      display: contents;
+    }
+
+    #main {
+      width: auto;
+      min-width: 300px;
+      max-width: 750px;
+    }
+
+    #page-nav-list p {
+      font-weight: bold;
+      text-align: right;
+      margin: 0 .5em 0 0;
+    }
+
+    #page-nav-list ul {
+      justify-content: left; 
+      margin: 0 0 0 .5em;
+    }
+
+    #news ul {
+      list-style: none;
+      text-align: left;
+      letter-spacing: 0.1em;
+      text-transform: none;
+      padding: 0;
     }
 
     #title {
-      flex-shrink: 0;
-      padding-left: 1em;
-      width: 100px;
-      text-align: center;
+      flex-shrink: 1;
       font-weight: bold;
-      font-size: calc(9pt + 0.25vw);
-    }
-
-    #link {
-      flex-shrink: 0;
-      padding-left: 1em;
-      width: 55px;
-      border: 0;
+      font-size: 11pt;
+      margin: 0 0 0.25em 0;
     }
 
     #content {
       flex-shrink: 1;
       padding-left: 1em;
-      font-size: calc(8pt + 0.2vw);
+      font-size: 9pt;
+      background-color: #f4f4f4;
+      border-left: 2px solid #ccc;
+    }
+
+    #link {
+      display: contents;
     }
 
     #link-text {
-      all: unset;
       font-weight: bold;
+      display: contents;
     }
   </style>
 </head>
@@ -56,53 +98,122 @@
   <!-- Wrapper -->
   <div id="wrapper" style="overflow: auto">
     <!-- Console -->
-    <section id="main" style="width: auto; max-width: 50em">
+    <section id="main">
       <!-- Header -->
-      <header>
-        <h1><a href="index.html" class="logo">Adam Coscia</a></h1>
+      <header id="header">
+        <h1 style="font-weight: bold; font-size: 2.75em">
+          <a href="index.html" class="logo">Adam Coscia</a>
+        </h1>
         <p>HCC PhD Student @ Georgia Tech</p>
       </header>
-      <!-- News -->
+      <!-- Break -->
       <hr />
-      <ul class="icons" style="text-align: left; letter-spacing: 0.1em; text-transform: none">
-        <!-- News Item -->
-        <li style="display: flex">
-          <!-- Icon -->
-          <a id="icon" class="icon solid fa-book"></a>
-          <!-- Title -->
-          <span id="title">Joined Georgia Tech!</span>
-          <!-- Link -->
-          <a id="link" href="https://gtvalab.github.io/" target="_blank"
-            class="icon solid fa-external-link-square-alt"></a>
-          <!-- Content -->
-          <span id="content">
-            <span style="font-weight: bold">08/2020 &#187;</span>
-            I'm working in the Visual Analytics Lab, under the supervision of
-            <a id="link-text" href="https://va.gatech.edu/endert/" target="_blank">
-              Alex Endert.
-            </a>
-          </span>
-        </li>
-        <!-- News Item -->
-        <li style="display: flex">
-          <!-- Icon -->
-          <a id="icon" class="icon solid fa-pen"></a>
-          <!-- Title -->
-          <span id="title"> Wrote an Article! </span>
-          <!-- Link -->
-          <a id="link" href="https://www.ewaab.org/post/what-is-data-science-how-does-it-work-and-why-is-it-important"
-            target="_blank" class="icon solid fa-external-link-square-alt"></a>
-          <!-- Content -->
-          <span id="content">
-            <span style="font-weight: bold">06/2020 &#187;</span>
-            Wrote an article for
-            <a id="link-text" href="https://www.ewaab.org/" target="_blank">
-              Encouraging Women Across All Borders
-            </a>
-            on the what, why, and how of data science for absolute beginners!
-          </span>
-        </li>
-      </ul>
+      <!-- Nav List -->
+      <div id="page-nav-list" class="row">
+        <div class="column">
+          <p>Navigate by Year:</p>
+        </div>
+        <div class="column">
+          <ul class="actions special">
+            <li></li><a href="#2021">2021</a></li>
+            <li></li><a href="#2020">2020</a></li>
+            <li></li><a href="#2019">2019</a></li>
+          </ul>
+        </div>
+      </div>
+      <!-- News -->
+      <div id="news">
+        <!-- 2020 -->
+        <div id="2020">
+          <h1 style="font-weight: bold; font-size: 1.75em">
+            2020 | <a href="#wrapper">Top</a>
+          </h1>
+          <ul>
+            <!-- News Item -->
+            <li id="1020-trex" class="row">
+              <div id="title" class="row">
+                <!-- Title -->
+                Oct '20 &#187; IEEE VIS'20 Workshop Paper Accepted!
+                <!-- Link -->
+                <a id="link" href="https://trexvis.github.io/Workshop2020/papers.html" target="_blank"
+                  class="icon solid fa-external-link-square-alt"></a>
+              </div>
+              <!-- Content -->
+              <div id="content" class="row">
+                On Sunday, Oct 25th I presented my first "first-author" paper
+                at the
+                <a id="link-text" href="https://trexvis.github.io/Workshop2020/index.html" target="_blank">
+                  Workshop on TRust and EXpertise in Visual Analytics (TREX),
+                </a>
+                IEEE VIS'20. The work is a short position statement on the
+                future of bias-aware initiatives in visual analytics.
+                <a id="link-text" href="https://trexvis.github.io/Workshop2020/papers/Coscia.pdf" target="_blank">
+                  Give it a read!
+                </a>
+              </div>
+            </li>
+
+            <!-- News Item -->
+            <li id="0920-panel" class="row">
+              <div id="title" class="row">
+                <!-- Title -->
+                Sep '20 &#187; Panelist, "Applying to Ph.D. Programs"
+              </div>
+              <!-- Content -->
+              <div id="content" class="row">
+                Alongside
+                <a id="link-text" href="https://www.linkedin.com/in/kaitlin-gili-b5b278149" target="_blank">
+                  Kaitlin Gili,
+                </a>
+                we provided information, support, and guidance for
+                undergraduate Stevens Pinnacle and Clark Scholars who are
+                looking to pursue a PhD of their own after graduation!
+              </div>
+            </li>
+
+            <!-- News Item -->
+            <li id="0820-phd" class="row">
+              <div id="title" class="row">
+                <!-- Title -->
+                Aug '20 &#187; Started my PhD @ GT!
+                <!-- Link -->
+                <a id="link" href="https://gtvalab.github.io/" target="_blank"
+                  class="icon solid fa-external-link-square-alt"></a>
+              </div>
+              <!-- Content -->
+              <div id="content" class="row">
+                I became an HCC PhD student working in the Visual Analytics
+                Lab under the supervision of
+                <a id="link-text" href="https://va.gatech.edu/endert/" target="_blank">
+                  Alex Endert.
+                </a>
+                I began studying cognitive bias in visual analytics.
+              </div>
+            </li>
+
+            <!-- News Item -->
+            <li id="0620-article" class="row">
+              <div id="title" class="row">
+                <!-- Title -->
+                June '20 &#187; Wrote an article!
+                <!-- Link -->
+                <a id="link"
+                  href="https://www.ewaab.org/post/what-is-data-science-how-does-it-work-and-why-is-it-important"
+                  target="_blank" class="icon solid fa-external-link-square-alt"></a>
+              </div>
+              <!-- Content -->
+              <div id="content" class="row">
+                I wrote an article for
+                <a id="link-text" href="https://www.ewaab.org/" target="_blank">
+                  Encouraging Women Across All Borders
+                </a>
+                on the what, why, and how of data science for absolute
+                beginners. Go give it a read and share it!
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
       <!-- Footer -->
       <footer id="footer" style="color: inherit">
         <ul class="copyright">

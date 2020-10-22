@@ -17,33 +17,61 @@
   <noscript>
     <link rel="stylesheet" href="assets/css/noscript.css" />
   </noscript>
+  <style>
+    .row {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      width: 100%;
+    }
+
+    .column {
+      margin-bottom: 1em;
+      display: flex;
+      flex-direction: column;
+      flex-basis: 100%;
+      flex: 1;
+      justify-content: center;
+    }
+
+    #main {
+      width: auto;
+      min-width: 300px;
+    }
+
+    #frame {
+      width: auto;
+      height: 440px;
+      overflow-x: auto;
+      overflow-y: hidden;
+    }
+  </style>
 </head>
 
 <body class="is-preload">
   <!-- Wrapper -->
   <div id="wrapper" style="overflow: auto">
     <!-- Console -->
-    <section id="main" style="width: auto">
+    <section id="main">
       <!-- Header -->
-      <header>
-        <h1><a href="index.html" class="logo">Adam Coscia</a></h1>
+      <header id="header">
+        <h1 style="font-weight: bold; font-size: 2.75em">
+          <a href="index.html" class="logo">Adam Coscia</a>
+        </h1>
         <p>HCC PhD Student @ Georgia Tech</p>
       </header>
-      <!-- CV -->
+      <!-- Break -->
       <hr />
-      <p>
-        CV last updated: 10/16/2020 &mdash; Click here to download:
-        <a href="images/Coscia_Adam_CV.pdf" class="icon solid fa-download" download></a>
-      </p>
-      <div id="cv" style="
-            max-width: inherit;
-            max-height: inherit;
-            width: 50em;
-            height: 40em;
-            overflow: auto;
-          ">
-        <iframe name="CV Iframe" title="Adam Coscia Curriculum Vitae" src="images/Coscia_Adam_CV.pdf"
-          style="width: 100%; height: 98%"></iframe>
+      <!-- CV -->
+      <div id="cv">
+        <p>
+          CV last updated: 10/16/2020 &mdash; Click here to download:
+          <a href="images/Coscia_Adam_CV.pdf" class="icon solid fa-download" download></a>
+        </p>
+        <div id="frame">
+          <iframe name="CV Iframe" title="Adam Coscia Curriculum Vitae" src="images/Coscia_Adam_CV.pdf"
+            style="width: 100%; height: 98%"></iframe>
+        </div>
       </div>
       <!-- Footer -->
       <footer id="footer" style="color: inherit">
