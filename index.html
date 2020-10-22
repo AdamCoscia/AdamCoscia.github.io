@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <!--
 	Author: Adam Coscia (acoscia125@gmail.com)
-	Last Modified: 10/12/2020
+  Last Modified: 10/22/2020
+  
 	Styling provided by:
-	|--- Identity by HTML5 UP
-	|--- html5up.net | @ajlkn
-	|--- Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+    Identity by HTML5 UP
+    html5up.net | @ajlkn
+    Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 <html>
 
@@ -20,6 +21,12 @@
   <style>
     hr {
       margin: 1em 0 2em 0;
+    }
+
+    h2 {
+      font-weight: bold;
+      margin: 0 0 0.5em 0;
+      text-align: left;
     }
 
     .row {
@@ -38,15 +45,16 @@
       justify-content: center;
     }
 
-    #main .avatar:before {
-      left: 0;
-      width: 100%;
+    #main {
+      width: auto;
+      min-width: 300px;
+      max-width: 750px;
     }
 
     #intro-text {
       text-transform: none;
       letter-spacing: 0.1em;
-      font-size: 16px;
+      font-size: 12pt;
     }
 
     #intro-text a {
@@ -54,8 +62,11 @@
     }
 
     #page-nav-list {
-      font-size: 12pt;
-      margin: 0 0 1.5em 0;
+      font-size: 11pt;
+    }
+
+    #page-nav-list ul {
+      margin-bottom: 0.75em;
     }
 
     #news-list {
@@ -69,17 +80,24 @@
       padding: 0;
     }
 
-    #contact {
-      margin: 1em 0 0 0;
+    #news-item span {
+      font-weight: bold;
     }
 
-    #contact li {
-      padding: 0.5em 0.25em 0em 0.25em;
+    #details p {
+      letter-spacing: 0.05em;
+      font-size: 10pt;
+      text-transform: none;
     }
 
     #address {
+      font-size: 11pt;
+      margin: 0 0 1em 0;
       letter-spacing: 0.1em;
-      font-size: 14px;
+    }
+
+    #orcid {
+      font-size: 10pt;
       margin: 0 0 1em 0;
     }
   </style>
@@ -89,7 +107,7 @@
   <!-- Wrapper -->
   <div id="wrapper">
     <!-- Console -->
-    <section id="main" style="width: auto; max-width: 720px">
+    <section id="main">
       <!-- Title Name -->
       <h1 style="font-weight: bold; font-size: 2.75em">
         <a href="index.html" class="logo">Adam Coscia</a>
@@ -97,64 +115,60 @@
 
       <!-- Overview -->
       <div class="row">
-        <div class="column" style="min-width: 360px">
+        <div class="column" style="min-width: 270px">
           <!-- Spoiler -->
           <p id="intro-text">
             Hey! I'm a first-year
             <a href="https://www.ic.gatech.edu/academics/human-centered-computing-phd-program" target="_blank">HCC</a>
-            Ph.D. student working with
+            Ph.D. student, working with
             <a href="https://va.gatech.edu/endert/" target="_blank">Alex Endert</a>
             in the
             <a href="https://gtvalab.github.io/" target="_blank">VA.lab</a>
             for the
             <a href="https://www.ic.gatech.edu/" target="_blank">School of Interactive Computing</a>
-            @
-            <a href="https://www.gatech.edu/" target="_blank">Georgia Tech</a>
+            at
+            <a href="https://www.gatech.edu/" target="_blank">Georgia Tech!</a>
           </p>
           <!-- Nav List -->
-          <div id="page-nav-list" style="font-size: 12pt">
+          <div id="page-nav-list">
             <!-- First Row (Personal) -->
-            <ul class="actions special" style="margin-bottom: 0.75em">
+            <ul class="actions special">
               <li>
-                <span class="icon solid fa-project-diagram"></span>
-                <a href="projects.html">Projects</a>
+                <a href="projects.html" class="icon solid fa-project-diagram">Projects</a>
               </li>
               <li>
-                <span class="icon solid fa-pen-nib"></span>
-                <a href="publications.html">Publications</a>
-              </li>
-              <li>
-                <span class="icon solid fa-file"></span>
-                <a href="cv.html">CV</a>
+                <a href="publications.html" class="icon solid fa-pen-nib">Publications</a>
               </li>
             </ul>
             <!-- Second Row (Public) -->
-            <ul class="actions special" style="margin-bottom: 0.75em">
+            <ul class="actions special">
               <li>
-                <span class="icon solid fa-users"></span>
-                <a href="community.html">Community</a>
+                <a href="community.html" class="icon solid fa-users">Community</a>
               </li>
               <li>
-                <span class="icon solid fa-gamepad"></span>
-                <a href="jumpman.html">Games</a>
+                <a href="jumpman.html" class="icon solid fa-gamepad">Games</a>
               </li>
             </ul>
             <!-- Third Row (Professional) -->
             <!--
-                <ul  class="actions special" style="margin-bottom: 0.75em">
-                  <li>
-                    <span class="icon solid fa-user-graduate"></span>
-                    <a href="students.html">Students</a>
-                  </li>
-                  <li>
-                    <span class="icon solid fa-chalkboard-teacher"></span>
-                    <a href="teaching.html">Teaching</a>
-                  </li>
-                </ul>
-                -->
+            <ul class="actions special">
+              <li>
+                <a href="students.html" class="icon solid fa-user-graduate">Students</a>
+              </li>
+              <li>
+                <a href="teaching.html" class="icon solid fa-chalkboard-teacher">Teaching</a>
+              </li>
+            </ul>
+            -->
+            <!-- Fourth Row (Personal) -->
+            <ul class="actions special">
+              <li>
+                <a href="cv.html" class="icon solid fa-file">CV</a>
+              </li>
+            </ul>
           </div>
         </div>
-        <div class="column" style="min-width: 260px">
+        <div class="column" style="min-width: 270px">
           <!-- Profile Pic -->
           <span style="padding: 0 1.5em 0 1.5em">
             <img src="images/profile-pic.jpg" alt="My profile picture" style="width: 100%; border-radius: 5%" />
@@ -162,133 +176,109 @@
         </div>
       </div>
 
+      <!-- Break -->
       <hr />
 
       <!-- Details -->
-      <div style="text-align: left">
-          <!-- Recent News -->
-          <div style="text-align: left">
-            <div>
-              <header id="recent-news">
-                <h2 style="font-weight: bold; margin: 0 0 0.25em 0">
-                  <span class="icon solid fa-newspaper"></span>
-                  <a href="news.html">Recent News</a>
-                </h2>
-              </header>
-            </div>
-            <ul id="news-list" class="alt" style="margin-bottom: 1.5em">
-              <!-- News Item -->
-              <li id="news-item">
-                <span style="font-weight: bold">10/20 &#187;</span>
-                First Paper Accepted! (TREX @ IEEE VIS'20)
-                <a href="https://trexvis.github.io/Workshop2020/papers.html" target="blank_"
-                  class="icon solid fa-external-link-square-alt"></a>
-              </li>
-              <!-- News Item -->
-              <li id="news-item">
-                <span style="font-weight: bold">09/20 &#187;</span>
-                Panelist: "Applying to PhD Programs"
-                <a href="community.html" class="icon solid fa-external-link-square-alt"></a>
-              </li>
-              <!-- News Item -->
-              <li id="news-item">
-                <span style="font-weight: bold">08/20 &#187;</span>
-                Joined HCC PhD program and VA.lab at GT
-                <a href="https://gtvalab.github.io/#people" target="_blank"
-                  class="icon solid fa-external-link-square-alt"></a>
-              </li>
-              <!-- News Item -->
-              <li id="news-item">
-                <span style="font-weight: bold">06/20 &#187;</span>
-                "What is data science, how does it work, ..."
-                <a href="https://www.ewaab.org/post/what-is-data-science-how-does-it-work-and-why-is-it-important"
-                  target="blank_" class="icon solid fa-external-link-square-alt"></a>
-              </li>
-            </ul>
-          </div>
+      <div id="details" style="text-align: left">
+        <!-- Recent News -->
+        <div id="recent-news">
+          <h2>
+            <span class="icon solid fa-newspaper">Recent News</span>
+            <a href="news.html">(more info)</a>
+          </h2>
+          <ul id="news-list" class="alt" style="margin-bottom: 1.5em">
+            <!-- News Item -->
+            <li id="news-item">
+              <span>10/20 &#187;</span>
+              First Paper Accepted! (TREX @ IEEE VIS'20)
+              <a href="https://trexvis.github.io/Workshop2020/papers.html" target="blank_"
+                class="icon solid fa-external-link-square-alt"></a>
+            </li>
+            <!-- News Item -->
+            <li id="news-item">
+              <span>09/20 &#187;</span>
+              Panelist: "Applying to PhD Programs"
+              <a href="news.html#0920-panel" class="icon solid fa-external-link-square-alt"></a>
+            </li>
+            <!-- News Item -->
+            <li id="news-item">
+              <span>08/20 &#187;</span>
+              Joined HCC PhD program and VA.lab at GT
+              <a href="https://gtvalab.github.io/#people" target="_blank"
+                class="icon solid fa-external-link-square-alt"></a>
+            </li>
+            <!-- News Item -->
+            <li id="news-item">
+              <span>06/20 &#187;</span>
+              "What is data science, how does it work, ..."
+              <a href="https://www.ewaab.org/post/what-is-data-science-how-does-it-work-and-why-is-it-important"
+                target="blank_" class="icon solid fa-external-link-square-alt"></a>
+            </li>
+          </ul>
+        </div>
         <!-- Research Interests -->
-        <header id="research-interests">
-          <h2 style="font-weight: bold; margin: 0 0 0.25em 0">
-            <span class="icon solid fa-book"></span>
-            Research Interests
-          </h2>
-        </header>
-        <p style="
-              letter-spacing: 0.05em;
-              font-size: 10pt;
-              text-transform: none;
-            ">
-          I currently work with other
-          <a href="https://gtvalab.github.io/" target="blank_" style="font-weight: bold">
-            Va.lab
-          </a>
-          researchers
-          <a href="https://gtvalab.github.io/projects/bias.html" target="blank_" style="font-weight: bold">
-            appling cognitive theory to the design of mixed-initiative VA
-            systems
-          </a>
-          with the goal of raising awareness of and mitigating cognitive
-          biases during task completion. I hope to extend this work into the
-          design and development of user interfaces that make the use of
-          computational methods more human-centered.
-        </p>
+        <div id="research-interests">
+          <h2><span class="icon solid fa-book"></span>Research Interests</h2>
+          <p>
+            I currently work with other
+            <a href="https://gtvalab.github.io/" target="blank_" style="font-weight: bold">
+              Va.lab
+            </a>
+            researchers
+            <a href="https://gtvalab.github.io/projects/bias.html" target="blank_" style="font-weight: bold">
+              appling cognitive theory to the design of mixed-initiative VA
+              systems
+            </a>
+            with the goal of raising awareness of and mitigating cognitive
+            biases during task completion. I hope to extend this work into the
+            design and development of user interfaces that make the use of
+            computational methods more human-centered.
+          </p>
+        </div>
         <!-- Bio -->
-        <header id="bio">
-          <h2 style="font-weight: bold; margin: 0 0 0.25em 0">
-            <span class="icon solid fa-user"></span>
-            Bio
-          </h2>
-        </header>
-        <p style="
-              letter-spacing: 0.05em;
-              font-size: 10pt;
-              text-transform: none;
-            ">
-          Test
-        </p>
+        <div id="bio">
+          <h2><span class="icon solid fa-user"></span>Bio</h2>
+          <p>
+            I enjoy video games, hiking, snowboarding, baseball and family
+            time. Feel free to reach out and say hi!
+          </p>
+        </div>
       </div>
 
       <!-- Contact -->
-      <header>
-        <h2 style="font-weight: bold; margin: 0 0 0.5em 0; text-align: left">
-          <span class="icon solid fa-address-card"></span>
-          Get in Touch
-        </h2>
-      </header>
-      <p id="address">
-        Technology Square Research Building <br />
-        85 5th St NW, Atlanta, GA 30332-0760
-      </p>
-      <div id="orcid" style="font-size: 9pt">
-        <div itemscope itemtype="https://schema.org/Person">
-          <a itemprop="sameAs" content="https://orcid.org/0000-0002-0429-9295"
-            href="https://orcid.org/0000-0002-0429-9295" target="orcid.widget" rel="me noopener noreferrer"
-            style="vertical-align: top"><img src="https://orcid.org/sites/default/files/images/orcid_16x16.png"
-              style="width: 1em; margin-right: 0.5em" alt="ORCID iD icon" />https://orcid.org/0000-0002-0429-9295</a>
+      <div id="contact">
+        <h2><span class="icon solid fa-address-card"></span>Get in Touch</h2>
+        <p id="address">
+          Technology Square Research Building <br />
+          85 5th St NW, Atlanta, GA 30332-0760
+        </p>
+        <div id="orcid">
+          <div itemscope itemtype="https://schema.org/Person">
+            <a itemprop="sameAs" content="https://orcid.org/0000-0002-0429-9295"
+              href="https://orcid.org/0000-0002-0429-9295" target="orcid.widget" rel="me noopener noreferrer"
+              style="vertical-align: top"><img src="https://orcid.org/sites/default/files/images/orcid_16x16.png"
+                style="width: 1em; margin-right: 0.5em" alt="ORCID iD icon" />https://orcid.org/0000-0002-0429-9295</a>
+          </div>
         </div>
+        <ul class="icons">
+          <li>
+            <a href="mailto:acoscia6@gatech.edu" class="icon solid fa-envelope"></a>
+          </li>
+          <li>
+            <a href="" target="_blank" class="icon solid fa-graduation-cap"></a>
+          </li>
+          <li>
+            <a href="https://github.com/AdamCoscia" target="_blank" class="icon brands fa-github"></a>
+          </li>
+          <li>
+            <a href="https://twitter.com/AdamCoscia" target="_blank" class="icon brands fa-twitter"></a>
+          </li>
+          <li>
+            <a href="https://www.linkedin.com/in/adam-coscia" target="_blank" class="icon brands fa-linkedin"></a>
+          </li>
+        </ul>
       </div>
-      <ul id="contact" class="icons">
-        <!-- School Email -->
-        <li>
-          <a href="mailto:acoscia6@gatech.edu" class="icon solid fa-envelope"></a>
-        </li>
-        <!-- Google Scholar -->
-        <li>
-          <a href="" target="_blank" class="icon solid fa-graduation-cap"></a>
-        </li>
-        <!-- GitHub -->
-        <li>
-          <a href="https://github.com/AdamCoscia" target="_blank" class="icon brands fa-github"></a>
-        </li>
-        <!-- Twitter -->
-        <li>
-          <a href="https://twitter.com/AdamCoscia" target="_blank" class="icon brands fa-twitter"></a>
-        </li>
-        <!-- LinkedIn -->
-        <li>
-          <a href="https://www.linkedin.com/in/adam-coscia" target="_blank" class="icon brands fa-linkedin"></a>
-        </li>
-      </ul>
     </section>
     <!-- Footer -->
     <footer id="footer">

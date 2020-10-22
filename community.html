@@ -1,11 +1,7 @@
 <!DOCTYPE html>
 <!--
 	Author: Adam Coscia (acoscia125@gmail.com)
-	Last Modified: 09/30/2020
-	Styling provided by:
-	|--- Identity by HTML5 UP
-	|--- html5up.net | @ajlkn
-	|--- Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+	Last Modified: 10/22/2020
 -->
 <html>
 
@@ -17,21 +13,47 @@
   <noscript>
     <link rel="stylesheet" href="assets/css/noscript.css" />
   </noscript>
+  <style>
+    .row {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      width: 100%;
+    }
+
+    .column {
+      margin-bottom: 1em;
+      display: flex;
+      flex-direction: column;
+      flex-basis: 100%;
+      flex: 1;
+      justify-content: center;
+    }
+
+    #main {
+      width: auto;
+      min-width: 300px;
+      max-width: 750px;
+    }
+  </style>
 </head>
 
 <body class="is-preload">
   <!-- Wrapper -->
   <div id="wrapper" style="overflow: auto;">
     <!-- Console -->
-    <section id="main" style="width: auto;">
+    <section id="main">
       <!-- Header -->
-      <header>
-        <h1><a href="index.html" class="logo">Adam Coscia</a></h1>
+      <header id="header">
+        <h1 style="font-weight: bold; font-size: 2.75em">
+          <a href="index.html" class="logo">Adam Coscia</a>
+        </h1>
         <p>HCC PhD Student @ Georgia Tech</p>
       </header>
-      <!-- Community -->
+      <!-- Break -->
       <hr />
-      <div id="about">
+      <!-- Community -->
+      <div id="community">
         <p>Community involvement coming soon!</p>
       </div>
       <!-- Footer -->
