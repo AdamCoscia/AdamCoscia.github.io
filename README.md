@@ -1,6 +1,6 @@
 # Adam Coscia's Professional Website
 
-Last updated: 10/22/2020
+Last updated: 10/25/2020
 
 ## Credits
 
