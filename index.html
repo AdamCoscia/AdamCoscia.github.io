@@ -1,20 +1,24 @@
 <!DOCTYPE html>
+<html>
 <!--
-	Author: Adam Coscia (acoscia125@gmail.com)
-  Last Modified: 10/22/2020
+  Author: Adam Coscia (acoscia125@gmail.com)
+  Last Modified: 10/26/2020
   
-	Styling provided by:
+  Styling provided by:
     Identity by HTML5 UP
     html5up.net | @ajlkn
     Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
-<html>
 
 <head>
   <title>Adam Coscia - Home</title>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
   <link rel="stylesheet" href="assets/css/main.css" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
   <noscript>
     <link rel="stylesheet" href="assets/css/noscript.css" />
   </noscript>
@@ -40,7 +44,6 @@
       margin-bottom: 1em;
       display: flex;
       flex-direction: column;
-      flex-basis: 100%;
       flex: 1;
       justify-content: center;
     }
@@ -51,18 +54,37 @@
       max-width: 750px;
     }
 
-    #intro-text {
-      text-transform: none;
+    #intro-text p {
       letter-spacing: 0.1em;
-      font-size: 12pt;
+      font-size: 11pt;
+      margin: 0 0 1em 0;
+      text-transform: none;
     }
 
-    #intro-text a {
+    #intro-text a,
+    span {
       font-weight: bold;
     }
 
+    #orcid {
+      font-size: 10pt;
+      margin: 0 0 1em 0;
+    }
+
+    #contact-list {
+      text-transform: none;
+      text-align: left;
+      list-style: none;
+      letter-spacing: 1px;
+      margin: 0.5em 0 0 0;
+      padding: 0.5em 0 0.5em 1em;
+      background-color: #f4f4f4;
+      border-left: 2px solid #ccc;
+    }
+
     #page-nav-list {
-      font-size: 11pt;
+      text-transform: capitalize;
+      font-size: 12pt;
     }
 
     #page-nav-list ul {
@@ -71,7 +93,7 @@
 
     #news-list {
       font-size: 10pt;
-      letter-spacing: 0.1em;
+      letter-spacing: 1px;
       text-transform: none;
     }
 
@@ -84,21 +106,32 @@
       font-weight: bold;
     }
 
-    #details p {
-      letter-spacing: 0.05em;
-      font-size: 10pt;
+    #bio-text {
+      margin: 0;
+      padding: 0.5em;
       text-transform: none;
+      font-size: 10pt;
+      letter-spacing: 1px;
+    }
+
+    #contact {
+      background-color: #e4f2ff;
+      border-left: 2px solid #96ccff;
     }
 
     #address {
-      font-size: 11pt;
-      margin: 0 0 1em 0;
-      letter-spacing: 0.1em;
+      margin: 0;
+      padding: 0.5em;
+      font-size: 10pt;
+      letter-spacing: 2px;
     }
 
-    #orcid {
-      font-size: 10pt;
-      margin: 0 0 1em 0;
+    #contact-icon-row {
+      margin: 0;
+      padding: 0.5em;
+      list-style: none;
+      display: flex;
+      justify-content: center;
     }
   </style>
 </head>
@@ -113,66 +146,120 @@
         <a href="index.html" class="logo">Adam Coscia</a>
       </h1>
 
-      <!-- Overview -->
-      <div class="row">
+      <!-- Intro -->
+      <div id="intro" class="row">
+        <!-- Left Column -->
         <div class="column" style="min-width: 270px">
-          <!-- Spoiler -->
-          <p id="intro-text">
-            Hey! I'm a first-year
-            <a href="https://www.ic.gatech.edu/academics/human-centered-computing-phd-program" target="_blank">HCC</a>
-            Ph.D. student, working with
-            <a href="https://va.gatech.edu/endert/" target="_blank">Alex Endert</a>
-            in the
-            <a href="https://gtvalab.github.io/" target="_blank">VA.lab</a>
-            for the
-            <a href="https://www.ic.gatech.edu/" target="_blank">School of Interactive Computing</a>
-            at
-            <a href="https://www.gatech.edu/" target="_blank">Georgia Tech!</a>
-          </p>
+          <!-- Greeting -->
+          <div id="intro-text">
+            <p>
+              Hey there! I'm a first-year
+              <a href="https://www.ic.gatech.edu/academics/human-centered-computing-phd-program" target="_blank">HCC</a>
+              PhD student in the
+              <a href="https://www.ic.gatech.edu/" target="_blank" style="font-weight: bold">
+                School of Interactive Computing
+              </a>
+              at
+              <a href="https://www.gatech.edu/" target="_blank">
+                Georgia Tech,
+              </a>
+              advised by
+              <a href="https://va.gatech.edu/endert/" target="_blank">Alex Endert.</a>
+            </p>
+            <p>
+              I design and develop
+              <span>user interfaces</span>
+              that make the use of
+              <span>computational methods</span>
+              more
+              <span>human-centered.</span>
+            </p>
+            <p>
+              My current work as a member of the
+              <a href="https://gtvalab.github.io/" target="blank_">
+                VA.lab
+              </a>
+              studies
+              <a href="https://gtvalab.github.io/projects/bias.html" target="blank_">
+                visual interfaces for mitigating cognitive bias.
+              </a>
+
+            </p>
+          </div>
           <!-- Nav List -->
           <div id="page-nav-list">
-            <!-- First Row (Personal) -->
+            <!-- First Row (Professional) -->
             <ul class="actions special">
               <li>
-                <a href="projects.html" class="icon solid fa-project-diagram">Projects</a>
+                <a href="#publications" class="icon solid fa-pen-nib">Publications</a>
               </li>
               <li>
-                <a href="publications.html" class="icon solid fa-pen-nib">Publications</a>
+                <a href="#projects" class="icon solid fa-project-diagram">Projects</a>
               </li>
             </ul>
-            <!-- Second Row (Public) -->
+            <!-- Second Row (Service) -->
+            <!-- 
             <ul class="actions special">
               <li>
-                <a href="community.html" class="icon solid fa-users">Community</a>
+                <a href="sections/students.html" class="icon solid fa-user-graduate">Students</a>
               </li>
               <li>
-                <a href="jumpman.html" class="icon solid fa-gamepad">Games</a>
-              </li>
-            </ul>
-            <!-- Third Row (Professional) -->
-            <!--
-            <ul class="actions special">
-              <li>
-                <a href="students.html" class="icon solid fa-user-graduate">Students</a>
-              </li>
-              <li>
-                <a href="teaching.html" class="icon solid fa-chalkboard-teacher">Teaching</a>
+                <a href="sections/teaching.html" class="icon solid fa-chalkboard-teacher">Teaching</a>
               </li>
             </ul>
             -->
+            <!-- Third Row (Experience) -->
+            <ul class="actions special">
+              <li>
+                <a href="sections/experience.html" class="icon solid fa-list-ul">Experience</a>
+              </li>
+              <li>
+                <a href="sections/experience.html#cv" class="icon solid fa-file">CV</a>
+              </li>
+            </ul>
             <!-- Fourth Row (Personal) -->
             <ul class="actions special">
               <li>
-                <a href="cv.html" class="icon solid fa-file">CV</a>
+                <a href="#bio" class="icon solid fa-user">Bio</a>
+              </li>
+              <li>
+                <a href="sections/news.html" class="icon solid fa-newspaper">News</a>
+              </li>
+              <li>
+                <a href="sections/games/index.html" class="icon solid fa-gamepad">Games</a>
               </li>
             </ul>
           </div>
         </div>
-        <div class="column" style="min-width: 270px">
+        <!-- Right Column -->
+        <div class="column" style="min-width: 270px; padding: 0 1.5em 0 1.5em">
           <!-- Profile Pic -->
-          <span style="padding: 0 1.5em 0 1.5em">
-            <img src="images/profile-pic.jpg" alt="My profile picture" style="width: 100%; border-radius: 5%" />
-          </span>
+          <img src="images/profile-pic.jpg" alt="My profile picture" style="width: 100%; border-radius: 5%" />
+          <!-- Social -->
+          <ul id="contact-list">
+            <!-- Email -->
+            <li>
+              <a href="mailto:acoscia6@gatech.edu" class="icon solid fa-envelope"></a>
+              <a href="mailto:acoscia6@gatech.edu">acoscia6@gatech.edu</a>
+            </li>
+            <!-- Twitter -->
+            <li>
+              <a href="https://twitter.com/AdamCoscia" target="_blank" class="icon brands fa-twitter"
+                style="color: #1da1f2"></a>
+              <a href="https://twitter.com/AdamCoscia" target="_blank">@AdamCoscia</a>
+            </li>
+            <!-- GitHub -->
+            <li>
+              <a href="https://github.com/AdamCoscia" target="_blank" class="icon brands fa-github"
+                style="color: #6e5494"></a>
+              <a href="https://github.com/AdamCoscia" target="_blank">@AdamCoscia</a>
+            </li>
+            <!-- Google Scholar -->
+            <li>
+              <a href="" target="_blank" class="icon solid fa-graduation-cap"></a>
+              <a href="" target="_blank">Google Scholar</a>
+            </li>
+          </ul>
         </div>
       </div>
 
@@ -181,17 +268,16 @@
 
       <!-- Details -->
       <div id="details" style="text-align: left">
-        <!-- Recent News -->
-        <div id="recent-news">
+        <!-- Highlights -->
+        <div id="highlights">
           <h2>
-            <span class="icon solid fa-newspaper">Recent News</span>
-            <a href="news.html">(more info)</a>
+            <span class="icon solid fa-newspaper">Highlights</span>
           </h2>
           <ul id="news-list" class="alt" style="margin-bottom: 1.5em">
             <!-- News Item -->
             <li id="news-item">
               <span>10/20 &#187;</span>
-              <a href="news.html#1020-trex">TREX @ IEEE VIS'20: "Toward a Bias-Aware ..."</a>
+              <a href="sections/news.html#1020-trex">TREX @ IEEE VIS'20: "Toward a Bias-Aware ..."</a>
               <a href="https://trexvis.github.io/Workshop2020/papers/Coscia.pdf" target="blank_"
                 class="icon solid fa-book-reader"></a>
               <a href="https://www.youtube.com/watch?v=LTGzCvhv05M&t=12272" target="blank_"
@@ -200,85 +286,107 @@
             <!-- News Item -->
             <li id="news-item">
               <span>09/20 &#187;</span>
-              <a href="news.html#0920-panel">Panelist: "Applying to PhD Programs"</a>
+              <a href="sections/news.html#0920-panel">Panelist: "Applying to PhD Programs"</a>
             </li>
             <!-- News Item -->
             <li id="news-item">
               <span>08/20 &#187;</span>
-              <a href="news.html#0820-phd">Joined HCC PhD program and VA.lab at GT</a>
+              <a href="sections/news.html#0820-phd">Joined HCC PhD program and VA.lab at GT</a>
               <a href="https://gtvalab.github.io/#people" target="_blank"
                 class="icon solid fa-external-link-square-alt"></a>
             </li>
             <!-- News Item -->
             <li id="news-item">
               <span>06/20 &#187;</span>
-              <a href="news.html#0620-ewaab">"What is data science, how does it work, ..."</a>
+              <a href="sections/news.html#0620-ewaab">"What is data science, how does it work, ..."</a>
               <a href="https://www.ewaab.org/post/what-is-data-science-how-does-it-work-and-why-is-it-important"
                 target="blank_" class="icon solid fa-external-link-square-alt"></a>
             </li>
           </ul>
         </div>
-        <!-- Research Interests -->
-        <div id="research-interests">
-          <h2><span class="icon solid fa-book"></span>Research Interests</h2>
-          <p>
-            I currently work with other
-            <a href="https://gtvalab.github.io/" target="blank_" style="font-weight: bold">
-              Va.lab
-            </a>
-            researchers
-            <a href="https://gtvalab.github.io/projects/bias.html" target="blank_" style="font-weight: bold">
-              appling cognitive theory to the design of mixed-initiative VA
-              systems
-            </a>
-            with the goal of raising awareness of and mitigating cognitive
-            biases during task completion. I hope to extend this work into the
-            design and development of user interfaces that make the use of
-            computational methods more human-centered.
-          </p>
+        <!-- Publications -->
+        <div id="publications">
+          <h2>
+            <span class="icon solid fa-pen-nib">Publications</span>
+          </h2>
+          <p>Coming Soon!</p>
         </div>
-        <!-- Bio -->
-        <div id="bio">
-          <h2><span class="icon solid fa-user"></span>Bio</h2>
-          <p>
-            I enjoy video games, hiking, snowboarding, baseball and family
-            time. Feel free to reach out and say hi!
-          </p>
+        <!-- Projects -->
+        <div id="projects">
+          <h2>
+            <span class="icon solid fa-project-diagram">Projects</span>
+          </h2>
+          <p>Coming Soon!</p>
         </div>
       </div>
 
-      <!-- Contact -->
-      <div id="contact">
-        <h2><span class="icon solid fa-address-card"></span>Get in Touch</h2>
-        <p id="address">
-          Technology Square Research Building <br />
-          85 5th St NW, Atlanta, GA 30332-0760
-        </p>
-        <div id="orcid">
-          <div itemscope itemtype="https://schema.org/Person">
-            <a itemprop="sameAs" content="https://orcid.org/0000-0002-0429-9295"
-              href="https://orcid.org/0000-0002-0429-9295" target="orcid.widget" rel="me noopener noreferrer"
-              style="vertical-align: top"><img src="https://orcid.org/sites/default/files/images/orcid_16x16.png"
-                style="width: 1em; margin-right: 0.5em" alt="ORCID iD icon" />https://orcid.org/0000-0002-0429-9295</a>
+      <!-- Break -->
+      <hr />
+
+      <!-- Bio -->
+      <div id="bio">
+        <h2>
+          <span class="icon solid fa-address-card">Bio</span>
+          <a href="sections/bio.html">(learn more)</a>
+        </h2>
+        <div class="row">
+          <!-- Left Column -->
+          <div class="column" style="min-width: 270px">
+            <!-- Bio -->
+            <p id="bio-text">
+              Outside of my work I enjoy video games, hiking, snowboarding,
+              baseball and family time. 
+              <br />
+              Reach out and say hi! :)
+            </p>
+          </div>
+          <!-- Right Column -->
+          <div class="column" style="min-width: 270px">
+            <div id="contact">
+              <!-- Address -->
+              <p id="address">
+                Technology Square Research Building <br />
+                85 5th St NW, Atlanta, GA 30332-0760
+              </p>
+              <!-- Social -->
+              <ul id="contact-icon-row">
+                <!-- Email -->
+                <li>
+                  <a href="mailto:acoscia6@gatech.edu" class="icon solid fa-envelope"></a>
+                </li>
+                <!-- LinkedIn -->
+                <li>
+                  <a href="https://www.linkedin.com/in/adam-coscia/" target="_blank" class="icon brands fa-linkedin"
+                    style="color: #0e76a8"></a>
+                </li>
+                <!-- Twitter -->
+                <li>
+                  <a href="https://twitter.com/AdamCoscia" target="_blank" class="icon brands fa-twitter"
+                    style="color: #1da1f2"></a>
+                </li>
+                <!-- GitHub -->
+                <li>
+                  <a href="https://github.com/AdamCoscia" target="_blank" class="icon brands fa-github"
+                    style="color: #6e5494"></a>
+                </li>
+                <!-- Google Scholar -->
+                <li>
+                  <a href="" target="_blank" class="icon solid fa-graduation-cap"></a>
+                </li>
+                <!-- ORCID -->
+                <li>
+                  <div itemscope itemtype="https://schema.org/Person">
+                    <a itemprop="sameAs" content="https://orcid.org/0000-0002-0429-9295"
+                      href="https://orcid.org/0000-0002-0429-9295" target="orcid.widget" rel="me noopener noreferrer"
+                      style="vertical-align: top"><img
+                        src="https://orcid.org/sites/default/files/images/orcid_16x16.png"
+                        style="width: 1em; margin-right: 0.5em" alt="ORCID iD icon" /></a>
+                  </div>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
-        <ul class="icons">
-          <li>
-            <a href="mailto:acoscia6@gatech.edu" class="icon solid fa-envelope"></a>
-          </li>
-          <li>
-            <a href="" target="_blank" class="icon solid fa-graduation-cap"></a>
-          </li>
-          <li>
-            <a href="https://github.com/AdamCoscia" target="_blank" class="icon brands fa-github"></a>
-          </li>
-          <li>
-            <a href="https://twitter.com/AdamCoscia" target="_blank" class="icon brands fa-twitter"></a>
-          </li>
-          <li>
-            <a href="https://www.linkedin.com/in/adam-coscia" target="_blank" class="icon brands fa-linkedin"></a>
-          </li>
-        </ul>
       </div>
     </section>
     <!-- Footer -->
