@@ -15,10 +15,10 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
   <link rel="stylesheet" href="assets/css/main.css" />
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-  <link rel="manifest" href="/site.webmanifest">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="manifest" href="/site.webmanifest" />
   <noscript>
     <link rel="stylesheet" href="assets/css/noscript.css" />
   </noscript>
@@ -106,11 +106,17 @@
       font-weight: bold;
     }
 
+    #biasfuture {
+      font-size: 11pt;
+      text-transform: none;
+      letter-spacing: 0;
+    }
+
     #bio-text {
       margin: 0;
       padding: 0.5em;
-      text-transform: none;
       font-size: 10pt;
+      text-transform: none;
       letter-spacing: 1px;
     }
 
@@ -123,7 +129,7 @@
       margin: 0;
       padding: 0.5em;
       font-size: 10pt;
-      letter-spacing: 2px;
+      letter-spacing: 1px;
     }
 
     #contact-icon-row {
@@ -183,7 +189,6 @@
               <a href="https://gtvalab.github.io/projects/bias.html" target="blank_">
                 visual interfaces for mitigating cognitive bias.
               </a>
-
             </p>
           </div>
           <!-- Nav List -->
@@ -226,7 +231,7 @@
                 <a href="sections/news.html" class="icon solid fa-newspaper">News</a>
               </li>
               <li>
-                <a href="sections/games/index.html" class="icon solid fa-gamepad">Games</a>
+                <a href="sections/games/platformer/index.html" class="icon solid fa-gamepad" target="_blank">Games</a>
               </li>
             </ul>
           </div>
@@ -309,35 +314,68 @@
           <h2>
             <span class="icon solid fa-pen-nib">Publications</span>
           </h2>
-          <p>Coming Soon!</p>
+          <ol id="biasfuture">
+            <li>
+              <span style="font-weight: bold">Coscia, A.</span>, Chau, D.,
+              Endert, A.
+              <span style="font-style: italic">Toward a Bias-Aware Future for Mixed-Initiative Visual
+                Analytics.</span>
+              Workshop on TRust and EXpertise in Visual Analytics (TREX, at
+              VIS’20), 2020.
+            </li>
+          </ol>
         </div>
-        <!-- Projects -->
-        <div id="projects">
-          <h2>
-            <span class="icon solid fa-project-diagram">Projects</span>
-          </h2>
-          <p>Coming Soon!</p>
+      </div>
+      <!-- Projects -->
+      <div id="projects">
+        <h2>
+          <span class="icon solid fa-project-diagram">Projects</span>
+        </h2>
+        <!-- Painting By Comparison -->
+        <div id="paintbycomp">
+          <p style="
+                text-transform: none;
+                text-align: left;
+                margin: 0 0 0.5em 0;
+                letter-spacing: 1px;
+              ">
+            &#187;
+            <a href="sections/projects/PaintByComp/index.html" target="_blank" style="font-weight: bold">Paintings By
+              Comparison</a>
+            <a href="https://github.com/AdamCoscia/CS7450-F20-Project" target="_blank" class="icon brands fa-github"
+              style="color: #6e5494"></a>
+            (more details coming soon!)
+          </p>
+        </div>
+        <!-- VisMaker using NL4DV -->
+        <div id="vismaker">
+          <p style="
+                text-transform: none;
+                text-align: left;
+                margin: 0 0 0.5em 0;
+                letter-spacing: 1px;
+              ">
+            &#187;
+            <a style="font-weight: bold">VisMaker using NL4DV</a>
+            <a href="https://github.com/AdamCoscia/VisMakerNLI-NL4DV" target="_blank" class="icon brands fa-github"
+              style="color: #6e5494"></a>
+            (more details coming soon!)
+          </p>
         </div>
       </div>
 
       <!-- Break -->
       <hr />
 
-      <!-- Bio -->
-      <div id="bio">
-        <h2>
-          <span class="icon solid fa-address-card">Bio</span>
-          <a href="sections/bio.html">(learn more)</a>
-        </h2>
+      <!-- Overview -->
+      <div id="overview">
         <div class="row">
           <!-- Left Column -->
           <div class="column" style="min-width: 270px">
             <!-- Bio -->
             <p id="bio-text">
-              Outside of my work I enjoy video games, hiking, snowboarding,
-              baseball and family time. 
-              <br />
-              Reach out and say hi! :)
+              "Outside of my work I enjoy video games, hiking, snowboarding,
+              baseball and family time. Reach out and say hi!"
             </p>
           </div>
           <!-- Right Column -->
@@ -345,7 +383,7 @@
             <div id="contact">
               <!-- Address -->
               <p id="address">
-                Technology Square Research Building <br />
+                Tech Square Research Building <br />
                 85 5th St NW, Atlanta, GA 30332-0760
               </p>
               <!-- Social -->
@@ -389,6 +427,7 @@
         </div>
       </div>
     </section>
+
     <!-- Footer -->
     <footer id="footer">
       <ul class="copyright">
