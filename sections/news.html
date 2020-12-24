@@ -14,44 +14,38 @@
     <link rel="stylesheet" href="../assets/css/noscript.css" />
   </noscript>
   <style>
-    hr {
-      margin: 1em 0 2em 0;
-    }
-
-    .row {
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      width: 100%;
-    }
-
-    .column {
-      margin-bottom: 1em;
-      display: flex;
-      flex-direction: column;
-      flex-basis: 100%;
-      flex: 1;
-      justify-content: center;
-    }
-
     #main {
       width: auto;
       min-width: 300px;
       max-width: 750px;
     }
 
-    #page-nav-list span {
-      font-weight: bold;
+    /* NAVIGATION */
+
+    .page-nav {
+      margin: 0 0 1em 0;
+    }
+
+    .page-nav-title {
       text-align: right;
-      margin: 0 .5em 0 0;
+      margin: 0 0.5em 0 0;
     }
 
-    #page-nav-list ul {
+    .page-nav-list {
+      margin: 0 0 0 0.5em;
+    }
+
+    .page-nav-list ul {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      list-style: none;
       justify-content: left;
-      margin: 0 0 0 .5em;
     }
 
-    #news ul {
+    /* CONTENT */
+
+    .news ul {
       list-style: none;
       text-align: left;
       letter-spacing: 0.1em;
@@ -59,17 +53,20 @@
       padding: 0;
     }
 
-    #news li {
+    .news ul li {
       border: none;
     }
 
-    #title {
-      font-weight: bold;
+    .item-title {
       font-size: 11pt;
       margin: 0 0 0.25em 0;
     }
 
-    #content {
+    .item-title a {
+      display: inline;
+    }
+
+    .item-content {
       margin: 0 0 1em 0;
       padding-left: 1em;
       font-size: 9pt;
@@ -77,26 +74,19 @@
       border-left: 2px solid #ccc;
     }
 
-    #link-icon {
-      display: inline;
-    }
-
-    #link-text {
-      font-weight: bold;
+    .item-content a {
       display: contents;
     }
   </style>
 </head>
 
 <body class="is-preload">
-  <!-- Wrapper -->
   <div id="wrapper" style="overflow: auto">
-    <!-- Console -->
     <section id="main">
       <!-- Header -->
-      <header id="header">
-        <h1 style="font-weight: bold; font-size: 2.75em">
-          <a href="../index.html" class="logo">Adam Coscia</a>
+      <header>
+        <h1>
+          <a href="../index.html" class="logo">Adam <strong>Coscia</strong></a>
         </h1>
         <p>HCC PhD Student @ Georgia Tech</p>
       </header>
@@ -105,66 +95,77 @@
       <hr />
 
       <!-- Nav List -->
-      <div id="page-nav-list" class="row">
-        <div class="column">
+      <div class="row page-nav">
+        <div class="column page-nav-title">
           <span>Navigate by Year:</span>
         </div>
-        <div class="column">
-          <ul class="actions special">
-            <li></li><a href="#2021">2021</a></li>
-            <li></li><a href="#2020">2020</a></li>
-            <li></li><a href="#2019">2019</a></li>
+        <div class="column page-nav-list">
+          <ul>
+            <li><a href="#2021"><strong>2021</strong></a></li>
+            <li>&bull;</li>
+            <li><a href="#2020"><strong>2020</strong></a></li>
+            <li>&bull;</li>
+            <li><a href="#2019"><strong>2019</strong></a></li>
           </ul>
         </div>
       </div>
 
       <!-- News -->
-      <div id="news">
-        <!-- 2020 -->
-        <div id="2020">
+      <section>
+        <!-- 2021 -->
+        <article id="2021" class="news">
           <!-- Header -->
-          <h1 style="font-weight: bold; font-size: 1.75em">
-            2020 | <a href="#wrapper">Top</a>
-          </h1>
+          <header>
+            <h2>
+              2021&nbsp;&bull;&nbsp;<a href="#wrapper"><strong>Top</strong></a>
+            </h2>
+          </header>
+        </article>
+
+        <!-- 2020 -->
+        <article id="2020" class="news">
+          <!-- Header -->
+          <header>
+            <h2>
+              2020&nbsp;&bull;&nbsp;<a href="#wrapper"><strong>Top</strong></a>
+            </h2>
+          </header>
+
           <!-- List -->
           <ul class="alt">
             <!-- News Item -->
             <li id="1020-trex">
               <!-- Title -->
-              <div id="title">
-                <span>Oct 25 &#187; First IEEE VIS'20 Workshop Paper!</span>
-                <a href="https://trexvis.github.io/Workshop2020/papers/Coscia.pdf" target="blank_"
-                  class="icon solid fa-book-reader"></a>
-                <a href="https://www.youtube.com/watch?v=LTGzCvhv05M&t=12272" target="blank_"
-                  class="icon brands fa-youtube"></a>
-              </div>
+              <header class="item-title">
+                <strong>Oct 25 &#187; First Workshop Paper! IEEE VIS'20</strong>
+              </header>
               <!-- Content -->
-              <p id="content">
+              <p class="item-content">
                 On Sunday Oct 25th I presented my first "first-author" paper
                 at the
-                <a id="link-text" href="https://trexvis.github.io/Workshop2020/index.html" target="_blank">
-                  Workshop on TRust and EXpertise in Visual Analytics (TREX),
+                <a href="https://trexvis.github.io/Workshop2020/index.html" target="_blank">
+                  <strong>Workshop on TRust and EXpertise in Visual Analytics (TREX),</strong>
                 </a>
-                <a id="link-text" href="http://ieeevis.org/year/2020/welcome" target="_blank">
-                  IEEE VIS'20.
+                <a href="http://ieeevis.org/year/2020/welcome" target="_blank">
+                  <strong>IEEE VIS'20.</strong>
                 </a>
-                It's a work-in-progress paper on the
-                future of bias-aware initiatives in visual analytics.
-                Use the links above to read the paper or watch my presentation!
+                It's a work-in-progress paper on the future of bias-aware
+                initiatives in visual analytics.
               </p>
             </li>
 
             <!-- News Item -->
             <li id="0920-panel">
               <!-- Title -->
-              <div id="title">
-                <span>Sep 30 &#187; Panelist, "Applying to Ph.D. Programs"</span>
-              </div>
+              <header class="item-title">
+                <strong>Sep 30 &#187; Panelist, "Applying to Ph.D.
+                  Programs"</strong>
+              </header>
               <!-- Content -->
-              <p id="content">
+              <p class="item-content">
                 Alongside
-                <a id="link-text" href="https://www.linkedin.com/in/kaitlin-gili-b5b278149" target="_blank">
-                  Kaitlin Gili,
+                <a href="https://www.linkedin.com/in/kaitlin-gili-b5b278149" target="_blank">
+                  <strong>Kaitlin Gili,</strong>
                 </a>
                 we provided information, support, and guidance for
                 undergraduate Stevens Pinnacle and Clark Scholars who are
@@ -175,17 +176,16 @@
             <!-- News Item -->
             <li id="0820-phd">
               <!-- Title -->
-              <div id="title">
-                <span>Aug 17 &#187; Started my PhD @ GT!</span>
-                <a id="link-icon" href="https://gtvalab.github.io/" target="_blank"
-                  class="icon solid fa-external-link-square-alt"></a>
-              </div>
+              <header class="item-title">
+                <strong>Aug 17 &#187; Started my PhD @ Georgia Tech!</strong>
+                <a href="https://gtvalab.github.io/" target="_blank" class="icon solid fa-external-link-square-alt"></a>
+              </header>
               <!-- Content -->
-              <p id="content">
+              <p class="item-content">
                 I became an HCC PhD student working in the Visual Analytics
                 Lab under the supervision of
-                <a id="link-text" href="https://va.gatech.edu/endert/" target="_blank">
-                  Alex Endert.
+                <a href="https://va.gatech.edu/endert/" target="_blank">
+                  <strong>Alex Endert.</strong>
                 </a>
                 I began studying cognitive bias in visual analytics.
               </p>
@@ -194,35 +194,44 @@
             <!-- News Item -->
             <li id="0620-ewaab">
               <!-- Title -->
-              <div id="title">
-                <span>Jun 08 &#187; Wrote a Data Science article!</span>
-                <a id="link-icon"
-                  href="https://www.ewaab.org/post/what-is-data-science-how-does-it-work-and-why-is-it-important"
+              <header class="item-title">
+                <strong>Jun 08 &#187; Wrote a Data Science article!</strong>
+                <a href="https://www.ewaab.org/post/what-is-data-science-how-does-it-work-and-why-is-it-important"
                   target="_blank" class="icon solid fa-external-link-square-alt"></a>
-              </div>
+              </header>
               <!-- Content -->
-              <p id="content">
+              <p class="item-content">
                 I wrote an article for
-                <a id="link-text" href="https://www.ewaab.org/" target="_blank">
-                  Encouraging Women Across All Borders
+                <a href="https://www.ewaab.org/" target="_blank">
+                  <strong>Encouraging Women Across All Borders</strong>
                 </a>
                 on the what, why, and how of data science for absolute
                 beginners. Go give it a read and share it!
               </p>
             </li>
           </ul>
-        </div>
-      </div>
+        </article>
+
+        <!-- 2019 -->
+        <article id="2019" class="news">
+          <!-- Header -->
+          <header>
+            <h2>
+              2019&nbsp;&bull;&nbsp;<a href="#wrapper"><strong>Top</strong></a>
+            </h2>
+          </header>
+        </article>
+      </section>
 
       <!-- Footer -->
       <footer id="footer" style="color: inherit">
         <ul class="copyright">
           <li>&copy; 2020 Adam Coscia</li>
           <li style="border-left: solid 1px rgba(0, 0, 0, 0.25)">
-            Back to <a href="#wrapper">top</a>
+            Back to <a href="#wrapper"><strong>top</strong></a>
           </li>
           <li style="border-left: solid 1px rgba(0, 0, 0, 0.25)">
-            Return <a href="../index.html">home</a>
+            Return <a href="../index.html"><strong>home</strong></a>
           </li>
         </ul>
       </footer>
