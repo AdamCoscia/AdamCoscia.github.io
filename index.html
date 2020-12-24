@@ -19,96 +19,96 @@
     <link rel="stylesheet" href="assets/css/noscript.css" />
   </noscript>
   <style>
-    hr {
-      margin: 1em 0 2em 0;
-    }
-
-    h2 {
-      font-weight: bold;
-      margin: 0 0 0.5em 0;
-      text-align: left;
-    }
-
-    .row {
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      width: 100%;
-    }
-
-    .column {
-      margin-bottom: 1em;
-      display: flex;
-      flex-direction: column;
-      flex: 1;
-      justify-content: center;
-    }
-
     #main {
       width: auto;
       min-width: 300px;
       max-width: 750px;
     }
 
-    #intro-text p {
-      letter-spacing: 0.1em;
+    /* INTRODUCTION */
+
+    .intro {
+      margin: 0 0 1em 0;
+    }
+
+    .intro p {
+      margin: 0 0 1em 0;
       font-size: 11pt;
-      margin: 0 0 1em 0;
       text-transform: none;
+      letter-spacing: 0.1em;
     }
 
-    #intro-text a,
-    span {
-      font-weight: bold;
-    }
-
-    #orcid {
-      font-size: 10pt;
-      margin: 0 0 1em 0;
-    }
-
-    #contact-list {
-      text-transform: none;
-      text-align: left;
-      list-style: none;
-      letter-spacing: 1px;
-      margin: 0.5em 0 0 0;
-      padding: 0.5em 0 0.5em 1em;
-      background-color: #f4f4f4;
-      border-left: 2px solid #ccc;
-    }
-
-    #page-nav-list {
+    .page-nav-list {
       text-transform: capitalize;
       font-size: 12pt;
     }
 
-    #page-nav-list ul {
+    .page-nav-list ul {
       margin-bottom: 0.75em;
     }
 
-    #news-list {
+    .splash {
+      padding: 0 1.5em 0 1.5em;
+    }
+
+    .splash img {
+      width: 100%;
+      border-radius: 4px;
+    }
+
+    .contact-list {
+      text-transform: none;
+      text-align: left;
+      letter-spacing: 1px;
+      background-color: #f4f4f4;
+      border-left: 2px solid #ccc;
+    }
+
+    .contact-list ul {
+      margin: 0.5em 0 0 0;
+      padding: 0.5em 0 0.5em 1em;
+      list-style: none;
+    }
+
+    /* HIGHLIGHTS */
+
+    .news-list {
       font-size: 10pt;
       letter-spacing: 1px;
       text-transform: none;
     }
 
-    #news-item {
+    .news-list ul li {
       border-top: none;
       padding: 0;
     }
 
-    #news-item span {
-      font-weight: bold;
+    /* PROJECTS / PUBLICATIONS */
+
+    .teaser {
+      min-width: 135px;
     }
 
-    #biasfuture {
+    .teaser img {
+      width: 100%;
+      border-radius: 4px;
+    }
+
+    .details {
       font-size: 11pt;
       text-transform: none;
       letter-spacing: 0;
+      padding: 1em;
     }
 
-    #bio-text {
+    .details * {
+      margin: 0;
+      padding: 0;
+    }
+
+    /* SHORT BIO & CONTACT CARD */
+
+    .short-bio p {
       margin: 0;
       padding: 0.5em;
       font-size: 10pt;
@@ -116,152 +116,201 @@
       letter-spacing: 1px;
     }
 
-    #contact {
+    .contact-card {
       background-color: #e4f2ff;
       border-left: 2px solid #96ccff;
     }
 
-    #address {
+    .contact-card p {
       margin: 0;
       padding: 0.5em;
       font-size: 10pt;
       letter-spacing: 1px;
     }
 
-    #contact-icon-row {
+    .contact-card ul {
       margin: 0;
       padding: 0.5em;
       list-style: none;
       display: flex;
       justify-content: center;
     }
+
+    /* CONVENIENCE CLASSES*/
+
+    .fg-025 {
+      flex-grow: 0.25;
+    }
+
+    .fg-125 {
+      flex-grow: 1.25;
+    }
+
+    .mw-270 {
+      min-width: 270px;
+    }
+
+    .text-muted {
+      color: gray;
+      font-weight: 100 !important;
+    }
   </style>
 </head>
 
 <body class="is-preload">
-  <!-- Wrapper -->
   <div id="wrapper">
-    <!-- Console -->
     <section id="main">
-      <!-- Title Name -->
-      <h1 style="font-weight: bold; font-size: 2.75em">
-        <a href="index.html" class="logo">Adam Coscia</a>
-      </h1>
+      <!-- Title -->
+      <header>
+        <h1>
+          <a href="index.html">Adam <strong>Coscia</strong></a>
+        </h1>
+      </header>
 
       <!-- Intro -->
-      <div id="intro" class="row">
-        <!-- Left Column -->
-        <div class="column" style="min-width: 270px">
+      <div class="row">
+        <!-- Text -->
+        <div class="column fg-125 mw-270">
           <!-- Greeting -->
-          <div id="intro-text">
+          <div class="intro">
             <p>
               Hey there! I'm a first-year
-              <a href="https://www.ic.gatech.edu/academics/human-centered-computing-phd-program" target="_blank">HCC</a>
+              <a href="https://www.ic.gatech.edu/academics/human-centered-computing-phd-program" target="_blank">
+                <strong>HCC</strong>
+              </a>
               PhD student in the
-              <a href="https://www.ic.gatech.edu/" target="_blank" style="font-weight: bold">
-                School of Interactive Computing
+              <a href="https://www.ic.gatech.edu/" target="_blank">
+                <strong>School of Interactive Computing</strong>
               </a>
               at
               <a href="https://www.gatech.edu/" target="_blank">
-                Georgia Tech,
+                <strong>Georgia Tech,</strong>
               </a>
               advised by
-              <a href="https://va.gatech.edu/endert/" target="_blank">Alex Endert.</a>
-            </p>
-            <p>
-              I design and develop
-              <span>user interfaces</span>
-              that make the use of
-              <span>computational methods</span>
-              more
-              <span>human-centered.</span>
-            </p>
-            <p>
-              My current work as a member of the
-              <a href="https://gtvalab.github.io/" target="blank_">
-                VA.lab
+              <a href="https://va.gatech.edu/endert/" target="_blank">
+                <strong>Alex Endert.</strong>
               </a>
-              studies
+            </p>
+            <p>
+              I research how
+              <strong>human-machine teaming</strong>
+              can improve the
+              <strong>visual analytic</strong>
+              process!
+            </p>
+            <p>
+              My current collaboration explores
               <a href="https://gtvalab.github.io/projects/bias.html" target="blank_">
-                visual interfaces for mitigating cognitive bias.
+                <strong>novel methods for addressing cognitive bias</strong>
               </a>
+              in visual analytic systems.
             </p>
           </div>
+
           <!-- Nav List -->
-          <div id="page-nav-list">
+          <div class="page-nav-list">
             <!-- First Row (Professional) -->
             <ul class="actions special">
               <li>
-                <a href="#publications" class="icon solid fa-pen-nib">Publications</a>
+                <a href="#publications" class="icon solid fa-pen-nib">
+                  <strong>Publications</strong>
+                </a>
               </li>
               <li>
-                <a href="#projects" class="icon solid fa-project-diagram">Projects</a>
+                <a href="#projects" class="icon solid fa-project-diagram">
+                  <strong>Projects</strong>
+                </a>
               </li>
             </ul>
+
             <!-- Second Row (Service) -->
             <!-- 
-            <ul class="actions special">
-              <li>
-                <a href="sections/students.html" class="icon solid fa-user-graduate">Students</a>
-              </li>
-              <li>
-                <a href="sections/teaching.html" class="icon solid fa-chalkboard-teacher">Teaching</a>
-              </li>
-            </ul>
-            -->
+              <ul class="actions special">
+                <li>
+                  <a href="sections/students.html" class="icon solid fa-user-graduate">Students</a>
+                </li>
+                <li>
+                  <a href="sections/teaching.html" class="icon solid fa-chalkboard-teacher">Teaching</a>
+                </li>
+              </ul>
+              -->
+
             <!-- Third Row (Experience) -->
             <ul class="actions special">
               <li>
-                <a href="sections/experience.html" class="icon solid fa-list-ul">Experience</a>
+                <a href="sections/experience.html" class="icon solid fa-list-ul">
+                  <strong>Experience</strong>
+                </a>
               </li>
               <li>
-                <a href="sections/experience.html#cv" class="icon solid fa-file">CV</a>
+                <a href="sections/experience.html#cv" class="icon solid fa-file-pdf" style="color: #ed2224">
+                  <strong>CV</strong>
+                </a>
               </li>
             </ul>
+
             <!-- Fourth Row (Personal) -->
             <ul class="actions special">
               <li>
-                <a href="sections/bio.html" class="icon solid fa-user">Bio</a>
+                <a href="sections/bio.html" class="icon solid fa-user" style="color: #96ccff">
+                  <strong>Bio</strong>
+                </a>
               </li>
               <li>
-                <a href="sections/news.html" class="icon solid fa-newspaper">News</a>
+                <a href="sections/news.html" class="icon solid fa-newspaper">
+                  <strong>News</strong>
+                </a>
               </li>
               <li>
-                <a href="sections/games/platformer/index.html" class="icon solid fa-gamepad" target="_blank">Games</a>
+                <a href="sections/games/platformer/index.html" class="icon solid fa-gamepad" target="_blank"
+                  style="color: #1DB954">
+                  <strong>Games</strong>
+                </a>
               </li>
             </ul>
           </div>
         </div>
-        <!-- Right Column -->
-        <div class="column" style="min-width: 270px; padding: 0 1.5em 0 1.5em">
-          <!-- Profile Pic -->
-          <img src="images/profile-pic.jpg" alt="My profile picture" style="width: 100%; border-radius: 5%" />
-          <!-- Social -->
-          <ul id="contact-list">
-            <!-- Email -->
-            <li>
-              <a href="mailto:acoscia6@gatech.edu" class="icon solid fa-envelope"></a>
-              <a href="mailto:acoscia6@gatech.edu">acoscia6@gatech.edu</a>
-            </li>
-            <!-- Twitter -->
-            <li>
-              <a href="https://twitter.com/AdamCoscia" target="_blank" class="icon brands fa-twitter"
-                style="color: #1da1f2"></a>
-              <a href="https://twitter.com/AdamCoscia" target="_blank">@AdamCoscia</a>
-            </li>
-            <!-- GitHub -->
-            <li>
-              <a href="https://github.com/AdamCoscia" target="_blank" class="icon brands fa-github"
-                style="color: #6e5494"></a>
-              <a href="https://github.com/AdamCoscia" target="_blank">@AdamCoscia</a>
-            </li>
-            <!-- Google Scholar -->
-            <li>
-              <a href="https://scholar.google.com/citations?hl=en&user=diVuti8AAAAJ" target="_blank"
-                class="icon solid fa-graduation-cap"></a>
-              <a href="https://scholar.google.com/citations?hl=en&user=diVuti8AAAAJ" target="_blank">Google Scholar</a>
-            </li>
-          </ul>
+
+        <!-- Splash -->
+        <div class="column mw-270">
+          <div class="splash">
+            <!-- Headshot -->
+            <img src="images/profile-pic.jpg" alt="My profile picture" />
+
+            <!-- Social -->
+            <div class="contact-list">
+              <ul>
+                <!-- Email -->
+                <li>
+                  <a href="mailto:acoscia6@gatech.edu">
+                    <span class="icon solid fa-envelope"></span>
+                    <strong>acoscia6@gatech.edu</strong>
+                  </a>
+                </li>
+                <!-- Twitter -->
+                <li>
+                  <a href="https://twitter.com/AdamCoscia" target="_blank">
+                    <span class="icon brands fa-twitter" style="color: #1da1f2"></span>
+                    <strong>@AdamCoscia</strong>
+                  </a>
+                </li>
+                <!-- GitHub -->
+                <li>
+                  <a href="https://github.com/AdamCoscia" target="_blank">
+                    <span class="icon brands fa-github" style="color: #6e5494"></span>
+                    <strong>@AdamCoscia</strong>
+                  </a>
+                </li>
+                <!-- Google Scholar -->
+                <li>
+                  <a href="https://scholar.google.com/citations?hl=en&user=diVuti8AAAAJ" target="_blank">
+                    <span class="icon solid fa-graduation-cap"></span>
+                    <strong>Google Scholar</strong>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -269,164 +318,235 @@
       <hr />
 
       <!-- Details -->
-      <div id="details" style="text-align: left">
+      <div style="text-align: left">
         <!-- Highlights -->
         <div id="highlights">
-          <h2>
-            <span class="icon solid fa-newspaper">Highlights</span>
-          </h2>
-          <ul id="news-list" class="alt" style="margin-bottom: 1.5em">
-            <!-- News Item -->
-            <li id="news-item">
-              <span>10/20 &#187;</span>
-              <a href="sections/news.html#1020-trex">TREX @ IEEE VIS'20: "Toward a Bias-Aware ..."</a>
-              <a href="https://trexvis.github.io/Workshop2020/papers/Coscia.pdf" target="blank_"
-                class="icon solid fa-book-reader"></a>
-              <a href="https://www.youtube.com/watch?v=LTGzCvhv05M&t=12272" target="blank_"
-                class="icon brands fa-youtube"></a>
-            </li>
-            <!-- News Item -->
-            <li id="news-item">
-              <span>09/20 &#187;</span>
-              <a href="sections/news.html#0920-panel">Panelist: "Applying to PhD Programs"</a>
-            </li>
-            <!-- News Item -->
-            <li id="news-item">
-              <span>08/20 &#187;</span>
-              <a href="sections/news.html#0820-phd">Joined HCC PhD program and VA.lab at GT</a>
-              <a href="https://gtvalab.github.io/#people" target="_blank"
-                class="icon solid fa-external-link-square-alt"></a>
-            </li>
-            <!-- News Item -->
-            <li id="news-item">
-              <span>06/20 &#187;</span>
-              <a href="sections/news.html#0620-ewaab">"What is data science, how does it work, ..."</a>
-              <a href="https://www.ewaab.org/post/what-is-data-science-how-does-it-work-and-why-is-it-important"
-                target="blank_" class="icon solid fa-external-link-square-alt"></a>
-            </li>
-          </ul>
+          <!-- Title -->
+          <header>
+            <h2>
+              <span class="icon solid fa-newspaper"></span>&nbsp;<strong>Highlights</strong>
+            </h2>
+          </header>
+
+          <!-- Content -->
+          <div class="news-list">
+            <ul class="alt">
+              <!-- News Item -->
+              <li>
+                <strong>10/20</strong>&nbsp;&#187;
+                <a href="sections/news.html#1020-trex">
+                  <strong>First Paper! TREX @ IEEE VIS'20</strong>
+                </a>
+              </li>
+              <!-- News Item -->
+              <li>
+                <strong>09/20</strong>&nbsp;&#187;
+                <a href="sections/news.html#0920-panel">
+                  <strong>Panelist, "Applying to PhD Programs"</strong>
+                </a>
+              </li>
+              <!-- News Item -->
+              <li>
+                <strong>08/20</strong>&nbsp;&#187;
+                <a href="sections/news.html#0820-phd">
+                  <strong>Joined HCC PhD program, VA.lab at GT</strong>
+                </a>
+                <a href="https://gtvalab.github.io/#people" target="_blank"
+                  class="icon solid fa-external-link-square-alt"></a>
+              </li>
+              <!-- News Item -->
+              <li>
+                <strong>06/20</strong>&nbsp;&#187;
+                <a href="sections/news.html#0620-ewaab">
+                  <strong>Published an article on data science</strong>
+                </a>
+                <a href="https://www.ewaab.org/post/what-is-data-science-how-does-it-work-and-why-is-it-important"
+                  target="blank_" class="icon solid fa-external-link-square-alt"></a>
+              </li>
+            </ul>
+          </div>
         </div>
+
         <!-- Publications -->
         <div id="publications">
-          <h2>
-            <span class="icon solid fa-pen-nib">Publications</span>
-          </h2>
-          <ol id="biasfuture">
-            <li>
-              <span style="font-weight: bold">Coscia, A.</span>, Chau, D.,
-              Endert, A.
-              <span style="font-style: italic">Toward a Bias-Aware Future for Mixed-Initiative Visual
-                Analytics.</span>
-              Workshop on TRust and EXpertise in Visual Analytics (TREX, at
-              VIS’20), 2020.
-            </li>
-          </ol>
+          <!-- Title -->
+          <header>
+            <h2>
+              <span class="icon solid fa-pen-nib"></span>&nbsp;<strong>Publications</strong>
+            </h2>
+          </header>
+
+          <!-- Content -->
+          <div>
+            <!-- Bias-Aware Future -->
+            <div id="biasaware" class="row">
+              <!-- Image -->
+              <div class="column teaser fg-025">
+                <img src="images/publications/bias-aware-future.png" alt="TREX at VIS'20" />
+              </div>
+
+              <!-- Details -->
+              <div class="column details">
+                <h2>
+                  <strong>
+                    Toward a Bias-Aware Future for Mixed-Initiative Visual
+                    Analytics
+                  </strong>
+                </h2>
+                <p class="text-muted">
+                  <strong> Coscia, A. </strong>, Chau, D., Endert, A.
+                </p>
+                <i>
+                  Workshop on TRust and EXpertise in Visual Analytics (TREX,
+                  at VIS’20), 2020.
+                </i>
+                <strong>
+                  <a href="https://arxiv.org/abs/2011.09988" target="blank_">
+                    <span class="icon solid fa-book-reader" style="color: #313f47"></span>
+                    Paper
+                  </a>
+                  &nbsp;
+                  <a href="https://www.youtube.com/watch?v=LTGzCvhv05M&t=12272" target="blank_">
+                    <span class="icon brands fa-youtube" style="color: #ff0000"></span>
+                    Talk
+                  </a>
+                </strong>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-      <!-- Projects -->
-      <div id="projects">
-        <h2>
-          <span class="icon solid fa-project-diagram">Projects</span>
-        </h2>
-        <!-- Painting By Comparison -->
-        <div id="paintbycomp">
-          <p style="
-                text-transform: none;
-                text-align: left;
-                margin: 0 0 0.5em 0;
-                letter-spacing: 1px;
-              ">
-            &#187;
-            <a href="sections/projects/PaintByComp/index.html" target="_blank" style="font-weight: bold">Paintings By
-              Comparison</a>
-            <a href="https://github.com/AdamCoscia/CS7450-F20-Project" target="_blank" class="icon brands fa-github"
-              style="color: #6e5494"></a>
-            (more details coming soon!)
-          </p>
-        </div>
-        <!-- NL4DV Inspector -->
-        <div id="vismaker">
-          <p style="
-                text-transform: none;
-                text-align: left;
-                margin: 0 0 0.5em 0;
-                letter-spacing: 1px;
-              ">
-            &#187;
-            <a style="font-weight: bold">NL4DV Inspection Tool</a>
-            <a href="https://github.com/AdamCoscia/NL4DV-Inspector" target="_blank" class="icon brands fa-github"
-              style="color: #6e5494"></a>
-            (more details coming soon!)
-          </p>
+
+        <!-- Projects -->
+        <div id="projects">
+          <!-- Title -->
+          <header>
+            <h2>
+              <span class="icon solid fa-project-diagram"></span>&nbsp;<strong>Projects</strong>
+            </h2>
+          </header>
+
+          <!-- Content -->
+          <div>
+            <!-- Paintings By Comparison -->
+            <div id="paintbycomp" class="row">
+              <!-- Image -->
+              <div class="column teaser fg-025">
+                <img src="images/projects/paint-by-comp.png" alt="Paintings By Comparison" />
+              </div>
+
+              <!-- Details -->
+              <div class="column details">
+                <h2>
+                  <strong> Paintings By Comparison </strong>
+                </h2>
+                <p class="text-muted">
+                  Interactive visualization of painting attributes pulled from
+                  WikiData.
+                </p>
+                <i> CS 7450 Information Visualization, Fall 2020 </i>
+                <strong>
+                  <a href="sections/projects/PaintByComp/index.html" target="_blank">
+                    <span class="icon solid fa-play"></span>
+                    Demo
+                  </a>
+                  &nbsp;
+                  <a href="https://github.com/AdamCoscia/Paintings-By-Comparison" target="_blank">
+                    <span class="icon solid fa-code"></span>
+                    Code
+                  </a>
+                </strong>
+              </div>
+            </div>
+
+            <!-- NL4DV Inspector -->
+            <div id="paintbycomp" class="row">
+              <!-- Image -->
+              <div class="column teaser fg-025">
+                <img src="images/projects/nl4dv-inspector.png" alt="NL4DV Inspector" />
+              </div>
+
+              <!-- Details -->
+              <div class="column details">
+                <h2>
+                  <strong>NL4DV Inspector</strong>
+                </h2>
+                <p class="text-muted">
+                  Visualizes the results of processing a query passed to
+                  NL4DV.
+                </p>
+                <strong>
+                  <a href="https://github.com/AdamCoscia/NL4DV-Inspector" target="_blank">
+                    <span class="icon solid fa-code"></span>
+                    Code
+                  </a>
+                </strong>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
       <!-- Break -->
       <hr />
 
-      <!-- Overview -->
-      <div id="overview">
-        <div class="row">
-          <!-- Left Column -->
-          <div class="column" style="min-width: 270px">
-            <!-- Bio -->
-            <p id="bio-text">
-              "Outside of my work I enjoy video games, hiking, snowboarding,
-              baseball and family time. Reach out and say hi!"
-            </p>
-          </div>
-          <!-- Right Column -->
-          <div class="column" style="min-width: 270px">
-            <div id="contact">
-              <!-- Address -->
-              <p id="address">
-                Tech Square Research Building <br />
-                85 5th St NW, Atlanta, GA 30332-0760
-              </p>
-              <!-- Social -->
-              <ul id="contact-icon-row">
-                <!-- Email -->
-                <li>
-                  <a href="mailto:acoscia6@gatech.edu" class="icon solid fa-envelope"></a>
-                </li>
-                <!-- LinkedIn -->
-                <li>
-                  <a href="https://www.linkedin.com/in/adam-coscia/" target="_blank" class="icon brands fa-linkedin"
-                    style="color: #0e76a8"></a>
-                </li>
-                <!-- Twitter -->
-                <li>
-                  <a href="https://twitter.com/AdamCoscia" target="_blank" class="icon brands fa-twitter"
-                    style="color: #1da1f2"></a>
-                </li>
-                <!-- GitHub -->
-                <li>
-                  <a href="https://github.com/AdamCoscia" target="_blank" class="icon brands fa-github"
-                    style="color: #6e5494"></a>
-                </li>
-                <!-- Google Scholar -->
-                <li>
-                  <a href="https://scholar.google.com/citations?hl=en&user=diVuti8AAAAJ" target="_blank"
-                    class="icon solid fa-graduation-cap"></a>
-                </li>
-                <!-- ORCID -->
-                <li>
-                  <div itemscope itemtype="https://schema.org/Person">
-                    <a itemprop="sameAs" content="https://orcid.org/0000-0002-0429-9295"
-                      href="https://orcid.org/0000-0002-0429-9295" target="orcid.widget" rel="me noopener noreferrer"
-                      style="vertical-align: top"><img
-                        src="https://orcid.org/sites/default/files/images/orcid_16x16.png"
-                        style="width: 1em; margin-right: 0.5em" alt="ORCID iD icon" /></a>
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </div>
+      <!-- Contact -->
+      <div class="row">
+        <!-- Left Column -->
+        <div class="column short-bio mw-270">
+          <p>
+            "Outside of my work I enjoy video games, hiking, snowboarding,
+            baseball and family time. Reach out and say hi!"
+          </p>
+        </div>
+
+        <!-- Right Column -->
+        <div class="column contact-card mw-270">
+          <!-- Address -->
+          <p>
+            Tech Square Research Building <br />
+            85 5th St NW, Atlanta, GA 30332-0760
+          </p>
+
+          <!-- Icons -->
+          <ul>
+            <!-- Email -->
+            <li>
+              <a href="mailto:acoscia6@gatech.edu" class="icon solid fa-envelope"></a>
+            </li>
+            <!-- LinkedIn -->
+            <li>
+              <a href="https://www.linkedin.com/in/adam-coscia/" target="_blank" class="icon brands fa-linkedin"
+                style="color: #0e76a8"></a>
+            </li>
+            <!-- Twitter -->
+            <li>
+              <a href="https://twitter.com/AdamCoscia" target="_blank" class="icon brands fa-twitter"
+                style="color: #1da1f2"></a>
+            </li>
+            <!-- GitHub -->
+            <li>
+              <a href="https://github.com/AdamCoscia" target="_blank" class="icon brands fa-github"
+                style="color: #6e5494"></a>
+            </li>
+            <!-- Google Scholar -->
+            <li>
+              <a href="https://scholar.google.com/citations?hl=en&user=diVuti8AAAAJ" target="_blank"
+                class="icon solid fa-graduation-cap"></a>
+            </li>
+            <!-- ORCID -->
+            <li>
+              <div itemscope itemtype="https://schema.org/Person">
+                <a itemprop="sameAs" content="https://orcid.org/0000-0002-0429-9295"
+                  href="https://orcid.org/0000-0002-0429-9295" target="orcid.widget" rel="me noopener noreferrer"
+                  style="vertical-align: top"><img src="https://orcid.org/sites/default/files/images/orcid_16x16.png"
+                    style="width: 1em; margin-right: 0.5em" alt="ORCID iD icon" /></a>
+              </div>
+            </li>
+          </ul>
         </div>
       </div>
     </section>
 
-    <!-- Footer -->
     <footer id="footer">
       <ul class="copyright">
         <li>&copy; 2020 Adam Coscia</li>
@@ -434,6 +554,7 @@
       </ul>
     </footer>
   </div>
+
   <!-- Scripts -->
   <script>
     if ("addEventListener" in window) {
