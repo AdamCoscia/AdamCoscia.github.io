@@ -2,17 +2,17 @@
 <html>
 
 <head>
-  <title>Adam Coscia - Home</title>
+  <title>Adam Coscia - HCC PhD @ Georgia Tech</title>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
   <meta name="google-site-verification" content="5HKZ4pkh6oxdUKqLcbqvNDKWgoqoe7NBDu0u9genSjg" />
-  <link rel="stylesheet" href="assets/css/main.css" />
+  <link rel="stylesheet" href="/assets/css/main.css" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
   <link rel="manifest" href="/site.webmanifest" />
   <noscript>
-    <link rel="stylesheet" href="assets/css/noscript.css" />
+    <link rel="stylesheet" href="/assets/css/noscript.css" />
   </noscript>
   <style>
     #main {
@@ -132,23 +132,20 @@
       justify-content: center;
     }
 
-    /* CONVENIENCE CLASSES*/
+    /* SHOW/HIDE SECTION */
 
-    .fg-025 {
-      flex-grow: 0.25;
+    .showhide {
+      display: inline;
+      cursor: pointer;
     }
 
-    .fg-125 {
-      flex-grow: 1.25;
+    [id^="toggle"],
+    [id^="toggle"]+* {
+      display: block;
     }
 
-    .mw-270 {
-      min-width: 270px;
-    }
-
-    .text-muted {
-      color: gray;
-      font-weight: 100 !important;
+    [id^="toggle"]:checked+* {
+      display: none;
     }
   </style>
 </head>
@@ -170,15 +167,11 @@
           <!-- Greeting -->
           <div class="intro">
             <p>
-              Hey there! I'm a first-year
+              Hey there! I'm Adam, a first-year
               <a href="https://www.ic.gatech.edu/academics/human-centered-computing-phd-program" target="_blank">
-                <strong>HCC</strong>
+                <strong>Human-Centered Computing</strong>
               </a>
-              PhD student in the
-              <a href="https://www.ic.gatech.edu/" target="_blank">
-                <strong>School of Interactive Computing</strong>
-              </a>
-              at
+              PhD student at
               <a href="https://www.gatech.edu/" target="_blank">
                 <strong>Georgia Tech,</strong>
               </a>
@@ -189,10 +182,20 @@
             </p>
             <p>
               I research how
-              <strong>human-machine teaming</strong>
-              can improve the
-              <strong>visual analytic</strong>
-              process!
+              <strong>on-the-fly</strong>
+              data
+              <a href="https://en.wikipedia.org/wiki/Data_integration" target="_blank">
+                <strong>integration</strong>
+              </a>
+              and
+              <a href="https://ieeexplore.ieee.org/abstract/document/9222249" target="_blank">
+                <strong>augmentation</strong>
+              </a>
+              affects decision-making using
+              <a href="https://en.wikipedia.org/wiki/Visual_analytics" target="_blank">
+                <strong>visual analytic</strong>
+              </a>
+              techniques and systems.
             </p>
             <p>
               My current collaboration explores
@@ -204,16 +207,16 @@
           </div>
 
           <!-- Nav List -->
-          <div class="page-nav-list">
-            <!-- First Row (Professional) -->
+          <div id="navigate" class="page-nav-list">
+            <!-- First Row (Page links) -->
             <ul class="actions special">
               <li>
-                <a href="#publications" class="icon solid fa-pen-nib">
+                <a href="#publications" class="icon solid fa-pen-nib" style="color: #003057">
                   <strong>Publications</strong>
                 </a>
               </li>
               <li>
-                <a href="#projects" class="icon solid fa-project-diagram">
+                <a href="#projects" class="icon solid fa-project-diagram" style="color: #b3a369">
                   <strong>Projects</strong>
                 </a>
               </li>
@@ -223,44 +226,34 @@
             <!-- 
               <ul class="actions special">
                 <li>
-                  <a href="sections/students.html" class="icon solid fa-user-graduate">Students</a>
+                  <a href="/sections/students.html" class="icon solid fa-user-graduate">Students</a>
                 </li>
                 <li>
-                  <a href="sections/teaching.html" class="icon solid fa-chalkboard-teacher">Teaching</a>
+                  <a href="/sections/teaching.html" class="icon solid fa-chalkboard-teacher">Teaching</a>
                 </li>
               </ul>
               -->
 
-            <!-- Third Row (Experience) -->
+            <!-- Third Row (Page Links) -->
             <ul class="actions special">
               <li>
-                <a href="sections/experience.html" class="icon solid fa-list-ul">
-                  <strong>Experience</strong>
-                </a>
-              </li>
-              <li>
-                <a href="sections/experience.html#cv" class="icon solid fa-file-pdf" style="color: #ed2224">
+                <a href="/sections/experience.html" class="icon solid fa-file-pdf" style="color: #ed2224">
                   <strong>CV</strong>
                 </a>
               </li>
-            </ul>
-
-            <!-- Fourth Row (Personal) -->
-            <ul class="actions special">
               <li>
-                <a href="sections/bio.html" class="icon solid fa-user" style="color: #96ccff">
-                  <strong>Bio</strong>
-                </a>
-              </li>
-              <li>
-                <a href="sections/news.html" class="icon solid fa-newspaper">
+                <a href="/sections/news.html" class="icon solid fa-newspaper" style="color: #545454">
                   <strong>News</strong>
                 </a>
               </li>
               <li>
-                <a href="sections/games/platformer/index.html" class="icon solid fa-gamepad" target="_blank"
-                  style="color: #1db954">
-                  <strong>Games</strong>
+                <a href="/sections/bio.html" class="icon solid fa-user" style="color: #96ccff">
+                  <strong>Bio</strong>
+                </a>
+              </li>
+              <li>
+                <a href="/sections/projects/other/index.html" class="icon solid fa-gamepad" style="color: #1db954">
+                  <strong>Fun</strong>
                 </a>
               </li>
             </ul>
@@ -271,7 +264,7 @@
         <div class="column mw-270">
           <div class="splash">
             <!-- Headshot -->
-            <img src="images/profile-pic.jpg" alt="My profile picture" />
+            <img src="/assets/images/profile-pic.jpg" alt="My profile picture" />
 
             <!-- Social -->
             <div class="contact-list">
@@ -318,33 +311,38 @@
         <!-- Highlights -->
         <div id="highlights">
           <!-- Title -->
-          <header>
-            <h2>
-              <span class="icon solid fa-newspaper"></span>&nbsp;<strong>Highlights</strong>
+          <header class="pb-075">
+            <h2 style="display: inline">
+              <span class="icon solid fa-newspaper" style="color: #545454"></span>&nbsp;<strong>Highlights</strong>
             </h2>
+            <span style="float: right">
+              <label class="showhide" for="toggle-1"><span class="icon solid fa-bars"></span></label>
+              <a href="#navigate"><span class="icon solid fa-arrow-up"></span></a>
+            </span>
           </header>
 
           <!-- Content -->
+          <input id="toggle-1" type="checkbox" />
           <div class="news-list">
             <ul class="alt">
               <!-- News Item -->
               <li>
                 <strong>10/20</strong>&nbsp;&#187;
-                <a href="sections/news.html#1020-trex">
+                <a href="/sections/news.html#1020-trex">
                   <strong>First Paper! TREX @ IEEE VIS'20</strong>
                 </a>
               </li>
               <!-- News Item -->
               <li>
                 <strong>09/20</strong>&nbsp;&#187;
-                <a href="sections/news.html#0920-panel">
+                <a href="/sections/news.html#0920-panel">
                   <strong>Panelist, "Applying to PhD Programs"</strong>
                 </a>
               </li>
               <!-- News Item -->
               <li>
                 <strong>08/20</strong>&nbsp;&#187;
-                <a href="sections/news.html#0820-phd">
+                <a href="/sections/news.html#0820-phd">
                   <strong>Joined HCC PhD program, VA.lab at GT</strong>
                 </a>
                 <a href="https://gtvalab.github.io/#people" target="_blank"
@@ -353,7 +351,7 @@
               <!-- News Item -->
               <li>
                 <strong>06/20</strong>&nbsp;&#187;
-                <a href="sections/news.html#0620-ewaab">
+                <a href="/sections/news.html#0620-ewaab">
                   <strong>Published an article on data science</strong>
                 </a>
                 <a href="https://www.ewaab.org/post/what-is-data-science-how-does-it-work-and-why-is-it-important"
@@ -366,19 +364,24 @@
         <!-- Publications -->
         <div id="publications">
           <!-- Title -->
-          <header>
-            <h2>
-              <span class="icon solid fa-pen-nib"></span>&nbsp;<strong>Publications</strong>
+          <header class="pb-075">
+            <h2 style="display: inline">
+              <span class="icon solid fa-pen-nib" style="color: #003057"></span>&nbsp;<strong>Publications</strong>
             </h2>
+            <span style="float: right">
+              <label class="showhide" for="toggle-2"><span class="icon solid fa-bars"></span></label>
+              <a href="#navigate"><span class="icon solid fa-arrow-up"></span></a>
+            </span>
           </header>
 
           <!-- Content -->
+          <input id="toggle-2" type="checkbox" />
           <div>
             <!-- Bias-Aware Future -->
             <div id="biasaware" class="row">
               <!-- Image -->
               <div class="column teaser fg-025">
-                <img src="images/publications/bias-aware-future.png" alt="TREX at VIS'20" />
+                <img src="/assets/images/publications/bias-aware-future.png" alt="TREX at VIS'20" />
               </div>
 
               <!-- Details -->
@@ -415,25 +418,30 @@
         <!-- Projects -->
         <div id="projects">
           <!-- Title -->
-          <header>
-            <h2>
-              <span class="icon solid fa-project-diagram"></span>&nbsp;<strong>Projects</strong>
+          <header class="pb-075">
+            <h2 style="display: inline">
+              <span class="icon solid fa-project-diagram" style="color: #b3a369"></span>&nbsp;<strong>Projects</strong>
             </h2>
+            <span style="float: right">
+              <label class="showhide" for="toggle-3"><span class="icon solid fa-bars"></span></label>
+              <a href="#navigate"><span class="icon solid fa-arrow-up"></span></a>
+            </span>
           </header>
 
           <!-- Content -->
+          <input id="toggle-3" type="checkbox" />
           <div>
             <!-- Paintings By Comparison -->
             <div id="paintbycomp" class="row">
               <!-- Image -->
               <div class="column teaser fg-025">
-                <img src="images/projects/paint-by-comp.png" alt="Paintings By Comparison" />
+                <img src="/assets/images/projects/paint-by-comp.png" alt="Paintings By Comparison" />
               </div>
 
               <!-- Details -->
               <div class="column details">
                 <h2>
-                  <strong> Paintings By Comparison </strong>
+                  <strong>Paintings By Comparison</strong>
                 </h2>
                 <p class="text-muted">
                   Interactive visualization of painting attributes pulled from
@@ -441,15 +449,19 @@
                 </p>
                 <i> CS 7450 Information Visualization, Fall 2020 </i>
                 <strong>
-                  <a href="sections/projects/PaintByComp/index.html" target="_blank">
-                    <span class="icon solid fa-play"></span>
-                    Demo
-                  </a>
+                  <span class="nowrap">
+                    <a href="/sections/projects/PaintByComp/index.html" target="_blank">
+                      <span class="icon solid fa-play"></span>
+                      Demo
+                    </a>
+                  </span>
                   &nbsp;
-                  <a href="https://github.com/AdamCoscia/Paintings-By-Comparison" target="_blank">
-                    <span class="icon solid fa-code"></span>
-                    Code
-                  </a>
+                  <span class="nowrap">
+                    <a href="https://github.com/AdamCoscia/Paintings-By-Comparison" target="_blank">
+                      <span class="icon solid fa-code"></span>
+                      Code
+                    </a>
+                  </span>
                 </strong>
               </div>
             </div>
@@ -458,7 +470,7 @@
             <div id="paintbycomp" class="row">
               <!-- Image -->
               <div class="column teaser fg-025">
-                <img src="images/projects/nl4dv-inspector.png" alt="NL4DV Inspector" />
+                <img src="/assets/images/projects/nl4dv-inspector.png" alt="NL4DV Inspector" />
               </div>
 
               <!-- Details -->
@@ -471,10 +483,12 @@
                   NL4DV.
                 </p>
                 <strong>
-                  <a href="https://github.com/AdamCoscia/NL4DV-Inspector" target="_blank">
-                    <span class="icon solid fa-code"></span>
-                    Code
-                  </a>
+                  <span class="nowrap">
+                    <a href="https://github.com/AdamCoscia/NL4DV-Inspector" target="_blank">
+                      <span class="icon solid fa-code"></span>
+                      Code
+                    </a>
+                  </span>
                 </strong>
               </div>
             </div>
@@ -509,6 +523,11 @@
             <li>
               <a href="mailto:acoscia6@gatech.edu" class="icon solid fa-envelope"></a>
             </li>
+            <!-- Google Scholar -->
+            <li>
+              <a href="https://scholar.google.com/citations?hl=en&user=diVuti8AAAAJ" target="_blank"
+                class="icon solid fa-graduation-cap"></a>
+            </li>
             <!-- LinkedIn -->
             <li>
               <a href="https://www.linkedin.com/in/adam-coscia/" target="_blank" class="icon brands fa-linkedin"
@@ -523,11 +542,6 @@
             <li>
               <a href="https://github.com/AdamCoscia" target="_blank" class="icon brands fa-github"
                 style="color: #6e5494"></a>
-            </li>
-            <!-- Google Scholar -->
-            <li>
-              <a href="https://scholar.google.com/citations?hl=en&user=diVuti8AAAAJ" target="_blank"
-                class="icon solid fa-graduation-cap"></a>
             </li>
             <!-- ORCID -->
             <li>

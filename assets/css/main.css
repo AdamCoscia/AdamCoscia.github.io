@@ -7,7 +7,7 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
 
-/* Rows and Columns */
+/* CONVIENENCE CLASSES */
 
 .row {
   display: flex;
@@ -22,6 +22,35 @@
   flex-direction: column;
   flex: 1;
   justify-content: center;
+}
+
+.fg-025 {
+  flex-grow: 0.25;
+}
+
+.fg-125 {
+  flex-grow: 1.25;
+}
+
+.mw-270 {
+  min-width: 270px;
+}
+
+.pb-075 {
+  padding-bottom: 0.75em;
+}
+
+.text-muted {
+  color: gray;
+  font-weight: 100 !important;
+}
+
+.nowrap {
+  white-space: nowrap;
+}
+
+.noflexwrap {
+  flex-wrap: nowrap;
 }
 
 /* Icon (alt) */
@@ -220,16 +249,16 @@ body {
   background-color: #ffffff;
   background-image: url("images/overlay.png"),
     -moz-linear-gradient(60deg, rgba(255, 165, 150, 0.5) 5%, rgba(0, 228, 255, 0.35)),
-    url("../../images/bg.jpg");
+    url("../images/bg.jpg");
   background-image: url("images/overlay.png"),
     -webkit-linear-gradient(60deg, rgba(255, 165, 150, 0.5) 5%, rgba(0, 228, 255, 0.35)),
-    url("../../images/bg.jpg");
+    url("../images/bg.jpg");
   background-image: url("images/overlay.png"),
     -ms-linear-gradient(60deg, rgba(255, 165, 150, 0.5) 5%, rgba(0, 228, 255, 0.35)),
-    url("../../images/bg.jpg");
+    url("../images/bg.jpg");
   background-image: url("images/overlay.png"),
     linear-gradient(60deg, rgba(255, 165, 150, 0.5) 5%, rgba(0, 228, 255, 0.35)),
-    url("../../images/bg.jpg");
+    url("../images/bg.jpg");
   background-repeat: repeat, no-repeat, no-repeat;
   background-size: 100px 100px, cover, cover;
   background-position: top left, center center, bottom center;
@@ -488,6 +517,29 @@ label {
   display: block;
   font-size: 0.9em;
   margin: 0 0 0.75em 0;
+}
+
+label,
+label * {
+  -moz-transition: color 0.2s ease, border-color 0.2s ease;
+  -webkit-transition: color 0.2s ease, border-color 0.2s ease;
+  -ms-transition: color 0.2s ease, border-color 0.2s ease;
+  transition: color 0.2s ease, border-color 0.2s ease;
+  color: inherit;
+  text-decoration: none;
+}
+
+label:before,
+label:before * {
+  -moz-transition: color 0.2s ease, text-shadow 0.2s ease;
+  -webkit-transition: color 0.2s ease, text-shadow 0.2s ease;
+  -ms-transition: color 0.2s ease, text-shadow 0.2s ease;
+  transition: color 0.2s ease, text-shadow 0.2s ease;
+}
+
+label:hover,
+label:hover * {
+  color: #ff7496 !important;
 }
 
 input[type="text"],
