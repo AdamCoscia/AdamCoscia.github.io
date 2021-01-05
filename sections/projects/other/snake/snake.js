@@ -20,10 +20,6 @@ try {
   document.body.append(canv);
 } catch (TypeError) {}
 
-// Title and Header of testpage.html
-document.getElementById("title").innerHTML = "Snake"; // set this
-document.getElementById("header").innerHTML = "Snake"; // set this
-
 // Begin Canvas Drawing
 var canvas = document.getElementById("board");
 var ctx = canvas.getContext("2d");

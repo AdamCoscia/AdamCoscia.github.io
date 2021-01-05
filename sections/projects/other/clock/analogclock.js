@@ -20,10 +20,6 @@ try {
 }
 catch (TypeError) {}
 
-// Title and Header of testpage.html
-document.getElementById("title").innerHTML = "Clock Demo"; // set this
-document.getElementById("header").innerHTML = "Analog Clock"; // set this
-
 // Begin Canvas Drawing
 var canvas = document.getElementById("board");
 var context = canvas.getContext("2d");
