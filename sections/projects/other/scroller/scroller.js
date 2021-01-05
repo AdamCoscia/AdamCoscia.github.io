@@ -20,10 +20,6 @@ try {
 }
 catch (TypeError) {}
 
-// Title and Header of testpage.html
-document.getElementById("title").innerHTML = "sidescroller"; // set this
-document.getElementById("header").innerHTML = "2D Side Scroller"; // set this
-
 // Begin Canvas Drawing
 var canvas = document.getElementById("board");
 var context = canvas.getContext("2d");
