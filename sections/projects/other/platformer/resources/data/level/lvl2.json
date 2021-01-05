@@ -8,6 +8,13 @@
     "h": 20,
     "facing": "left"
   },
-  "platforms": [{ "x": 535, "y": 430, "w": 30, "h": 20 }],
+  "platforms": [
+    {
+      "x": 535,
+      "y": 430,
+      "w": 30,
+      "h": 20
+    }
+  ],
   "goalPlatformNumber": 2
 }
