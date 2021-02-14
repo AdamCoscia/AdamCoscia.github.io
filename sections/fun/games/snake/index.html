@@ -13,27 +13,70 @@
 
 <body>
   <div class="flex row">
-    <div class="flex column center-text">
+    <!-- Instructions -->
+    <div class="flex column center-text" style="min-width: 100px">
       <h1 class="header">Snake</h1>
-      <table>
+
+      <table class="stateButtons">
         <tbody>
           <tr>
-            <td></td>
-            <td>&#x21e7;</td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>&#x21e6;</td>
-            <td>&#x21e9;</td>
-            <td>&#x21e8;</td>
+            <td>
+              <button id="stateButton" onclick="startGame()">Play!</button>
+            </td>
           </tr>
         </tbody>
       </table>
-      <p class="info">Move using the arrow keys.</p>
-      <button onclick="init()">Play!</button>
+
+      <table class="difficulty">
+        <tbody>
+          <tr>
+            <td style="float: left">Difficulty</td>
+            <td style="float: right">
+              <span id="difficultyOutput">Normal</span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="slidecontainer">
+        <input type="range" min="1" max="3" value="1" class="slider" id="difficultySlider" />
+      </div>
+
+      <p class="info">Press spacebar to pause.</p>
+
+      <p class="info">
+        Move by pressing the below arrows
+        <br />
+        or using your keyboard arrow keys!
+      </p>
+
+      <table class="keypad">
+        <tbody>
+          <tr>
+            <td style="background-color: white; cursor: default"></td>
+            <td id="uparrow">&#x21e7;</td>
+            <td style="background-color: white; cursor: default"></td>
+          </tr>
+          <tr>
+            <td id="leftarrow">&#x21e6;</td>
+            <td id="downarrow">&#x21e9;</td>
+            <td id="rightarrow">&#x21e8;</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
-    <div class="flex column">
+
+    <!-- Game -->
+    <div class="flex column" style="min-width: 200px">
       <canvas id="board"></canvas>
+
+      <table class="scoreboard center-text">
+        <tbody>
+          <tr>
+            <td>Apples Eaten: <span id="scoreOutput">0 </span></td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </body>

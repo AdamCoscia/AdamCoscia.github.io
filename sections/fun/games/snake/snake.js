@@ -1,111 +1,108 @@
-class abstractGameState {
-  constructor() {
-    const methods = [
-      // Setup and destroy the state
-      [this.Init, "Init"],
-      [this.Cleanup, "Cleanup"],
-      // Used when temporarily transitioning to another state
-      [this.Pause, "Pause"],
-      [this.Resume, "Resume"],
-      // The three important actions within a game loop
-      [this.HandleEvents, "HandleEvents"],
-      [this.Update, "Update"],
-      [this.Draw, "Draw"],
-    ];
-    const mask = methods.map((method) => method[0] === undefined);
-    const filtered = methods.filter((_, i) => mask[i]);
-    if (filtered.length)
-      throw new TypeError(
-        `Missing methods: ${filtered.map((method) => method[1])}`
-      );
-  }
-}
+/** GLOBALS */
 
-class abstractGameEngine {
-  states; // the stack of states
-  running; // bool whether game is running or not
-
-  constructor() {
-    const methods = [
-      // Creating and destroying the state machine
-      [this.Init, "Init"],
-      [this.Cleanup, "Cleanup"],
-      // Transit between states
-      [this.ChangeState, "ChangeState(state)"],
-      [this.PushState, "PushState(state)"],
-      [this.PopState, "PopState"],
-      // The three important actions within a game loop
-      // (these will be handled by the top state in the stack)
-      [this.HandleEvents, "HandleEvents"],
-      [this.Update, "Update"],
-      [this.Draw, "Draw"],
-    ];
-    const mask = methods.map((method) => method[0] === undefined);
-    const filtered = methods.filter((_, i) => mask[i]);
-    if (filtered.length)
-      throw new TypeError(
-        `Missing methods: ${filtered.map((method) => method[1])}`
-      );
-  }
-
-  /**
-   * engine status
-   */
-  Running() {
-    return running;
-  }
-
-  Quit() {
-    running = false;
-  }
-}
-
-// GET canvas, set properties
+// Document Elements
+var stateButton = document.getElementById("stateButton");
+var scoreOutput = document.getElementById("scoreOutput");
+var difficultyOutput = document.getElementById("difficultyOutput");
+var difficultySlider = document.getElementById("difficultySlider");
+difficultySlider.oninput = function () {
+  setDifficulty(this.value);
+};
 var canvas = document.getElementById("board");
-canvas.width = Math.floor(
-  Math.min(
-    window.innerWidth - canvas.parentNode.clientWidth,
-    window.innerHeight - 26
-  )
-);
-canvas.height = canvas.width;
-canvas.style.background = "black";
-canvas.style.border = "5px solid gray";
-
-// CONSTANTS
-var GAMETIMER; // Holds interval that runs game.
-
-// Game properties
-var conf = {
-  gameSpeed: 200, // ms between draw events => lower to make harder
-  tileCount: 20, // The number of tiles in a row or column.
-  tileWidth: canvas.width / 20, // Tile width on the canvas in pixels.
-  tileHeight: canvas.height / 20, // Tile height on the canvas in pixels.
-};
-
-// Player properties
-var player = {
-  vx: 1, // Player x velocity in tiles per tick.
-  vy: 0, // Player y velocity in tiles per tick.
-  head: {
-    x: Math.floor(conf.tileCount / 2), // Player position relative to number of tiles in a row or column.
-    y: Math.floor(conf.tileCount / 2), // Player position relative to number of tiles in a row or column.
-  },
-  tail: {
-    nodes: [], // Stores the previous head positions to draw the tail.
-    maxLength: 4, // tail length NOT including the head of the snake at (player.head.x, player.head.y).
-  },
-};
-
-// Apple properties
-var apple = {
-  x: 0, // Apple x position relative to number of tiles in a row or column.
-  y: 0, // Apple y position relative to number of tiles in a row or column.
-};
-
 var CTX = canvas.getContext("2d");
 
-function init() {
+// Game Objects
+var gameTimer = false; // Holds interval that runs game.
+var player; // Player properties
+var apple; // Apple properties
+var conf; // Game properties
+
+// Window events
+window.onload = function () {
+  setCanvas(); // set canvas size and style
+  setDefaults(); // initialize game objects
+};
+window.onresize = function () {
+  location.reload(); // refresh the entire page
+};
+
+/** FUNCTIONS */
+
+function setCanvas() {
+  // width x height
+  canvas.width = Math.floor(
+    Math.min(
+      window.innerWidth - canvas.parentNode.clientWidth,
+      window.innerHeight - 84
+    )
+  );
+  canvas.height = canvas.width; // keep the board square!
+  // style the canvas
+  canvas.style.background = "black";
+  canvas.style.border = "5px solid gray";
+}
+
+function clearCanvas() {
+  CTX.clearRect(0, 0, canvas.width, canvas.height);
+  canvas.style.background = "black";
+  canvas.style.border = "5px solid gray";
+}
+
+function setDifficulty(difficulty) {
+  switch (difficulty) {
+    case "1":
+      difficultyOutput.innerHTML = "Normal";
+      conf.gameSpeed = 200; // 1x speed
+      break;
+    case "2":
+      difficultyOutput.innerHTML = "Hard";
+      conf.gameSpeed = 150; // 1.5x speed
+      break;
+    case "3":
+      difficultyOutput.innerHTML = "Good Luck";
+      conf.gameSpeed = 100; // 2x speed
+      break;
+  }
+  if (gameTimer) {
+    clearInterval(gameTimer);
+    gameTimer = false;
+    gameTimer = setInterval(game, conf.gameSpeed);
+  }
+}
+
+function setDefaults() {
+  conf = {
+    score: 0, // number of apples eaten
+    gameSpeed: 200, // ms between draw events => lower to make harder
+    tileCount: 20, // The number of tiles in a row or column.
+    tileWidth: canvas.width / 20, // Tile width on the canvas in pixels.
+    tileHeight: canvas.height / 20, // Tile height on the canvas in pixels.
+  };
+  player = {
+    vx: 1, // Player x velocity in tiles per tick.
+    vy: 0, // Player y velocity in tiles per tick.
+    head: {
+      x: Math.floor(conf.tileCount / 2), // Player position relative to number of tiles in a row or column.
+      y: Math.floor(conf.tileCount / 2), // Player position relative to number of tiles in a row or column.
+    },
+    tail: {
+      nodes: [], // Stores the previous head positions to draw the tail.
+      maxLength: 4, // tail length NOT including the head of the snake at (player.head.x, player.head.y).
+    },
+  };
+  apple = {
+    x: 0, // Apple x position relative to number of tiles in a row or column.
+    y: 0, // Apple y position relative to number of tiles in a row or column.
+  };
+}
+
+function startGame() {
+  // set default values for game objects and outputs
+  setDefaults();
+  setDifficulty(difficultySlider.value);
+  scoreOutput.innerHTML = conf.score;
+  // clear the canvas for drawing
+  clearCanvas();
   // Draw the head of the snake.
   CTX.beginPath();
   CTX.fillStyle = "lime";
@@ -119,35 +116,89 @@ function init() {
   drawApple();
   // Give the game direction control.
   document.addEventListener("keydown", keyPush);
+  document.getElementById("leftarrow").addEventListener("click", onPressLeft);
+  document.getElementById("uparrow").addEventListener("click", onPressUp);
+  document.getElementById("rightarrow").addEventListener("click", onPressRight);
+  document.getElementById("downarrow").addEventListener("click", onPressDown);
   // Set game timer.
-  GAMETIMER = setInterval(game, conf.gameSpeed);
+  gameTimer = setInterval(game, conf.gameSpeed);
+  // Set stateButton to Pause
+  stateButton.innerHTML = "Pause";
+  stateButton.onclick = pauseGame;
+}
+
+function pauseGame() {
+  stateButton.innerHTML = "Continue";
+  stateButton.onclick = continueGame;
+  clearInterval(gameTimer);
+  gameTimer = false;
+}
+
+function continueGame() {
+  stateButton.innerHTML = "Pause";
+  stateButton.onclick = pauseGame;
+  gameTimer = setInterval(game, conf.gameSpeed);
+}
+
+function gameOver() {
+  stateButton.innerHTML = "Play Again?";
+  stateButton.onclick = startGame;
+  clearInterval(gameTimer);
+  gameTimer = false;
+  alert("Game Over!");
+}
+
+function onPressLeft() {
+  if (gameTimer && player.vx != 1) {
+    player.vx = -1;
+    player.vy = 0;
+  }
+}
+function onPressUp() {
+  if (gameTimer && player.vy != 1) {
+    player.vx = 0;
+    player.vy = -1;
+  }
+}
+function onPressRight() {
+  if (gameTimer && player.vx != -1) {
+    player.vx = 1;
+    player.vy = 0;
+  }
+}
+function onPressDown() {
+  if (gameTimer && player.vy != -1) {
+    player.vx = 0;
+    player.vy = 1;
+  }
 }
 
 function keyPush(event) {
   switch (event.keyCode) {
-    case 37: // The left key.
-      if (player.vx != 1) {
-        player.vx = -1;
-        player.vy = 0;
+    case 32: // spacebar
+      event.preventDefault();
+      if (gameTimer) {
+        pauseGame();
+        break;
+      } else {
+        continueGame();
+        break;
       }
+    case 37: // The left key.
+      event.preventDefault();
+      onPressLeft();
       break;
     case 38: // The top key.
-      if (player.vy != 1) {
-        player.vx = 0;
-        player.vy = -1;
-      }
+      event.preventDefault();
+      onPressUp();
       break;
     case 39: // The right key.
-      if (player.vx != -1) {
-        player.vx = 1;
-        player.vy = 0;
-      }
+      event.preventDefault();
+      onPressRight();
       break;
     case 40: // The bottom key.
-      if (player.vy != -1) {
-        player.vx = 0;
-        player.vy = 1;
-      }
+      event.preventDefault();
+      onPressDown();
       break;
   }
 }
@@ -167,8 +218,7 @@ function game() {
     player.head.y == -1 ||
     player.head.y == conf.tileCount
   ) {
-    clearInterval(GAMETIMER);
-    alert("Game Over!");
+    gameOver();
     return;
   }
 
@@ -178,8 +228,7 @@ function game() {
       player.head.x == player.tail.nodes[i].x &&
       player.head.y == player.tail.nodes[i].y
     ) {
-      clearInterval(GAMETIMER);
-      alert("Game Over!");
+      gameOver();
       return;
     }
   }
@@ -188,7 +237,9 @@ function game() {
   // and make the maxLength longer.
   if (player.head.x == apple.x && player.head.y == apple.y) {
     drawApple();
+    conf.score++;
     player.tail.maxLength++;
+    scoreOutput.innerHTML = conf.score;
   }
 
   // Draw the new head of the snake.
