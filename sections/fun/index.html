@@ -60,9 +60,7 @@
       <section id="projects">
         <!-- Info -->
         <article class="info">
-          <p>
-            Here are projects I've done in the past in no particular order!
-          </p>
+          <p>Here are projects I've done in the past in no particular order!</p>
         </article>
 
         <!-- Content -->
@@ -77,7 +75,7 @@
                     onclick="window.location = '/sections/fun/games/snake/index.html'" style="cursor: pointer" />
                 </div>
                 <div class="column title">
-                  <div>
+                  <div style="white-space: nowrap;">
                     <h2 style="display: inline">
                       <strong>Snake</strong>
                     </h2>
@@ -98,7 +96,7 @@
                     onclick="window.location = '/sections/fun/games/platformer/index.html'" style="cursor: pointer" />
                 </div>
                 <div class="column title">
-                  <div>
+                  <div style="white-space: nowrap;">
                     <h2 style="display: inline">
                       <strong>Platformer</strong>
                     </h2>
@@ -122,7 +120,7 @@
                     onclick="window.location = '/sections/fun/games/scroller/index.html'" style="cursor: pointer" />
                 </div>
                 <div class="column title">
-                  <div>
+                  <div style="white-space: nowrap;">
                     <h2 style="display: inline">
                       <strong>2D Side Scroller</strong>
                     </h2>
@@ -143,7 +141,7 @@
                     onclick="window.location = '/sections/fun/demos/clock/index.html'" style="cursor: pointer" />
                 </div>
                 <div class="column title">
-                  <div>
+                  <div style="white-space: nowrap;">
                     <h2 style="display: inline">
                       <strong>Analog Clock</strong>
                     </h2>
@@ -178,14 +176,9 @@
   <script>
     if ("addEventListener" in window) {
       window.addEventListener("load", function () {
-        document.body.className = document.body.className.replace(
-          /\bis-preload\b/,
-          ""
-        );
+        document.body.className = document.body.className.replace(/\bis-preload\b/, "");
       });
-      document.body.className += navigator.userAgent.match(/(MSIE|rv:11\.0)/)
-        ? " is-ie"
-        : "";
+      document.body.className += navigator.userAgent.match(/(MSIE|rv:11\.0)/) ? " is-ie" : "";
     }
   </script>
 </body>

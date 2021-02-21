@@ -30,12 +30,7 @@ window.onresize = function () {
 
 function setCanvas() {
   // width x height
-  canvas.width = Math.floor(
-    Math.min(
-      window.innerWidth - canvas.parentNode.clientWidth,
-      window.innerHeight - 84
-    )
-  );
+  canvas.width = Math.floor(Math.min(window.innerWidth - canvas.parentNode.clientWidth, window.innerHeight - 84));
   canvas.height = canvas.width; // keep the board square!
   // style the canvas
   canvas.style.background = "black";
@@ -106,12 +101,7 @@ function startGame() {
   // Draw the head of the snake.
   CTX.beginPath();
   CTX.fillStyle = "lime";
-  CTX.fillRect(
-    player.head.x * conf.tileWidth,
-    player.head.y * conf.tileHeight,
-    conf.tileWidth,
-    conf.tileHeight
-  );
+  CTX.fillRect(player.head.x * conf.tileWidth, player.head.y * conf.tileHeight, conf.tileWidth, conf.tileHeight);
   // Draw First Apple.
   drawApple();
   // Give the game direction control.
@@ -174,9 +164,9 @@ function onPressDown() {
 }
 
 function keyPush(event) {
+  event.preventDefault();
   switch (event.keyCode) {
     case 32: // spacebar
-      event.preventDefault();
       if (gameTimer) {
         pauseGame();
         break;
@@ -185,19 +175,15 @@ function keyPush(event) {
         break;
       }
     case 37: // The left key.
-      event.preventDefault();
       onPressLeft();
       break;
     case 38: // The top key.
-      event.preventDefault();
       onPressUp();
       break;
     case 39: // The right key.
-      event.preventDefault();
       onPressRight();
       break;
     case 40: // The bottom key.
-      event.preventDefault();
       onPressDown();
       break;
   }
@@ -224,10 +210,7 @@ function game() {
 
   // If snake head touches its tail, clear the game timer and alert the player.
   for (i = 0; i < player.tail.nodes.length; i++) {
-    if (
-      player.head.x == player.tail.nodes[i].x &&
-      player.head.y == player.tail.nodes[i].y
-    ) {
+    if (player.head.x == player.tail.nodes[i].x && player.head.y == player.tail.nodes[i].y) {
       gameOver();
       return;
     }
@@ -245,12 +228,7 @@ function game() {
   // Draw the new head of the snake.
   CTX.beginPath();
   CTX.fillStyle = "lime";
-  CTX.fillRect(
-    player.head.x * conf.tileWidth,
-    player.head.y * conf.tileHeight,
-    conf.tileWidth,
-    conf.tileHeight
-  );
+  CTX.fillRect(player.head.x * conf.tileWidth, player.head.y * conf.tileHeight, conf.tileWidth, conf.tileHeight);
 
   // If the number of positions in the tail is longer than the tail length, remove the last position.
   if (player.tail.nodes.length > player.tail.maxLength) {
@@ -270,10 +248,7 @@ function drawApple() {
       redraw = true;
     } else {
       for (i = 0; i < player.tail.nodes.length; i++) {
-        if (
-          apple.x == player.tail.nodes[i].x &&
-          apple.y == player.tail.nodes[i].y
-        ) {
+        if (apple.x == player.tail.nodes[i].x && apple.y == player.tail.nodes[i].y) {
           // apple is drawn on one of the tail nodes
           redraw = true;
           break;
@@ -284,22 +259,12 @@ function drawApple() {
   // Draw Apple
   CTX.beginPath();
   CTX.fillStyle = "red";
-  CTX.fillRect(
-    apple.x * conf.tileWidth,
-    apple.y * conf.tileHeight,
-    conf.tileWidth,
-    conf.tileHeight
-  );
+  CTX.fillRect(apple.x * conf.tileWidth, apple.y * conf.tileHeight, conf.tileWidth, conf.tileHeight);
 }
 
 function clearTailEnd() {
   var end = player.tail.nodes.pop(); // Remove last tail segment from the tail positions.
   CTX.beginPath();
   CTX.fillStyle = "black";
-  CTX.fillRect(
-    end.x * conf.tileWidth,
-    end.y * conf.tileHeight,
-    conf.tileWidth,
-    conf.tileHeight
-  ); // Color it black
+  CTX.fillRect(end.x * conf.tileWidth, end.y * conf.tileHeight, conf.tileWidth, conf.tileHeight); // Color it black
 }
