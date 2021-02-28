@@ -134,7 +134,7 @@ function gameOver() {
   stateButton.innerHTML = "Play Again?";
   stateButton.onclick = startGame;
   clearInterval(gameTimer);
-  gameTimer = false;
+  gameTimer = 'gameover';
   alert("Game Over!");
 }
 
@@ -167,7 +167,10 @@ function keyPush(event) {
   event.preventDefault();
   switch (event.keyCode) {
     case 32: // spacebar
-      if (gameTimer) {
+      if (gameTimer == "gameover") {
+        startGame();
+        break;
+      } else if (gameTimer) {
         pauseGame();
         break;
       } else {
