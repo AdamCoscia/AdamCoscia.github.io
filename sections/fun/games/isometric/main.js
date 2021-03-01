@@ -1,10 +1,130 @@
 /** GLOBALS */
 
+class inputController {
+  keyMap;
+  clickMap;
+
+  constructor() {
+    this.keyMap = {};
+    this.clickMap = {};
+  }
+
+  bind() {
+    /**
+     * Keyboard inputs.
+     */
+    this.keyMap = {
+      w: {
+        code: "KeyW",
+        up: () => console.log("keyup"),
+        down: () => console.log("keydown"),
+      },
+      a: {
+        code: "KeyA",
+        up: () => console.log("keyup"),
+        down: () => console.log("keydown"),
+      },
+      s: {
+        code: "KeyS",
+        up: () => console.log("keyup"),
+        down: () => console.log("keydown"),
+      },
+      d: {
+        code: "KeyD",
+        up: () => console.log("keyup"),
+        down: () => console.log("keydown"),
+      },
+      p: {
+        code: "KeyP",
+        up: () => console.log("keyup"),
+        down: () => console.log("keydown"),
+      },
+      " ": {
+        code: "Space",
+        up: () => console.log("keyup"),
+        down: () => console.log("keydown"),
+      },
+      ArrowLeft: {
+        code: "ArrowLeft",
+        up: () => console.log("keyup"),
+        down: () => console.log("keydown"),
+      },
+      ArrowUp: {
+        code: "ArrowUp",
+        up: () => console.log("keyup"),
+        down: () => console.log("keydown"),
+      },
+      ArrowRight: {
+        code: "ArrowRight",
+        up: () => console.log("keyup"),
+        down: () => console.log("keydown"),
+      },
+      ArrowDown: {
+        code: "ArrowDown",
+        up: () => console.log("keyup"),
+        down: () => console.log("keydown"),
+      },
+    };
+    /**
+     * On-screen click inputs.
+     */
+    this.clickMap = {
+      leftarrow: {
+        ref: document.getElementById("leftarrow"),
+        press: () => console.log("mousedown touchstart"),
+        depress: () => console.log("mouseup touchend"),
+      },
+      uparrow: {
+        ref: document.getElementById("uparrow"),
+        press: () => console.log("mousedown touchstart"),
+        depress: () => console.log("mouseup touchend"),
+      },
+      rightarrow: {
+        ref: document.getElementById("rightarrow"),
+        press: () => console.log("mousedown touchstart"),
+        depress: () => console.log("mouseup touchend"),
+      },
+      downarrow: {
+        ref: document.getElementById("downarrow"),
+        press: () => console.log("mousedown touchstart"),
+        depress: () => console.log("mouseup touchend"),
+      },
+    };
+  }
+
+  attach() {
+    let context = this;
+    document.addEventListener(
+      "keydown",
+      (e) => {
+        e.preventDefault();
+        if (context.keyMap[e.key] && !e.repeat) context.keyMap[e.key].down();
+      },
+      false
+    );
+    document.addEventListener(
+      "keyup",
+      (e) => {
+        e.preventDefault();
+        if (context.keyMap[e.key] && !e.repeat) context.keyMap[e.key].up();
+      },
+      false
+    );
+    for (const [id, el] of Object.entries(this.clickMap)) {
+      el.ref.addEventListener("mousedown", el.press);
+      el.ref.addEventListener("touchstart", el.press);
+      el.ref.addEventListener("mouseup", el.depress);
+      el.ref.addEventListener("touchend", el.depress);
+    }
+  }
+}
+
 // Document Elements
 var canvas = document.getElementById("board");
 var CTX = canvas.getContext("2d");
 
 // Game Objects
+var inputs = new inputController();
 var gameTimer = false; // Holds interval that runs game.
 var opt; // Game props
 var usr; // User props
@@ -14,6 +134,7 @@ var pc; // Player props
 window.onload = function () {
   setCanvas(); // set canvas size and style
   setDefaults(); // initialize game objects
+  startGame(); // start the game
 };
 window.onresize = function () {
   location.reload(); // refresh the entire page
@@ -50,6 +171,9 @@ function startGame() {
   setDefaults();
   // clear the canvas for drawing
   clearCanvas();
+  // attach controls
+  inputs.bind();
+  inputs.attach();
   // Set game timer.
   gameTimer = setInterval(gameLoop, 1000 / 30);
 }
@@ -64,114 +188,6 @@ function continueGame() {
 
 function endGame() {
   // TODO
-}
-
-class inputController {
-  keyMap;
-  clickMap;
-
-  constructor() {
-    this.keyMap = {};
-    this.clickMap = {};
-  }
-
-  bind() {
-    /**
-     * Keyboard inputs.
-     */
-    this.keyMap = {
-      w: {
-        code: "KeyW",
-        up: null,
-        down: null,
-      },
-      a: {
-        code: "KeyA",
-        up: null,
-        down: null,
-      },
-      s: {
-        code: "KeyS",
-        up: null,
-        down: null,
-      },
-      d: {
-        code: "KeyD",
-        up: null,
-        down: null,
-      },
-      p: {
-        code: "KeyP",
-        up: null,
-        down: null,
-      },
-      " ": {
-        code: "Space",
-        up: null,
-        down: null,
-      },
-      ArrowLeft: {
-        code: "ArrowLeft",
-        up: null,
-        down: null,
-      },
-      ArrowUp: {
-        code: "ArrowUp",
-        up: null,
-        down: null,
-      },
-      ArrowRight: {
-        code: "ArrowRight",
-        up: null,
-        down: null,
-      },
-      ArrowDown: {
-        code: "ArrowDown",
-        up: null,
-        down: null,
-      },
-    };
-    /**
-     * On-screen click inputs.
-     */
-    this.clickMap = {
-      leftArrow: {
-        press: null,
-        depress: null,
-        elem: document.getElementById("leftarrow"),
-      },
-      upArrow: {
-        press: null,
-        depress: null,
-        elem: document.getElementById("uparrow"),
-      },
-      rightArrow: {
-        press: null,
-        depress: null,
-        elem: document.getElementById("rightarrow"),
-      },
-      downArrow: {
-        press: null,
-        depress: null,
-        elem: document.getElementById("downarrow"),
-      },
-    };
-  }
-
-  attach() {
-    document.addEventListener("keydown", (e) => {
-      console.log(e.type + " " + e.key);
-      if (this.keyMap[e.key]) console.log(this.keyMap[e.key].code);
-    });
-    document.addEventListener("keyup", (e) => {
-      console.log(e.type + " " + e.key);
-      if (this.keyMap[e.key]) console.log(this.keyMap[e.key].code);
-    });
-    // for (inp in this.clickMap) {
-    //   this.clickMap[inp].elem.on("mousedown touchstart", this.clickMap[inp].press);
-    //   this.clickMap[inp].elem.on("mouseup touchend", this.clickMap[inp].depress);
-    // }
-  }
 }
 
 function gameLoop() {
