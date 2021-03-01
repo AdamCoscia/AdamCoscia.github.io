@@ -3,19 +3,20 @@
 
 <head>
   <meta charset="utf-8" />
-  <title id="title">Adam Coscia - 2D Scroller</title>
+  <title id="title">Adam Coscia - Isometric</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="preconnect" href="https://fonts.gstatic.com" />
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet" />
   <script type="text/javascript" src="main.js" defer></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 
 <body style="touch-action: manipulation">
   <div class="flex row">
     <!-- Instructions -->
     <div class="flex column center-text" style="min-width: 100px">
-      <h1 class="header">2D Scroller</h1>
+      <h1 class="header">Isometric</h1>
 
       <p class="info">
         Move by pressing the below arrows
@@ -40,19 +41,8 @@
     </div>
 
     <!-- Game -->
-    <div class="flex column" style="min-width: 300px">
+    <div class="flex column" style="min-width: 200px">
       <canvas id="board"></canvas>
-
-      <!-- <table class="scoreboard center-text">
-        <tbody>
-          <tr>
-            <td id="characterX">0</td>
-            <td id="characterY">0</td>
-            <td id="characterVX">0</td>
-            <td id="characterVY">0</td>
-          </tr>
-        </tbody>
-      </table> -->
     </div>
   </div>
 </body>
