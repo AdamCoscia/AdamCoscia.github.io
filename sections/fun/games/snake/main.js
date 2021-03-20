@@ -58,7 +58,7 @@ function setDifficulty(difficulty) {
       conf.gameSpeed = 100; // 2x speed
       break;
   }
-  if (gameTimer) {
+  if (gameTimer && gameTimer !== "gameover") {
     clearInterval(gameTimer);
     gameTimer = false;
     gameTimer = setInterval(game, conf.gameSpeed);
@@ -134,7 +134,7 @@ function gameOver() {
   stateButton.innerHTML = "Play Again?";
   stateButton.onclick = startGame;
   clearInterval(gameTimer);
-  gameTimer = 'gameover';
+  gameTimer = "gameover";
   alert("Game Over!");
 }
 
