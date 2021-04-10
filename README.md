@@ -1,10 +1,10 @@
 # Adam Coscia's Website
 
-Last updated: 01/04/2021
+Last updated: 04/10/2021
 
 ## Credits
 
-Used HTML5 UP for CSS styling:
+Used HTML5UP for CSS styling:
 
 ```
 Identity by HTML5 UP

@@ -1,0 +1,9 @@
+.frame {
+  margin: auto;
+  /* within 10% of main view width */
+  width: clamp(250px, 70vw - 4em, 735px);
+  /* 1.3x width */
+  height: clamp(325px, 92vw - 4em, 955px);
+  overflow-x: auto;
+  overflow-y: hidden;
+}

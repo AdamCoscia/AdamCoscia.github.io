@@ -1,0 +1,143 @@
+/*
+  MULTIPLE SECTIONS
+*/
+.section-header {
+  padding-bottom: 0.75em;
+}
+
+/* 
+  INTRODUCTION 
+*/
+
+.intro {
+  margin: 0 0 1em 0;
+}
+
+.intro p {
+  margin: 0 0 1em 0;
+  text-transform: none;
+  letter-spacing: 0.1em;
+}
+
+.page-nav-list {
+  text-transform: capitalize;
+}
+
+.page-nav-list ul {
+  margin-bottom: 0.75em;
+}
+
+.splash {
+  padding: 0 1.5em 0 1.5em;
+}
+
+.splash img {
+  width: 100%;
+  border-radius: 4px;
+}
+
+.contact-list {
+  text-transform: none;
+  text-align: left;
+  letter-spacing: 1px;
+  background-color: #f4f4f4;
+  border-left: 2px solid #ccc;
+}
+
+.contact-list ul {
+  margin: 0.5em 0 0 0;
+  padding: 0.5em 0 0.5em 1em;
+  list-style: none;
+}
+
+/* 
+  HIGHLIGHTS 
+*/
+
+.news-list {
+  letter-spacing: 1px;
+  text-transform: none;
+}
+
+.news-list ul li {
+  border-top: none;
+  padding: 0;
+}
+
+/* 
+  PROJECTS and PUBLICATIONS 
+*/
+
+.teaser {
+  min-width: 135px;
+  flex-grow: 0.25;
+}
+
+.teaser img {
+  width: 100%;
+  border-radius: 4px;
+}
+
+.details {
+  text-transform: none;
+  letter-spacing: 0;
+  padding: 1em;
+}
+
+.details * {
+  margin: 0;
+  padding: 0;
+}
+
+/* 
+  SHORT BIO & CONTACT CARD 
+*/
+
+.short-bio {
+  min-width: 270px;
+}
+
+.short-bio p {
+  margin: 0;
+  padding: 0.5em;
+  text-transform: none;
+  letter-spacing: 1px;
+}
+
+.contact-card {
+  min-width: 270px;
+  background-color: #e4f2ff;
+  border-left: 2px solid #96ccff;
+}
+
+.contact-card p {
+  margin: 0;
+  padding: 0.5em;
+  letter-spacing: 1px;
+}
+
+.contact-card ul {
+  margin: 0;
+  padding: 0.5em;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+}
+
+/* 
+  SHOW/HIDE SECTION 
+*/
+
+.showhide {
+  display: inline;
+  cursor: pointer;
+}
+
+[id^="toggle"],
+[id^="toggle"]+* {
+  display: block;
+}
+
+[id^="toggle"]:checked+* {
+  display: none;
+}

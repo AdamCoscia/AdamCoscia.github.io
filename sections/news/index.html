@@ -5,75 +5,15 @@
   <title>Adam Coscia - HCC PhD - News</title>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-  <link rel="stylesheet" href="/assets/css/main.css" />
+  <!-- HTMLUP 5 (https://html5up.net/) -->
+  <link rel="stylesheet" href="/css/html5up.css" />
   <noscript>
-    <link rel="stylesheet" href="/assets/css/noscript.css" />
+    <link rel="stylesheet" href="/css/noscript.css" />
   </noscript>
-  <style>
-    #main {
-      width: auto;
-      min-width: 300px;
-      max-width: 750px;
-    }
-
-    /* NAVIGATION */
-
-    .page-nav {
-      margin: 0 0 1em 0;
-    }
-
-    .page-nav-title {
-      text-align: right;
-      margin: 0 0.5em 0 0;
-    }
-
-    .page-nav-list {
-      margin: 0 0 0 0.5em;
-    }
-
-    .page-nav-list ul {
-      margin: 0;
-      padding: 0;
-      display: flex;
-      list-style: none;
-      justify-content: left;
-    }
-
-    /* CONTENT */
-
-    .news ul {
-      list-style: none;
-      text-align: left;
-      letter-spacing: 0.1em;
-      text-transform: none;
-      padding: 0;
-    }
-
-    .news ul li {
-      border: none;
-    }
-
-    .item-title {
-      font-size: 11pt;
-      margin: 0 0 0.25em 0;
-    }
-
-    .item-title a {
-      display: inline;
-    }
-
-    .item-content {
-      margin: 0 0 1em 0;
-      padding-left: 1em;
-      font-size: 9pt;
-      background-color: #f4f4f4;
-      border-left: 2px solid #ccc;
-    }
-
-    .item-content a {
-      display: contents;
-    }
-  </style>
+  <!-- Global CSS -->
+  <link rel="stylesheet" href="/css/global.css" />
+  <!-- Local CSS -->
+  <link rel="stylesheet" href="main.css" />
 </head>
 
 <body class="is-preload">
@@ -97,11 +37,17 @@
         </div>
         <div class="column page-nav-list">
           <ul>
-            <li><a href="#2021"><strong>2021</strong></a></li>
+            <li>
+              <a href="#2021"><strong>2021</strong></a>
+            </li>
             <li>&bull;</li>
-            <li><a href="#2020"><strong>2020</strong></a></li>
+            <li>
+              <a href="#2020"><strong>2020</strong></a>
+            </li>
             <li>&bull;</li>
-            <li><a href="#2019"><strong>2019</strong></a></li>
+            <li>
+              <a href="#2019"><strong>2019</strong></a>
+            </li>
           </ul>
         </div>
       </div>
@@ -137,16 +83,14 @@
               </header>
               <!-- Content -->
               <p class="item-content">
-                On Sunday Oct 25th I presented my first "first-author" paper
-                at the
+                On Sunday Oct 25th I presented my first "first-author" paper at the
                 <a href="https://trexvis.github.io/Workshop2020/index.html" target="_blank">
                   <strong>Workshop on TRust and EXpertise in Visual Analytics (TREX),</strong>
                 </a>
                 <a href="http://ieeevis.org/year/2020/welcome" target="_blank">
                   <strong>IEEE VIS'20.</strong>
                 </a>
-                It's a work-in-progress paper on the future of bias-aware
-                initiatives in visual analytics.
+                It's a work-in-progress paper on the future of bias-aware initiatives in visual analytics.
               </p>
             </li>
 
@@ -154,8 +98,7 @@
             <li id="0920-panel">
               <!-- Title -->
               <header class="item-title">
-                <strong>Sep 30 &#187; Panelist, "Applying to Ph.D.
-                  Programs"</strong>
+                <strong>Sep 30 &#187; Panelist, "Applying to Ph.D. Programs"</strong>
               </header>
               <!-- Content -->
               <p class="item-content">
@@ -163,9 +106,8 @@
                 <a href="https://www.linkedin.com/in/kaitlin-gili-b5b278149" target="_blank">
                   <strong>Kaitlin Gili,</strong>
                 </a>
-                we provided information, support, and guidance for
-                undergraduate Stevens Pinnacle and Clark Scholars who are
-                looking to pursue a PhD of their own after graduation.
+                we provided information, support, and guidance for undergraduate Stevens Pinnacle and Clark Scholars
+                who are looking to pursue a PhD of their own after graduation.
               </p>
             </li>
 
@@ -178,8 +120,7 @@
               </header>
               <!-- Content -->
               <p class="item-content">
-                I became an HCC PhD student working in the Visual Analytics
-                Lab under the supervision of
+                I became an HCC PhD student working in the Visual Analytics Lab under the supervision of
                 <a href="https://va.gatech.edu/endert/" target="_blank">
                   <strong>Alex Endert.</strong>
                 </a>
@@ -201,8 +142,7 @@
                 <a href="https://www.ewaab.org/" target="_blank">
                   <strong>Encouraging Women Across All Borders</strong>
                 </a>
-                on the what, why, and how of data science for absolute
-                beginners. Go give it a read and share it!
+                on the what, why, and how of data science for absolute beginners. Go give it a read and share it!
               </p>
             </li>
           </ul>
@@ -237,14 +177,9 @@
   <script>
     if ("addEventListener" in window) {
       window.addEventListener("load", function () {
-        document.body.className = document.body.className.replace(
-          /\bis-preload\b/,
-          ""
-        );
+        document.body.className = document.body.className.replace(/\bis-preload\b/, "");
       });
-      document.body.className += navigator.userAgent.match(/(MSIE|rv:11\.0)/)
-        ? " is-ie"
-        : "";
+      document.body.className += navigator.userAgent.match(/(MSIE|rv:11\.0)/) ? " is-ie" : "";
     }
   </script>
 </body>
