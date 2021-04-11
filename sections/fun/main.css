@@ -1,23 +1,36 @@
-.info p {
-  font-size: 11pt;
+.info {
   text-transform: none;
-  letter-spacing: 0.1em;
+  letter-spacing: 0;
+}
+
+.divider {
+  width: 50%;
+  margin: 1rem auto;
 }
 
 /* CARDS */
 
-.teaser {
-  min-width: 135px;
+img {
+  max-width: 100%;
+  min-width: 100%;
 }
 
-.teaser img {
-  width: 100%;
+.card-grid {
+  margin: 0.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(225px, 1fr));
+  grid-gap: 1rem;
+}
+
+.card {
+  text-align: center;
+  padding: 0.5rem;
+  border: 2px solid transparent;
   border-radius: 4px;
 }
 
-.title {
-  font-size: 11pt;
-  text-transform: none;
-  letter-spacing: 0;
-  padding: 1em;
+.card:hover {
+  border-color: lightgrey;
 }
+
+

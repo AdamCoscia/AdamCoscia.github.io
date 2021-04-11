@@ -27,9 +27,21 @@
   CONTENT 
 */
 
+.section-header {
+  padding-bottom: 0.75rem;
+}
+
+.showhide {
+  display: inline;
+  cursor: pointer;
+}
+
+.news {
+  text-align: left;
+}
+
 .news ul {
   list-style: none;
-  text-align: left;
   letter-spacing: 0.1em;
   text-transform: none;
   padding: 0;

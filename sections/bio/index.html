@@ -17,9 +17,9 @@
 </head>
 
 <body class="is-preload">
-  <div id="wrapper" style="overflow: auto">
+  <div id="wrapper">
     <section id="main">
-      <!-- Header -->
+      <!-- HEADER -->
       <header>
         <h1>
           <a href="/index.html" class="logo">Adam <strong>Coscia</strong></a>
@@ -27,25 +27,28 @@
         <p>HCC PhD Student @ Georgia Tech</p>
       </header>
 
-      <!-- Break -->
       <hr />
 
-      <!-- Bio -->
-      <article>
+      <!-- BODY -->
+      <div>
         <p>Content coming soon!</p>
-      </article>
+      </div>
 
-      <!-- Footer -->
-      <footer id="footer" style="color: inherit">
-        <ul class="copyright">
-          <li>&copy; 2020 Adam Coscia</li>
-          <li style="border-left: solid 1px rgba(0, 0, 0, 0.25)">
-            Back to <a href="#wrapper"><strong>top</strong></a>
-          </li>
-          <li style="border-left: solid 1px rgba(0, 0, 0, 0.25)">
-            Return <a href="/index.html"><strong>home</strong></a>
-          </li>
-        </ul>
+      <hr />
+
+      <!-- FOOTER -->
+      <footer>
+        <div id="footer" style="color: #414f57">
+          <ul class="copyright">
+            <li>&copy; 2021 Adam Coscia</li>
+            <li>
+              <a href="#main"><span class="icon solid fa-arrow-up"></span> Top</a>
+            </li>
+            <li>
+              <a href="/index.html"><span class="icon solid fa-home"></span> Home</a>
+            </li>
+          </ul>
+        </div>
       </footer>
     </section>
   </div>
@@ -54,14 +57,9 @@
   <script>
     if ("addEventListener" in window) {
       window.addEventListener("load", function () {
-        document.body.className = document.body.className.replace(
-          /\bis-preload\b/,
-          ""
-        );
+        document.body.className = document.body.className.replace(/\bis-preload\b/, "");
       });
-      document.body.className += navigator.userAgent.match(/(MSIE|rv:11\.0)/)
-        ? " is-ie"
-        : "";
+      document.body.className += navigator.userAgent.match(/(MSIE|rv:11\.0)/) ? " is-ie" : "";
     }
   </script>
 </body>

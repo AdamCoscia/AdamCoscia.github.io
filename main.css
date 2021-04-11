@@ -1,19 +1,12 @@
-/*
-  MULTIPLE SECTIONS
-*/
-.section-header {
-  padding-bottom: 0.75em;
-}
-
 /* 
-  INTRODUCTION 
+  HEADER
 */
 
-.intro {
+.introduction {
   margin: 0 0 1em 0;
 }
 
-.intro p {
+.introduction p {
   margin: 0 0 1em 0;
   text-transform: none;
   letter-spacing: 0.1em;
@@ -27,11 +20,11 @@
   margin-bottom: 0.75em;
 }
 
-.splash {
+.profile {
   padding: 0 1.5em 0 1.5em;
 }
 
-.splash img {
+.profile img {
   width: 100%;
   border-radius: 4px;
 }
@@ -51,82 +44,16 @@
 }
 
 /* 
-  HIGHLIGHTS 
+  BODY
 */
 
-.news-list {
-  letter-spacing: 1px;
-  text-transform: none;
+.section-header {
+  padding-bottom: 0.75rem;
 }
 
-.news-list ul li {
-  border-top: none;
-  padding: 0;
+.section-content {
+  margin-bottom: 1rem;
 }
-
-/* 
-  PROJECTS and PUBLICATIONS 
-*/
-
-.teaser {
-  min-width: 135px;
-  flex-grow: 0.25;
-}
-
-.teaser img {
-  width: 100%;
-  border-radius: 4px;
-}
-
-.details {
-  text-transform: none;
-  letter-spacing: 0;
-  padding: 1em;
-}
-
-.details * {
-  margin: 0;
-  padding: 0;
-}
-
-/* 
-  SHORT BIO & CONTACT CARD 
-*/
-
-.short-bio {
-  min-width: 270px;
-}
-
-.short-bio p {
-  margin: 0;
-  padding: 0.5em;
-  text-transform: none;
-  letter-spacing: 1px;
-}
-
-.contact-card {
-  min-width: 270px;
-  background-color: #e4f2ff;
-  border-left: 2px solid #96ccff;
-}
-
-.contact-card p {
-  margin: 0;
-  padding: 0.5em;
-  letter-spacing: 1px;
-}
-
-.contact-card ul {
-  margin: 0;
-  padding: 0.5em;
-  list-style: none;
-  display: flex;
-  justify-content: center;
-}
-
-/* 
-  SHOW/HIDE SECTION 
-*/
 
 .showhide {
   display: inline;
@@ -134,10 +61,119 @@
 }
 
 [id^="toggle"],
-[id^="toggle"]+* {
+[id^="toggle"] + * {
   display: block;
 }
 
-[id^="toggle"]:checked+* {
+[id^="toggle"]:checked + * {
   display: none;
+}
+
+.card-grid {
+  margin: 0.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(225px, 1fr));
+  grid-gap: 1rem;
+}
+
+.card {
+  padding: 0.5rem;
+  border: 2px solid transparent;
+  border-radius: 4px;
+}
+
+.card:hover {
+  border-color: lightgrey;
+}
+
+.teaser img {
+  width: 100%;
+  min-width: 175px;
+  border-radius: 4px;
+}
+
+.details {
+  min-width: 225px;
+  text-transform: none;
+  letter-spacing: 0;
+  line-height: 1.5rem;
+  padding: 0.5rem;
+  flex-grow: 4;
+}
+
+.details-title {
+  font-size: clamp(1rem, 0.9358rem + 0.2936vw, 1.2rem);
+  font-weight: 800 !important;
+}
+
+.details-authors,
+.details-desc {
+  color: gray;
+  font-weight: 100 !important;
+}
+
+.details-venue {
+  font-style: italic;
+}
+
+.details-links {
+  white-space: nowrap;
+  font-weight: 800 !important;
+}
+
+.highlights-grid {
+  margin: 0.5rem;
+  line-height: 1.5rem;
+  text-transform: none;
+  letter-spacing: 0; 
+  display: grid;
+  grid-template-columns: 0.1fr 0.9fr;
+  grid-gap: 1rem;
+}
+
+.highlights-date {
+  text-align: right;
+}
+
+.highlights-title {
+  font-weight: 800 !important;
+}
+
+.highlights-desc a {
+  color: #313f47;
+  font-weight: 600 !important;
+}
+
+/* 
+  FOOTER
+*/
+
+.contact {
+  line-height: 1.75rem;
+  background-color: #e4f2ff;
+  border-left: 2px solid #96ccff;
+}
+
+.contact-bio {
+  min-width: 250px;
+  text-transform: none;
+  letter-spacing: 1px;
+  padding: 0.5rem;
+}
+
+.contact-card {
+  min-width: 250px;
+  padding: 0.5rem;
+}
+
+.contact-card-address {
+  letter-spacing: 1px;
+}
+
+.contact-card-icons {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  justify-content: center;
 }

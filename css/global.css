@@ -3,7 +3,7 @@
 */
 
 #main {
-  width: clamp(300px, 70vw, 800px);
+  width: clamp(350px, 70vw, 800px);
   font-size: clamp(0.8rem, 0.7358rem + 0.2936vw, 1rem);
 }
 
@@ -16,7 +16,6 @@
 }
 
 .column {
-  margin-bottom: 1rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
