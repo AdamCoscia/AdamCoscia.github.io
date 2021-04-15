@@ -7,3 +7,26 @@
   overflow-x: auto;
   overflow-y: hidden;
 }
+
+/*
+  INFO GRID
+*/
+
+.info-grid {
+  margin-bottom: 1rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 0.25rem 1rem;
+}
+
+.info-grid span {
+  white-space: nowrap;
+}
+
+.info-grid-left {
+  justify-self: end;
+}
+
+.info-grid-right {
+  justify-self: start;
+}

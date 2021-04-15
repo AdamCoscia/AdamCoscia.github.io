@@ -2,26 +2,25 @@
   HEADER
 */
 
+#header-panel {
+  max-width: 615px;
+  margin: 0 auto;
+}
+
 .introduction {
-  margin: 0 0 1em 0;
+  margin: 0 1rem 1rem 1rem;
+  text-align: left;
 }
 
 .introduction p {
-  margin: 0 0 1em 0;
+  margin-bottom: 1rem;
+  line-height: 1.5;
   text-transform: none;
-  letter-spacing: 0.1em;
-}
-
-.page-nav-list {
-  text-transform: capitalize;
-}
-
-.page-nav-list ul {
-  margin-bottom: 0.75em;
+  letter-spacing: 0;
 }
 
 .profile {
-  padding: 0 1.5em 0 1.5em;
+  margin: 0 1rem;
 }
 
 .profile img {
@@ -29,18 +28,31 @@
   border-radius: 4px;
 }
 
-.contact-list {
+.profile-links {
   text-transform: none;
   text-align: left;
   letter-spacing: 1px;
-  background-color: #f4f4f4;
-  border-left: 2px solid #ccc;
 }
 
-.contact-list ul {
-  margin: 0.5em 0 0 0;
-  padding: 0.5em 0 0.5em 1em;
+.profile-links-pages {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
+}
+
+.profile-links-pages * {
+  justify-self: center;
+}
+
+.profile-links-contact {
+  margin: 0;
+  padding: 0.5rem 0em;
   list-style: none;
+}
+
+.profile-links-contact li a span {
+  display: inline-block;
+  text-align: center;
+  width: 25px;
 }
 
 /* 
@@ -72,7 +84,7 @@
 .card-grid {
   margin: 0.5rem;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(225px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(265px, 1fr));
   grid-gap: 1rem;
 }
 
@@ -86,24 +98,37 @@
   border-color: lightgrey;
 }
 
+.teaser {
+  box-shadow: 0 0 0.25rem lightgrey;
+}
+
 .teaser img {
+  padding: 1px;
   width: 100%;
-  min-width: 175px;
+  min-width: 170px;
   border-radius: 4px;
 }
 
 .details {
-  min-width: 225px;
+  min-width: 265px;
   text-transform: none;
   letter-spacing: 0;
-  line-height: 1.5rem;
+  line-height: 1.5;
   padding: 0.5rem;
   flex-grow: 4;
 }
 
 .details-title {
-  font-size: clamp(1rem, 0.9358rem + 0.2936vw, 1.2rem);
-  font-weight: 800 !important;
+  font-size: clamp(1.1rem, 0.9923rem + 0.4923vw, 1.3rem);
+  font-weight: 600 !important;
+  padding-bottom: 0.25rem;
+}
+
+.details-authors,
+.details-desc,
+.details-venue,
+.details-links {
+  font-size: clamp(0.8rem, 0.6923rem + 0.4923vw, 1rem);
 }
 
 .details-authors,
@@ -125,7 +150,7 @@
   margin: 0.5rem;
   line-height: 1.5rem;
   text-transform: none;
-  letter-spacing: 0; 
+  letter-spacing: 0;
   display: grid;
   grid-template-columns: 0.1fr 0.9fr;
   grid-gap: 1rem;
@@ -148,32 +173,6 @@
   FOOTER
 */
 
-.contact {
-  line-height: 1.75rem;
-  background-color: #e4f2ff;
-  border-left: 2px solid #96ccff;
-}
-
-.contact-bio {
-  min-width: 250px;
-  text-transform: none;
-  letter-spacing: 1px;
-  padding: 0.5rem;
-}
-
-.contact-card {
-  min-width: 250px;
-  padding: 0.5rem;
-}
-
-.contact-card-address {
-  letter-spacing: 1px;
-}
-
-.contact-card-icons {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  display: flex;
-  justify-content: center;
+#footer {
+  padding-top: 1rem;
 }

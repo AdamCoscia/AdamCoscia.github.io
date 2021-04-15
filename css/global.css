@@ -3,8 +3,8 @@
 */
 
 #main {
-  width: clamp(350px, 70vw, 800px);
-  font-size: clamp(0.8rem, 0.7358rem + 0.2936vw, 1rem);
+  width: clamp(350px, 70vw, 1000px);
+  font-size: clamp(0.9rem, 0.7923rem + 0.4923vw, 1.1rem);
 }
 
 .row {
@@ -20,6 +20,14 @@
   flex-direction: column;
   justify-content: center;
   flex: 1;
+}
+
+.footer-contacts {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  justify-content: center;
 }
 
 .text-muted {
