@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title id="title">Isometric</title>
+  <title id="title">Projections</title>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
   <!-- Google Fonts -->
@@ -11,20 +11,29 @@
   <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet" />
   <!-- JQUERY -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <!-- CSS -->
+  <!-- GLOBAL CSS -->
+  <link rel="stylesheet" href="../../global.css" />
+  <!-- LOCAL CSS -->
   <link rel="stylesheet" href="style.css" />
-  <!-- JS -->
+  <!-- LOCAL JS -->
   <script type="module" src="main.js" defer></script>
 </head>
 
 <body style="touch-action: manipulation">
-  <div class="flex row">
-    <!-- Instructions -->
-    <div class="flex column center-text" style="min-width: 100px">
-      <h1 class="header">Isometric</h1>
+  <div class="flex-container text-center">
+    <!-- INSTRUCTIONS -->
+    <div class="instructions-container">
+      <!-- HEADER -->
+      <header class="title">
+        <h1>Projections</h1>
+      </header>
 
-      <p class="info">Set the projection style</p>
+      <!-- INFO -->
+      <div class="info">
+        <p>Set the projection style.</p>
+      </div>
 
+      <!-- SELECTOR -->
       <select id="projectionSelector">
         <option value="PixelBimetric">Pixel Bimetric</option>
         <option value="PixelTrimetric">Pixel Trimetric</option>
@@ -37,8 +46,8 @@
       </select>
     </div>
 
-    <!-- Game -->
-    <div class="flex column" style="min-width: 200px">
+    <!-- GAME -->
+    <div class="game-container">
       <canvas id="board"></canvas>
     </div>
   </div>

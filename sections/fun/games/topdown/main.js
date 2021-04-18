@@ -3,17 +3,11 @@
 // Document Elements
 var canvas = document.getElementById("board");
 var context = canvas.getContext("2d");
-try {
-  var characterX = document.getElementById("characterX");
-  var characterY = document.getElementById("characterY");
-  var characterVX = document.getElementById("characterVX");
-  var characterVY = document.getElementById("characterVY");
-} catch (err) {}
 
 // Game Objects
 var game; // Game properties
-var player; // Player properties
-var character; // character properties
+var usr; // usr properties
+var pc; // pc properties
 
 // Window events
 window.onload = function () {
@@ -45,13 +39,13 @@ function setDefaults() {
     fps: 30,
     gravity: 0.6,
     platforms: [],
-    ground: 7 * (canvas.height / 8),
+    ground: canvas.height / 2 + 100,
   };
-  player = {
+  usr = {
     holdLeft: false,
     holdRight: false,
   };
-  character = {
+  pc = {
     x: 0,
     y: 0,
     h: 25,
@@ -92,15 +86,15 @@ function startGame() {
 }
 
 function onPressLeft() {
-  player.holdLeft = true;
+  usr.holdLeft = true;
 }
 
 function onDepressLeft() {
-  player.holdLeft = false;
+  usr.holdLeft = false;
 }
 
 function onPressUp() {
-  if (character.onGround) character.vy = 6;
+  if (pc.onGround) pc.vy = 6;
 }
 
 function onDepressUp() {
@@ -108,11 +102,11 @@ function onDepressUp() {
 }
 
 function onPressRight() {
-  player.holdRight = true;
+  usr.holdRight = true;
 }
 
 function onDepressRight() {
-  player.holdRight = false;
+  usr.holdRight = false;
 }
 
 function keyDown(evt) {
@@ -146,73 +140,65 @@ function keyUp(evt) {
 }
 
 function gameLoop() {
-  // Update character x velocity.
-  if (player.holdLeft && player.holdRight) {
-    character.vy = 0;
-  } else if (player.holdLeft) {
-    character.vx = -3;
-  } else if (player.holdRight) {
-    character.vx = 3;
-  } else if (character.onGround) {
-    character.vx *= 0.8; // slow character down while on ground
+  // Update pc x velocity.
+  if (usr.holdLeft && usr.holdRight) {
+    pc.vy = 0;
+  } else if (usr.holdLeft) {
+    pc.vx = -3;
+  } else if (usr.holdRight) {
+    pc.vx = 3;
+  } else if (pc.onGround) {
+    pc.vx *= 0.8; // slow pc down while on ground
   }
 
-  // Update character y velocity.
-  if (character.vy > -6) {
-    character.vy -= game.gravity;
+  // Update pc y velocity.
+  if (pc.vy > -6) {
+    pc.vy -= game.gravity;
   } else {
-    character.vy = -6; // cap the descent velocity
+    pc.vy = -6; // cap the descent velocity
   }
 
-  // Update character position.
-  character.x += character.vx;
-  character.y += character.vy;
+  // Update pc position.
+  pc.x += pc.vx;
+  pc.y += pc.vy;
 
   // Handle object collision.
-  character.onGround = false;
-  if (character.y <= 0) {
+  pc.onGround = false;
+  if (pc.y <= 0) {
     // charcter below ground
-    character.y = 0;
-    character.onGround = true;
+    pc.y = 0;
+    pc.onGround = true;
   } else {
     for (i = 0; i < game.platforms.length; i++) {
       if (
-        character.x > game.platforms[i].x &&
-        character.x < game.platforms[i].x + game.platforms[i].w &&
-        character.y < game.platforms[i].y &&
-        character.y > game.platforms[i].y - game.platforms[i].h
+        pc.x > game.platforms[i].x &&
+        pc.x < game.platforms[i].x + game.platforms[i].w &&
+        pc.y < game.platforms[i].y &&
+        pc.y > game.platforms[i].y - game.platforms[i].h
       ) {
-        // character inside platform => put them on platform
-        character.y = game.platforms[i].y;
-        character.vy = 0;
-        character.onGround = true;
+        // pc inside platform => put them on platform
+        pc.y = game.platforms[i].y;
+        pc.vy = 0;
+        pc.onGround = true;
         break;
       }
     }
   }
 
-  // Update table
-  try {
-    characterX.innerHTML = character.x.toFixed(1);
-    characterY.innerHTML = character.y.toFixed(1);
-    characterVX.innerHTML = character.vx.toFixed(1);
-    characterVY.innerHTML = character.vy.toFixed(1);
-  } catch (err) {}
-
   // Clear Canvas
   clearCanvas();
-  // Draw Character
+  // Draw pc
   context.fillStyle = "red";
-  context.fillRect((canvas.width - character.w) / 2, game.ground - character.h, character.w, character.h);
+  context.fillRect((canvas.width - pc.w) / 2, game.ground - pc.h, pc.w, pc.h);
   // Draw Ground
   context.fillStyle = "black";
-  context.fillRect(0, game.ground + character.y, canvas.width, canvas.height - (game.ground + character.y));
+  context.fillRect(0, game.ground + pc.y, canvas.width, canvas.height - (game.ground + pc.y));
   // Draw Elements
   context.fillStyle = "green";
   for (i = 0; i < game.platforms.length; i++) {
     context.fillRect(
-      canvas.width / 2 + game.platforms[i].x - character.x,
-      game.ground + character.y - game.platforms[i].y,
+      canvas.width / 2 + game.platforms[i].x - pc.x,
+      game.ground + pc.y - game.platforms[i].y,
       game.platforms[i].w,
       game.platforms[i].h
     );

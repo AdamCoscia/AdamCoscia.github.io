@@ -29,9 +29,9 @@ window.onresize = function () {
 /** FUNCTIONS */
 
 function setCanvas() {
-  // width x height
-  canvas.width = Math.floor(Math.min(window.innerWidth - canvas.parentNode.clientWidth, window.innerHeight - 84));
-  canvas.height = canvas.width; // keep the board square!
+  // Set canvas width and height based on parent node width
+  canvas.width = 0.7 * canvas.parentNode.clientWidth;
+  canvas.height = canvas.width; // 1:1 aspect ratio
   // style the canvas
   canvas.style.background = "black";
   canvas.style.border = "5px solid gray";
@@ -84,8 +84,8 @@ function setDefaults() {
       nodes: [], // Stores the previous head positions to draw the tail.
       maxLength: 4, // tail length NOT including the head of the snake at (player.head.x, player.head.y).
     },
-    oob: function () {
-      this.head.x == -1 || this.head.x == conf.tileCount || this.head.y == -1 || this.head.y == conf.tileCount;
+    outOfBounds: function () {
+      return this.head.x == -1 || this.head.x == conf.tileCount || this.head.y == -1 || this.head.y == conf.tileCount;
     },
   };
   apple = {
@@ -210,7 +210,7 @@ function game() {
   player.head.y += player.vy;
 
   // If snake head goes out of the game screen, clear the game timer and alert the player.
-  if (player.oob()) {
+  if (player.outOfBounds()) {
     gameOver();
     return;
   }

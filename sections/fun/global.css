@@ -1,0 +1,50 @@
+/*
+	Global stylesheet
+*/
+
+.flex-container {
+  font-size: clamp(0.5rem, 0.3rem + 1vw, 1.9rem);
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+.text-center {
+  text-align: center;
+}
+
+/*
+  KEYPAD
+*/
+
+.keypad {
+  width: 75%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.keypad td {
+  font-family: "Press Start 2P", cursive;
+  font-size: 2em;
+  cursor: pointer;
+  width: 30%;
+  height: 0;
+  border: 1px solid black;
+}
+
+.keypad td:after,
+.keypad td:before {
+  content: "";
+  display: block;
+  padding-bottom: calc(50% - 0.5em);
+}
+
+.keypad td:hover {
+  background-color: gainsboro;
+}
+
+.keypad td:active {
+  background-color: grey;
+}
