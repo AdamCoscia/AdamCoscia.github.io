@@ -129,6 +129,11 @@
   width: 100%;
 }
 
+.trophy {
+  border-bottom: 2px dotted lightgrey;
+  text-shadow: 0 0 2px #000;
+}
+
 .details {
   min-width: 265px;
   text-transform: none;
