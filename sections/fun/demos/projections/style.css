@@ -2,7 +2,7 @@
   TOP-LEVEL
 */
 
-.flex-container {
+.flex-row {
   font-family: "Quicksand";
   padding: 2rem;
 }
@@ -19,6 +19,10 @@
 
 .title {
   font-family: "Press Start 2P", cursive;
+}
+
+#projectionSelector {
+  font: inherit;
 }
 
 /* 

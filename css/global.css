@@ -43,6 +43,8 @@
   flex-wrap: nowrap;
 }
 
+/** TOOLTIP */
+
 @-webkit-keyframes fadeIn {
   from {
     opacity: 0;
