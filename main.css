@@ -149,6 +149,7 @@
   padding-bottom: 0.25rem;
 }
 
+.details-position,
 .details-authors,
 .details-desc,
 .details-venue,
@@ -156,10 +157,20 @@
   font-size: clamp(0.8rem, 0.6923rem + 0.4923vw, 1rem);
 }
 
+.details-position,
+.details-authors,
+.details-desc {
+  color: gray;
+}
+
 .details-authors,
 .details-desc {
   color: gray;
   font-weight: 100 !important;
+}
+
+.details-position {
+  font-weight: 800 !important;
 }
 
 .details-venue {
