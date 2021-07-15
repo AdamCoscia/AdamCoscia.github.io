@@ -189,7 +189,8 @@
   letter-spacing: 0;
   display: grid;
   grid-template-columns: 0.1fr 0.9fr;
-  grid-gap: 1rem;
+  row-gap: 1.25rem;
+  column-gap: 1rem;
 }
 
 .highlights-title,
@@ -199,6 +200,7 @@
 }
 
 .highlights-date {
+  color: grey;
   text-align: right;
 }
 
