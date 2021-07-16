@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>ThreeJS Explorations</title>
+  <script src="libraries/three.min.js"></script>
+  <script src="libraries/jquery-3.6.0.min.js"></script>
+  <script src="libraries/jquery.csv.min.js"></script>
+  <script src="libraries/split.min.js"></script>
+  <style>
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+      font-size: 16pt;
+    }
+
+    #editor {
+      display: flex;
+      width: 100%;
+      height: 100%;
+    }
+
+    #controls {
+      background: #aaa;
+      padding: 5px;
+    }
+
+    #controls-grid {
+      margin: 0 auto;
+      max-width: 300px;
+      display: grid;
+      row-gap: 10px;
+      column-gap: 10px;
+      grid-template-columns: 0.25fr 0.75fr;
+      grid-template-rows: repeat(auto-fit, minmax(20px, 30px));
+      justify-items: stretch;
+      align-items: stretch;
+    }
+
+    #controls-grid h2 {
+      margin: 0;
+      text-align: center;
+    }
+
+    #controls-grid ol {
+      margin: 0;
+    }
+
+    #c {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    .gutter {
+      background-color: #eee;
+      background-repeat: no-repeat;
+      background-position: 50%;
+    }
+
+    .gutter.gutter-horizontal {
+      cursor: ew-resize;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="editor">
+    <div id="view">
+      <canvas id="c"></canvas>
+    </div>
+
+    <div id="controls">
+      <div id="controls-grid">
+        <h2 style="grid-column: 1 / 3">File Select</h2>
+
+        <select style="grid-column: 1 / 3" id="file-select">
+          <option>3d_natural_5cm.csv</option>
+          <option>3d_natural_15cm.csv</option>
+          <option>3d_linear_5cm.csv</option>
+          <option>3d_linear_15cm.csv</option>
+          <option>3d_nearest_5cm.csv</option>
+          <option>3d_nearest_15cm.csv</option>
+        </select>
+
+        <h2 style="grid-column: 1 / 3">Instructions</h2>
+
+        <ol style="grid-column: 1 / 3">
+          <li>Left click and drag to pan</li>
+          <li>Right click and drag to rotate</li>
+          <li>Middle click or scroll to zoom</li>
+        </ol>
+
+        <h2 style="grid-column: 1 / 3">Camera Controls</h2>
+
+        <span style="grid-column: 1 / 3; align-self: end; justify-self: center">Field of View</span>
+        <span style="grid-column: 1; text-align: right" id="fov-output"></span>
+        <input style="grid-column: 2" type="range" min="0" max="150" id="fov-input" />
+
+        <span style="grid-column: 1 / 3; align-self: end; justify-self: center">Near Clipping Plane</span>
+        <span style="grid-column: 1; text-align: right" id="near-output"></span>
+        <input type="range" min="0.1" step="0.1" id="near-input" />
+
+        <span style="grid-column: 1 / 3; align-self: end; justify-self: center">Far Clipping Plane</span>
+        <span style="grid-column: 1; text-align: right" id="far-output"></span>
+        <input type="range" max="10000" step="0.1" id="far-input" />
+
+        <button style="grid-column: 1 / 3; border-radius: 7px" id="reset-btn">Reset Camera</button>
+
+        <h2 style="grid-column: 1 / 3">View Controls</h2>
+
+        <span style="grid-column: 1 / 3; align-self: end; justify-self: center">Grid Elevation</span>
+        <span style="grid-column: 1; text-align: right" id="grid-elev-output"></span>
+        <input style="grid-column: 2" type="range" min="-30" max="0" id="grid-elev-input" />
+      </div>
+    </div>
+  </div>
+
+  <script type="module">
+    import { OrbitControls } from "https://threejs.org/examples/jsm/controls/OrbitControls.js";
+
+      // global three js objects that are modified everywhere
+      let canvas, renderer, scene, controls, camera, mesh;
+
+      // utilities that get reused throughout the code
+      let light1, light2;
+      let gridHelper, axesHelper, frustumHelper;
+      const matrix = new THREE.Matrix4();
+      const color = new THREE.Color();
+      const color_low = new THREE.Color(0x442961);
+      const color_high = new THREE.Color(0xdaae80);
+
+      // data
+      let dataPoints; // list of data points
+      let dataTable; // lookup table of data points indexed by `(x, y, z)`
+      let bounds; // min-max of incoming data x, y, z
+
+      // parameters
+      let fp = `data/${$("#file-select").find(":selected").text()}`; // path to file to load
+      let renderRequested = false; // flag for whether to re-render or not
+
+      // create the adjustable gutter
+      Split(["#view", "#controls"], {
+        // eslint-disable-line new-cap
+        sizes: [75, 25],
+        minSize: 100,
+        elementStyle: (dimension, size, gutterSize) => {
+          return {
+            "flex-basis": `calc(${size}% - ${gutterSize}px)`,
+          };
+        },
+        gutterStyle: (dimension, gutterSize) => {
+          return {
+            "flex-basis": `${gutterSize}px`,
+          };
+        },
+        onDrag: requestRenderIfNotRequested,
+      });
+
+      // set the event listeners
+      $(window).on("resize", requestRenderIfNotRequested);
+      $("#file-select").on("change", clean);
+      $("#reset-btn").on("click", reset);
+      $("#fov-input").on("input", updateCamera);
+      $("#near-input").on("input", updateCamera);
+      $("#far-input").on("input", updateCamera);
+      $("#grid-elev-input").on("input", updateObjects);
+      // update inputs to be default value
+      $("#fov-input").val(50);
+      $("#near-input").val(0.1);
+      $("#far-input").val(2000);
+      $("#grid-elev-input").val(-30);
+      // update outputs to match inputs
+      $("#fov-output").html($("#fov-input").val());
+      $("#near-output").html($("#near-input").val());
+      $("#far-output").html($("#far-input").val());
+      $("#grid-elev-output").html(`${$("#grid-elev-input").val()}cm`);
+      // update max / min ranges for clipping planes
+      $("#near-input").attr("max", parseFloat($("#far-input").val()) - 0.1);
+      $("#far-input").attr("min", parseFloat($("#near-input").val()) + 0.1);
+
+      init();
+      animate();
+
+      function init() {
+        // canvas
+        canvas = $("#c").get(0);
+
+        // renderer
+        renderer = new THREE.WebGLRenderer({ canvas });
+
+        // scene
+        scene = new THREE.Scene();
+        scene.background = new THREE.Color(0xaaaaaa);
+
+        // camera
+        const fov = 50; // field of view
+        const aspect = 2; // aspect ratio; the canvas default is 2
+        const near = 0.1; // near clipping plane
+        const far = 2000; // far clipping plane
+        camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
+        camera.position.set(-100, 50, 100); // move camera away from origin
+
+        // controls
+        controls = new OrbitControls(camera, canvas);
+        controls.listenToKeyEvents(window);
+        controls.enableDamping = true;
+        controls.dampingFactor = 0.05;
+        controls.screenSpacePanning = false;
+        controls.minDistance = 0;
+        controls.maxDistance = 300;
+        controls.maxPolarAngle = Math.PI / 2;
+        controls.mouseButtons = {
+          LEFT: THREE.MOUSE.PAN,
+          MIDDLE: THREE.MOUSE.DOLLY,
+          RIGHT: THREE.MOUSE.ROTATE,
+        };
+        $(controls).on("change", requestRenderIfNotRequested);
+
+        // lights
+        light1 = new THREE.HemisphereLight(0xffffff, 0x000088);
+        light1.position.set(-1, 1.5, 1);
+        scene.add(light1);
+        light2 = new THREE.HemisphereLight(0xffffff, 0x880000, 0.5);
+        light2.position.set(-1, -1.5, -1);
+        scene.add(light2);
+
+        // frustum helper
+        // frustumHelper = new THREE.CameraHelper(camera);
+        // scene.add(frustumHelper);
+        // grid helper
+        gridHelper = new THREE.GridHelper(1000, 1000);
+        gridHelper.name = "gridHelper";
+        scene.add(gridHelper);
+        // axis helper
+        axesHelper = new THREE.AxesHelper(25);
+        axesHelper.name = "axesHelper";
+        scene.add(axesHelper);
+      }
+
+      async function loadFile(url) {
+        const res = await fetch(url);
+        return res.text();
+      }
+
+      function parseData(text) {
+        // clear any existing data lists and maps when loading new data
+        dataPoints = [];
+        dataTable = {};
+        bounds = {
+          x: {
+            min: 0,
+            max: 0,
+          },
+          y: {
+            min: 0,
+            max: 0,
+          },
+          z: {
+            min: 0,
+            max: 0,
+          },
+          v: {
+            min: 0,
+            max: 0,
+          },
+          d: {
+            min: 0,
+            max: 0,
+          },
+        };
+        // parse csv data, where each row becomes an object
+        $.csv.toObjects(text, {}, (err, data) => {
+          if (err) {
+            console.log(err);
+          }
+          for (let i = 0, len = data.length; i < len; i++) {
+            // get point
+            const d = data[i];
+            // update bounds
+            bounds.x.min = Math.min(bounds.x.min, d["Longitude_rel_cm"]);
+            bounds.x.max = Math.max(bounds.x.max, d["Longitude_rel_cm"]);
+            bounds.y.min = Math.min(bounds.y.min, d["Latitude_rel_cm"]);
+            bounds.y.max = Math.max(bounds.y.max, d["Latitude_rel_cm"]);
+            bounds.z.min = Math.min(bounds.z.min, d["start_depth"]);
+            bounds.z.max = Math.max(bounds.z.max, d["start_depth"]);
+            bounds.v.min = Math.min(bounds.v.min, d["Sulfate"]);
+            bounds.v.max = Math.max(bounds.v.max, d["Sulfate"]);
+            bounds.d.min = Math.min(bounds.d.min, d["dist_to_nearest"]);
+            bounds.d.max = Math.max(bounds.d.max, d["dist_to_nearest"]);
+            // store data points
+            dataPoints.push(d);
+            dataTable[`(${d["Longitude_rel_cm"]}, ${d["Latitude_rel_cm"]}, ${d["start_depth"]})`] = d;
+          }
+        });
+      }
+
+      function addCylinders() {
+        const radiusTop = 1 / 2; // x-axis, in cm
+        const radiusBottom = 1 / 2; // y-axis, in cm
+        const height = 1; // z-axis, in cm
+        const radialSegments = 12; // number of edges
+        const geometry = new THREE.CylinderGeometry(radiusTop, radiusBottom, height, radialSegments);
+        const material = new THREE.MeshLambertMaterial();
+        mesh = new THREE.InstancedMesh(geometry, material, dataPoints.length);
+        for (let i = 0; i < dataPoints.length; i++) {
+          const dataPoint = dataPoints[i];
+          const x = parseFloat(dataPoint["Longitude_rel_cm"]);
+          const y = parseFloat(dataPoint["Latitude_rel_cm"]);
+          const z = parseFloat(dataPoint["start_depth"]);
+          const v = parseFloat(dataPoint["Sulfate"]);
+          const o = parseFloat(dataPoint["observed"]);
+          const d = parseFloat(dataPoint["dist_to_nearest"]);
+          if (v) {
+            // color
+            const v_norm = (v - bounds.v.min) / (bounds.v.max - bounds.v.min);
+            mesh.setColorAt(i, color.lerpColors(color_low, color_high, v_norm));
+            // transform
+            // const d_norm = (d - bounds.d.max) / (bounds.d.min - bounds.d.max);
+            // matrix.makeScale(1, d_norm, 1);
+            matrix.setPosition(x - radiusTop, -(z + height / 2) + 30, -(y - radiusTop));
+            mesh.setMatrixAt(i, matrix);
+            if (o) {
+              // border
+              const edges = new THREE.EdgesGeometry(geometry);
+              const line = new THREE.LineSegments(edges, new THREE.LineBasicMaterial({ color: 0xffffff }));
+              line.geometry.applyMatrix4(matrix);
+              scene.add(line);
+            }
+          }
+        }
+        scene.add(mesh);
+      }
+
+      function resizeRendererToDisplaySize() {
+        const pixelRatio = window.devicePixelRatio;
+        const width = (canvas.clientWidth * pixelRatio) | 0;
+        const height = (canvas.clientHeight * pixelRatio) | 0;
+        const needResize = canvas.width !== width || canvas.height !== height;
+        if (needResize) renderer.setSize(width, height, false);
+        return needResize;
+      }
+
+      function requestRenderIfNotRequested() {
+        if (!renderRequested) {
+          renderRequested = true;
+          requestAnimationFrame(render);
+        }
+      }
+
+      function updateObjects() {
+        // update helpers
+        gridHelper.position.y = 30 + parseFloat($("#grid-elev-input").val());
+        $("#grid-elev-output").html(`${$("#grid-elev-input").val()}cm`);
+        // re-render
+        requestRenderIfNotRequested();
+      }
+
+      function updateCamera() {
+        // update camera
+        camera.fov = parseFloat($("#fov-input").val());
+        if (resizeRendererToDisplaySize()) camera.aspect = canvas.clientWidth / canvas.clientHeight;
+        camera.near = parseFloat($("#near-input").val());
+        camera.far = parseFloat($("#far-input").val());
+        camera.updateProjectionMatrix();
+        // update outputs to match inputs
+        $("#fov-output").html($("#fov-input").val());
+        $("#near-output").html($("#near-input").val());
+        $("#far-output").html($("#far-input").val());
+        // update max / min ranges for clipping planes
+        $("#near-input").attr("max", parseFloat($("#far-input").val()) - 0.1);
+        $("#far-input").attr("min", parseFloat($("#near-input").val()) + 0.1);
+        // re-render
+        requestRenderIfNotRequested();
+      }
+
+      function reset() {
+        // update inputs to be default value
+        $("#fov-input").val(50);
+        $("#near-input").val(0.1);
+        $("#far-input").val(2000);
+        // update camera
+        controls.object.position.set(-100, 50, 100);
+        controls.target = new THREE.Vector3(100, 0, -100);
+        updateCamera();
+      }
+
+      function clean() {
+        // update filepath
+        fp = `data/${$("#file-select").find(":selected").text()}`;
+        // remove currently drawn meshes and lines
+        const meshes = [];
+        const lines = [];
+        scene.traverse(function (object) {
+          if (object.isMesh) {
+            meshes.push(object);
+          } else if (object.isLine && ["gridHelper", "axesHelper"].indexOf(object.name) == -1) {
+            lines.push(object);
+          }
+        });
+        for (let i = 0; i < meshes.length; i++) {
+          const mesh = meshes[i];
+          mesh.material.dispose();
+          mesh.geometry.dispose();
+          scene.remove(mesh);
+        }
+        for (let i = 0; i < lines.length; i++) {
+          const line = lines[i];
+          line.material.dispose();
+          line.geometry.dispose();
+          scene.remove(line);
+        }
+        // load new data
+        animate();
+      }
+
+      function animate() {
+        loadFile(fp).then(parseData).then(addCylinders).then(render);
+      }
+
+      function render() {
+        renderRequested = false;
+        if (resizeRendererToDisplaySize()) {
+          camera.aspect = canvas.clientWidth / canvas.clientHeight;
+          camera.updateProjectionMatrix();
+        }
+        controls.update();
+        renderer.render(scene, camera);
+      }
+    </script>
+</body>
+
+</html>
