@@ -17,7 +17,7 @@
       #grid-container {
         display: grid;
         gap: 10px 10px;
-        grid-template-columns: repeat(3, 125px);
+        grid-template-columns: repeat(3, 150px);
         grid-template-rows: repeat(auto-fit, minmax(20px, 30px));
         justify-items: stretch;
         align-items: stretch;
@@ -30,6 +30,11 @@
       .x-gridlines line,
       .y-gridlines line {
         stroke: #ddd;
+      }
+
+      .x-gridlines .tick,
+      .y-gridlines .tick {
+        opacity: 0.5;
       }
 
       .tooltip {
@@ -116,12 +121,15 @@
         <div id="grid-container">
           <h2 style="grid-column: 1 /4">Inputs</h2>
 
+          <span style="grid-column: 1; place-self: end center">Cruise</span>
+          <span style="grid-column: 2; place-self: end center">Background</span>
+          <span style="grid-column: 3; place-self: end center">Units</span>
+
           <select style="grid-column: 1" id="file-select">
             <option>Pescadero_final.csv</option>
-            <!-- <option>SantaMonica_GeoChem_repeat.csv</option> -->
+            <option>SantaMonica_GeoChem_repeat.csv</option>
           </select>
-          <span style="grid-column: 2; place-self: center">File / Units</span>
-
+          <select style="grid-column: 2" id="bg-select"></select>
           <select style="grid-column: 3" id="units-select">
             <option>Degrees</option>
             <!-- <option>Centimeters</option> -->
@@ -169,7 +177,7 @@
               <br /><br />
               <span>4. Click reset to return the plot to it's original axis limits.</span>
               <br /><br />
-              <span>5. Change the file at the top right to see more cores!</span>
+              <span>5. Change the cruise data, background image, and units at the top right</span>
             </div>
             <div class="modal-footer">
               <button id="hide-modal-btn">OK</button>
@@ -180,6 +188,16 @@
     </div>
 
     <script type="module">
+      const BACKGROUNDS = {
+        "Pescadero_final.csv": [
+          "Auka_LASSmb_Topo5cm_slope3710-3630",
+          // "Auka_Lidar_Topo2cm_slope3710-3630",
+          "Auka_Pmos_LeftRaw_5cm",
+          "MAUV_SoPB_TopoSq_1m_slope3796-3334",
+        ],
+        "SantaMonica_GeoChem_repeat.csv": [],
+      };
+
       let plotGroup,
         bgGroup,
         marksGroup,
@@ -213,6 +231,7 @@
 
       // define data object
       let data = {
+        file: `data/${$("#file-select").find(":selected").text()}`,
         points: [],
         extent: {
           x: [0, 100],
@@ -223,25 +242,6 @@
           y: [0, 100],
         },
       };
-
-      // define background image object and meta
-      let tiff, image, meta;
-
-      // set the event listeners
-      $("#file-select").on("change", clean);
-      $("#units-select").on("change", clean);
-      $("#reset-btn").on("click", resetPointsFilter);
-      $("#x-min-input").on("change", setPointsFilter);
-      $("#x-max-input").on("change", setPointsFilter);
-      $("#y-min-input").on("change", setPointsFilter);
-      $("#y-max-input").on("change", setPointsFilter);
-      $("#hide-modal-btn").on("click", hideModal);
-
-      // update inputs
-      $("#x-min-input").val(data.filter["x"][0]);
-      $("#x-max-input").val(data.filter["x"][1]);
-      $("#y-min-input").val(data.filter["y"][0]);
-      $("#y-max-input").val(data.filter["y"][1]);
 
       // variables to be plotted on the x and y axes
       let xVar, yVar;
@@ -257,17 +257,52 @@
           break;
       }
 
-      // initialize svg, load data, load GeoTIFF, then plot the data
-      svg
-        .append("text")
-        .attr("dy", "1em")
-        .html("Loading data ...");
-      let file = $("#file-select").find(":selected").text();
+      // populate the background select list based on the cruise selected
+      const el = $("#bg-select").get(0);
+      while (el.options.length > 0) {
+        el.remove(el.options.length - 1);
+      }
+      const newOpts = BACKGROUNDS[$("#file-select").find(":selected").text()];
+      for (let i = 0; i < newOpts.length; i++) {
+        const opt = document.createElement("option");
+        opt.text = newOpts[i];
+        el.add(opt, null);
+      }
+
+      // define background image files
+      let bg = {
+        name: $("#bg-select").find(":selected").text(),
+        png: `data/${$("#bg-select").find(":selected").text()}.png`,
+        json: `data/${$("#bg-select").find(":selected").text()}.json`,
+        tif: `data/${$("#bg-select").find(":selected").text()}.tif`,
+        meta: undefined,
+      };
+
+      // update inputs
+      $("#x-min-input").val(data.filter["x"][0]);
+      $("#x-max-input").val(data.filter["x"][1]);
+      $("#y-min-input").val(data.filter["y"][0]);
+      $("#y-max-input").val(data.filter["y"][1]);
+
+      // set the event listeners
+      $("#file-select").on("change", setNewData);
+      $("#bg-select").on("change", setNewBG);
+      $("#units-select").on("change", setNewData);
+      $("#reset-btn").on("click", resetPointsFilter);
+      $("#x-min-input").on("change", setPointsFilter);
+      $("#x-max-input").on("change", setPointsFilter);
+      $("#y-min-input").on("change", setPointsFilter);
+      $("#y-max-input").on("change", setPointsFilter);
+      $("#hide-modal-btn").on("click", hideModal);
+
+      // init, load data, load GeoTIFF meta, draw
       init();
-      loadFile(`data/${file}`).then(loadData);
-      loadGeoTIFF().then(draw);
+      loadFile(data.file).then(loadData);
 
       function init() {
+        // add loading text
+        svg.append("text").attr("id", "loading-text").attr("dy", "1em").html("Loading data ...");
+
         // Add plot group, containing axes, marks, and legend
         plotGroup = svg
           .append("g")
@@ -275,14 +310,16 @@
           .attr("transform", `translate(${plotMargins.left},${plotMargins.top})`);
 
         // add background group and elevation background
-        bgGroup = plotGroup.append("g").classed("bg", true);
-        bgGroup
-          .append("svg")
-          .attr("width", plotWidth)
-          .attr("height", plotHeight)
-          .append("svg:image")
-          .attr("preserveAspectRatio", "none")
-          .attr("xlink:href", "data/elevation.png");
+        if (bg.name) {
+          bgGroup = plotGroup.append("g").classed("bg", true);
+          bgGroup
+            .append("svg")
+            .attr("width", plotWidth)
+            .attr("height", plotHeight)
+            .append("svg:image")
+            .attr("preserveAspectRatio", "none")
+            .attr("xlink:href", bg.png);
+        }
 
         // Add X and Y axis groups
         yAxisGroup = plotGroup.append("g").classed("y", true).classed("axis", true);
@@ -306,6 +343,7 @@
           .attr("height", plotHeight)
           .style("opacity", 0);
 
+        // define the selection rectangle
         let selectionRect = {
           element: null,
           previousElement: null,
@@ -397,7 +435,6 @@
         };
 
         let dragBehavior = d3.drag().on("start", dragStart).on("drag", dragMove).on("end", dragEnd);
-
         dragRegion.call(dragBehavior);
       }
 
@@ -438,34 +475,62 @@
         $("#x-max-input").val(data.filter["x"][1]);
         $("#y-min-input").val(data.filter["y"][0]);
         $("#y-max-input").val(data.filter["y"][1]);
+        // load the GeoTIFF meta data, then finally draw the image!
+        if (bg.name) {
+          loadBGMeta().then(draw);
+        } else {
+          draw();
+        }
       }
 
-      async function loadGeoTIFF() {
-        const url = "https://dl.dropboxusercontent.com/s/32kx8uk33e9dr21/Auka_LASSmb_Topo5cm_slope3710-3630.tif?dl=0";
-        tiff = await fetch(url).then((response) =>
-          response.arrayBuffer().then((buffer) => GeoTIFF.fromArrayBuffer(buffer))
-        );
-        image = await tiff.getImage();
-        meta = {
-          width: image.getWidth(),
-          height: image.getHeight(),
-          tileWidth: image.getTileWidth(),
-          tileHeight: image.getTileHeight(),
-          samplesPerPixel: image.getSamplesPerPixel(),
-          origin: image.getOrigin(),
-          resolution: image.getResolution(),
-          bbox: image.getBoundingBox(),
-        };
-        svg.select("text").remove(); // remove the loading data text
+      async function loadBGMeta() {
+        // const url = "https://dl.dropboxusercontent.com/s/32kx8uk33e9dr21/Auka_LASSmb_Topo5cm_slope3710-3630.tif?dl=0";
+        // const tiff = await fetch(bg.tif).then((response) =>
+        //   response.arrayBuffer().then((buffer) => GeoTIFF.fromArrayBuffer(buffer))
+        // );
+        // const image = await tiff.getImage();
+        // bg.meta = {
+        //   width: image.getWidth(),
+        //   height: image.getHeight(),
+        //   tileWidth: image.getTileWidth(),
+        //   tileHeight: image.getTileHeight(),
+        //   samplesPerPixel: image.getSamplesPerPixel(),
+        //   origin: image.getOrigin(),
+        //   resolution: image.getResolution(),
+        //   bbox: image.getBoundingBox(),
+        // };
+        bg.meta = await fetch(bg.json).then((response) => response.text().then((contents) => JSON.parse(contents)));
+        return bg.meta;
       }
 
       function hideModal() {
         $("#modal").hide();
       }
 
-      function clean() {
+      function setNewBG() {
+        // define background image files
+        bg = {
+          name: $("#bg-select").find(":selected").text(),
+          png: `data/${$("#bg-select").find(":selected").text()}.png`,
+          json: `data/${$("#bg-select").find(":selected").text()}.json`,
+          tif: `data/${$("#bg-select").find(":selected").text()}.tif`,
+          meta: undefined,
+        };
+        // clear out svg
+        svg.selectAll("*").remove();
+        // re-initialize svg and load new data
+        init();
+        if (bg.name) {
+          loadBGMeta().then(draw);
+        } else {
+          draw();
+        }
+      }
+
+      function setNewData() {
         // reset data
         data = {
+          file: `data/${$("#file-select").find(":selected").text()}`,
           points: [],
           extent: {
             x: [0, 100],
@@ -488,6 +553,25 @@
             yVar = "Latitude_rel_cm";
             break;
         }
+        // populate the background select list based on the cruise selected
+        const el = $("#bg-select").get(0);
+        while (el.options.length > 0) {
+          el.remove(el.options.length - 1);
+        }
+        const newOpts = BACKGROUNDS[$("#file-select").find(":selected").text()];
+        for (let i = 0; i < newOpts.length; i++) {
+          const opt = document.createElement("option");
+          opt.text = newOpts[i];
+          el.add(opt, null);
+        }
+        // define background image files
+        bg = {
+          name: $("#bg-select").find(":selected").text(),
+          png: `data/${$("#bg-select").find(":selected").text()}.png`,
+          json: `data/${$("#bg-select").find(":selected").text()}.json`,
+          tif: `data/${$("#bg-select").find(":selected").text()}.tif`,
+          meta: undefined,
+        };
         // clear out svg
         svg.selectAll("*").remove();
         // update inputs
@@ -496,9 +580,8 @@
         $("#y-min-input").val(data.filter["y"][0]);
         $("#y-max-input").val(data.filter["y"][1]);
         // re-initialize svg and load new data
-        file = $("#file-select").find(":selected").text();
         init();
-        loadFile(`data/${file}`).then(loadData);
+        loadFile(data.file).then(loadData);
       }
 
       function resetPointsFilter() {
@@ -515,22 +598,22 @@
 
       function setPointsFilter() {
         // x-min
-        data.filter["x"][0] = $("#x-min-input").val();
+        data.filter["x"][0] = parseFloat($("#x-min-input").val());
         if (data.filter["x"][0] < data.extent["x"][0]) data.filter["x"][0] = data.extent["x"][0];
         if (data.filter["x"][0] > data.filter["x"][1]) data.filter["x"][0] = data.filter["x"][1] - 1;
         $("#x-min-input").val(data.filter["x"][0]);
         // x-max
-        data.filter["x"][1] = $("#x-max-input").val();
+        data.filter["x"][1] = parseFloat($("#x-max-input").val());
         if (data.filter["x"][1] < data.filter["x"][0]) data.filter["x"][1] = data.filter["x"][0] + 1;
         if (data.filter["x"][1] > data.extent["x"][1]) data.filter["x"][1] = data.extent["x"][1];
         $("#x-max-input").val(data.filter["x"][1]);
         // y-min
-        data.filter["y"][0] = $("#y-min-input").val();
+        data.filter["y"][0] = parseFloat($("#y-min-input").val());
         if (data.filter["y"][0] < data.extent["y"][0]) data.filter["y"][0] = data.extent["y"][0];
         if (data.filter["y"][0] > data.filter["y"][1]) data.filter["y"][0] = data.filter["y"][1] - 1;
         $("#y-min-input").val(data.filter["y"][0]);
         // y-max
-        data.filter["y"][1] = $("#y-max-input").val();
+        data.filter["y"][1] = parseFloat($("#y-max-input").val());
         if (data.filter["y"][1] < data.filter["y"][0]) data.filter["y"][1] = data.filter["y"][0] + 1;
         if (data.filter["y"][1] > data.extent["y"][1]) data.filter["y"][1] = data.extent["y"][1];
         $("#y-max-input").val(data.filter["y"][1]);
@@ -540,6 +623,8 @@
 
       function draw() {
         if (!data.points) return; // if there's no dataset don't update the scatter plot
+
+        svg.select("#loading-text").remove(); // remove loading text
 
         // create list of data data.points
         let rawData = data.points.map((dataPoint) => {
@@ -697,12 +782,14 @@
           });
 
         // finally update the background PNG
-        bgGroup
-          .select("image")
-          .attr("x", xScale(meta.origin[0]))
-          .attr("y", yScale(meta.origin[1]))
-          .attr("width", xScale(meta.bbox[2]) - xScale(meta.bbox[0]))
-          .attr("height", yScale(meta.bbox[1]) - yScale(meta.bbox[3]));
+        if (bg.name) {
+          bgGroup
+            .select("image")
+            .attr("x", xScale(bg.meta.origin[0]))
+            .attr("y", yScale(bg.meta.origin[1]))
+            .attr("width", xScale(bg.meta.bbox[2]) - xScale(bg.meta.bbox[0]))
+            .attr("height", yScale(bg.meta.bbox[1]) - yScale(bg.meta.bbox[3]));
+        }
       }
     </script>
   </body>
