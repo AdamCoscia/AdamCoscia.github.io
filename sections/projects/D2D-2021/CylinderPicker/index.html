@@ -6,6 +6,7 @@
     <script src="libraries/d3.min.js"></script>
     <script src="libraries/jquery-3.6.0.min.js"></script>
     <script src="libraries/jquery.csv.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/geotiff"></script>
     <style>
       #plot-container {
         margin-right: 1rem;
@@ -117,13 +118,13 @@
 
           <select style="grid-column: 1" id="file-select">
             <option>Pescadero_final.csv</option>
-            <option>SantaMonica_GeoChem_repeat.csv</option>
+            <!-- <option>SantaMonica_GeoChem_repeat.csv</option> -->
           </select>
           <span style="grid-column: 2; place-self: center">File / Units</span>
 
           <select style="grid-column: 3" id="units-select">
             <option>Degrees</option>
-            <option>Centimeters</option>
+            <!-- <option>Centimeters</option> -->
           </select>
 
           <span style="grid-column: 1; place-self: center right">Y max</span>
@@ -179,7 +180,17 @@
     </div>
 
     <script type="module">
-      let plotGroup, marksGroup, xScale, xAxis, xAxisGroup, yScale, yAxis, yAxisGroup, xGridlinesGroup, yGridlinesGroup;
+      let plotGroup,
+        bgGroup,
+        marksGroup,
+        xScale,
+        xAxis,
+        xAxisGroup,
+        yScale,
+        yAxis,
+        yAxisGroup,
+        xGridlinesGroup,
+        yGridlinesGroup;
 
       // get layout
       let width = window.innerWidth - 24;
@@ -213,6 +224,9 @@
         },
       };
 
+      // define background image object and meta
+      let tiff, image, meta;
+
       // set the event listeners
       $("#file-select").on("change", clean);
       $("#units-select").on("change", clean);
@@ -243,10 +257,15 @@
           break;
       }
 
-      // initialize svg and load the data
+      // initialize svg, load data, load GeoTIFF, then plot the data
+      svg
+        .append("text")
+        .attr("dy", "1em")
+        .html("Loading data ...");
       let file = $("#file-select").find(":selected").text();
       init();
       loadFile(`data/${file}`).then(loadData);
+      loadGeoTIFF().then(draw);
 
       function init() {
         // Add plot group, containing axes, marks, and legend
@@ -254,6 +273,16 @@
           .append("g")
           .classed("plot", true)
           .attr("transform", `translate(${plotMargins.left},${plotMargins.top})`);
+
+        // add background group and elevation background
+        bgGroup = plotGroup.append("g").classed("bg", true);
+        bgGroup
+          .append("svg")
+          .attr("width", plotWidth)
+          .attr("height", plotHeight)
+          .append("svg:image")
+          .attr("preserveAspectRatio", "none")
+          .attr("xlink:href", "data/elevation.png");
 
         // Add X and Y axis groups
         yAxisGroup = plotGroup.append("g").classed("y", true).classed("axis", true);
@@ -409,8 +438,25 @@
         $("#x-max-input").val(data.filter["x"][1]);
         $("#y-min-input").val(data.filter["y"][0]);
         $("#y-max-input").val(data.filter["y"][1]);
-        // draw the vis
-        draw();
+      }
+
+      async function loadGeoTIFF() {
+        const url = "https://dl.dropboxusercontent.com/s/32kx8uk33e9dr21/Auka_LASSmb_Topo5cm_slope3710-3630.tif?dl=0";
+        tiff = await fetch(url).then((response) =>
+          response.arrayBuffer().then((buffer) => GeoTIFF.fromArrayBuffer(buffer))
+        );
+        image = await tiff.getImage();
+        meta = {
+          width: image.getWidth(),
+          height: image.getHeight(),
+          tileWidth: image.getTileWidth(),
+          tileHeight: image.getTileHeight(),
+          samplesPerPixel: image.getSamplesPerPixel(),
+          origin: image.getOrigin(),
+          resolution: image.getResolution(),
+          bbox: image.getBoundingBox(),
+        };
+        svg.select("text").remove(); // remove the loading data text
       }
 
       function hideModal() {
@@ -649,6 +695,14 @@
           .on("mouseout", function () {
             div.transition().duration(500).style("opacity", 0);
           });
+
+        // finally update the background PNG
+        bgGroup
+          .select("image")
+          .attr("x", xScale(meta.origin[0]))
+          .attr("y", yScale(meta.origin[1]))
+          .attr("width", xScale(meta.bbox[2]) - xScale(meta.bbox[0]))
+          .attr("height", yScale(meta.bbox[1]) - yScale(meta.bbox[3]));
       }
     </script>
   </body>
