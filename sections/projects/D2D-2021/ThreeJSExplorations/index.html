@@ -14,6 +14,11 @@
         margin: 0;
       }
 
+      h2 {
+        margin: 15px 0 0 0;
+        text-align: center;
+      }
+
       #editor {
         display: flex;
         width: 100%;
@@ -21,25 +26,36 @@
       }
 
       #controls {
-        background: #aaa;
         padding: 5px;
+      }
+
+      #input-grid {
+        margin: 0 auto;
+        max-width: 300px;
+        display: grid;
+        row-gap: 5px;
+        column-gap: 10px;
+        grid-template-columns: repeat(auto-fit, minmax(20px, max-content));
+        grid-template-rows: repeat(auto-fit, minmax(20px, max-content));
+        justify-items: stretch;
+        align-items: stretch;
+      }
+
+      #instructions {
+        margin: 0 auto;
+        max-width: 300px;
       }
 
       #controls-grid {
         margin: 0 auto;
         max-width: 300px;
         display: grid;
-        row-gap: 10px;
+        row-gap: 5px;
         column-gap: 10px;
         grid-template-columns: 0.25fr 0.75fr;
-        grid-template-rows: repeat(auto-fit, minmax(20px, 30px));
+        grid-template-rows: repeat(auto-fit, minmax(20px, max-content));
         justify-items: stretch;
         align-items: stretch;
-      }
-
-      #controls-grid h2 {
-        margin: 0;
-        text-align: center;
       }
 
       #controls-grid ol {
@@ -53,7 +69,7 @@
       }
 
       .gutter {
-        background-color: #eee;
+        background-color: #ccc;
         background-repeat: no-repeat;
         background-position: 50%;
       }
@@ -71,10 +87,14 @@
       </div>
 
       <div id="controls">
-        <div id="controls-grid">
-          <h2 style="grid-column: 1 / 3">File Select</h2>
+        <div id="input-grid">
+          <h2 style="grid-column: 1 / 4">Inputs</h2>
 
-          <select style="grid-column: 1 / 3" id="file-select">
+          <span style="grid-column: 1; place-self: end center">File</span>
+          <span style="grid-column: 2; place-self: end center">Shape</span>
+          <span style="grid-column: 3; place-self: end center">Color Map</span>
+
+          <select style="grid-column: 1" id="file-select">
             <option>3d_natural_5cm.csv</option>
             <option>3d_nearest_5cm.csv</option>
             <option>3d_linear_5cm.csv</option>
@@ -85,38 +105,65 @@
             <option>3d_nearest_15cm.csv</option>
             <option>3d_linear_15cm.csv</option>
           </select>
+          <select style="grid-column: 2" id="shape-select">
+            <option>Cylinder</option>
+            <option>Prism</option>
+          </select>
+          <select style="grid-column: 3" id="cmap-select">
+            <option>Inferno</option>
+            <option>Plasma</option>
+            <option>Magma</option>
+            <option>Viridis</option>
+            <option>Cividis</option>
+          </select>
+        </div>
 
-          <h2 style="grid-column: 1 / 3">Instructions</h2>
-
-          <ol style="grid-column: 1 / 3">
+        <div id="instructions">
+          <h2>Instructions</h2>
+          <ol style="margin: 10px 0 0 0">
             <li>Left-click and drag to pan</li>
             <li>Right-click and drag to rotate</li>
             <li>Middle-click and drag or scroll to zoom</li>
           </ol>
+        </div>
 
+        <div id="controls-grid">
           <h2 style="grid-column: 1 / 3">Camera Controls</h2>
 
-          <span style="grid-column: 1 / 3; place-self: end center">Field of View</span>
+          <span style="grid-column: 2; place-self: center left">Field of View</span>
           <span style="grid-column: 1; text-align: right" id="fov-output"></span>
           <input style="grid-column: 2" type="range" min="0" max="150" id="fov-input" />
 
-          <span style="grid-column: 1 / 3; place-self: end center">Near Clipping Plane</span>
+          <span style="grid-column: 2; place-self: center left">Near Clipping Place</span>
           <span style="grid-column: 1; text-align: right" id="near-output"></span>
           <input type="range" min="0.1" step="0.1" id="near-input" />
 
-          <span style="grid-column: 1 / 3; place-self: end center">Far Clipping Plane</span>
+          <span style="grid-column: 2; place-self: center left">Far Clipping Place</span>
           <span style="grid-column: 1; text-align: right" id="far-output"></span>
           <input type="range" max="10000" step="0.1" id="far-input" />
 
-          <button style="grid-column: 1 / 3; border-radius: 7px" id="reset-btn">Reset Camera</button>
+          <button style="grid-column: 1 / 3; margin: 10px 0; border-radius: 7px" id="reset-btn">Reset Camera</button>
 
           <h2 style="grid-column: 1 / 3">View Controls</h2>
 
           <button style="grid-column: 1; border-radius: 7px" id="toggle-grid-elev-btn">Toggle</button>
-          <span style="grid-column: 2; place-self: end left">Grid Elevation</span>
-
+          <span style="grid-column: 2; place-self: center left">Grid Elevation</span>
           <span style="grid-column: 1; text-align: right" id="grid-elev-output"></span>
           <input style="grid-column: 2" type="range" min="-30" max="0" id="grid-elev-input" />
+
+          <div style="display: none">
+            <span style="grid-column: 2; place-self: center left">X Axis Clipping Plane</span>
+            <span style="grid-column: 1; text-align: right" id="x-axis-clip-output"></span>
+            <input style="grid-column: 2" type="range" id="x-axis-clip-input" />
+
+            <span style="grid-column: 2; place-self: center left">Y Axis Clipping Plane</span>
+            <span style="grid-column: 1; text-align: right" id="y-axis-clip-output"></span>
+            <input style="grid-column: 2" type="range" id="y-axis-clip-input" />
+
+            <span style="grid-column: 2; place-self: center left">Z Axis Clipping Plane</span>
+            <span style="grid-column: 1; text-align: right" id="z-axis-clip-output"></span>
+            <input style="grid-column: 2" type="range" id="z-axis-clip-input" />
+          </div>
         </div>
       </div>
     </div>
@@ -124,7 +171,13 @@
     <script type="module">
       import { OrbitControls } from "https://threejs.org/examples/jsm/controls/OrbitControls.js";
       import { scaleSequential } from "https://cdn.skypack.dev/d3-scale@4";
-      import { interpolatePlasma } from "https://cdn.skypack.dev/d3-scale-chromatic@3";
+      import {
+        interpolateInferno,
+        interpolatePlasma,
+        interpolateMagma,
+        interpolateViridis,
+        interpolateCividis,
+      } from "https://cdn.skypack.dev/d3-scale-chromatic@3";
 
       // global three js objects that are modified everywhere
       let canvas, renderer, scene, controls, camera, mesh;
@@ -135,7 +188,33 @@
       let gridHelperVisible, axesHelperVisible, frustumHelperVisible;
       const matrix = new THREE.Matrix4();
       const color = new THREE.Color();
-      const cmap = scaleSequential(interpolatePlasma);
+      const cmaps = {
+        Inferno: interpolateInferno,
+        Plasma: interpolatePlasma,
+        Magma: interpolateMagma,
+        Viridis: interpolateViridis,
+        Cividis: interpolateCividis,
+      };
+      const clipPlanes = {
+        x: {
+          constant: 0,
+          normal: new THREE.Vector3(-1, 0, 0),
+          plane: new THREE.Plane(new THREE.Vector3(-1, 0, 0), 0),
+          bounds: [0, 0],
+        },
+        y: {
+          constant: 0,
+          normal: new THREE.Vector3(0, -1, 0),
+          plane: new THREE.Plane(new THREE.Vector3(0, -1, 0), 0),
+          bounds: [0, 0],
+        },
+        z: {
+          constant: 0,
+          normal: new THREE.Vector3(0, 0, 1),
+          plane: new THREE.Plane(new THREE.Vector3(0, 0, 1), 0),
+          bounds: [0, 0],
+        },
+      };
 
       // data
       let dataPoints; // list of data points
@@ -143,7 +222,9 @@
       let bounds; // min-max of incoming data x, y, z
 
       // parameters
-      let fp = `data/${$("#file-select").find(":selected").text()}`; // path to file to load
+      let file = $("#file-select").find(":selected").text(); // file to load
+      let shape = $("#shape-select").find(":selected").text(); // shape to render
+      let cmap = $("#cmap-select").find(":selected").text(); // color map to use
       let renderRequested = false; // flag for whether to re-render or not
 
       // create the adjustable gutter
@@ -166,13 +247,11 @@
 
       // set the event listeners
       $(window).on("resize", requestRenderIfNotRequested);
-      $("#file-select").on("change", clean);
+      $("#file-select, #shape-select, #cmap-select").on("change", clean);
+      $("#fov-input, #near-input, #far-input").on("input", updateCamera);
       $("#reset-btn").on("click", reset);
-      $("#fov-input").on("input", updateCamera);
-      $("#near-input").on("input", updateCamera);
-      $("#far-input").on("input", updateCamera);
-      $("#grid-elev-input").on("input", updateObjects);
       $("#toggle-grid-elev-btn").on("click", toggleGridHelper);
+      $("#grid-elev-input, #x-axis-clip-input, #y-axis-clip-input, #z-axis-clip-input").on("input", updateObjects);
       // update inputs to be default value
       $("#fov-input").val(50);
       $("#near-input").val(0.1);
@@ -183,7 +262,7 @@
       $("#near-output").html($("#near-input").val());
       $("#far-output").html($("#far-input").val());
       $("#grid-elev-output").html(`${$("#grid-elev-input").val()}cm`);
-      // update max / min ranges for clipping planes
+      // update max / min ranges for camera clipping planes
       $("#near-input").attr("max", parseFloat($("#far-input").val()) - 0.1);
       $("#far-input").attr("min", parseFloat($("#near-input").val()) + 0.1);
 
@@ -246,6 +325,12 @@
         axesHelper.name = "axesHelper";
         scene.add(axesHelper);
         axesHelperVisible = true;
+        // plane helpers
+        // const helpers = new THREE.Group();
+        // helpers.add(new THREE.PlaneHelper(clipPlanes.x.plane, 1000, 0xff0000));
+        // helpers.add(new THREE.PlaneHelper(clipPlanes.y.plane, 1000, 0x00ff00));
+        // helpers.add(new THREE.PlaneHelper(clipPlanes.z.plane, 1000, 0x0000ff));
+        // scene.add(helpers);
       }
 
       async function loadFile(url) {
@@ -284,10 +369,25 @@
           if (err) {
             console.log(err);
           }
-          for (let i = 0, len = data.length; i < len; i++) {
-            // get point
-            const d = data[i];
-            // update bounds
+          // set initial bounds using first point
+          let i = 0;
+          let d = data[i];
+          bounds.x.min = d["Longitude_rel_cm"];
+          bounds.x.max = d["Longitude_rel_cm"];
+          bounds.y.min = d["Latitude_rel_cm"];
+          bounds.y.max = d["Latitude_rel_cm"];
+          bounds.z.min = d["start_depth"];
+          bounds.z.max = d["start_depth"];
+          bounds.v.min = d["Sulfate"];
+          bounds.v.max = d["Sulfate"];
+          bounds.d.min = d["dist_to_nearest"];
+          bounds.d.max = d["dist_to_nearest"];
+          dataPoints.push(d);
+          dataTable[`(${d["Longitude_rel_cm"]}, ${d["Latitude_rel_cm"]}, ${d["start_depth"]})`] = d;
+          i++;
+          // walk through the rest of the points
+          for (i; i < data.length; i++) {
+            d = data[i];
             bounds.x.min = Math.min(bounds.x.min, d["Longitude_rel_cm"]);
             bounds.x.max = Math.max(bounds.x.max, d["Longitude_rel_cm"]);
             bounds.y.min = Math.min(bounds.y.min, d["Latitude_rel_cm"]);
@@ -298,20 +398,45 @@
             bounds.v.max = Math.max(bounds.v.max, d["Sulfate"]);
             bounds.d.min = Math.min(bounds.d.min, d["dist_to_nearest"]);
             bounds.d.max = Math.max(bounds.d.max, d["dist_to_nearest"]);
-            // store data points
             dataPoints.push(d);
             dataTable[`(${d["Longitude_rel_cm"]}, ${d["Latitude_rel_cm"]}, ${d["start_depth"]})`] = d;
           }
+          // update clipping plane bounds and constant
+          clipPlanes.x.bounds = [bounds.x.min, bounds.x.max];
+          clipPlanes.y.bounds = [bounds.z.min, bounds.z.max];
+          clipPlanes.z.bounds = [bounds.y.min, bounds.y.max];
+          clipPlanes.x.constant = bounds.x.min;
+          clipPlanes.y.constant = 0;
+          clipPlanes.z.constant = bounds.y.min;
+          // update clipping plane limits
+          $("#x-axis-clip-input").attr("min", bounds.x.min);
+          $("#x-axis-clip-input").attr("max", bounds.x.max);
+          $("#x-axis-clip-input").val(bounds.x.min);
+          $("#y-axis-clip-input").attr("min", -30);
+          $("#y-axis-clip-input").attr("max", 0);
+          $("#y-axis-clip-input").val(-30);
+          $("#z-axis-clip-input").attr("min", bounds.y.min);
+          $("#z-axis-clip-input").attr("max", bounds.y.max);
+          $("#z-axis-clip-input").val(bounds.y.min);
+          // update clip limit outputs
+          $("#x-axis-clip-output").html(`${$("#x-axis-clip-input").val()}cm`);
+          $("#y-axis-clip-output").html(`${$("#y-axis-clip-input").val()}cm`);
+          $("#z-axis-clip-output").html(`${$("#z-axis-clip-input").val()}cm`);
         });
       }
 
       function addCylinders() {
-        const radiusTop = 3.5; // x-axis, in cm
-        const radiusBottom = 3.5; // y-axis, in cm
-        const height = 1; // z-axis, in cm
+        const radiusTop = 3.5; // in cm
+        const radiusBottom = 3.5; // in cm
+        const height = 1; // y-axis, in cm
         const radialSegments = 12; // number of edges
         const geometry = new THREE.CylinderGeometry(radiusTop, radiusBottom, height, radialSegments);
-        const material = new THREE.MeshLambertMaterial();
+        const material = new THREE.MeshLambertMaterial({
+          side: THREE.DoubleSide,
+          clippingPlanes: [clipPlanes.x.plane, clipPlanes.y.plane, clipPlanes.z.plane],
+          clipIntersection: true,
+        });
+        const colorScale = cmaps[cmap]; // get interpolator
         mesh = new THREE.InstancedMesh(geometry, material, dataPoints.length);
         for (let i = 0; i < dataPoints.length; i++) {
           const dataPoint = dataPoints[i];
@@ -324,11 +449,53 @@
           if (v) {
             // color
             const v_norm = (v - bounds.v.min) / (bounds.v.max - bounds.v.min);
-            mesh.setColorAt(i, color.set(cmap(v_norm)));
+            mesh.setColorAt(i, color.set(colorScale(v_norm)));
             // transform
             // const d_norm = (d - bounds.d.max) / (bounds.d.min - bounds.d.max);
             // matrix.makeScale(1, d_norm, 1);
-            matrix.setPosition(x - radiusTop, -(z + height / 2) + 30, -(y - radiusTop));
+            matrix.setPosition(x - 0.5, -(z + height / 2) + 30, -(y - 0.5));
+            mesh.setMatrixAt(i, matrix);
+            if (o) {
+              // border
+              const edges = new THREE.EdgesGeometry(geometry);
+              const line = new THREE.LineSegments(edges, new THREE.LineBasicMaterial({ color: 0xffffff }));
+              line.geometry.applyMatrix4(matrix);
+              scene.add(line);
+            }
+          }
+        }
+        scene.add(mesh);
+      }
+
+      function addSquares() {
+        const res = parseInt(file.split(".")[0].split("_")[2].replace("cm", ""));
+        const width = res; // x-axis, in cm
+        const height = 1; // y-axis, in cm
+        const depth = res; // z-axis, in cm
+        const geometry = new THREE.BoxGeometry(width, height, depth);
+        const material = new THREE.MeshLambertMaterial({
+          side: THREE.DoubleSide,
+          clippingPlanes: [clipPlanes.x.plane, clipPlanes.y.plane, clipPlanes.z.plane],
+          clipIntersection: true,
+        });
+        const colorScale = cmaps[cmap]; // get interpolator
+        mesh = new THREE.InstancedMesh(geometry, material, dataPoints.length);
+        for (let i = 0; i < dataPoints.length; i++) {
+          const dataPoint = dataPoints[i];
+          const x = parseFloat(dataPoint["Longitude_rel_cm"]);
+          const y = parseFloat(dataPoint["Latitude_rel_cm"]);
+          const z = parseFloat(dataPoint["start_depth"]);
+          const v = parseFloat(dataPoint["Sulfate"]);
+          const o = parseFloat(dataPoint["observed"]);
+          const d = parseFloat(dataPoint["dist_to_nearest"]);
+          if (v) {
+            // color
+            const v_norm = (v - bounds.v.min) / (bounds.v.max - bounds.v.min);
+            mesh.setColorAt(i, color.set(colorScale(v_norm)));
+            // transform
+            // const d_norm = (d - bounds.d.max) / (bounds.d.min - bounds.d.max);
+            // matrix.makeScale(1, d_norm, 1);
+            matrix.setPosition(x - 0.5, -(z + height / 2) + 30, -(y - 0.5));
             mesh.setMatrixAt(i, matrix);
             if (o) {
               // border
@@ -369,11 +536,20 @@
       }
 
       function updateObjects() {
+        // gridHelper
         if (gridHelperVisible) {
           gridHelper.position.y = 30 + parseFloat($("#grid-elev-input").val());
-          requestRenderIfNotRequested();
         }
         $("#grid-elev-output").html(`${$("#grid-elev-input").val()}cm`);
+        // clipPlanes
+        clipPlanes.x.constant = parseFloat($("#x-axis-clip-input").val());
+        clipPlanes.y.constant = 30 + parseFloat($("#y-axis-clip-input").val());
+        clipPlanes.z.constant = parseFloat($("#z-axis-clip-input").val());
+        $("#x-axis-clip-output").html(`${$("#x-axis-clip-input").val()}cm`);
+        $("#y-axis-clip-output").html(`${$("#y-axis-clip-input").val()}cm`);
+        $("#z-axis-clip-output").html(`${$("#z-axis-clip-input").val()}cm`);
+        // re-render
+        requestRenderIfNotRequested();
       }
 
       function updateCamera() {
@@ -406,8 +582,10 @@
       }
 
       function clean() {
-        // update filepath
-        fp = `data/${$("#file-select").find(":selected").text()}`;
+        // reset parameters
+        file = $("#file-select").find(":selected").text();
+        shape = $("#shape-select").find(":selected").text();
+        cmap = $("#cmap-select").find(":selected").text();
         // remove currently drawn meshes and lines
         const meshes = [];
         const lines = [];
@@ -435,7 +613,14 @@
       }
 
       function animate() {
-        loadFile(fp).then(parseData).then(addCylinders).then(render);
+        switch (shape) {
+          case "Cylinder":
+            loadFile(`data/${file}`).then(parseData).then(addCylinders).then(render);
+            break;
+          case "Prism":
+            loadFile(`data/${file}`).then(parseData).then(addSquares).then(render);
+            break;
+        }
       }
 
       function render() {
@@ -444,6 +629,9 @@
           camera.aspect = canvas.clientWidth / canvas.clientHeight;
           camera.updateProjectionMatrix();
         }
+        clipPlanes.x.plane.set(clipPlanes.x.normal, clipPlanes.x.constant);
+        clipPlanes.y.plane.set(clipPlanes.y.normal, clipPlanes.y.constant);
+        clipPlanes.z.plane.set(clipPlanes.z.normal, clipPlanes.z.constant);
         controls.update();
         renderer.render(scene, camera);
       }
