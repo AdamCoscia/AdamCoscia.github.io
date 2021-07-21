@@ -1,125 +1,130 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="utf-8" />
+    <title>ThreeJS Explorations</title>
+    <script src="libraries/three.min.js"></script>
+    <script src="libraries/jquery-3.6.0.min.js"></script>
+    <script src="libraries/jquery.csv.min.js"></script>
+    <script src="libraries/split.min.js"></script>
+    <style>
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+      }
 
-<head>
-  <meta charset="utf-8" />
-  <title>ThreeJS Explorations</title>
-  <script src="libraries/three.min.js"></script>
-  <script src="libraries/jquery-3.6.0.min.js"></script>
-  <script src="libraries/jquery.csv.min.js"></script>
-  <script src="libraries/split.min.js"></script>
-  <style>
-    html,
-    body {
-      height: 100%;
-      margin: 0;
-      font-size: 16pt;
-    }
+      #editor {
+        display: flex;
+        width: 100%;
+        height: 100%;
+      }
 
-    #editor {
-      display: flex;
-      width: 100%;
-      height: 100%;
-    }
+      #controls {
+        background: #aaa;
+        padding: 5px;
+      }
 
-    #controls {
-      background: #aaa;
-      padding: 5px;
-    }
+      #controls-grid {
+        margin: 0 auto;
+        max-width: 300px;
+        display: grid;
+        row-gap: 10px;
+        column-gap: 10px;
+        grid-template-columns: 0.25fr 0.75fr;
+        grid-template-rows: repeat(auto-fit, minmax(20px, 30px));
+        justify-items: stretch;
+        align-items: stretch;
+      }
 
-    #controls-grid {
-      margin: 0 auto;
-      max-width: 300px;
-      display: grid;
-      row-gap: 10px;
-      column-gap: 10px;
-      grid-template-columns: 0.25fr 0.75fr;
-      grid-template-rows: repeat(auto-fit, minmax(20px, 30px));
-      justify-items: stretch;
-      align-items: stretch;
-    }
+      #controls-grid h2 {
+        margin: 0;
+        text-align: center;
+      }
 
-    #controls-grid h2 {
-      margin: 0;
-      text-align: center;
-    }
+      #controls-grid ol {
+        margin: 0;
+      }
 
-    #controls-grid ol {
-      margin: 0;
-    }
+      #c {
+        width: 100%;
+        height: 100%;
+        display: block;
+      }
 
-    #c {
-      width: 100%;
-      height: 100%;
-      display: block;
-    }
+      .gutter {
+        background-color: #eee;
+        background-repeat: no-repeat;
+        background-position: 50%;
+      }
 
-    .gutter {
-      background-color: #eee;
-      background-repeat: no-repeat;
-      background-position: 50%;
-    }
+      .gutter.gutter-horizontal {
+        cursor: ew-resize;
+      }
+    </style>
+  </head>
 
-    .gutter.gutter-horizontal {
-      cursor: ew-resize;
-    }
-  </style>
-</head>
+  <body>
+    <div id="editor">
+      <div id="view">
+        <canvas id="c"></canvas>
+      </div>
 
-<body>
-  <div id="editor">
-    <div id="view">
-      <canvas id="c"></canvas>
-    </div>
+      <div id="controls">
+        <div id="controls-grid">
+          <h2 style="grid-column: 1 / 3">File Select</h2>
 
-    <div id="controls">
-      <div id="controls-grid">
-        <h2 style="grid-column: 1 / 3">File Select</h2>
+          <select style="grid-column: 1 / 3" id="file-select">
+            <option>3d_natural_5cm.csv</option>
+            <option>3d_nearest_5cm.csv</option>
+            <option>3d_linear_5cm.csv</option>
+            <option>3d_natural_10cm.csv</option>
+            <option>3d_nearest_10cm.csv</option>
+            <option>3d_linear_10cm.csv</option>
+            <option>3d_natural_15cm.csv</option>
+            <option>3d_nearest_15cm.csv</option>
+            <option>3d_linear_15cm.csv</option>
+          </select>
 
-        <select style="grid-column: 1 / 3" id="file-select">
-          <option>3d_natural_5cm.csv</option>
-          <option>3d_natural_15cm.csv</option>
-          <option>3d_linear_5cm.csv</option>
-          <option>3d_linear_15cm.csv</option>
-          <option>3d_nearest_5cm.csv</option>
-          <option>3d_nearest_15cm.csv</option>
-        </select>
+          <h2 style="grid-column: 1 / 3">Instructions</h2>
 
-        <h2 style="grid-column: 1 / 3">Instructions</h2>
+          <ol style="grid-column: 1 / 3">
+            <li>Left-click and drag to pan</li>
+            <li>Right-click and drag to rotate</li>
+            <li>Middle-click and drag or scroll to zoom</li>
+          </ol>
 
-        <ol style="grid-column: 1 / 3">
-          <li>Left click and drag to pan</li>
-          <li>Right click and drag to rotate</li>
-          <li>Middle click or scroll to zoom</li>
-        </ol>
+          <h2 style="grid-column: 1 / 3">Camera Controls</h2>
 
-        <h2 style="grid-column: 1 / 3">Camera Controls</h2>
+          <span style="grid-column: 1 / 3; place-self: end center">Field of View</span>
+          <span style="grid-column: 1; text-align: right" id="fov-output"></span>
+          <input style="grid-column: 2" type="range" min="0" max="150" id="fov-input" />
 
-        <span style="grid-column: 1 / 3; align-self: end; justify-self: center">Field of View</span>
-        <span style="grid-column: 1; text-align: right" id="fov-output"></span>
-        <input style="grid-column: 2" type="range" min="0" max="150" id="fov-input" />
+          <span style="grid-column: 1 / 3; place-self: end center">Near Clipping Plane</span>
+          <span style="grid-column: 1; text-align: right" id="near-output"></span>
+          <input type="range" min="0.1" step="0.1" id="near-input" />
 
-        <span style="grid-column: 1 / 3; align-self: end; justify-self: center">Near Clipping Plane</span>
-        <span style="grid-column: 1; text-align: right" id="near-output"></span>
-        <input type="range" min="0.1" step="0.1" id="near-input" />
+          <span style="grid-column: 1 / 3; place-self: end center">Far Clipping Plane</span>
+          <span style="grid-column: 1; text-align: right" id="far-output"></span>
+          <input type="range" max="10000" step="0.1" id="far-input" />
 
-        <span style="grid-column: 1 / 3; align-self: end; justify-self: center">Far Clipping Plane</span>
-        <span style="grid-column: 1; text-align: right" id="far-output"></span>
-        <input type="range" max="10000" step="0.1" id="far-input" />
+          <button style="grid-column: 1 / 3; border-radius: 7px" id="reset-btn">Reset Camera</button>
 
-        <button style="grid-column: 1 / 3; border-radius: 7px" id="reset-btn">Reset Camera</button>
+          <h2 style="grid-column: 1 / 3">View Controls</h2>
 
-        <h2 style="grid-column: 1 / 3">View Controls</h2>
+          <button style="grid-column: 1; border-radius: 7px" id="toggle-grid-elev-btn">Toggle</button>
+          <span style="grid-column: 2; place-self: end left">Grid Elevation</span>
 
-        <span style="grid-column: 1 / 3; align-self: end; justify-self: center">Grid Elevation</span>
-        <span style="grid-column: 1; text-align: right" id="grid-elev-output"></span>
-        <input style="grid-column: 2" type="range" min="-30" max="0" id="grid-elev-input" />
+          <span style="grid-column: 1; text-align: right" id="grid-elev-output"></span>
+          <input style="grid-column: 2" type="range" min="-30" max="0" id="grid-elev-input" />
+        </div>
       </div>
     </div>
-  </div>
 
-  <script type="module">
-    import { OrbitControls } from "https://threejs.org/examples/jsm/controls/OrbitControls.js";
+    <script type="module">
+      import { OrbitControls } from "https://threejs.org/examples/jsm/controls/OrbitControls.js";
+      import { scaleSequential } from "https://cdn.skypack.dev/d3-scale@4";
+      import { interpolatePlasma } from "https://cdn.skypack.dev/d3-scale-chromatic@3";
 
       // global three js objects that are modified everywhere
       let canvas, renderer, scene, controls, camera, mesh;
@@ -127,10 +132,10 @@
       // utilities that get reused throughout the code
       let light1, light2;
       let gridHelper, axesHelper, frustumHelper;
+      let gridHelperVisible, axesHelperVisible, frustumHelperVisible;
       const matrix = new THREE.Matrix4();
       const color = new THREE.Color();
-      const color_low = new THREE.Color(0x442961);
-      const color_high = new THREE.Color(0xdaae80);
+      const cmap = scaleSequential(interpolatePlasma);
 
       // data
       let dataPoints; // list of data points
@@ -144,7 +149,7 @@
       // create the adjustable gutter
       Split(["#view", "#controls"], {
         // eslint-disable-line new-cap
-        sizes: [75, 25],
+        sizes: [70, 30],
         minSize: 100,
         elementStyle: (dimension, size, gutterSize) => {
           return {
@@ -167,6 +172,7 @@
       $("#near-input").on("input", updateCamera);
       $("#far-input").on("input", updateCamera);
       $("#grid-elev-input").on("input", updateObjects);
+      $("#toggle-grid-elev-btn").on("click", toggleGridHelper);
       // update inputs to be default value
       $("#fov-input").val(50);
       $("#near-input").val(0.1);
@@ -186,14 +192,14 @@
 
       function init() {
         // canvas
-        canvas = $("#c").get(0);
+        canvas = $("#c")[0];
 
         // renderer
         renderer = new THREE.WebGLRenderer({ canvas });
 
         // scene
         scene = new THREE.Scene();
-        scene.background = new THREE.Color(0xaaaaaa);
+        scene.background = new THREE.Color(0x004561);
 
         // camera
         const fov = 50; // field of view
@@ -211,7 +217,7 @@
         controls.screenSpacePanning = false;
         controls.minDistance = 0;
         controls.maxDistance = 300;
-        controls.maxPolarAngle = Math.PI / 2;
+        controls.maxPolarAngle = Math.PI;
         controls.mouseButtons = {
           LEFT: THREE.MOUSE.PAN,
           MIDDLE: THREE.MOUSE.DOLLY,
@@ -231,13 +237,15 @@
         // frustumHelper = new THREE.CameraHelper(camera);
         // scene.add(frustumHelper);
         // grid helper
-        gridHelper = new THREE.GridHelper(1000, 1000);
+        gridHelper = new THREE.GridHelper(1000, 1000, "black", "#C2B280");
         gridHelper.name = "gridHelper";
         scene.add(gridHelper);
+        gridHelperVisible = true;
         // axis helper
         axesHelper = new THREE.AxesHelper(25);
         axesHelper.name = "axesHelper";
         scene.add(axesHelper);
+        axesHelperVisible = true;
       }
 
       async function loadFile(url) {
@@ -298,8 +306,8 @@
       }
 
       function addCylinders() {
-        const radiusTop = 1 / 2; // x-axis, in cm
-        const radiusBottom = 1 / 2; // y-axis, in cm
+        const radiusTop = 3.5; // x-axis, in cm
+        const radiusBottom = 3.5; // y-axis, in cm
         const height = 1; // z-axis, in cm
         const radialSegments = 12; // number of edges
         const geometry = new THREE.CylinderGeometry(radiusTop, radiusBottom, height, radialSegments);
@@ -316,7 +324,7 @@
           if (v) {
             // color
             const v_norm = (v - bounds.v.min) / (bounds.v.max - bounds.v.min);
-            mesh.setColorAt(i, color.lerpColors(color_low, color_high, v_norm));
+            mesh.setColorAt(i, color.set(cmap(v_norm)));
             // transform
             // const d_norm = (d - bounds.d.max) / (bounds.d.min - bounds.d.max);
             // matrix.makeScale(1, d_norm, 1);
@@ -350,12 +358,22 @@
         }
       }
 
+      function toggleGridHelper() {
+        gridHelperVisible = !gridHelperVisible;
+        gridHelper.visible = gridHelperVisible;
+        if (gridHelperVisible) {
+          updateObjects();
+        } else {
+          requestRenderIfNotRequested();
+        }
+      }
+
       function updateObjects() {
-        // update helpers
-        gridHelper.position.y = 30 + parseFloat($("#grid-elev-input").val());
+        if (gridHelperVisible) {
+          gridHelper.position.y = 30 + parseFloat($("#grid-elev-input").val());
+          requestRenderIfNotRequested();
+        }
         $("#grid-elev-output").html(`${$("#grid-elev-input").val()}cm`);
-        // re-render
-        requestRenderIfNotRequested();
       }
 
       function updateCamera() {
@@ -430,6 +448,5 @@
         renderer.render(scene, camera);
       }
     </script>
-</body>
-
+  </body>
 </html>
