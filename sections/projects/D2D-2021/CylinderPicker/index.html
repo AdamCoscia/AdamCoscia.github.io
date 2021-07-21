@@ -6,7 +6,7 @@
     <script src="libraries/d3.min.js"></script>
     <script src="libraries/jquery-3.6.0.min.js"></script>
     <script src="libraries/jquery.csv.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/geotiff"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/geotiff"></script> -->
     <style>
       #plot-container {
         margin-right: 1rem;
@@ -23,8 +23,17 @@
         align-items: stretch;
       }
 
-      #grid-container h2 {
-        margin: 0 auto;
+      .numberCircle {
+        display: inline-block;
+        width: 18px;
+        line-height: 18px;
+        border-radius: 50%;
+        text-align: center;
+        font-size: 16px;
+        font-weight: 800 !important;
+        color: lightblue;
+        border: 2px solid skyblue;
+        cursor: pointer;
       }
 
       .x-gridlines line,
@@ -40,11 +49,11 @@
       .tooltip {
         position: absolute;
         text-align: center;
-        width: 80px;
-        height: 15px;
+        width: 200px;
+        height: 2.25em;
         padding: 2px;
         font: 12px sans-serif;
-        background: lightsteelblue;
+        background: #ccc;
         border: 0px;
         border-radius: 8px;
         pointer-events: none;
@@ -119,21 +128,27 @@
 
         <!-- Controls the SVG-->
         <div id="grid-container">
-          <h2 style="grid-column: 1 /4">Inputs</h2>
+          <div style="grid-column: 1 /4; text-align: center">
+            <h2 style="margin: 0; display: inline-block">Inputs</h2>
+            &nbsp;
+            <div class="numberCircle">i</div>
+          </div>
 
           <span style="grid-column: 1; place-self: end center">Cruise</span>
           <span style="grid-column: 2; place-self: end center">Background</span>
-          <span style="grid-column: 3; place-self: end center">Units</span>
+          <span style="grid-column: 3; place-self: end center">Site</span>
+          <!-- <span style="grid-column: 3; place-self: end center">Units</span> -->
 
           <select style="grid-column: 1" id="file-select">
             <option>Pescadero_final.csv</option>
             <option>SantaMonica_GeoChem_repeat.csv</option>
           </select>
           <select style="grid-column: 2" id="bg-select"></select>
-          <select style="grid-column: 3" id="units-select">
+          <select style="grid-column: 3" id="site-select"></select>
+          <!-- <select style="grid-column: 3" id="units-select">
             <option>Degrees</option>
-            <!-- <option>Centimeters</option> -->
-          </select>
+            <option>Centimeters</option>
+          </select> -->
 
           <span style="grid-column: 1; place-self: center right">Y max</span>
           <input style="grid-column: 2" type="text" id="y-max-input" />
@@ -149,7 +164,11 @@
 
           <button style="grid-column: 1 / 4" id="reset-btn">Reset</button>
 
-          <h2 style="grid-column: 1 /4">Outputs</h2>
+          <div style="grid-column: 1 /4; text-align: center">
+            <h2 style="margin: 0; display: inline-block">Outputs</h2>
+            &nbsp;
+            <div class="numberCircle">i</div>
+          </div>
 
           <span style="grid-column: 1; place-self: center right">X Scale</span>
           <span style="grid-column: 2 / 4; place-self: center left" id="x-scale-output"></span>
@@ -157,8 +176,10 @@
           <span style="grid-column: 1; place-self: center right">Y Scale</span>
           <span style="grid-column: 2 / 4; place-self: center left" id="y-scale-output"></span>
 
-          <span style="grid-column: 1 / 4; place-self: end center" id="cylinder-output-title">Cylinders (0):</span>
-          <span style="grid-column: 1 / 4; justify-self: center" id="cylinder-output">No file loaded.</span>
+          <span style="grid-column: 1 / 4; place-self: end center" id="cylinder-output-title">
+            Currently visible cylinders (0):
+          </span>
+          <span style="grid-column: 1 / 4; justify-self: center" id="cylinder-output"> No file loaded. </span>
         </div>
       </div>
 
@@ -169,15 +190,19 @@
           <div class="modal-container">
             <div class="modal-header">Instructions</div>
             <div class="modal-body">
-              <span>1. Click and drag on the plot to zoom in on the highlighted region.</span>
+              <span>1. <strong>Click and drag</strong> on the plot to zoom in to the dragged-over region.</span>
               <br /><br />
-              <span>2. The currently visible cylinders will be displayed in a list to the right of the plot.</span>
+              <span>2. <strong>Right-click</strong> on the plot to undo the most recent zoom.</span>
               <br /><br />
-              <span>3. Hover on a dot in the plot to see the cylinder name.</span>
+              <span>3. <strong>Hover</strong> on a dot in the plot to see information about the cylinder.</span>
               <br /><br />
-              <span>4. Click reset to return the plot to it's original axis limits.</span>
+              <span>4. Click the <strong>Reset</strong> button to return the plot to it's original axis limits.</span>
               <br /><br />
-              <span>5. Change the cruise data, background image, and units at the top right</span>
+              <span>
+                To see this message again, click the
+                <strong><span class="numberCircle">i</span> icons</strong>
+                to the right.
+              </span>
             </div>
             <div class="modal-footer">
               <button id="hide-modal-btn">OK</button>
@@ -195,7 +220,33 @@
           "Auka_Pmos_LeftRaw_5cm",
           "MAUV_SoPB_TopoSq_1m_slope3796-3334",
         ],
-        "SantaMonica_GeoChem_repeat.csv": [],
+        "SantaMonica_GeoChem_repeat.csv": [
+          "SantaMonica_650mMound_MAUV_Topo1m_slope820-560",
+          // "SantaMonica_800mMound_LASS_PmosRightRaw1cm",
+          "SantaMonica_800mMound_LASS_Topo5cm_slope825-800",
+          "SantaMonica_800mMound_MAUV_Topo1m_slope880-760",
+          "SantaMonica_MAUV_Topo2m_slope900-50",
+          "SantaMonica_NWMounds_MAUV_Topo1m_slope625-500",
+        ],
+      };
+      const SITES = {
+        "Pescadero_final.csv": [
+          "All",
+          "Diane's vent",
+          "Matterhorn",
+          "Z vent",
+          "Abuelita",
+          "between Big Cave & Red hill",
+        ],
+        "SantaMonica_GeoChem_repeat.csv": [
+          "All",
+          "Del Mar seeps, in frenulate bed",
+          "Del Mar seeps, yellow mat",
+          "Santa Monica mounds 863m white dirty mat",
+          "Santa Monica mounds 863m orange mat",
+          "injector cores site 2",
+          "Santa Monica mounds 800m site 1",
+        ],
       };
 
       let plotGroup,
@@ -229,23 +280,10 @@
         .attr("width", svgWidth)
         .attr("height", svgHeight);
 
-      // define data object
-      let data = {
-        file: `data/${$("#file-select").find(":selected").text()}`,
-        points: [],
-        extent: {
-          x: [0, 100],
-          y: [0, 100],
-        },
-        filter: {
-          x: [0, 100],
-          y: [0, 100],
-        },
-      };
-
       // variables to be plotted on the x and y axes
       let xVar, yVar;
-      let unit = $("#units-select").find(":selected").text();
+      // let unit = $("#units-select").find(":selected").text();
+      let unit = "Degrees";
       switch (unit) {
         case "Degrees":
           xVar = "Longitude_deg";
@@ -258,11 +296,11 @@
       }
 
       // populate the background select list based on the cruise selected
-      const el = $("#bg-select").get(0);
+      let el = $("#bg-select").get(0);
       while (el.options.length > 0) {
         el.remove(el.options.length - 1);
       }
-      const newOpts = BACKGROUNDS[$("#file-select").find(":selected").text()];
+      let newOpts = BACKGROUNDS[$("#file-select").find(":selected").text()];
       for (let i = 0; i < newOpts.length; i++) {
         const opt = document.createElement("option");
         opt.text = newOpts[i];
@@ -278,6 +316,34 @@
         meta: undefined,
       };
 
+      // populate the site select list based on the cruise selected
+      el = $("#site-select").get(0);
+      while (el.options.length > 0) {
+        el.remove(el.options.length - 1);
+      }
+      newOpts = SITES[$("#file-select").find(":selected").text()];
+      for (let i = 0; i < newOpts.length; i++) {
+        const opt = document.createElement("option");
+        opt.text = newOpts[i];
+        el.add(opt, null);
+      }
+
+      // define data object
+      let data = {
+        file: `data/${$("#file-select").find(":selected").text()}`,
+        site: $("#site-select").find(":selected").text(),
+        points: [],
+        extent: {
+          x: [0, 100],
+          y: [0, 100],
+        },
+        filter: {
+          x: [0, 100],
+          y: [0, 100],
+        },
+        filterStack: [],
+      };
+
       // update inputs
       $("#x-min-input").val(data.filter["x"][0]);
       $("#x-max-input").val(data.filter["x"][1]);
@@ -287,13 +353,15 @@
       // set the event listeners
       $("#file-select").on("change", setNewData);
       $("#bg-select").on("change", setNewBG);
-      $("#units-select").on("change", setNewData);
-      $("#reset-btn").on("click", resetPointsFilter);
-      $("#x-min-input").on("change", setPointsFilter);
-      $("#x-max-input").on("change", setPointsFilter);
-      $("#y-min-input").on("change", setPointsFilter);
-      $("#y-max-input").on("change", setPointsFilter);
-      $("#hide-modal-btn").on("click", hideModal);
+      $("#site-select").on("change", filterBySite);
+      // $("#units-select").on("change", setNewData);
+      $("#reset-btn").on("click", resetPointsFilters);
+      $("#x-min-input").on("change", setPointsFilters);
+      $("#x-max-input").on("change", setPointsFilters);
+      $("#y-min-input").on("change", setPointsFilters);
+      $("#y-max-input").on("change", setPointsFilters);
+      $(".numberCircle").bind("click", () => $("#modal").show());
+      $("#hide-modal-btn").on("click", () => $("#modal").hide());
 
       // init, load data, load GeoTIFF meta, draw
       init();
@@ -341,7 +409,16 @@
           .append("rect")
           .attr("width", plotWidth)
           .attr("height", plotHeight)
-          .style("opacity", 0);
+          .style("opacity", 0)
+          .on("contextmenu", function (e) {
+            // right-click to restore the previous filter, if possible
+            e.preventDefault();
+            if (data.filterStack.length > 0) {
+              data.filter = data.filterStack.pop();
+              draw();
+            }
+            return false;
+          });
 
         // define the selection rectangle
         let selectionRect = {
@@ -422,15 +499,20 @@
           let attrs = selectionRect.getCurrentAttributes();
           selectionRect.remove();
           if (attrs.x2 - attrs.x1 > 1 && attrs.y2 - attrs.y1 > 1) {
+            // push the prior filter values onto the filter stack
+            data.filterStack.push($.extend(true, {}, data.filter));
+            // update filter values
             data.filter["x"][0] = xScale.invert(attrs.x1);
             data.filter["x"][1] = xScale.invert(attrs.x2);
             data.filter["y"][0] = yScale.invert(attrs.y2);
             data.filter["y"][1] = yScale.invert(attrs.y1);
+            // update input field values
             $("#x-min-input").val(xScale.invert(attrs.x1));
             $("#x-max-input").val(xScale.invert(attrs.x2));
             $("#y-min-input").val(yScale.invert(attrs.y2));
             $("#y-max-input").val(yScale.invert(attrs.y1));
-            draw(); // update the vis
+            // re-draw the vis
+            draw();
           }
         };
 
@@ -449,32 +531,68 @@
           if (err) {
             console.log(err);
           }
-          // set initial filter to first point
-          const p = points[0];
-          data.filter["x"][0] = p[xVar];
-          data.filter["x"][1] = p[xVar];
-          data.filter["y"][0] = p[yVar];
-          data.filter["y"][1] = p[yVar];
-          data.points.push(p);
-          // collect points
-          for (let i = 1, len = points.length; i < len; i++) {
-            const p = points[i];
-            data.filter["x"][0] = Math.min(data.filter["x"][0], p[xVar]);
-            data.filter["x"][1] = Math.max(data.filter["x"][1], p[xVar]);
-            data.filter["y"][0] = Math.min(data.filter["y"][0], p[yVar]);
-            data.filter["y"][1] = Math.max(data.filter["y"][1], p[yVar]);
+          // filter by site
+          if (data.site == "All") {
+            // set initial filter to first point
+            let p = points[0];
+            data.filter["x"][0] = p[xVar];
+            data.filter["x"][1] = p[xVar];
+            data.filter["y"][0] = p[yVar];
+            data.filter["y"][1] = p[yVar];
             data.points.push(p);
+            // collect points
+            for (let i = 1; i < points.length; i++) {
+              p = points[i];
+              data.filter["x"][0] = Math.min(data.filter["x"][0], p[xVar]);
+              data.filter["x"][1] = Math.max(data.filter["x"][1], p[xVar]);
+              data.filter["y"][0] = Math.min(data.filter["y"][0], p[yVar]);
+              data.filter["y"][1] = Math.max(data.filter["y"][1], p[yVar]);
+              data.points.push(p);
+            }
+          } else {
+            // set initial filter to first point contained in the filter
+            let i = 0;
+            while (data.site !== points[i]["Site"]) {
+              data.points.push(points[i]);
+              i++;
+            }
+            let p = points[i];
+            data.filter["x"][0] = p[xVar];
+            data.filter["x"][1] = p[xVar];
+            data.filter["y"][0] = p[yVar];
+            data.filter["y"][1] = p[yVar];
+            data.points.push(p);
+            i++;
+            // collect points
+            for (i; i < points.length; i++) {
+              p = points[i];
+              if (data.site == p["Site"]) {
+                data.filter["x"][0] = Math.min(data.filter["x"][0], p[xVar]);
+                data.filter["x"][1] = Math.max(data.filter["x"][1], p[xVar]);
+                data.filter["y"][0] = Math.min(data.filter["y"][0], p[yVar]);
+                data.filter["y"][1] = Math.max(data.filter["y"][1], p[yVar]);
+              }
+              data.points.push(p);
+            }
           }
         });
-        // update inputs and extent
+        // pad the filters to give a bit of border
+        const padX = (data.filter["x"][1] - data.filter["x"][0]) / 20;
+        const padY = (data.filter["y"][1] - data.filter["y"][0]) / 20;
+        data.filter["x"][0] -= padX;
+        data.filter["x"][1] += padX;
+        data.filter["y"][0] -= padY;
+        data.filter["y"][1] += padY;
+        // update the extent to include the pad
         data.extent["x"][0] = data.filter["x"][0];
         data.extent["x"][1] = data.filter["x"][1];
         data.extent["y"][0] = data.filter["y"][0];
         data.extent["y"][1] = data.filter["y"][1];
-        $("#x-min-input").val(data.filter["x"][0]);
-        $("#x-max-input").val(data.filter["x"][1]);
-        $("#y-min-input").val(data.filter["y"][0]);
-        $("#y-max-input").val(data.filter["y"][1]);
+        // update the input elements
+        $("#x-min-input").val(data.extent["x"][0]);
+        $("#x-max-input").val(data.extent["x"][1]);
+        $("#y-min-input").val(data.extent["y"][0]);
+        $("#y-max-input").val(data.extent["y"][1]);
         // load the GeoTIFF meta data, then finally draw the image!
         if (bg.name) {
           loadBGMeta().then(draw);
@@ -484,7 +602,6 @@
       }
 
       async function loadBGMeta() {
-        // const url = "https://dl.dropboxusercontent.com/s/32kx8uk33e9dr21/Auka_LASSmb_Topo5cm_slope3710-3630.tif?dl=0";
         // const tiff = await fetch(bg.tif).then((response) =>
         //   response.arrayBuffer().then((buffer) => GeoTIFF.fromArrayBuffer(buffer))
         // );
@@ -503,46 +620,10 @@
         return bg.meta;
       }
 
-      function hideModal() {
-        $("#modal").hide();
-      }
-
-      function setNewBG() {
-        // define background image files
-        bg = {
-          name: $("#bg-select").find(":selected").text(),
-          png: `data/${$("#bg-select").find(":selected").text()}.png`,
-          json: `data/${$("#bg-select").find(":selected").text()}.json`,
-          tif: `data/${$("#bg-select").find(":selected").text()}.tif`,
-          meta: undefined,
-        };
-        // clear out svg
-        svg.selectAll("*").remove();
-        // re-initialize svg and load new data
-        init();
-        if (bg.name) {
-          loadBGMeta().then(draw);
-        } else {
-          draw();
-        }
-      }
-
       function setNewData() {
-        // reset data
-        data = {
-          file: `data/${$("#file-select").find(":selected").text()}`,
-          points: [],
-          extent: {
-            x: [0, 100],
-            y: [0, 100],
-          },
-          filter: {
-            x: [0, 100],
-            y: [0, 100],
-          },
-        };
         // variables to be plotted on the x and y axes
-        unit = $("#units-select").find(":selected").text();
+        // unit = $("#units-select").find(":selected").text();
+        unit = "Degrees";
         switch (unit) {
           case "Degrees":
             xVar = "Longitude_deg";
@@ -553,12 +634,38 @@
             yVar = "Latitude_rel_cm";
             break;
         }
-        // populate the background select list based on the cruise selected
-        const el = $("#bg-select").get(0);
+        // populate the site select list based on the cruise selected
+        let el = $("#site-select").get(0);
         while (el.options.length > 0) {
           el.remove(el.options.length - 1);
         }
-        const newOpts = BACKGROUNDS[$("#file-select").find(":selected").text()];
+        let newOpts = SITES[$("#file-select").find(":selected").text()];
+        for (let i = 0; i < newOpts.length; i++) {
+          const opt = document.createElement("option");
+          opt.text = newOpts[i];
+          el.add(opt, null);
+        }
+        // reset data object
+        data = {
+          file: `data/${$("#file-select").find(":selected").text()}`,
+          site: $("#site-select").find(":selected").text(),
+          points: [],
+          extent: {
+            x: [0, 100],
+            y: [0, 100],
+          },
+          filter: {
+            x: [0, 100],
+            y: [0, 100],
+          },
+          filterStack: [],
+        };
+        // populate the background select list based on the cruise selected
+        el = $("#bg-select").get(0);
+        while (el.options.length > 0) {
+          el.remove(el.options.length - 1);
+        }
+        newOpts = BACKGROUNDS[$("#file-select").find(":selected").text()];
         for (let i = 0; i < newOpts.length; i++) {
           const opt = document.createElement("option");
           opt.text = newOpts[i];
@@ -584,19 +691,110 @@
         loadFile(data.file).then(loadData);
       }
 
-      function resetPointsFilter() {
-        data.filter["x"][0] = data.extent["x"][0];
-        data.filter["x"][1] = data.extent["x"][1];
-        data.filter["y"][0] = data.extent["y"][0];
-        data.filter["y"][1] = data.extent["y"][1];
+      function setNewBG() {
+        // define background image files
+        bg = {
+          name: $("#bg-select").find(":selected").text(),
+          png: `data/${$("#bg-select").find(":selected").text()}.png`,
+          json: `data/${$("#bg-select").find(":selected").text()}.json`,
+          tif: `data/${$("#bg-select").find(":selected").text()}.tif`,
+          meta: undefined,
+        };
+        // clear out svg
+        svg.selectAll("*").remove();
+        // re-initialize svg and load new data
+        init();
+        if (bg.name) {
+          loadBGMeta().then(draw);
+        } else {
+          draw();
+        }
+      }
+
+      function filterBySite() {
+        // get new site
+        data.site = $("#site-select").find(":selected").text();
+        // start a new filter stack
+        data.filterStack = [];
+        // filter by site
+        if (data.site == "All") {
+          // set initial filter to first point
+          let p = data.points[0];
+          data.filter["x"][0] = p[xVar];
+          data.filter["x"][1] = p[xVar];
+          data.filter["y"][0] = p[yVar];
+          data.filter["y"][1] = p[yVar];
+          for (let i = 1; i < data.points.length; i++) {
+            p = data.points[i];
+            data.filter["x"][0] = Math.min(data.filter["x"][0], p[xVar]);
+            data.filter["x"][1] = Math.max(data.filter["x"][1], p[xVar]);
+            data.filter["y"][0] = Math.min(data.filter["y"][0], p[yVar]);
+            data.filter["y"][1] = Math.max(data.filter["y"][1], p[yVar]);
+          }
+        } else {
+          // set initial filter to first point contained in the filter
+          let i = 0;
+          while (data.site !== data.points[i]["Site"]) i++;
+          let p = data.points[i];
+          data.filter["x"][0] = p[xVar];
+          data.filter["x"][1] = p[xVar];
+          data.filter["y"][0] = p[yVar];
+          data.filter["y"][1] = p[yVar];
+          i++;
+          for (i; i < data.points.length; i++) {
+            p = data.points[i];
+            if (data.site == p["Site"]) {
+              data.filter["x"][0] = Math.min(data.filter["x"][0], p[xVar]);
+              data.filter["x"][1] = Math.max(data.filter["x"][1], p[xVar]);
+              data.filter["y"][0] = Math.min(data.filter["y"][0], p[yVar]);
+              data.filter["y"][1] = Math.max(data.filter["y"][1], p[yVar]);
+            }
+          }
+        }
+        // pad the filters to give a bit of border
+        const padX = (data.filter["x"][1] - data.filter["x"][0]) / 20;
+        const padY = (data.filter["y"][1] - data.filter["y"][0]) / 20;
+        data.filter["x"][0] -= padX;
+        data.filter["x"][1] += padX;
+        data.filter["y"][0] -= padY;
+        data.filter["y"][1] += padY;
+        // update the extent to include the pad
+        // data.extent["x"][0] = data.filter["x"][0];
+        // data.extent["x"][1] = data.filter["x"][1];
+        // data.extent["y"][0] = data.filter["y"][0];
+        // data.extent["y"][1] = data.filter["y"][1];
+        // update the input elements
         $("#x-min-input").val(data.extent["x"][0]);
         $("#x-max-input").val(data.extent["x"][1]);
         $("#y-min-input").val(data.extent["y"][0]);
         $("#y-max-input").val(data.extent["y"][1]);
+        // re-draw the vis
         draw();
       }
 
-      function setPointsFilter() {
+      function resetPointsFilters() {
+        // reset filter list to 'all'
+        $("#site-select")[0].selectedIndex = 0;
+        data.site = $("#site-select").find(":selected").text();
+        // reset filter stack
+        data.filterStack = [];
+        // reset filters to the extent
+        data.filter["x"][0] = data.extent["x"][0];
+        data.filter["x"][1] = data.extent["x"][1];
+        data.filter["y"][0] = data.extent["y"][0];
+        data.filter["y"][1] = data.extent["y"][1];
+        // update input fields
+        $("#x-min-input").val(data.extent["x"][0]);
+        $("#x-max-input").val(data.extent["x"][1]);
+        $("#y-min-input").val(data.extent["y"][0]);
+        $("#y-max-input").val(data.extent["y"][1]);
+        // re-draw the vis
+        draw();
+      }
+
+      function setPointsFilters() {
+        // store previous filter state in the filter stack
+        data.filterStack.push($.extend(true, {}, data.filter));
         // x-min
         data.filter["x"][0] = parseFloat($("#x-min-input").val());
         if (data.filter["x"][0] < data.extent["x"][0]) data.filter["x"][0] = data.extent["x"][0];
@@ -657,12 +855,20 @@
             yDiff = data.filter["y"][1] - data.filter["y"][0]; // already in cm
             break;
         }
-        $("#x-scale-output").html(`${Math.round((xDiff + Number.EPSILON) * 100) / 100}cm`);
-        $("#y-scale-output").html(`${Math.round((yDiff + Number.EPSILON) * 100) / 100}cm`);
+        $("#x-scale-output").html(`
+          ${Math.round((xDiff + Number.EPSILON) * 100) / 100}cm |
+          ${Math.round((xDiff / 100 + Number.EPSILON) * 100) / 100}m |
+          ${Math.round((xDiff / 100000 + Number.EPSILON) * 100) / 100}km
+        `);
+        $("#y-scale-output").html(`
+          ${Math.round((yDiff + Number.EPSILON) * 100) / 100}cm |
+          ${Math.round((yDiff / 100 + Number.EPSILON) * 100) / 100}m |
+          ${Math.round((yDiff / 100000 + Number.EPSILON) * 100) / 100}km
+        `);
 
         // get unique cylinder names plotted
         let unique = [...new Set(prepared.map((d) => d.Cylinder))];
-        $("#cylinder-output-title").html(`Cylinders (${unique.length}):`);
+        $("#cylinder-output-title").html(`Currently visible cylinders (${unique.length}):`);
         if (unique.length > 0) {
           $("#cylinder-output").html(`[${unique.map((name) => `"${name}"`).join(",\n  ")}\n]`);
         } else {
@@ -773,9 +979,12 @@
           .on("mouseover", function (e, d) {
             div.transition().duration(200).style("opacity", 0.9);
             div
-              .html(d.Cylinder)
-              .style("left", e.x + "px")
-              .style("top", e.y - 28 + "px");
+              .html(`${d.Cylinder}<br />${d.Site}`)
+              .style("left", e.x + 10 + "px")
+              .style("top", e.y - 35 + "px");
+          })
+          .on("mousemove", function (e, d) {
+            div.style("left", e.x + 10 + "px").style("top", e.y - 35 + "px");
           })
           .on("mouseout", function () {
             div.transition().duration(500).style("opacity", 0);
