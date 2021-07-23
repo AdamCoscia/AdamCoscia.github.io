@@ -179,8 +179,8 @@
           </div>
 
           <div style="grid-column: 1 / 3" id="view-sliders">
-            <span style="grid-column: 1 / 4; place-self: center left">Grid Elevation</span>
-            <div style="grid-column: 4">
+            <span style="grid-column: 1 / 4; place-self: center left">Grid</span>
+            <div style="grid-column: 4; place-self: center right">
               <input type="checkbox" id="grid-elev-toggle-checkbox" checked />
               <label for="grid-elev-toggle-checkbox">Show</label>
             </div>
@@ -188,43 +188,57 @@
             <input style="grid-column: 2 / 5" type="range" min="-30" max="0" id="grid-elev-input" />
             <div style="grid-column: 1 / 5; height: 2px; margin: 0.5rem 0"></div>
 
-            <span style="grid-column: 1 / 3; place-self: center left">X-axis clipping plane</span>
-            <div style="grid-column: 3">
-              <input type="checkbox" id="x-clip-global-checkbox" />
-              <label for="x-clip-global-checkbox">Global</label>
-            </div>
-            <div style="grid-column: 4">
-              <input type="checkbox" id="x-clip-flip-checkbox" />
-              <label for="x-clip-flip-checkbox">Flip</label>
-            </div>
-            <span style="grid-column: 1; text-align: right" id="x-clip-output"></span>
-            <input style="grid-column: 2 / 5" type="range" id="x-clip-input" />
-            <div style="grid-column: 1 / 5; height: 2px; margin: 0.5rem 0"></div>
-
-            <span style="grid-column: 1 / 3; place-self: center left">Y-axis clipping plane</span>
-            <div style="grid-column: 3">
-              <input type="checkbox" id="y-clip-global-checkbox" />
-              <label for="y-clip-global-checkbox">Global</label>
-            </div>
-            <div style="grid-column: 4">
-              <input type="checkbox" id="y-clip-flip-checkbox" />
-              <label for="y-clip-flip-checkbox">Flip</label>
-            </div>
-            <span style="grid-column: 1; text-align: right" id="y-clip-output"></span>
-            <input style="grid-column: 2 / 5" type="range" id="y-clip-input" />
-            <div style="grid-column: 1 / 5; height: 2px; margin: 0.5rem 0"></div>
-
-            <span style="grid-column: 1 / 3; place-self: center left">Z-axis clipping plane</span>
-            <div style="grid-column: 3">
+            <span style="grid-column: 1; place-self: center left">Latitude</span>
+            <div style="grid-column: 2; place-self: center left">
               <input type="checkbox" id="z-clip-global-checkbox" />
               <label for="z-clip-global-checkbox">Global</label>
             </div>
-            <div style="grid-column: 4">
+            <div style="grid-column: 3; place-self: center">
               <input type="checkbox" id="z-clip-flip-checkbox" />
               <label for="z-clip-flip-checkbox">Flip</label>
             </div>
+            <div style="grid-column: 4; place-self: center right">
+              <input type="checkbox" id="z-clip-helper-checkbox" checked />
+              <label for="z-clip-helper-checkbox">Helper</label>
+            </div>
             <span style="grid-column: 1; text-align: right" id="z-clip-output"></span>
             <input style="grid-column: 2 / 5" type="range" id="z-clip-input" />
+
+            <div style="grid-column: 1 / 5; height: 2px; margin: 0.5rem 0"></div>
+
+            <span style="grid-column: 1; place-self: center left">Longitude</span>
+            <div style="grid-column: 2; place-self: center left">
+              <input type="checkbox" id="x-clip-global-checkbox" />
+              <label for="x-clip-global-checkbox">Global</label>
+            </div>
+            <div style="grid-column: 3; place-self: center">
+              <input type="checkbox" id="x-clip-flip-checkbox" />
+              <label for="x-clip-flip-checkbox">Flip</label>
+            </div>
+            <div style="grid-column: 4; place-self: center right">
+              <input type="checkbox" id="x-clip-helper-checkbox" checked />
+              <label for="x-clip-helper-checkbox">Helper</label>
+            </div>
+            <span style="grid-column: 1; text-align: right" id="x-clip-output"></span>
+            <input style="grid-column: 2 / 5" type="range" id="x-clip-input" />
+
+            <div style="grid-column: 1 / 5; height: 2px; margin: 0.5rem 0"></div>
+
+            <span style="grid-column: 1; place-self: center left">Depth</span>
+            <div style="grid-column: 2; place-self: center left">
+              <input type="checkbox" id="y-clip-global-checkbox" />
+              <label for="y-clip-global-checkbox">Global</label>
+            </div>
+            <div style="grid-column: 3; place-self: center">
+              <input type="checkbox" id="y-clip-flip-checkbox" />
+              <label for="y-clip-flip-checkbox">Flip</label>
+            </div>
+            <div style="grid-column: 4; place-self: center right">
+              <input type="checkbox" id="y-clip-helper-checkbox" checked />
+              <label for="y-clip-helper-checkbox">Helper</label>
+            </div>
+            <span style="grid-column: 1; text-align: right" id="y-clip-output"></span>
+            <input style="grid-column: 2 / 5" type="range" id="y-clip-input" />
           </div>
         </div>
       </div>
@@ -242,14 +256,16 @@
         interpolateMagma,
       } from "https://cdn.skypack.dev/d3-scale-chromatic@3";
 
-      // global three js objects that are modified everywhere
-      let canvas, renderer, scene, controls, camera, mesh;
-
-      // utilities that get reused throughout the code
-      let shapeSize;
+      // define variables in the global scope
+      let canvas, renderer, scene, controls, camera, mesh; // global three js objects that are modified everywhere
+      let shapeSize; // in cm
       let light1, light2;
       let gridHelper, axesHelper, frustumHelper;
-      let gridHelperVisible, axesHelperVisible, frustumHelperVisible;
+      let dataPoints; // list of data points
+      let dataTable; // lookup table of data points indexed by `(x, y, z)`
+      let bounds; // min-max of incoming data x, y, z
+
+      // constants
       const matrix = new THREE.Matrix4();
       const color = new THREE.Color();
       const cmaps = {
@@ -260,109 +276,66 @@
         Plasma: interpolatePlasma,
         Magma: interpolateMagma,
       };
-      const clipPlanes = {
-        x: {
-          plane: new THREE.Plane(new THREE.Vector3(1, 0, 0), 0),
-          bounds: [0, 0],
-          helper: undefined,
-          global: false,
-          set constant(val) {
-            this.plane.set(this.plane.normal, val);
-          },
-          get constant() {
-            return this.plane.constant;
-          },
-          set normal(val) {
-            this.plane.set(val, this.plane.constant);
-          },
-          get normal() {
-            return this.plane.normal;
-          },
-        },
-        y: {
-          plane: new THREE.Plane(new THREE.Vector3(0, -1, 0), 0),
-          bounds: [0, 0],
-          helper: undefined,
-          global: false,
-          set constant(val) {
-            this.plane.set(this.plane.normal, val);
-          },
-          get constant() {
-            return this.plane.constant;
-          },
-          set normal(val) {
-            this.plane.set(val, this.plane.constant);
-          },
-          get normal() {
-            return this.plane.normal;
-          },
-        },
-        z: {
-          plane: new THREE.Plane(new THREE.Vector3(0, 0, -1), 0),
-          bounds: [0, 0],
-          helper: undefined,
-          global: false,
-          set constant(val) {
-            this.plane.set(this.plane.normal, val);
-          },
-          get constant() {
-            return this.plane.constant;
-          },
-          set normal(val) {
-            this.plane.set(val, this.plane.constant);
-          },
-          get normal() {
-            return this.plane.normal;
-          },
-        },
-      };
 
-      // data
-      let dataPoints; // list of data points
-      let dataTable; // lookup table of data points indexed by `(x, y, z)`
-      let bounds; // min-max of incoming data x, y, z
+      // create clipPlane object definition
+      function clipPlane(normal, constant) {
+        this.plane = new THREE.Plane(normal, constant);
+        this.bounds = [0, 0];
+        this.global = false;
+        this.helper = undefined;
+      }
+      Object.defineProperty(clipPlane.prototype, "normal", {
+        get() {
+          return this.plane.normal;
+        },
+        set(val) {
+          this.plane.set(val, this.plane.constant);
+        },
+      });
+      Object.defineProperty(clipPlane.prototype, "constant", {
+        get() {
+          return this.plane.constant;
+        },
+        set(val) {
+          this.plane.set(this.plane.normal, val);
+        },
+      });
+
+      const clipPlanes = {
+        x: new clipPlane(new THREE.Vector3(1, 0, 0), 0),
+        y: new clipPlane(new THREE.Vector3(0, -1, 0), 0),
+        z: new clipPlane(new THREE.Vector3(0, 0, -1), 0),
+      };
 
       // parameters
       let file = $("#file-select").find(":selected").text(); // file to load
       let shape = $("#shape-select").find(":selected").text(); // shape to render
       let cmap = $("#cmap-select").find(":selected").text(); // color map to use
       let renderRequested = false; // flag for whether to re-render or not
-
-      // create the adjustable gutter
-      Split(["#view", "#controls"], {
-        // eslint-disable-line new-cap
-        sizes: [70, 30],
-        minSize: 350,
-        elementStyle: (dimension, size, gutterSize) => {
-          return {
-            "flex-basis": `calc(${size}% - ${gutterSize}px)`,
-          };
-        },
-        gutterStyle: (dimension, gutterSize) => {
-          return {
-            "flex-basis": `${gutterSize}px`,
-          };
-        },
-        onDrag: requestRenderIfNotRequested,
-      });
-
-      let hideCameraSliders = false;
+      let gridHelperVisible = true; // show grid helper by default
+      let axesHelperVisible = false; // hide axes helper by default
+      let frustumHelperVisible = false; // hide frustum helper by default
+      let xClipPlaneHelperVisible = true; // show clip plane helpers by default
+      let yClipPlaneHelperVisible = true;
+      let zClipPlaneHelperVisible = true;
+      let hideCameraSliders = false; // hide sliders by default
       let hideViewSliders = false;
-      $("#camera-sliders").hide(); // hide the controls sliders initially
-      $("#view-sliders").hide(); // hide the controls sliders initially
 
       // set the event listeners
       $(window).on("resize", requestRenderIfNotRequested);
       $("#file-select, #shape-select, #cmap-select").on("change", clean);
       $("#fov-input, #near-input, #far-input").on("input", updateCamera);
       $("#grid-elev-input, #x-clip-input, #y-clip-input, #z-clip-input").on("input", updateObjects);
-      $(`#grid-elev-toggle-checkbox, 
-         #x-clip-flip-checkbox, 
-         #y-clip-flip-checkbox, 
-         #z-clip-flip-checkbox, 
-         #x-clip-global-checkbox, 
-         #y-clip-global-checkbox, 
-         #z-clip-global-checkbox
+      $(`#grid-elev-toggle-checkbox,
+         #x-clip-global-checkbox,
+         #y-clip-global-checkbox,
+         #z-clip-global-checkbox,
+         #x-clip-flip-checkbox,
+         #y-clip-flip-checkbox,
+         #z-clip-flip-checkbox,
+         #x-clip-helper-checkbox,
+         #y-clip-helper-checkbox,
+         #z-clip-helper-checkbox
       `).on("click", updateHelpers);
       $("#camera-reset-btn").on("click", resetCamera);
       $("#view-reset-btn").on("click", resetView);
@@ -403,6 +376,29 @@
       $("#grid-elev-input").val(-30);
       $("#grid-elev-output").html(`${$("#grid-elev-input").val()}cm`);
 
+      // hide the sliders initially
+      $("#camera-sliders").hide();
+      $("#view-sliders").hide();
+
+      // create the adjustable gutter
+      Split(["#view", "#controls"], {
+        // eslint-disable-line new-cap
+        sizes: [70, 30],
+        minSize: 350,
+        elementStyle: (dimension, size, gutterSize) => {
+          return {
+            "flex-basis": `calc(${size}% - ${gutterSize}px)`,
+          };
+        },
+        gutterStyle: (dimension, gutterSize) => {
+          return {
+            "flex-basis": `${gutterSize}px`,
+          };
+        },
+        onDrag: requestRenderIfNotRequested,
+      });
+
+      // start the show!
       init();
       animate();
 
@@ -451,25 +447,32 @@
         scene.add(light2);
 
         // frustum helper
-        // frustumHelper = new THREE.CameraHelper(camera);
-        // scene.add(frustumHelper);
+        frustumHelper = new THREE.CameraHelper(camera);
+        frustumHelper.visible = frustumHelperVisible;
+        scene.add(frustumHelper);
+
         // grid helper
         gridHelper = new THREE.GridHelper(1000, 1000, "black", "#C2B280");
         gridHelper.name = "gridHelper";
+        gridHelper.visible = gridHelperVisible;
         scene.add(gridHelper);
-        gridHelperVisible = true;
+
         // axis helper
-        // axesHelper = new THREE.AxesHelper(25);
-        // axesHelper.name = "axesHelper";
-        // scene.add(axesHelper);
-        // axesHelperVisible = true;
+        axesHelper = new THREE.AxesHelper(25);
+        axesHelper.name = "axesHelper";
+        axesHelper.visible = axesHelperVisible;
+        scene.add(axesHelper);
+
         // plane helpers
         clipPlanes.x.helper = new THREE.PlaneHelper(clipPlanes.x.plane, 60, 0xff0000);
         clipPlanes.x.helper.name = "xClipPlaneHelper";
+        clipPlanes.x.helper.visible = xClipPlaneHelperVisible;
         clipPlanes.y.helper = new THREE.PlaneHelper(clipPlanes.y.plane, 60, 0x00ff00);
         clipPlanes.y.helper.name = "yClipPlaneHelper";
+        clipPlanes.x.helper.visible = yClipPlaneHelperVisible;
         clipPlanes.z.helper = new THREE.PlaneHelper(clipPlanes.z.plane, 60, 0x0000ff);
         clipPlanes.z.helper.name = "zClipPlaneHelper";
+        clipPlanes.x.helper.visible = zClipPlaneHelperVisible;
         scene.add(clipPlanes.x.helper);
         scene.add(clipPlanes.y.helper);
         scene.add(clipPlanes.z.helper);
@@ -671,6 +674,18 @@
               requestRenderIfNotRequested();
             }
             break;
+          case "x-clip-global-checkbox":
+            clipPlanes.x.global = !clipPlanes.x.global;
+            updateObjects();
+            break;
+          case "y-clip-global-checkbox":
+            clipPlanes.y.global = !clipPlanes.y.global;
+            updateObjects();
+            break;
+          case "z-clip-global-checkbox":
+            clipPlanes.z.global = !clipPlanes.z.global;
+            updateObjects();
+            break;
           case "x-clip-flip-checkbox":
             clipPlanes.x.normal = clipPlanes.x.normal.negate();
             updateObjects();
@@ -683,17 +698,20 @@
             clipPlanes.z.normal = clipPlanes.z.normal.negate();
             updateObjects();
             break;
-          case "x-clip-global-checkbox":
-            clipPlanes.x.global = !clipPlanes.x.global;
-            updateObjects();
+          case "x-clip-helper-checkbox":
+            xClipPlaneHelperVisible = !xClipPlaneHelperVisible; // toggle
+            clipPlanes.x.helper.visible = xClipPlaneHelperVisible; // set state
+            requestRenderIfNotRequested();
             break;
-          case "y-clip-global-checkbox":
-            clipPlanes.y.global = !clipPlanes.y.global;
-            updateObjects();
+          case "y-clip-helper-checkbox":
+            yClipPlaneHelperVisible = !yClipPlaneHelperVisible; // toggle
+            clipPlanes.y.helper.visible = yClipPlaneHelperVisible; // set state
+            requestRenderIfNotRequested();
             break;
-          case "z-clip-global-checkbox":
-            clipPlanes.z.global = !clipPlanes.z.global;
-            updateObjects();
+          case "z-clip-helper-checkbox":
+            zClipPlaneHelperVisible = !zClipPlaneHelperVisible; // toggle
+            clipPlanes.z.helper.visible = zClipPlaneHelperVisible; // set state
+            requestRenderIfNotRequested();
             break;
         }
       }
@@ -786,29 +804,13 @@
 
       function resetView() {
         // reset gridhelper
-        gridHelperVisible = true;
-        gridHelper.visible = true;
-        gridHelper.position.y = 0;
+        gridHelperVisible = true; // set flag
+        gridHelper.visible = true; // set state
+        gridHelper.position.y = 0; // set position
         $("#grid-elev-toggle-checkbox").prop("checked", true);
         $("#grid-elev-input").val(-30);
         $("#grid-elev-output").html(`${$("#grid-elev-input").val()}cm`);
-        // reset clipping plane normals and inputs
-        clipPlanes.x.normal = new THREE.Vector3(1, 0, 0);
-        clipPlanes.y.normal = new THREE.Vector3(0, -1, 0);
-        clipPlanes.z.normal = new THREE.Vector3(0, 0, -1);
-        $("#x-clip-flip-checkbox").prop("checked", false);
-        $("#y-clip-flip-checkbox").prop("checked", false);
-        $("#z-clip-flip-checkbox").prop("checked", false);
-        // reset clipping plane constants, inputs and outputs
-        clipPlanes.x.constant = -clipPlanes.x.bounds[0] + 0.01;
-        clipPlanes.y.constant = 30;
-        clipPlanes.z.constant = -clipPlanes.z.bounds[0] + 0.01;
-        $("#x-clip-input").val(clipPlanes.x.bounds[0]);
-        $("#y-clip-input").val(0);
-        $("#z-clip-input").val(clipPlanes.z.bounds[0]);
-        $("#x-clip-output").html(`${$("#x-clip-input").val()}cm`);
-        $("#y-clip-output").html(`${$("#y-clip-input").val()}cm`);
-        $("#z-clip-output").html(`${$("#z-clip-input").val()}cm`);
+
         // reset global clip planes
         clipPlanes.x.global = false;
         clipPlanes.y.global = false;
@@ -817,6 +819,37 @@
         $("#y-clip-global-checkbox").prop("checked", false);
         $("#z-clip-global-checkbox").prop("checked", false);
         renderer.clippingPlanes = Object.freeze([]);
+
+        // reset clipping plane normals and inputs
+        clipPlanes.x.normal = new THREE.Vector3(1, 0, 0);
+        clipPlanes.y.normal = new THREE.Vector3(0, -1, 0);
+        clipPlanes.z.normal = new THREE.Vector3(0, 0, -1);
+        $("#x-clip-flip-checkbox").prop("checked", false);
+        $("#y-clip-flip-checkbox").prop("checked", false);
+        $("#z-clip-flip-checkbox").prop("checked", false);
+
+        // reset clipping plane helpers
+        xClipPlaneHelperVisible = true; // set flag
+        clipPlanes.x.helper.visible = true; // set state
+        $("#x-clip-helper-checkbox").prop("checked", true);
+        yClipPlaneHelperVisible = true; // set flag
+        clipPlanes.y.helper.visible = true; // set state
+        $("#y-clip-helper-checkbox").prop("checked", true);
+        zClipPlaneHelperVisible = true; // set flag
+        clipPlanes.z.helper.visible = true; // set state
+        $("#z-clip-helper-checkbox").prop("checked", true);
+
+        // reset clipping plane constants, inputs and outputs
+        clipPlanes.x.constant = -clipPlanes.x.bounds[0] + 0.01;
+        clipPlanes.y.constant = 30.01;
+        clipPlanes.z.constant = -clipPlanes.z.bounds[0] + 0.01;
+        $("#x-clip-input").val(clipPlanes.x.bounds[0]);
+        $("#y-clip-input").val(0);
+        $("#z-clip-input").val(clipPlanes.z.bounds[0]);
+        $("#x-clip-output").html(`${$("#x-clip-input").val()}cm`);
+        $("#y-clip-output").html(`${$("#y-clip-input").val()}cm`);
+        $("#z-clip-output").html(`${$("#z-clip-input").val()}cm`);
+
         // re-render
         requestRenderIfNotRequested();
       }
