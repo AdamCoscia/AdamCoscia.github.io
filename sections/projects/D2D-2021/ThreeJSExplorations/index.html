@@ -16,7 +16,7 @@
       }
 
       h2 {
-        margin: 15px 0 0 0;
+        margin: 0;
         display: inline-block;
       }
 
@@ -28,10 +28,11 @@
 
       #controls {
         padding: 5px;
+        overflow: auto;
       }
 
       #input-grid {
-        margin: 0 auto;
+        margin: 1rem auto;
         max-width: 300px;
         display: grid;
         row-gap: 5px;
@@ -43,18 +44,30 @@
       }
 
       #instructions {
-        margin: 0 auto;
+        margin: 1rem auto;
         max-width: 300px;
       }
 
       #controls-grid {
-        margin: 0 auto;
+        margin: 1rem auto;
         max-width: 300px;
       }
 
-      #controls-grid,
-      #camera-sliders,
-      #view-sliders {
+      #controls-grid ol {
+        margin: 0;
+      }
+
+      #controls-grid {
+        display: grid;
+        row-gap: 1.25rem;
+        column-gap: 10px;
+        grid-template-columns: 0.25fr 0.75fr;
+        grid-template-rows: repeat(auto-fit, minmax(20px, max-content));
+        justify-items: stretch;
+        align-items: stretch;
+      }
+
+      #camera-sliders {
         display: grid;
         row-gap: 5px;
         column-gap: 10px;
@@ -64,8 +77,14 @@
         align-items: stretch;
       }
 
-      #controls-grid ol {
-        margin: 0;
+      #view-sliders {
+        display: grid;
+        row-gap: 5px;
+        column-gap: 10px;
+        grid-template-columns: 0.25fr 0.25fr 0.25fr 0.25fr;
+        grid-template-rows: repeat(auto-fit, minmax(20px, max-content));
+        justify-items: stretch;
+        align-items: stretch;
       }
 
       #camera-sliders-toggle-icon,
@@ -99,7 +118,7 @@
 
       <div id="controls">
         <div id="input-grid">
-          <div style="grid-column: 1 /4; text-align: center">
+          <div style="grid-column: 1 /4">
             <h2>Inputs</h2>
           </div>
 
@@ -122,6 +141,7 @@
           <select style="grid-column: 3" id="cmap-select">
             <option>Viridis</option>
             <option>Cividis</option>
+            <option>Greys</option>
             <option>Inferno</option>
             <option>Plasma</option>
             <option>Magma</option>
@@ -129,9 +149,7 @@
         </div>
 
         <div id="instructions">
-          <div style="text-align: center">
-            <h2>Instructions</h2>
-          </div>
+          <h2>Instructions</h2>
 
           <ol style="margin: 10px 0 0 0">
             <li>Left-click and drag to pan</li>
@@ -141,9 +159,10 @@
         </div>
 
         <div id="controls-grid">
-          <div style="grid-column: 1 /3; text-align: center">
-            <h2>Camera Controls</h2>
+          <div style="grid-column: 1 /3">
+            <h2>Camera</h2>
             <span id="camera-sliders-toggle-icon">&#x25BC;</span>
+            <button style="float: right; border-radius: 7px" id="camera-reset-btn">Reset</button>
           </div>
 
           <div style="grid-column: 1 / 3" id="camera-sliders">
@@ -160,38 +179,60 @@
             <input type="range" max="10000" step="0.1" id="far-input" />
           </div>
 
-          <button style="grid-column: 1 / 3; margin: 10px 0; border-radius: 7px" id="camera-reset-btn">
-            Reset Camera
-          </button>
-
-          <div style="grid-column: 1 /3; text-align: center">
-            <h2>View Controls</h2>
+          <div style="grid-column: 1 /3">
+            <h2>View</h2>
             <span id="view-sliders-toggle-icon">&#x25BC;</span>
+            <button style="float: right; border-radius: 7px" id="view-reset-btn">Reset</button>
           </div>
 
           <div style="grid-column: 1 / 3" id="view-sliders">
-            <button style="grid-column: 1; border-radius: 7px" id="grid-elev-toggle-btn">Hide</button>
-            <span style="grid-column: 2; place-self: center left">Grid Elevation</span>
+            <span style="grid-column: 1 / 4; place-self: center left">Grid Elevation</span>
+            <div style="grid-column: 4">
+              <input type="checkbox" id="grid-elev-toggle-checkbox" checked />
+              <label for="grid-elev-toggle-checkbox">Show</label>
+            </div>
             <span style="grid-column: 1; text-align: right" id="grid-elev-output"></span>
-            <input style="grid-column: 2" type="range" min="-30" max="0" id="grid-elev-input" />
+            <input style="grid-column: 2 / 5" type="range" min="-30" max="0" id="grid-elev-input" />
+            <div style="grid-column: 1 / 5; height: 2px; margin: 0.5rem 0"></div>
 
-            <button style="grid-column: 1; border-radius: 7px" id="x-clip-toggle-normal-btn">Flip</button>
-            <span style="grid-column: 2; place-self: center left">X Axis Clipping Plane</span>
+            <span style="grid-column: 1 / 3; place-self: center left">X-axis clipping plane</span>
+            <div style="grid-column: 3">
+              <input type="checkbox" id="x-clip-global-checkbox" />
+              <label for="x-clip-global-checkbox">Global</label>
+            </div>
+            <div style="grid-column: 4">
+              <input type="checkbox" id="x-clip-flip-checkbox" />
+              <label for="x-clip-flip-checkbox">Flip</label>
+            </div>
             <span style="grid-column: 1; text-align: right" id="x-clip-output"></span>
-            <input style="grid-column: 2" type="range" id="x-clip-input" />
+            <input style="grid-column: 2 / 5" type="range" id="x-clip-input" />
+            <div style="grid-column: 1 / 5; height: 2px; margin: 0.5rem 0"></div>
 
-            <button style="grid-column: 1; border-radius: 7px" id="y-clip-toggle-normal-btn">Flip</button>
-            <span style="grid-column: 2; place-self: center left">Y Axis Clipping Plane</span>
+            <span style="grid-column: 1 / 3; place-self: center left">Y-axis clipping plane</span>
+            <div style="grid-column: 3">
+              <input type="checkbox" id="y-clip-global-checkbox" />
+              <label for="y-clip-global-checkbox">Global</label>
+            </div>
+            <div style="grid-column: 4">
+              <input type="checkbox" id="y-clip-flip-checkbox" />
+              <label for="y-clip-flip-checkbox">Flip</label>
+            </div>
             <span style="grid-column: 1; text-align: right" id="y-clip-output"></span>
-            <input style="grid-column: 2" type="range" id="y-clip-input" />
+            <input style="grid-column: 2 / 5" type="range" id="y-clip-input" />
+            <div style="grid-column: 1 / 5; height: 2px; margin: 0.5rem 0"></div>
 
-            <button style="grid-column: 1; border-radius: 7px" id="z-clip-toggle-normal-btn">Flip</button>
-            <span style="grid-column: 2; place-self: center left">Z Axis Clipping Plane</span>
+            <span style="grid-column: 1 / 3; place-self: center left">Z-axis clipping plane</span>
+            <div style="grid-column: 3">
+              <input type="checkbox" id="z-clip-global-checkbox" />
+              <label for="z-clip-global-checkbox">Global</label>
+            </div>
+            <div style="grid-column: 4">
+              <input type="checkbox" id="z-clip-flip-checkbox" />
+              <label for="z-clip-flip-checkbox">Flip</label>
+            </div>
             <span style="grid-column: 1; text-align: right" id="z-clip-output"></span>
-            <input style="grid-column: 2" type="range" id="z-clip-input" />
+            <input style="grid-column: 2 / 5" type="range" id="z-clip-input" />
           </div>
-
-          <button style="grid-column: 1 / 3; margin: 10px 0; border-radius: 7px" id="view-reset-btn">Reset View</button>
         </div>
       </div>
     </div>
@@ -200,11 +241,12 @@
       import { OrbitControls } from "https://threejs.org/examples/jsm/controls/OrbitControls.js";
       import { scaleSequential } from "https://cdn.skypack.dev/d3-scale@4";
       import {
+        interpolateViridis,
+        interpolateCividis,
+        interpolateGreys,
         interpolateInferno,
         interpolatePlasma,
         interpolateMagma,
-        interpolateViridis,
-        interpolateCividis,
       } from "https://cdn.skypack.dev/d3-scale-chromatic@3";
 
       // global three js objects that are modified everywhere
@@ -218,17 +260,19 @@
       const matrix = new THREE.Matrix4();
       const color = new THREE.Color();
       const cmaps = {
+        Viridis: interpolateViridis,
+        Cividis: interpolateCividis,
+        Greys: interpolateGreys,
         Inferno: interpolateInferno,
         Plasma: interpolatePlasma,
         Magma: interpolateMagma,
-        Viridis: interpolateViridis,
-        Cividis: interpolateCividis,
       };
       const clipPlanes = {
         x: {
           plane: new THREE.Plane(new THREE.Vector3(1, 0, 0), 0),
           bounds: [0, 0],
           helper: undefined,
+          global: false,
           set constant(val) {
             this.plane.set(this.plane.normal, val);
           },
@@ -246,6 +290,7 @@
           plane: new THREE.Plane(new THREE.Vector3(0, -1, 0), 0),
           bounds: [0, 0],
           helper: undefined,
+          global: false,
           set constant(val) {
             this.plane.set(this.plane.normal, val);
           },
@@ -263,6 +308,7 @@
           plane: new THREE.Plane(new THREE.Vector3(0, 0, -1), 0),
           bounds: [0, 0],
           helper: undefined,
+          global: false,
           set constant(val) {
             this.plane.set(this.plane.normal, val);
           },
@@ -292,8 +338,8 @@
       // create the adjustable gutter
       Split(["#view", "#controls"], {
         // eslint-disable-line new-cap
-        sizes: [75, 25],
-        minSize: 100,
+        sizes: [70, 30],
+        minSize: 350,
         elementStyle: (dimension, size, gutterSize) => {
           return {
             "flex-basis": `calc(${size}% - ${gutterSize}px)`,
@@ -317,11 +363,15 @@
       $("#file-select, #shape-select, #cmap-select").on("change", clean);
       $("#fov-input, #near-input, #far-input").on("input", updateCamera);
       $("#grid-elev-input, #x-clip-input, #y-clip-input, #z-clip-input").on("input", updateObjects);
+      $(`#grid-elev-toggle-checkbox, 
+         #x-clip-flip-checkbox, 
+         #y-clip-flip-checkbox, 
+         #z-clip-flip-checkbox, 
+         #x-clip-global-checkbox, 
+         #y-clip-global-checkbox, 
+         #z-clip-global-checkbox
+      `).on("click", updateHelpers);
       $("#camera-reset-btn").on("click", resetCamera);
-      $("#grid-elev-toggle-btn, #x-clip-toggle-normal-btn, #y-clip-toggle-normal-btn, #z-clip-toggle-normal-btn").on(
-        "click",
-        updateHelpers
-      );
       $("#view-reset-btn").on("click", resetView);
       $("#camera-sliders-toggle-icon").on("click", () => {
         if (hideCameraSliders) {
@@ -416,16 +466,16 @@
         scene.add(gridHelper);
         gridHelperVisible = true;
         // axis helper
-        axesHelper = new THREE.AxesHelper(25);
-        axesHelper.name = "axesHelper";
-        scene.add(axesHelper);
-        axesHelperVisible = true;
+        // axesHelper = new THREE.AxesHelper(25);
+        // axesHelper.name = "axesHelper";
+        // scene.add(axesHelper);
+        // axesHelperVisible = true;
         // plane helpers
-        clipPlanes.x.helper = new THREE.PlaneHelper(clipPlanes.x.plane, 1000, 0xff0000);
+        clipPlanes.x.helper = new THREE.PlaneHelper(clipPlanes.x.plane, 60, 0xff0000);
         clipPlanes.x.helper.name = "xClipPlaneHelper";
-        clipPlanes.y.helper = new THREE.PlaneHelper(clipPlanes.y.plane, 1000, 0x00ff00);
+        clipPlanes.y.helper = new THREE.PlaneHelper(clipPlanes.y.plane, 60, 0x00ff00);
         clipPlanes.y.helper.name = "yClipPlaneHelper";
-        clipPlanes.z.helper = new THREE.PlaneHelper(clipPlanes.z.plane, 1000, 0x0000ff);
+        clipPlanes.z.helper = new THREE.PlaneHelper(clipPlanes.z.plane, 60, 0x0000ff);
         clipPlanes.z.helper.name = "zClipPlaneHelper";
         scene.add(clipPlanes.x.helper);
         scene.add(clipPlanes.y.helper);
@@ -492,7 +542,7 @@
           clipPlanes.z.bounds = [bounds.y[0] - step / 2 - 0.5, bounds.y[1] + step / 2 - 0.5];
           // update constants, applying small correction to start
           clipPlanes.x.constant = -clipPlanes.x.bounds[0] + 0.01;
-          clipPlanes.y.constant = 30;
+          clipPlanes.y.constant = 30.01;
           clipPlanes.z.constant = -clipPlanes.z.bounds[0] + 0.01;
           // update clipping plane limits
           $("#x-clip-input").attr("min", clipPlanes.x.bounds[0]);
@@ -537,7 +587,8 @@
           const d = parseFloat(dataPoint["dist_to_nearest"]);
           if (v) {
             // color
-            const v_norm = (v - bounds.v[0]) / (bounds.v[1] - bounds.v[0]);
+            let v_norm = (v - bounds.v[0]) / (bounds.v[1] - bounds.v[0]);
+            if (cmap == "Greys") v_norm = 1 - v_norm; // invert scale
             mesh.setColorAt(i, color.set(colorScale(v_norm)));
             // transform
             // const d_norm = (d - bounds.d[1]) / (bounds.d[0] - bounds.d[1]);
@@ -578,7 +629,8 @@
           const d = parseFloat(dataPoint["dist_to_nearest"]);
           if (v) {
             // color
-            const v_norm = (v - bounds.v[0]) / (bounds.v[1] - bounds.v[0]);
+            let v_norm = (v - bounds.v[0]) / (bounds.v[1] - bounds.v[0]);
+            if (cmap == "Greys") v_norm = 1 - v_norm; // invert scale
             mesh.setColorAt(i, color.set(colorScale(v_norm)));
             // transform
             // const d_norm = (d - bounds.d[1]) / (bounds.d[0] - bounds.d[1]);
@@ -617,27 +669,37 @@
         const el = $(e.target);
         const id = el.attr("id");
         switch (id) {
-          case "grid-elev-toggle-btn":
-            gridHelperVisible = !gridHelperVisible;
-            gridHelper.visible = gridHelperVisible;
+          case "grid-elev-toggle-checkbox":
+            gridHelperVisible = !gridHelperVisible; // toggle
+            gridHelper.visible = gridHelperVisible; // set state
             if (gridHelperVisible) {
-              el.html("Hide");
               updateObjects();
             } else {
-              el.html("Show");
               requestRenderIfNotRequested();
             }
             break;
-          case "x-clip-toggle-normal-btn":
+          case "x-clip-flip-checkbox":
             clipPlanes.x.normal = clipPlanes.x.normal.negate();
             updateObjects();
             break;
-          case "y-clip-toggle-normal-btn":
+          case "y-clip-flip-checkbox":
             clipPlanes.y.normal = clipPlanes.y.normal.negate();
             updateObjects();
             break;
-          case "z-clip-toggle-normal-btn":
+          case "z-clip-flip-checkbox":
             clipPlanes.z.normal = clipPlanes.z.normal.negate();
+            updateObjects();
+            break;
+          case "x-clip-global-checkbox":
+            clipPlanes.x.global = !clipPlanes.x.global;
+            updateObjects();
+            break;
+          case "y-clip-global-checkbox":
+            clipPlanes.y.global = !clipPlanes.y.global;
+            updateObjects();
+            break;
+          case "z-clip-global-checkbox":
+            clipPlanes.z.global = !clipPlanes.z.global;
             updateObjects();
             break;
         }
@@ -689,6 +751,13 @@
         $("#y-clip-output").html(`${$("#y-clip-input").val()}cm`);
         $("#z-clip-output").html(`${$("#z-clip-input").val()}cm`);
 
+        // set global clip planes, if any are toggled
+        let globalPlanes = [];
+        if (clipPlanes.x.global) globalPlanes.push(clipPlanes.x.plane);
+        if (clipPlanes.y.global) globalPlanes.push(clipPlanes.y.plane);
+        if (clipPlanes.z.global) globalPlanes.push(clipPlanes.z.plane);
+        renderer.clippingPlanes = globalPlanes.length > 0 ? globalPlanes : Object.freeze([]);
+
         // re-render
         requestRenderIfNotRequested();
       }
@@ -727,13 +796,17 @@
         gridHelperVisible = true;
         gridHelper.visible = true;
         gridHelper.position.y = 0;
-        $("#grid-elev-toggle-btn").html("Hide");
+        $("#grid-elev-toggle-checkbox").prop("checked", true);
         $("#grid-elev-input").val(-30);
         $("#grid-elev-output").html(`${$("#grid-elev-input").val()}cm`);
-        // reset clipping planes to starting values
+        // reset clipping plane normals and inputs
         clipPlanes.x.normal = new THREE.Vector3(1, 0, 0);
         clipPlanes.y.normal = new THREE.Vector3(0, -1, 0);
         clipPlanes.z.normal = new THREE.Vector3(0, 0, -1);
+        $("#x-clip-flip-checkbox").prop("checked", false);
+        $("#y-clip-flip-checkbox").prop("checked", false);
+        $("#z-clip-flip-checkbox").prop("checked", false);
+        // reset clipping plane constants, inputs and outputs
         clipPlanes.x.constant = -clipPlanes.x.bounds[0] + 0.01;
         clipPlanes.y.constant = 30;
         clipPlanes.z.constant = -clipPlanes.z.bounds[0] + 0.01;
@@ -743,6 +816,14 @@
         $("#x-clip-output").html(`${$("#x-clip-input").val()}cm`);
         $("#y-clip-output").html(`${$("#y-clip-input").val()}cm`);
         $("#z-clip-output").html(`${$("#z-clip-input").val()}cm`);
+        // reset global clip planes
+        clipPlanes.x.global = false;
+        clipPlanes.y.global = false;
+        clipPlanes.z.global = false;
+        $("#x-clip-global-checkbox").prop("checked", false);
+        $("#y-clip-global-checkbox").prop("checked", false);
+        $("#z-clip-global-checkbox").prop("checked", false);
+        renderer.clippingPlanes = Object.freeze([]);
         // re-render
         requestRenderIfNotRequested();
       }
