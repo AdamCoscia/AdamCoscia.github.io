@@ -3,10 +3,10 @@
   <head>
     <meta charset="utf-8" />
     <title>ThreeJS Explorations</title>
-    <script src="libraries/three.min.js"></script>
     <script src="libraries/jquery-3.6.0.min.js"></script>
     <script src="libraries/jquery.csv.min.js"></script>
     <script src="libraries/split.min.js"></script>
+    <script src="libraries/d3.min.js"></script>
     <style>
       html,
       body {
@@ -117,21 +117,37 @@
 
           <span style="grid-column: 1; place-self: end center">File</span>
           <span style="grid-column: 2; place-self: end center">Shape</span>
-          <span style="grid-column: 3; place-self: end center">Color Map</span>
-
           <select style="grid-column: 1" id="file-select">
-            <option>3d_natural_5cm.csv</option>
-            <option>3d_natural_10cm.csv</option>
-            <option>3d_natural_15cm.csv</option>
-            <option>3d_linear_5cm.csv</option>
-            <option>3d_linear_10cm.csv</option>
-            <option>3d_linear_15cm.csv</option>
+            <option>Pescadero_3d_natural_5cm.csv</option>
+            <option>Pescadero_3d_natural_10cm.csv</option>
+            <option>Pescadero_3d_natural_15cm.csv</option>
+            <option>Pescadero_3d_linear_5cm.csv</option>
+            <option>Pescadero_3d_linear_10cm.csv</option>
+            <option>Pescadero_3d_linear_15cm.csv</option>
           </select>
           <select style="grid-column: 2" id="shape-select">
             <option>Prism</option>
             <option>Cylinder</option>
           </select>
-          <select style="grid-column: 3" id="cmap-select">
+
+          <span style="grid-column: 1; place-self: end center">Variable</span>
+          <span style="grid-column: 2; place-self: end center">Color Map</span>
+          <select style="grid-column: 1" id="variable-select">
+            <option>Sulfide</option>
+            <option>Sulfate</option>
+            <option>Archaea;__Euryarchaeota;__Methanomicrobia;__ANME_1;__f;__g</option>
+            <option>Archaea;__Euryarchaeota;__Methanomicrobia;__Methanosarcinales;__ANME_2c;__g</option>
+            <option>
+              Bacteria;__Proteobacteria;__Deltaproteobacteria;__Desulfobacterales;__Desulfobacteraceae;__SEEP_SRB1
+            </option>
+            <option>
+              Bacteria;__Proteobacteria;__Deltaproteobacteria;__Desulfobacterales;__Desulfobulbaceae;__SEEP_SRB2
+            </option>
+            <option>
+              Bacteria;__Proteobacteria;__Deltaproteobacteria;__Desulfobacterales;__Desulfobulbaceae;__SEEP_SRB4
+            </option>
+          </select>
+          <select style="grid-column: 2" id="cmap-select">
             <option>Viridis</option>
             <option>Cividis</option>
             <option>Greys</option>
@@ -179,16 +195,25 @@
           </div>
 
           <div style="grid-column: 1 / 3" id="view-sliders">
-            <span style="grid-column: 1 / 4; place-self: center left">Grid</span>
+            <strong style="grid-column: 1 / 3; place-self: center left">Options</strong>
+            <div style="grid-column: 3 / 5; place-self: center right">
+              <input type="checkbox" id="interp-toggle-checkbox" checked />
+              <label for="interp-toggle-checkbox">Interpolation</label>
+            </div>
+
+            <div style="grid-column: 1 / 5; height: 2px; margin: 0.5rem 0"></div>
+
+            <strong style="grid-column: 1 / 4; place-self: center left; color: #c2b280">Grid</strong>
             <div style="grid-column: 4; place-self: center right">
               <input type="checkbox" id="grid-elev-toggle-checkbox" checked />
               <label for="grid-elev-toggle-checkbox">Show</label>
             </div>
             <span style="grid-column: 1; text-align: right" id="grid-elev-output"></span>
             <input style="grid-column: 2 / 5" type="range" min="-30" max="0" id="grid-elev-input" />
+
             <div style="grid-column: 1 / 5; height: 2px; margin: 0.5rem 0"></div>
 
-            <span style="grid-column: 1; place-self: center left">Latitude</span>
+            <strong style="grid-column: 1; place-self: center left; color: #0000ff">Latitude</strong>
             <div style="grid-column: 2; place-self: center left">
               <input type="checkbox" id="z-clip-global-checkbox" />
               <label for="z-clip-global-checkbox">Global</label>
@@ -206,7 +231,7 @@
 
             <div style="grid-column: 1 / 5; height: 2px; margin: 0.5rem 0"></div>
 
-            <span style="grid-column: 1; place-self: center left">Longitude</span>
+            <strong style="grid-column: 1; place-self: center left; color: #ff0000">Longitude</strong>
             <div style="grid-column: 2; place-self: center left">
               <input type="checkbox" id="x-clip-global-checkbox" />
               <label for="x-clip-global-checkbox">Global</label>
@@ -224,7 +249,7 @@
 
             <div style="grid-column: 1 / 5; height: 2px; margin: 0.5rem 0"></div>
 
-            <span style="grid-column: 1; place-self: center left">Depth</span>
+            <strong style="grid-column: 1; place-self: center left; color: #00ff00">Depth</strong>
             <div style="grid-column: 2; place-self: center left">
               <input type="checkbox" id="y-clip-global-checkbox" />
               <label for="y-clip-global-checkbox">Global</label>
@@ -245,39 +270,9 @@
     </div>
 
     <script type="module">
-      import { OrbitControls } from "https://threejs.org/examples/jsm/controls/OrbitControls.js";
-      import { scaleSequential } from "https://cdn.skypack.dev/d3-scale@4";
-      import {
-        interpolateViridis,
-        interpolateCividis,
-        interpolateGreys,
-        interpolateInferno,
-        interpolatePlasma,
-        interpolateMagma,
-      } from "https://cdn.skypack.dev/d3-scale-chromatic@3";
+      import * as THREE from "./libraries/three/build/three.module.js";
+      import { OrbitControls } from "./libraries/three/examples/jsm/controls/OrbitControls.js";
 
-      // define variables in the global scope
-      let canvas, renderer, scene, controls, camera, mesh; // global three js objects that are modified everywhere
-      let shapeSize; // in cm
-      let light1, light2;
-      let gridHelper, axesHelper, frustumHelper;
-      let dataPoints; // list of data points
-      let dataTable; // lookup table of data points indexed by `(x, y, z)`
-      let bounds; // min-max of incoming data x, y, z
-
-      // constants
-      const matrix = new THREE.Matrix4();
-      const color = new THREE.Color();
-      const cmaps = {
-        Viridis: interpolateViridis,
-        Cividis: interpolateCividis,
-        Greys: interpolateGreys,
-        Inferno: interpolateInferno,
-        Plasma: interpolatePlasma,
-        Magma: interpolateMagma,
-      };
-
-      // create clipPlane object definition
       function clipPlane(normal, constant) {
         this.plane = new THREE.Plane(normal, constant);
         this.bounds = [0, 0];
@@ -301,6 +296,25 @@
         },
       });
 
+      // define variables in the global scope
+      let canvas, renderer, scene, controls, camera, mesh; // global three js objects that are modified everywhere
+      let gridHelper, axesHelper, frustumHelper; // helper objects
+      let light1, light2; // the lights
+      let dataPoints; // list of data points
+      let dataTable; // lookup table of data points indexed by `(x, y, z)`
+      let dataBounds; // min-max of incoming data x, y, z
+
+      // constants
+      const matrix = new THREE.Matrix4();
+      const color = new THREE.Color();
+      const cmaps = {
+        Viridis: d3.interpolateViridis,
+        Cividis: d3.interpolateCividis,
+        Greys: d3.interpolateGreys,
+        Inferno: d3.interpolateInferno,
+        Plasma: d3.interpolatePlasma,
+        Magma: d3.interpolateMagma,
+      };
       const clipPlanes = {
         x: new clipPlane(new THREE.Vector3(1, 0, 0), 0),
         y: new clipPlane(new THREE.Vector3(0, -1, 0), 0),
@@ -308,9 +322,11 @@
       };
 
       // parameters
-      let file = $("#file-select").find(":selected").text(); // file to load
-      let shape = $("#shape-select").find(":selected").text(); // shape to render
-      let cmap = $("#cmap-select").find(":selected").text(); // color map to use
+      let file = $("#file-select").find(":selected").text().trim(); // file to load
+      let shape = $("#shape-select").find(":selected").text().trim(); // shape to render
+      let cmap = $("#cmap-select").find(":selected").text().trim(); // color map to use
+      let variable = $("#variable-select").find(":selected").text().trim(); // variable to display
+      let showInterp = $("#interp-toggle-checkbox").prop("checked"); // whether to show interpolated values
       let renderRequested = false; // flag for whether to re-render or not
       let gridHelperVisible = true; // show grid helper by default
       let axesHelperVisible = false; // hide axes helper by default
@@ -323,7 +339,7 @@
 
       // set the event listeners
       $(window).on("resize", requestRenderIfNotRequested);
-      $("#file-select, #shape-select, #cmap-select").on("change", clean);
+      $("#file-select, #shape-select, #cmap-select, #variable-select, #interp-toggle-checkbox").on("change", clean);
       $("#fov-input, #near-input, #far-input").on("input", updateCamera);
       $("#grid-elev-input, #x-clip-input, #y-clip-input, #z-clip-input").on("input", updateObjects);
       $(`#grid-elev-toggle-checkbox,
@@ -400,7 +416,7 @@
 
       // start the show!
       init();
-      animate();
+      loadFile(`data/${file}`).then(parseData).then(animate);
 
       function init() {
         // canvas
@@ -429,7 +445,7 @@
         controls.dampingFactor = 0.05;
         controls.screenSpacePanning = false;
         controls.minDistance = 0;
-        controls.maxDistance = 300;
+        controls.maxDistance = 500;
         controls.maxPolarAngle = Math.PI;
         controls.mouseButtons = {
           LEFT: THREE.MOUSE.PAN,
@@ -484,63 +500,89 @@
       }
 
       function parseData(text) {
-        // clear any existing data lists and maps when loading new data
+        // initialize new data structures
         dataPoints = [];
         dataTable = {};
-        bounds = {
+        dataBounds = {
           x: [0, 0],
           y: [0, 0],
           z: [0, 0],
-          v: [0, 0],
           d: [0, 0],
         };
+        const vars = $.map($("#variable-select option"), (opt) => opt.text);
+        vars.forEach((v) => (dataBounds[v] = [0, 0]));
         // parse csv data, where each row becomes an object
         $.csv.toObjects(text, {}, (err, data) => {
           if (err) {
             console.log(err);
           }
-          // set initial bounds using first point
+          // set initial x,y,z,dist bounds using first point
+          // these columns are always fully populated, so taking the first
+          // value should be fine
           let i = 0;
           let d = data[i];
-          bounds.x[0] = d["Longitude_rel_cm"];
-          bounds.x[1] = d["Longitude_rel_cm"];
-          bounds.y[0] = d["Latitude_rel_cm"];
-          bounds.y[1] = d["Latitude_rel_cm"];
-          bounds.z[0] = d["start_depth"];
-          bounds.z[1] = d["start_depth"];
-          bounds.v[0] = d["Sulfate"];
-          bounds.v[1] = d["Sulfate"];
-          bounds.d[0] = d["dist_to_nearest"];
-          bounds.d[1] = d["dist_to_nearest"];
+          dataBounds.x[0] = parseFloat(d.X);
+          dataBounds.x[1] = parseFloat(d.X);
+          dataBounds.y[0] = parseFloat(d.Y);
+          dataBounds.y[1] = parseFloat(d.Y);
+          dataBounds.z[0] = parseFloat(d.Z);
+          dataBounds.z[1] = parseFloat(d.Z);
+          dataBounds.d[0] = parseFloat(d["dist_to_nearest"]);
+          dataBounds.d[1] = parseFloat(d["dist_to_nearest"]);
+          // some datasets (like linear) have missing values for variables
+          // walk through until you can set initial bounds on each variable
+          let varSet = vars.map(() => false);
+          let stopIter = true;
+          for (let j = 0; j < data.length; j++) {
+            for (let k = 0; k < vars.length; k++) {
+              if (!varSet[k]) {
+                const v = parseFloat(data[j][vars[k]]);
+                if (v) {
+                  dataBounds[vars[k]][0] = v;
+                  dataBounds[vars[k]][1] = v;
+                  varSet[k] = true;
+                } else {
+                  stopIter = false;
+                }
+              }
+            }
+            if (stopIter) break;
+          }
+          // store first data point
           dataPoints.push(d);
-          dataTable[`(${d["Longitude_rel_cm"]}, ${d["Latitude_rel_cm"]}, ${d["start_depth"]})`] = d;
+          dataTable[`(${d.X}, ${d.Y}, ${d.Z})`] = d;
           i++;
           // walk through the rest of the points
           for (i; i < data.length; i++) {
             d = data[i];
-            bounds.x[0] = Math.min(bounds.x[0], d["Longitude_rel_cm"]);
-            bounds.x[1] = Math.max(bounds.x[1], d["Longitude_rel_cm"]);
-            bounds.y[0] = Math.min(bounds.y[0], d["Latitude_rel_cm"]);
-            bounds.y[1] = Math.max(bounds.y[1], d["Latitude_rel_cm"]);
-            bounds.z[0] = Math.min(bounds.z[0], d["start_depth"]);
-            bounds.z[1] = Math.max(bounds.z[1], d["start_depth"]);
-            bounds.v[0] = Math.min(bounds.v[0], d["Sulfate"]);
-            bounds.v[1] = Math.max(bounds.v[1], d["Sulfate"]);
-            bounds.d[0] = Math.min(bounds.d[0], d["dist_to_nearest"]);
-            bounds.d[1] = Math.max(bounds.d[1], d["dist_to_nearest"]);
+            dataBounds.x[0] = Math.min(dataBounds.x[0], parseFloat(d.X));
+            dataBounds.x[1] = Math.max(dataBounds.x[1], parseFloat(d.X));
+            dataBounds.y[0] = Math.min(dataBounds.y[0], parseFloat(d.Y));
+            dataBounds.y[1] = Math.max(dataBounds.y[1], parseFloat(d.Y));
+            dataBounds.z[0] = Math.min(dataBounds.z[0], parseFloat(d.Z));
+            dataBounds.z[1] = Math.max(dataBounds.z[1], parseFloat(d.Z));
+            dataBounds.d[0] = Math.min(dataBounds.d[0], parseFloat(d["dist_to_nearest"]));
+            dataBounds.d[1] = Math.max(dataBounds.d[1], parseFloat(d["dist_to_nearest"]));
+            for (let k = 0; k < vars.length; k++) {
+              const v = parseFloat(d[vars[k]]);
+              if (v) {
+                dataBounds[vars[k]][0] = Math.min(dataBounds[vars[k]][0], v);
+                dataBounds[vars[k]][1] = Math.max(dataBounds[vars[k]][1], v);
+              }
+            }
             dataPoints.push(d);
-            dataTable[`(${d["Longitude_rel_cm"]}, ${d["Latitude_rel_cm"]}, ${d["start_depth"]})`] = d;
+            dataTable[`(${d.X}, ${d.Y}, ${d.Z})`] = d;
           }
-          const step = parseInt(file.split(".")[0].split("_")[2].replace("cm", ""));
-          // update clipping plane bounds
-          clipPlanes.x.bounds = [bounds.x[0] - step / 2 - 0.5, bounds.x[1] + step / 2 - 0.5];
-          clipPlanes.y.bounds = [bounds.z[0], bounds.z[1]];
-          clipPlanes.z.bounds = [bounds.y[0] - step / 2 - 0.5, bounds.y[1] + step / 2 - 0.5];
-          // update constants, applying small correction to start
+          const step = parseInt(file.split(".")[0].split("_")[3].replace("cm", ""));
+          // set clipping plane bounds
+          clipPlanes.x.bounds = [dataBounds.x[0] - step / 2 - 0.5, dataBounds.x[1] + step / 2 - 0.5];
+          clipPlanes.y.bounds = [dataBounds.z[0], dataBounds.z[1]];
+          clipPlanes.z.bounds = [dataBounds.y[0] - step / 2 - 0.5, dataBounds.y[1] + step / 2 - 0.5];
+          // set constants, applying small correction to start
           clipPlanes.x.constant = -clipPlanes.x.bounds[0] + 0.01;
           clipPlanes.y.constant = 30.01;
           clipPlanes.z.constant = -clipPlanes.z.bounds[0] + 0.01;
-          // update clipping plane limits
+          // set clipping plane limits
           $("#x-clip-input").attr("min", clipPlanes.x.bounds[0]);
           $("#x-clip-input").attr("max", clipPlanes.x.bounds[1]);
           $("#x-clip-input").attr("step", step);
@@ -553,19 +595,14 @@
           $("#z-clip-input").attr("max", clipPlanes.z.bounds[1]);
           $("#z-clip-input").attr("step", step);
           $("#z-clip-input").val(clipPlanes.z.bounds[0]);
-          // update clip limit outputs
+          // set clip limit outputs
           $("#x-clip-output").html(`${$("#x-clip-input").val()}cm`);
           $("#y-clip-output").html(`${$("#y-clip-input").val()}cm`);
           $("#z-clip-output").html(`${$("#z-clip-input").val()}cm`);
         });
       }
 
-      function addCylinders() {
-        const radiusTop = shapeSize / 2; // in cm
-        const radiusBottom = shapeSize / 2; // in cm
-        const height = 1; // y axis, in cm
-        const radialSegments = 12; // number of edges
-        const geometry = new THREE.CylinderGeometry(radiusTop, radiusBottom, height, radialSegments);
+      function addMesh(geometry, height) {
         const material = new THREE.MeshLambertMaterial({
           side: THREE.DoubleSide,
           clippingPlanes: [clipPlanes.x.plane, clipPlanes.y.plane, clipPlanes.z.plane],
@@ -575,70 +612,56 @@
         mesh = new THREE.InstancedMesh(geometry, material, dataPoints.length);
         for (let i = 0; i < dataPoints.length; i++) {
           const dataPoint = dataPoints[i];
-          const x = parseFloat(dataPoint["Longitude_rel_cm"]);
-          const y = parseFloat(dataPoint["Latitude_rel_cm"]);
-          const z = parseFloat(dataPoint["start_depth"]);
-          const v = parseFloat(dataPoint["Sulfate"]);
           const o = parseFloat(dataPoint["observed"]);
-          const d = parseFloat(dataPoint["dist_to_nearest"]);
-          if (v) {
-            // color
-            let v_norm = (v - bounds.v[0]) / (bounds.v[1] - bounds.v[0]);
-            if (cmap == "Greys") v_norm = 1 - v_norm; // invert scale
-            mesh.setColorAt(i, color.set(colorScale(v_norm)));
-            // transform
-            // const d_norm = (d - bounds.d[1]) / (bounds.d[0] - bounds.d[1]);
-            // matrix.makeScale(1, d_norm, 1);
-            matrix.setPosition(x - 0.5, -(z + height / 2) + 30, -(y - 0.5));
-            mesh.setMatrixAt(i, matrix);
-            if (o) {
-              // border
-              const edges = new THREE.EdgesGeometry(geometry);
-              const line = new THREE.LineSegments(edges, new THREE.LineBasicMaterial({ color: 0xffffff }));
-              line.geometry.applyMatrix4(matrix);
-              scene.add(line);
-            }
-          }
-        }
-        scene.add(mesh);
-      }
+          if (showInterp) {
+            const v = parseFloat(dataPoint[variable]);
+            if (v) {
+              // transform
+              const x = parseFloat(dataPoint.X);
+              const y = parseFloat(dataPoint.Y);
+              const z = parseFloat(dataPoint.Z);
+              // const d = parseFloat(dataPoint["dist_to_nearest"]);
+              // const d_norm = (d - dataBounds.d[1]) / (dataBounds.d[0] - dataBounds.d[1]);
+              // matrix.makeScale(1, d_norm, 1);
+              matrix.setPosition(x, -(z + height / 2) + 30, -y);
+              mesh.setMatrixAt(i, matrix);
 
-      function addSquares() {
-        const width = shapeSize; // x axis, in cm
-        const height = 1; // y axis, in cm
-        const depth = shapeSize; // z axis, in cm
-        const geometry = new THREE.BoxGeometry(width, height, depth);
-        const material = new THREE.MeshLambertMaterial({
-          side: THREE.DoubleSide,
-          clippingPlanes: [clipPlanes.x.plane, clipPlanes.y.plane, clipPlanes.z.plane],
-          clipIntersection: true,
-        });
-        const colorScale = cmaps[cmap]; // get interpolator
-        mesh = new THREE.InstancedMesh(geometry, material, dataPoints.length);
-        for (let i = 0; i < dataPoints.length; i++) {
-          const dataPoint = dataPoints[i];
-          const x = parseFloat(dataPoint["Longitude_rel_cm"]);
-          const y = parseFloat(dataPoint["Latitude_rel_cm"]);
-          const z = parseFloat(dataPoint["start_depth"]);
-          const v = parseFloat(dataPoint["Sulfate"]);
-          const o = parseFloat(dataPoint["observed"]);
-          const d = parseFloat(dataPoint["dist_to_nearest"]);
-          if (v) {
-            // color
-            let v_norm = (v - bounds.v[0]) / (bounds.v[1] - bounds.v[0]);
-            if (cmap == "Greys") v_norm = 1 - v_norm; // invert scale
-            mesh.setColorAt(i, color.set(colorScale(v_norm)));
-            // transform
-            // const d_norm = (d - bounds.d[1]) / (bounds.d[0] - bounds.d[1]);
-            // matrix.makeScale(1, d_norm, 1);
-            matrix.setPosition(x - 0.5, -(z + height / 2) + 30, -(y - 0.5));
-            mesh.setMatrixAt(i, matrix);
-            if (o) {
+              // color
+              let v_norm = (v - dataBounds[variable][0]) / (dataBounds[variable][1] - dataBounds[variable][0]);
+              if (cmap == "Greys") v_norm = 1 - v_norm; // invert scale
+              mesh.setColorAt(i, color.set(colorScale(v_norm)));
+
               // border
-              const edges = new THREE.EdgesGeometry(geometry);
-              const line = new THREE.LineSegments(edges, new THREE.LineBasicMaterial({ color: 0xffffff }));
-              line.geometry.applyMatrix4(matrix);
-              scene.add(line);
+              if (o) {
+                const edges = new THREE.EdgesGeometry(geometry);
+                const line = new THREE.LineSegments(edges, new THREE.LineBasicMaterial({ color: 0xffffff }));
+                line.geometry.applyMatrix4(matrix);
+                scene.add(line);
+              }
+            }
+          } else if (!showInterp && o) {
+            const v = parseFloat(dataPoint[variable]);
+            if (v) {
+              // transform
+              const x = parseFloat(dataPoint.X);
+              const y = parseFloat(dataPoint.Y);
+              const z = parseFloat(dataPoint.Z);
+              // const d = parseFloat(dataPoint["dist_to_nearest"]);
+              // const d_norm = (d - dataBounds.d[1]) / (dataBounds.d[0] - dataBounds.d[1]);
+              // matrix.makeScale(1, d_norm, 1);
+              matrix.setPosition(x, -(z + height / 2) + 30, -y);
+              mesh.setMatrixAt(i, matrix);
+
+              // color
+              let v_norm = (v - dataBounds[variable][0]) / (dataBounds[variable][1] - dataBounds[variable][0]);
+              if (cmap == "Greys") v_norm = 1 - v_norm; // invert scale
+              mesh.setColorAt(i, color.set(colorScale(v_norm)));
+
+              // border
+              // const edges = new THREE.EdgesGeometry(geometry);
+              // const line = new THREE.LineSegments(edges, new THREE.LineBasicMaterial({ color: 0xffffff }));
+              // line.geometry.applyMatrix4(matrix);
+              // scene.add(line);
             }
           }
         }
@@ -850,15 +873,24 @@
         $("#y-clip-output").html(`${$("#y-clip-input").val()}cm`);
         $("#z-clip-output").html(`${$("#z-clip-input").val()}cm`);
 
-        // re-render
-        requestRenderIfNotRequested();
+        // reset options
+        if (!showInterp) {
+          showInterp = true;
+          $("#interp-toggle-checkbox").prop("checked", true);
+          clean(); // have to remove old stuff to re-enable interpolation
+        } else {
+          requestRenderIfNotRequested();
+        }
       }
 
-      function clean(e) {
+      function clean(e = null) {
         // reset parameters
-        file = $("#file-select").find(":selected").text();
-        shape = $("#shape-select").find(":selected").text();
-        cmap = $("#cmap-select").find(":selected").text();
+        file = $("#file-select").find(":selected").text().trim();
+        shape = $("#shape-select").find(":selected").text().trim();
+        cmap = $("#cmap-select").find(":selected").text().trim();
+        variable = $("#variable-select").find(":selected").text().trim();
+        showInterp = $("#interp-toggle-checkbox").prop("checked");
+
         // remove currently drawn meshes and lines
         const dontRemove = ["gridHelper", "axesHelper", "xClipPlaneHelper", "yClipPlaneHelper", "zClipPlaneHelper"];
         const meshes = [];
@@ -882,41 +914,35 @@
           line.geometry.dispose();
           scene.remove(line);
         }
+
         // refresh based on the calling element id
-        const id = $(e.target).attr("id");
-        switch (id) {
-          case "file-select":
-            animate(); // load new data
-            break;
-          case "shape-select":
-          case "cmap-select":
-            switch (shape) {
-              case "Cylinder":
-                shapeSize = 7; // 7 cm cylinders
-                addCylinders();
-                requestRenderIfNotRequested();
-                break;
-              case "Prism":
-                shapeSize = parseInt(file.split(".")[0].split("_")[2].replace("cm", "")); // based on the interpolation
-                addSquares();
-                requestRenderIfNotRequested();
-                break;
-            }
-            break;
+        const id = e ? $(e.target).attr("id") : "";
+        if (id == "file-select") {
+          loadFile(`data/${file}`).then(parseData).then(animate);
+        } else {
+          animate();
         }
       }
 
       function animate() {
+        let geometry;
+        const height = 1; // y axis, 1 cm depth
         switch (shape) {
           case "Cylinder":
-            shapeSize = 7; // 7 cm cylinders
-            loadFile(`data/${file}`).then(parseData).then(addCylinders).then(render);
+            const radiusTop = 7 / 2; // 7 cm diameter
+            const radiusBottom = 7 / 2; // 7 cm diameter
+            const radialSegments = 12; // number of edges
+            geometry = new THREE.CylinderGeometry(radiusTop, radiusBottom, height, radialSegments);
             break;
           case "Prism":
-            shapeSize = parseInt(file.split(".")[0].split("_")[2].replace("cm", "")); // based on the interpolation
-            loadFile(`data/${file}`).then(parseData).then(addSquares).then(render);
+            const res = parseInt(file.split(".")[0].split("_")[3].replace("cm", "")); // based on the interpolation
+            const width = res; // x axis, in cm
+            const depth = res; // z axis, in cm
+            geometry = new THREE.BoxGeometry(width, height, depth);
             break;
         }
+        addMesh(geometry, height);
+        requestRenderIfNotRequested();
       }
 
       function render() {
