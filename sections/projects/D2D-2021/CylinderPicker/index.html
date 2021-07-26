@@ -3,11 +3,23 @@
   <head>
     <meta charset="utf-8" />
     <title>Cylinder Picker</title>
-    <script src="libraries/d3.min.js"></script>
     <script src="libraries/jquery-3.6.0.min.js"></script>
     <script src="libraries/jquery.csv.min.js"></script>
-    <!-- <script src="https://cdn.jsdelivr.net/npm/geotiff"></script> -->
+    <script src="libraries/d3.min.js"></script>
+    <!-- <script src="libraries/geotiff.js"></script> -->
     <style>
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        overflow-y: hidden;
+        overflow-x: auto;
+      }
+
+      #app {
+        padding: 0.5rem;
+      }
+
       #plot-container {
         margin-right: 1rem;
         border: 4px solid lightgray;
@@ -46,11 +58,16 @@
         opacity: 0.5;
       }
 
+      .x.axis.title text,
+      .y.axis.title text {
+        font-weight: 800 !important;
+      }
+
       .tooltip {
         position: absolute;
         text-align: center;
-        width: 200px;
-        height: 2.25em;
+        width: 250px;
+        height: 3.5em;
         padding: 2px;
         font: 12px sans-serif;
         background: #ccc;
@@ -150,6 +167,8 @@
             <option>Centimeters</option>
           </select> -->
 
+          <div style="grid-column: 1 / 4; height: 2px; margin: 0.25rem 0"></div>
+
           <span style="grid-column: 1; place-self: center right">Y max</span>
           <input style="grid-column: 2" type="text" id="y-max-input" />
 
@@ -159,10 +178,12 @@
           <input style="grid-column: 2" type="text" id="x-min-input" />
           <input style="grid-column: 3" type="text" id="x-max-input" />
 
+          <button style="grid-column: 1" id="reset-btn">Reset</button>
+
           <span style="grid-column: 2; place-self: start center">X min</span>
           <span style="grid-column: 3; place-self: start center">X max</span>
 
-          <button style="grid-column: 1 / 4" id="reset-btn">Reset</button>
+          <div style="grid-column: 1 / 4; height: 2px; margin: 0.25rem 0"></div>
 
           <div style="grid-column: 1 /4; text-align: center">
             <h2 style="margin: 0; display: inline-block">Outputs</h2>
@@ -174,8 +195,8 @@
             <ul style="margin: 0.25rem auto">
               <li>
                 When filtering by site, the plot (1) fits itself to the extents of the convex hull around the points of
-                interest, (2) adjusts each axis to be 100m if it is less, and finally (3) increases the smaller axis to be
-                the same as the larger axis, ensuring a square viewport.
+                interest, (2) adjusts each axis to be 100m if it is less, and finally (3) increases the smaller axis to
+                be the same as the larger axis, ensuring a square viewport.
               </li>
               <li>
                 When drawing a boundary to zoom in on, there is no auto-adjustment of the viewpoint. That is, the
@@ -198,7 +219,6 @@
       </div>
 
       <!-- Modal -->
-
       <div id="modal" class="modal-mask">
         <div class="modal-wrapper">
           <div class="modal-container">
@@ -226,6 +246,36 @@
       </div>
     </div>
 
+    <!-- Loading Animation -->
+    <svg
+      version="1.1"
+      id="loading-animation"
+      xmlns="http://www.w3.org/2000/svg"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+      x="0px"
+      y="0px"
+      width="0px"
+      height="0px"
+      viewBox="0 0 100 100"
+      enable-background="new 0 0 0 0"
+      xml:space="preserve"
+    >
+      <path
+        fill="#000"
+        d="M73,50c0-12.7-10.3-23-23-23S27,37.3,27,50 M30.9,50c0-10.5,8.5-19.1,19.1-19.1S69.1,39.5,69.1,50"
+      >
+        <animateTransform
+          attributeName="transform"
+          attributeType="XML"
+          type="rotate"
+          dur="1s"
+          from="0 50 50"
+          to="360 50 50"
+          repeatCount="indefinite"
+        />
+      </path>
+    </svg>
+
     <script type="module">
       const BACKGROUNDS = {
         "Pescadero_final.csv": [
@@ -245,6 +295,7 @@
           "SantaMonica_NWMounds_MAUV_Topo1m_slope625-500",
         ],
       };
+
       const SITES = {
         "Pescadero_final.csv": [
           "All",
@@ -265,6 +316,8 @@
         ],
       };
 
+      const loadingAnimation = $("#loading-animation")[0];
+
       let plotGroup,
         bgGroup,
         marksGroup,
@@ -284,7 +337,7 @@
       let svgHeight = height;
 
       // set plot margins, width and height
-      let plotMargins = { top: 20, bottom: 50, left: 80, right: 20 };
+      let plotMargins = { top: 30, bottom: 50, left: 80, right: 20 };
       let plotWidth = svgWidth - plotMargins.left - plotMargins.right;
       let plotHeight = svgHeight - plotMargins.top - plotMargins.bottom;
 
@@ -346,7 +399,7 @@
 
       // define data object
       let data = {
-        file: `data/${$("#file-select").find(":selected").text()}`,
+        file: $("#file-select").find(":selected").text(),
         site: $("#site-select").find(":selected").text(),
         points: [],
         extent: {
@@ -367,25 +420,25 @@
       $("#y-max-input").val(data.filter["y"][1]);
 
       // set the event listeners
-      $("#file-select").on("change", setNewData);
-      $("#bg-select").on("change", setNewBG);
+      $("#file-select, #bg-select").on("change", clean);
       $("#site-select").on("change", filterBySite);
-      // $("#units-select").on("change", setNewData);
-      $("#reset-btn").on("click", resetPointsFilters);
-      $("#x-min-input").on("change", setPointsFilters);
-      $("#x-max-input").on("change", setPointsFilters);
-      $("#y-min-input").on("change", setPointsFilters);
-      $("#y-max-input").on("change", setPointsFilters);
+      $("#x-min-input, #x-max-input, #y-min-input, #y-max-input").on("change", filterByLatLong);
+      $("#reset-btn").on("click", resetFilters);
       $(".numberCircle").bind("click", () => $("#modal").show());
       $("#hide-modal-btn").on("click", () => $("#modal").hide());
 
-      // init, load data, load GeoTIFF meta, draw
-      init();
-      loadFile(data.file).then(loadData);
+      init(); // initialize svg and all groups
+      animate(true); // load new dive file
 
       function init() {
+        svg.selectAll("*").remove(); // clear out any objects already in the svg
+
         // add loading text
-        svg.append("text").attr("id", "loading-text").attr("dy", "1em").html("Loading data ...");
+        svg
+          .append(() => loadingAnimation)
+          .attr("width", "25px")
+          .attr("height", "25px");
+        svg.append("text").attr("id", "loading-text").attr("x", "25px").attr("dy", "1.1em").html("Loading data ...");
 
         // Add plot group, containing axes, marks, and legend
         plotGroup = svg
@@ -522,6 +575,9 @@
             data.filter["x"][1] = xScale.invert(attrs.x2);
             data.filter["y"][0] = yScale.invert(attrs.y2);
             data.filter["y"][1] = yScale.invert(attrs.y1);
+            // apply transformations to the filters
+            squareFilters();
+            padFilters();
             // update input field values
             $("#x-min-input").val(xScale.invert(attrs.x1));
             $("#x-max-input").val(xScale.invert(attrs.x2));
@@ -536,20 +592,63 @@
         dragRegion.call(dragBehavior);
       }
 
+      function minFilters() {
+        // if diff is < 100m, apply a buffer to get extents to be 100m
+        const xDiff = data.filter["x"][1] - data.filter["x"][0];
+        const yDiff = data.filter["y"][1] - data.filter["y"][0];
+        if (xDiff < 9.009e-4) {
+          const bufferX = 4545.4545454545 * (1e-7 / 1.11) - xDiff / 2; // 50m - half the existing extent
+          data.filter["x"][0] -= bufferX;
+          data.filter["x"][1] += bufferX;
+        }
+        if (yDiff < 9.009e-4) {
+          const bufferY = 4545.4545454545 * (1e-7 / 1.11) - yDiff / 2; // 50m - half the existing extent
+          data.filter["y"][0] -= bufferY;
+          data.filter["y"][1] += bufferY;
+        }
+      }
+
+      function squareFilters() {
+        // make the extents square
+        const xDiff = data.filter["x"][1] - data.filter["x"][0];
+        const yDiff = data.filter["y"][1] - data.filter["y"][0];
+        const adjustX = (yDiff - xDiff) / 2;
+        const adjustY = (xDiff - yDiff) / 2;
+        if (xDiff < yDiff) {
+          data.filter["x"][0] -= adjustX;
+          data.filter["x"][1] += adjustX;
+        } else if (yDiff < xDiff) {
+          data.filter["y"][0] -= adjustY;
+          data.filter["y"][1] += adjustY;
+        }
+      }
+
+      function padFilters() {
+        // pad the filters by 1/20 of viewport window to give a border around points
+        const padX = (data.filter["x"][1] - data.filter["x"][0]) / 20;
+        const padY = (data.filter["y"][1] - data.filter["y"][0]) / 20;
+        data.filter["x"][0] -= padX;
+        data.filter["x"][1] += padX;
+        data.filter["y"][0] -= padY;
+        data.filter["y"][1] += padY;
+      }
+
+      function setExtentsToFilter() {
+        // update the extent to match the current filter
+        data.extent["x"][0] = data.filter["x"][0];
+        data.extent["x"][1] = data.filter["x"][1];
+        data.extent["y"][0] = data.filter["y"][0];
+        data.extent["y"][1] = data.filter["y"][1];
+      }
+
       async function loadFile(url) {
         const res = await fetch(url);
         return res.text();
       }
 
-      function loadData(contents) {
+      function parseData(contents) {
         $.csv.toObjects(contents, {}, (err, points) => {
           if (err) {
-            // something went wrong reading the csv, tell the user
-            svg
-              .append("text")
-              .attr("id", "error-csv-text")
-              .attr("dy", "2em")
-              .html("Error parsing cruise data. Check the console for details.");
             console.log(err);
           } else {
             // set initial filter to first point
@@ -568,42 +667,15 @@
               data.filter["y"][1] = Math.max(data.filter["y"][1], p[yVar]);
               data.points.push(p);
             }
-            // get axes extents
-            const xDiff = data.filter["x"][1] - data.filter["x"][0];
-            const yDiff = data.filter["y"][1] - data.filter["y"][0];
-            // make the extents square
-            const adjustX = (yDiff - xDiff) / 2;
-            const adjustY = (xDiff - yDiff) / 2;
-            if (xDiff < yDiff) {
-              data.filter["x"][0] -= adjustX;
-              data.filter["x"][1] += adjustX;
-            } else if (yDiff < xDiff) {
-              data.filter["y"][0] -= adjustY;
-              data.filter["y"][1] += adjustY;
-            }
-            // pad the filters by 1/20 of viewport window to give a border around points
-            const padX = (data.filter["x"][1] - data.filter["x"][0]) / 20;
-            const padY = (data.filter["y"][1] - data.filter["y"][0]) / 20;
-            data.filter["x"][0] -= padX;
-            data.filter["x"][1] += padX;
-            data.filter["y"][0] -= padY;
-            data.filter["y"][1] += padY;
-            // update the extent to include the pad
-            data.extent["x"][0] = data.filter["x"][0];
-            data.extent["x"][1] = data.filter["x"][1];
-            data.extent["y"][0] = data.filter["y"][0];
-            data.extent["y"][1] = data.filter["y"][1];
+            // apply transformations to the filters
+            squareFilters();
+            padFilters();
+            setExtentsToFilter();
             // update the input elements
             $("#x-min-input").val(data.extent["x"][0]);
             $("#x-max-input").val(data.extent["x"][1]);
             $("#y-min-input").val(data.extent["y"][0]);
             $("#y-max-input").val(data.extent["y"][1]);
-            // load the GeoTIFF meta data, then finally draw the image!
-            if (bg.name && bg.name !== "None") {
-              loadBGMeta().then(draw);
-            } else {
-              draw();
-            }
           }
         });
       }
@@ -627,102 +699,10 @@
         return bg.meta;
       }
 
-      function setNewData() {
-        // variables to be plotted on the x and y axes
-        // unit = $("#units-select").find(":selected").text();
-        unit = "Degrees";
-        switch (unit) {
-          case "Degrees":
-            xVar = "Longitude_deg";
-            yVar = "Latitude_deg";
-            break;
-          case "Centimeters":
-            xVar = "Longitude_rel_cm";
-            yVar = "Latitude_rel_cm";
-            break;
-        }
-        // populate the site select list based on the cruise selected
-        let el = $("#site-select").get(0);
-        while (el.options.length > 0) {
-          el.remove(el.options.length - 1);
-        }
-        let newOpts = SITES[$("#file-select").find(":selected").text()];
-        for (let i = 0; i < newOpts.length; i++) {
-          const opt = document.createElement("option");
-          opt.text = newOpts[i];
-          el.add(opt, null);
-        }
-        // reset data object
-        data = {
-          file: `data/${$("#file-select").find(":selected").text()}`,
-          site: $("#site-select").find(":selected").text(),
-          points: [],
-          extent: {
-            x: [0, 100],
-            y: [0, 100],
-          },
-          filter: {
-            x: [0, 100],
-            y: [0, 100],
-          },
-          filterStack: [],
-        };
-        // populate the background select list based on the cruise selected
-        el = $("#bg-select").get(0);
-        while (el.options.length > 0) {
-          el.remove(el.options.length - 1);
-        }
-        newOpts = BACKGROUNDS[$("#file-select").find(":selected").text()];
-        for (let i = 0; i < newOpts.length; i++) {
-          const opt = document.createElement("option");
-          opt.text = newOpts[i];
-          el.add(opt, null);
-        }
-        // define background image files
-        bg = {
-          name: $("#bg-select").find(":selected").text(),
-          png: `data/${$("#bg-select").find(":selected").text()}.png`,
-          json: `data/${$("#bg-select").find(":selected").text()}.json`,
-          tif: `data/${$("#bg-select").find(":selected").text()}.tif`,
-          meta: undefined,
-        };
-        // clear out svg
-        svg.selectAll("*").remove();
-        // update inputs
-        $("#x-min-input").val(data.filter["x"][0]);
-        $("#x-max-input").val(data.filter["x"][1]);
-        $("#y-min-input").val(data.filter["y"][0]);
-        $("#y-max-input").val(data.filter["y"][1]);
-        // re-initialize svg and load new data
-        init();
-        loadFile(data.file).then(loadData);
-      }
-
-      function setNewBG() {
-        // define background image files
-        bg = {
-          name: $("#bg-select").find(":selected").text(),
-          png: `data/${$("#bg-select").find(":selected").text()}.png`,
-          json: `data/${$("#bg-select").find(":selected").text()}.json`,
-          tif: `data/${$("#bg-select").find(":selected").text()}.tif`,
-          meta: undefined,
-        };
-        // clear out svg
-        svg.selectAll("*").remove();
-        // re-initialize svg and load new data
-        init();
-        if (bg.name && bg.name !== "None") {
-          loadBGMeta().then(draw);
-        } else {
-          draw();
-        }
-      }
-
       function filterBySite() {
-        // get new site
-        data.site = $("#site-select").find(":selected").text();
-        // start a new filter stack
-        data.filterStack = [];
+        data.site = $("#site-select").find(":selected").text(); // get new site
+        data.filterStack = []; // start a new filter stack
+
         // filter by site
         if (data.site == "All") {
           // set initial filter to first point
@@ -758,54 +738,55 @@
             }
           }
         }
-        // get axes extents
-        let xDiff = data.filter["x"][1] - data.filter["x"][0];
-        let yDiff = data.filter["y"][1] - data.filter["y"][0];
-        // if diff is < 100m, apply a buffer to get extents to be 100m
-        if (xDiff < 9.009e-4) {
-          const bufferX = 4545.4545454545 * (1e-7 / 1.11) - xDiff / 2; // 50m - half the existing extent
-          data.filter["x"][0] -= bufferX;
-          data.filter["x"][1] += bufferX;
-        }
-        if (yDiff < 9.009e-4) {
-          const bufferY = 4545.4545454545 * (1e-7 / 1.11) - yDiff / 2; // 50m - half the existing extent
-          data.filter["y"][0] -= bufferY;
-          data.filter["y"][1] += bufferY;
-        }
-        // make the extents square
-        xDiff = data.filter["x"][1] - data.filter["x"][0];
-        yDiff = data.filter["y"][1] - data.filter["y"][0];
-        if (xDiff < yDiff) {
-          const adjustX = (yDiff - xDiff) / 2; // half the difference between the extents
-          data.filter["x"][0] -= adjustX;
-          data.filter["x"][1] += adjustX;
-        } else if (yDiff < xDiff) {
-          const adjustY = (xDiff - yDiff) / 2; // half the difference between the extents
-          data.filter["y"][0] -= adjustY;
-          data.filter["y"][1] += adjustY;
-        }
-        // pad the filters by 1/20 of viewport window to give a border around points
-        const padX = (data.filter["x"][1] - data.filter["x"][0]) / 20;
-        const padY = (data.filter["y"][1] - data.filter["y"][0]) / 20;
-        data.filter["x"][0] -= padX;
-        data.filter["x"][1] += padX;
-        data.filter["y"][0] -= padY;
-        data.filter["y"][1] += padY;
+
+        // apply transformations to the filters
+        minFilters();
+        squareFilters();
+        padFilters();
+
         // update the input elements
         $("#x-min-input").val(data.extent["x"][0]);
         $("#x-max-input").val(data.extent["x"][1]);
         $("#y-min-input").val(data.extent["y"][0]);
         $("#y-max-input").val(data.extent["y"][1]);
-        // re-draw the vis
-        draw();
+
+        draw(); // re-draw the vis
       }
 
-      function resetPointsFilters() {
-        // reset filter list to 'all'
-        $("#site-select")[0].selectedIndex = 0;
+      function filterByLatLong() {
+        data.filterStack.push($.extend(true, {}, data.filter)); // store previous filter state in the filter stack
+
+        // x-min
+        data.filter["x"][0] = parseFloat($("#x-min-input").val());
+        if (data.filter["x"][0] < data.extent["x"][0]) data.filter["x"][0] = data.extent["x"][0];
+        if (data.filter["x"][0] > data.filter["x"][1]) data.filter["x"][0] = data.filter["x"][1] - 1;
+        // x-max
+        data.filter["x"][1] = parseFloat($("#x-max-input").val());
+        if (data.filter["x"][1] < data.filter["x"][0]) data.filter["x"][1] = data.filter["x"][0] + 1;
+        if (data.filter["x"][1] > data.extent["x"][1]) data.filter["x"][1] = data.extent["x"][1];
+        // y-min
+        data.filter["y"][0] = parseFloat($("#y-min-input").val());
+        if (data.filter["y"][0] < data.extent["y"][0]) data.filter["y"][0] = data.extent["y"][0];
+        if (data.filter["y"][0] > data.filter["y"][1]) data.filter["y"][0] = data.filter["y"][1] - 1;
+        // y-max
+        data.filter["y"][1] = parseFloat($("#y-max-input").val());
+        if (data.filter["y"][1] < data.filter["y"][0]) data.filter["y"][1] = data.filter["y"][0] + 1;
+        if (data.filter["y"][1] > data.extent["y"][1]) data.filter["y"][1] = data.extent["y"][1];
+
+        // update the input elements
+        $("#x-min-input").val(data.filter["x"][0]);
+        $("#x-max-input").val(data.filter["x"][1]);
+        $("#y-min-input").val(data.filter["y"][0]);
+        $("#y-max-input").val(data.filter["y"][1]);
+
+        draw(); // re-draw the vis
+      }
+
+      function resetFilters() {
+        $("#site-select")[0].selectedIndex = 0; // reset filter list to 'all'
         data.site = $("#site-select").find(":selected").text();
-        // reset filter stack
-        data.filterStack = [];
+        data.filterStack = []; // reset filter stack
+
         // reset filters to the extent
         data.filter["x"][0] = data.extent["x"][0];
         data.filter["x"][1] = data.extent["x"][1];
@@ -816,42 +797,102 @@
         $("#x-max-input").val(data.extent["x"][1]);
         $("#y-min-input").val(data.extent["y"][0]);
         $("#y-max-input").val(data.extent["y"][1]);
-        // re-draw the vis
-        draw();
+
+        draw(); // re-draw the vis
       }
 
-      function setPointsFilters() {
-        // store previous filter state in the filter stack
-        data.filterStack.push($.extend(true, {}, data.filter));
-        // x-min
-        data.filter["x"][0] = parseFloat($("#x-min-input").val());
-        if (data.filter["x"][0] < data.extent["x"][0]) data.filter["x"][0] = data.extent["x"][0];
-        if (data.filter["x"][0] > data.filter["x"][1]) data.filter["x"][0] = data.filter["x"][1] - 1;
-        $("#x-min-input").val(data.filter["x"][0]);
-        // x-max
-        data.filter["x"][1] = parseFloat($("#x-max-input").val());
-        if (data.filter["x"][1] < data.filter["x"][0]) data.filter["x"][1] = data.filter["x"][0] + 1;
-        if (data.filter["x"][1] > data.extent["x"][1]) data.filter["x"][1] = data.extent["x"][1];
-        $("#x-max-input").val(data.filter["x"][1]);
-        // y-min
-        data.filter["y"][0] = parseFloat($("#y-min-input").val());
-        if (data.filter["y"][0] < data.extent["y"][0]) data.filter["y"][0] = data.extent["y"][0];
-        if (data.filter["y"][0] > data.filter["y"][1]) data.filter["y"][0] = data.filter["y"][1] - 1;
-        $("#y-min-input").val(data.filter["y"][0]);
-        // y-max
-        data.filter["y"][1] = parseFloat($("#y-max-input").val());
-        if (data.filter["y"][1] < data.filter["y"][0]) data.filter["y"][1] = data.filter["y"][0] + 1;
-        if (data.filter["y"][1] > data.extent["y"][1]) data.filter["y"][1] = data.extent["y"][1];
-        $("#y-max-input").val(data.filter["y"][1]);
-        // re-draw the vis
-        draw();
+      function clean(e = null) {
+        const loadData = e ? ($(e.target).attr("id") == "file-select" ? true : false) : false;
+
+        if (loadData) {
+          // variables to be plotted on the x and y axes
+          // unit = $("#units-select").find(":selected").text();
+          unit = "Degrees";
+          switch (unit) {
+            case "Degrees":
+              xVar = "Longitude_deg";
+              yVar = "Latitude_deg";
+              break;
+            case "Centimeters":
+              xVar = "Longitude_rel_cm";
+              yVar = "Latitude_rel_cm";
+              break;
+          }
+          // populate the site select list based on the cruise selected
+          let el = $("#site-select").get(0);
+          while (el.options.length > 0) {
+            el.remove(el.options.length - 1);
+          }
+          let newOpts = SITES[$("#file-select").find(":selected").text()];
+          for (let i = 0; i < newOpts.length; i++) {
+            const opt = document.createElement("option");
+            opt.text = newOpts[i];
+            el.add(opt, null);
+          }
+          // reset data object
+          data = {
+            file: $("#file-select").find(":selected").text(),
+            site: $("#site-select").find(":selected").text(),
+            points: [],
+            extent: {
+              x: [0, 100],
+              y: [0, 100],
+            },
+            filter: {
+              x: [0, 100],
+              y: [0, 100],
+            },
+            filterStack: [],
+          };
+          // populate the background select list based on the cruise selected
+          el = $("#bg-select").get(0);
+          while (el.options.length > 0) {
+            el.remove(el.options.length - 1);
+          }
+          newOpts = BACKGROUNDS[$("#file-select").find(":selected").text()];
+          for (let i = 0; i < newOpts.length; i++) {
+            const opt = document.createElement("option");
+            opt.text = newOpts[i];
+            el.add(opt, null);
+          }
+          // update inputs
+          $("#x-min-input").val(data.filter["x"][0]);
+          $("#x-max-input").val(data.filter["x"][1]);
+          $("#y-min-input").val(data.filter["y"][0]);
+          $("#y-max-input").val(data.filter["y"][1]);
+        }
+
+        // define background image files
+        bg = {
+          name: $("#bg-select").find(":selected").text(),
+          png: `data/${$("#bg-select").find(":selected").text()}.png`,
+          json: `data/${$("#bg-select").find(":selected").text()}.json`,
+          tif: `data/${$("#bg-select").find(":selected").text()}.tif`,
+          meta: undefined,
+        };
+        init(); // re-initialize svg
+        animate(loadData); // load new data based on the calling element id
+      }
+
+      function animate(loadData) {
+        const loadBG = bg.name && bg.name !== "None";
+        if (loadData) {
+          if (loadBG) {
+            loadFile(`data/${data.file}`)
+              .then(parseData)
+              .then(() => loadBGMeta.then(draw));
+          } else {
+            loadFile(`data/${data.file}`).then(parseData).then(draw);
+          }
+        } else if (loadBG) {
+          loadBGMeta().then(draw);
+        } else {
+          draw();
+        }
       }
 
       function draw() {
         if (!data.points) return; // if there's no dataset don't update the scatter plot
-
-        svg.select("#loading-text").remove(); // remove loading text
-        svg.select("#error-csv-text").remove(); // remove error loading csv text
 
         // create list of data data.points
         let rawData = data.points.map((dataPoint) => {
@@ -899,7 +940,7 @@
         let unique = [...new Set(prepared.map((d) => d.Cylinder))];
         $("#cylinder-output-title").html(`Currently visible cylinders (${unique.length}):`);
         if (unique.length > 0) {
-          $("#cylinder-output").html(`[${unique.map((name) => `"${name}"`).join(",\n  ")}\n]`);
+          $("#cylinder-output").html(`[${unique.map((name) => `"${name}"`).join(", ")}]`);
         } else {
           $("#cylinder-output").html("None visible. To zoom out, press the Reset button.");
         }
@@ -1008,12 +1049,12 @@
           .on("mouseover", function (e, d) {
             div.transition().duration(200).style("opacity", 0.9);
             div
-              .html(`${d.Cylinder}<br />${d.Site}`)
+              .html(`${d.Cylinder}<br />${d.Site}<br />(${d.Latitude_deg}, ${d.Longitude_deg})`)
               .style("left", e.x + 10 + "px")
-              .style("top", e.y - 35 + "px");
+              .style("top", e.y - 45 + "px");
           })
           .on("mousemove", function (e, d) {
-            div.style("left", e.x + 10 + "px").style("top", e.y - 35 + "px");
+            div.style("left", e.x + 10 + "px").style("top", e.y - 45 + "px");
           })
           .on("mouseout", function () {
             div.transition().duration(500).style("opacity", 0);
@@ -1026,7 +1067,14 @@
             .attr("x", xScale(bg.meta.origin[0]))
             .attr("y", yScale(bg.meta.origin[1]))
             .attr("width", xScale(bg.meta.bbox[2]) - xScale(bg.meta.bbox[0]))
-            .attr("height", yScale(bg.meta.bbox[1]) - yScale(bg.meta.bbox[3]));
+            .attr("height", yScale(bg.meta.bbox[1]) - yScale(bg.meta.bbox[3]))
+            .on("load", () => {
+              svg.select("#loading-animation").remove();
+              svg.select("#loading-text").remove();
+            });
+        } else {
+          svg.select("#loading-animation").remove();
+          svg.select("#loading-text").remove();
         }
       }
     </script>
