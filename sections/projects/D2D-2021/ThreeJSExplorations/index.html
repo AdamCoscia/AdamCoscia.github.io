@@ -195,10 +195,16 @@
           </div>
 
           <div style="grid-column: 1 / 3" id="view-sliders">
-            <strong style="grid-column: 1 / 3; place-self: center left">Options</strong>
-            <div style="grid-column: 3 / 5; place-self: center right">
-              <input type="checkbox" id="interp-toggle-checkbox" checked />
-              <label for="interp-toggle-checkbox">Interpolation</label>
+            <strong style="grid-column: 1; place-self: center left">Options</strong>
+            <div style="grid-column: 2 / 5">
+              <div style="display: inline-block">
+                <input type="checkbox" id="elevation-toggle-checkbox" disabled />
+                <label for="elevation-toggle-checkbox">Elevation</label>
+              </div>
+              <div style="float: right">
+                <input type="checkbox" id="interp-toggle-checkbox" checked />
+                <label for="interp-toggle-checkbox">Interpolation</label>
+              </div>
             </div>
 
             <div style="grid-column: 1 / 5; height: 2px; margin: 0.5rem 0"></div>
@@ -416,7 +422,7 @@
 
       // start the show!
       init();
-      loadFile(`data/${file}`).then(parseData).then(animate);
+      animate(true); // load new data
 
       function init() {
         // canvas
@@ -575,13 +581,13 @@
           }
           const step = parseInt(file.split(".")[0].split("_")[3].replace("cm", ""));
           // set clipping plane bounds
-          clipPlanes.x.bounds = [dataBounds.x[0] - step / 2 - 0.5, dataBounds.x[1] + step / 2 - 0.5];
+          clipPlanes.x.bounds = [dataBounds.x[0] - step / 2, dataBounds.x[1] + step / 2];
           clipPlanes.y.bounds = [dataBounds.z[0], dataBounds.z[1]];
-          clipPlanes.z.bounds = [dataBounds.y[0] - step / 2 - 0.5, dataBounds.y[1] + step / 2 - 0.5];
+          clipPlanes.z.bounds = [dataBounds.y[0] - step / 2, dataBounds.y[1] + step / 2];
           // set constants, applying small correction to start
-          clipPlanes.x.constant = -clipPlanes.x.bounds[0] + 0.01;
+          clipPlanes.x.constant = -Math.sign(clipPlanes.x.normal.x) * clipPlanes.x.bounds[0] + 0.01;
           clipPlanes.y.constant = 30.01;
-          clipPlanes.z.constant = -clipPlanes.z.bounds[0] + 0.01;
+          clipPlanes.z.constant = Math.sign(clipPlanes.z.normal.z) * clipPlanes.z.bounds[0] + 0.01;
           // set clipping plane limits
           $("#x-clip-input").attr("min", clipPlanes.x.bounds[0]);
           $("#x-clip-input").attr("max", clipPlanes.x.bounds[1]);
@@ -602,14 +608,37 @@
         });
       }
 
-      function addMesh(geometry, height) {
+      function addMesh() {
+        // build the geometry
+        let geometry;
+        const height = 1; // y axis, 1 cm depth
+        switch (shape) {
+          case "Cylinder":
+            const radiusTop = 7 / 2; // 7 cm diameter
+            const radiusBottom = 7 / 2; // 7 cm diameter
+            const radialSegments = 12; // number of edges
+            geometry = new THREE.CylinderGeometry(radiusTop, radiusBottom, height, radialSegments);
+            break;
+          case "Prism":
+            const res = parseInt(file.split(".")[0].split("_")[3].replace("cm", "")); // based on the interpolation
+            const width = res; // x axis, in cm
+            const depth = res; // z axis, in cm
+            geometry = new THREE.BoxGeometry(width, height, depth);
+            break;
+        }
+
+        // build the material
         const material = new THREE.MeshLambertMaterial({
           side: THREE.DoubleSide,
           clippingPlanes: [clipPlanes.x.plane, clipPlanes.y.plane, clipPlanes.z.plane],
           clipIntersection: true,
         });
-        const colorScale = cmaps[cmap]; // get interpolator
+
+        // create a new instanced mesh
         mesh = new THREE.InstancedMesh(geometry, material, dataPoints.length);
+
+        // apply transformations at every vertex to get final shape
+        const colorScale = cmaps[cmap]; // get interpolator
         for (let i = 0; i < dataPoints.length; i++) {
           const dataPoint = dataPoints[i];
           const o = parseFloat(dataPoint["observed"]);
@@ -665,6 +694,8 @@
             }
           }
         }
+
+        // add mesh to the scene
         scene.add(mesh);
       }
 
@@ -863,9 +894,9 @@
         $("#z-clip-helper-checkbox").prop("checked", true);
 
         // reset clipping plane constants, inputs and outputs
-        clipPlanes.x.constant = -clipPlanes.x.bounds[0] + 0.01;
+        clipPlanes.x.constant = -Math.sign(clipPlanes.x.normal.x) * clipPlanes.x.bounds[0] + 0.01;
         clipPlanes.y.constant = 30.01;
-        clipPlanes.z.constant = -clipPlanes.z.bounds[0] + 0.01;
+        clipPlanes.z.constant = Math.sign(clipPlanes.z.normal.z) * clipPlanes.z.bounds[0] + 0.01;
         $("#x-clip-input").val(clipPlanes.x.bounds[0]);
         $("#y-clip-input").val(0);
         $("#z-clip-input").val(clipPlanes.z.bounds[0]);
@@ -915,34 +946,18 @@
           scene.remove(line);
         }
 
-        // refresh based on the calling element id
-        const id = e ? $(e.target).attr("id") : "";
-        if (id == "file-select") {
-          loadFile(`data/${file}`).then(parseData).then(animate);
-        } else {
-          animate();
-        }
+        // load new data based on the calling element id
+        const loadData = e ? ($(e.target).attr("id") == "file-select" ? true : false) : false;
+        animate(loadData);
       }
 
-      function animate() {
-        let geometry;
-        const height = 1; // y axis, 1 cm depth
-        switch (shape) {
-          case "Cylinder":
-            const radiusTop = 7 / 2; // 7 cm diameter
-            const radiusBottom = 7 / 2; // 7 cm diameter
-            const radialSegments = 12; // number of edges
-            geometry = new THREE.CylinderGeometry(radiusTop, radiusBottom, height, radialSegments);
-            break;
-          case "Prism":
-            const res = parseInt(file.split(".")[0].split("_")[3].replace("cm", "")); // based on the interpolation
-            const width = res; // x axis, in cm
-            const depth = res; // z axis, in cm
-            geometry = new THREE.BoxGeometry(width, height, depth);
-            break;
+      function animate(loadData) {
+        if (loadData) {
+          loadFile(`data/${file}`).then(parseData).then(addMesh).then(requestRenderIfNotRequested);
+        } else {
+          addMesh();
+          requestRenderIfNotRequested();
         }
-        addMesh(geometry, height);
-        requestRenderIfNotRequested();
       }
 
       function render() {
