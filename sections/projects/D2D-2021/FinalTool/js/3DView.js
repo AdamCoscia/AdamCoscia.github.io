@@ -71,12 +71,12 @@ export default class ThreeDView {
 
   // flags
   renderRequested = false; // flag for whether to re-render or not
-  gridHelperVisible = true; // show grid helper by default
-  axesHelperVisible = false; // hide axes helper by default
+  gridHelperVisible = false; // hide grid helper by default
+  axesHelperVisible = true; // show axes helper by default
   frustumHelperVisible = false; // hide frustum helper by default
-  xClipPlaneHelperVisible = true; // show clip plane helpers by default
-  yClipPlaneHelperVisible = true;
-  zClipPlaneHelperVisible = true;
+  xClipPlaneHelperVisible = false; // hide clip plane helpers by default
+  yClipPlaneHelperVisible = false;
+  zClipPlaneHelperVisible = false;
   hideCameraSliders = false; // hide sliders by default
   hideViewSliders = false;
 
@@ -153,7 +153,7 @@ export default class ThreeDView {
 
     // scene
     this.scene = new THREE.Scene();
-    this.scene.background = new THREE.Color(0x004561);
+    this.scene.background = new THREE.Color(0xffffff);
 
     // camera
     const fov = 50; // field of view
@@ -161,11 +161,12 @@ export default class ThreeDView {
     const near = 0.1; // near clipping plane
     const far = 2000; // far clipping plane
     this.camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
-    this.camera.position.set(-100, 50, 100); // move camera away from origin
 
     // controls
     this.controls = new OrbitControls(this.camera, this.canvas);
     this.controls.listenToKeyEvents(window);
+    this.controls.object.position.set(-100, 200, 100);
+    this.controls.target = new THREE.Vector3(80, 30, -70);
     this.controls.enableDamping = true;
     this.controls.dampingFactor = 0.05;
     this.controls.screenSpacePanning = false;
@@ -200,7 +201,7 @@ export default class ThreeDView {
     this.scene.add(this.gridHelper);
 
     // axis helper
-    this.axesHelper = new THREE.AxesHelper(25);
+    this.axesHelper = new THREE.AxesHelper(30);
     this.axesHelper.name = "axesHelper";
     this.axesHelper.visible = this.axesHelperVisible;
     this.scene.add(this.axesHelper);
@@ -211,10 +212,10 @@ export default class ThreeDView {
     this.clipPlanes.x.helper.visible = this.xClipPlaneHelperVisible;
     this.clipPlanes.y.helper = new THREE.PlaneHelper(this.clipPlanes.y.plane, 60, 0x00ff00);
     this.clipPlanes.y.helper.name = "yClipPlaneHelper";
-    this.clipPlanes.x.helper.visible = this.yClipPlaneHelperVisible;
+    this.clipPlanes.y.helper.visible = this.yClipPlaneHelperVisible;
     this.clipPlanes.z.helper = new THREE.PlaneHelper(this.clipPlanes.z.plane, 60, 0x0000ff);
     this.clipPlanes.z.helper.name = "zClipPlaneHelper";
-    this.clipPlanes.x.helper.visible = this.zClipPlaneHelperVisible;
+    this.clipPlanes.z.helper.visible = this.zClipPlaneHelperVisible;
     this.scene.add(this.clipPlanes.x.helper);
     this.scene.add(this.clipPlanes.y.helper);
     this.scene.add(this.clipPlanes.z.helper);
@@ -555,17 +556,17 @@ export default class ThreeDView {
     $("#near-input").val(0.1);
     $("#far-input").val(2000);
     // update orbit controls camera
-    this.controls.object.position.set(-100, 50, 100);
-    this.controls.target = new THREE.Vector3(100, 0, -100);
+    this.controls.object.position.set(-100, 200, 100);
+    this.controls.target = new THREE.Vector3(80, 30, -70);
     this.updateCamera();
   };
 
   resetView = () => {
     // reset gridhelper
-    this.gridHelperVisible = true; // set flag
-    this.gridHelper.visible = true; // set state
+    this.gridHelperVisible = false; // set flag
+    this.gridHelper.visible = false; // set state
     this.gridHelper.position.y = 0; // set position
-    $("#grid-elev-toggle-checkbox").prop("checked", true);
+    $("#grid-elev-toggle-checkbox").prop("checked", false);
     $("#grid-elev-input").val(-30);
     $("#grid-elev-output").html(`${$("#grid-elev-input").val()}cm`);
 
@@ -587,15 +588,15 @@ export default class ThreeDView {
     $("#z-clip-flip-checkbox").prop("checked", false);
 
     // reset clipping plane helpers
-    this.xClipPlaneHelperVisible = true; // set flag
-    this.clipPlanes.x.helper.visible = true; // set state
-    $("#x-clip-helper-checkbox").prop("checked", true);
-    this.yClipPlaneHelperVisible = true; // set flag
-    this.clipPlanes.y.helper.visible = true; // set state
-    $("#y-clip-helper-checkbox").prop("checked", true);
-    this.zClipPlaneHelperVisible = true; // set flag
-    this.clipPlanes.z.helper.visible = true; // set state
-    $("#z-clip-helper-checkbox").prop("checked", true);
+    this.xClipPlaneHelperVisible = false; // set flag
+    this.clipPlanes.x.helper.visible = false; // set state
+    $("#x-clip-helper-checkbox").prop("checked", false);
+    this.yClipPlaneHelperVisible = false; // set flag
+    this.clipPlanes.y.helper.visible = false; // set state
+    $("#y-clip-helper-checkbox").prop("checked", false);
+    this.zClipPlaneHelperVisible = false; // set flag
+    this.clipPlanes.z.helper.visible = false; // set state
+    $("#z-clip-helper-checkbox").prop("checked", false);
 
     // reset clipping plane constants, inputs and outputs
     this.clipPlanes.x.constant = -Math.sign(this.clipPlanes.x.normal.x) * this.clipPlanes.x.bounds[0] + 0.01;

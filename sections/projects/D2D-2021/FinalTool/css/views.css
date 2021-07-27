@@ -1,0 +1,45 @@
+#plot-container {
+  min-width: 750px;
+  text-align: center;
+  border: 4px solid lightgray;
+  border-radius: 4px;
+}
+
+#threed-container {
+  min-width: 750px;
+  border: 4px solid lightgray;
+  border-radius: 4px;
+}
+
+#c {
+  width: 100%;
+  height: 100%;
+}
+
+.x-gridlines line,
+.y-gridlines line {
+  stroke: #ddd;
+}
+
+.x-gridlines .tick,
+.y-gridlines .tick {
+  opacity: 0.5;
+}
+
+.x.axis.title text,
+.y.axis.title text {
+  font-weight: 800 !important;
+}
+
+.tooltip {
+  position: absolute;
+  text-align: center;
+  width: 250px;
+  height: 3.5em;
+  padding: 2px;
+  font: 12px sans-serif;
+  background: #ccc;
+  border: 0px;
+  border-radius: 8px;
+  pointer-events: none;
+}
