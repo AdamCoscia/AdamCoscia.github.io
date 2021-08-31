@@ -70,6 +70,12 @@
   BODY
 */
 
+.inline-logo {
+  display: inline;
+  width: 24px;
+  vertical-align: middle
+}
+
 .section-header {
   padding-bottom: 0.75rem;
 }
@@ -84,11 +90,11 @@
 }
 
 [id^="toggle"],
-[id^="toggle"] + * {
+[id^="toggle"]+* {
   display: block;
 }
 
-[id^="toggle"]:checked + * {
+[id^="toggle"]:checked+* {
   display: none;
 }
 

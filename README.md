@@ -4,16 +4,25 @@ Last updated: 05/24/2021
 
 ## TODO
 
-1. Update CV
-   1. Remove address
-
-2. Add latest publications
-
-3. Add DeepSee material:
+1. Add DeepSee material:
    1. Final presentation - https://www.youtube.com/watch?v=lrhq0jpwMEs&list=PLeeB2AbpsneZpqnlTLYz089MrGszT-5QP&index=3
    2. Final tool link - https://d2d-2021-oceans-frontend.herokuapp.com/
    3. Final PDF - on computer
    4. Screenshots - TODO
+
+2. re-factor entire thing
+
+3. adjust spacing of captions under publications and projects
+
+4. convert trophy tooltip to its own line
+
+5. change highlights to only have year listed once, like a header
+
+6. write bio
+
+7. update colors and weights to be more distinct; links in blue
+
+8. make teaser images all same size
 
 ## Credits
 
