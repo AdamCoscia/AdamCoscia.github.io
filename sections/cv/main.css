@@ -1,0 +1,44 @@
+/* INFO GRID */
+.info-grid {
+  font-size: 16px;
+  margin-bottom: 1rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 0.25rem 1rem;
+}
+.info-grid a {
+  text-decoration: none;
+}
+.info-grid span {
+  white-space: nowrap;
+}
+.info-grid-left {
+  justify-self: end;
+}
+.info-grid-right {
+  justify-self: start;
+}
+@media only screen and (max-width: 400px) {
+  .info-grid {
+    font-size: 14px;
+    margin-bottom: 1rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 0.25rem;
+  }
+  .info-grid-left,
+  .info-grid-right {
+    justify-self: center;
+  }
+}
+
+/* CV */
+.frame {
+  margin: auto;
+  /* within 10% of main view width */
+  width: clamp(250px, 70vw - 4em, 735px);
+  /* 1.3x width */
+  height: clamp(325px, 92vw - 4em, 955px);
+  overflow-x: auto;
+  overflow-y: hidden;
+}

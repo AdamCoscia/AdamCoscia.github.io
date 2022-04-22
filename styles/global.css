@@ -1,0 +1,102 @@
+/* GLOBAL */
+body {
+  font-family: "Lato", "arial", sans-serif;
+  font-size: 16px;
+}
+a {
+  color: #357edd;
+  text-decoration: underline solid transparent;
+}
+a:hover {
+  text-decoration: underline solid Currentcolor;
+}
+#wrapper {
+  min-height: 0;
+}
+#main {
+  width: clamp(350px, 70vw, 1000px);
+}
+#footer {
+  padding-top: 1rem;
+}
+.footer-contacts {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+}
+.row {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.column {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  flex: 1;
+}
+.text-muted {
+  color: gray;
+  font-weight: 100 !important;
+}
+.text-nowrap {
+  white-space: nowrap;
+}
+.flex-nowrap {
+  flex-wrap: nowrap;
+}
+
+/** TOOLTIP */
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+[data-tooltip]:before {
+  /* needed - do not touch */
+  content: attr(data-tooltip);
+  position: absolute;
+  display: none;
+
+  /* customizable */
+  transition: all 0.15s ease;
+  padding: 5px 10px;
+  color: #333;
+  border-radius: 10px;
+  box-shadow: 2px 2px 1px silver;
+}
+[data-tooltip]:hover:before {
+  /* needed - do not touch */
+  display: inline-block;
+  animation: fadeIn 0.3s;
+
+  /* customizable */
+  background: #343a40;
+  color: white;
+  font-weight: initial;
+  font-size: initial;
+  margin-top: -40px;
+  margin-left: -20px;
+}
+[data-tooltip]:not([data-tooltip-persistent]):before {
+  pointer-events: none;
+}
