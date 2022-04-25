@@ -131,6 +131,16 @@
   width: 100%;
   object-fit: contain;
 }
+.card-teaser img {
+  padding-bottom: 16px;
+  border-bottom: solid 1px #ccc;
+}
+@media only screen and (min-width: 773px) and (max-width: 866px) {
+  .card-teaser img {
+    padding-bottom: 0px;
+    border-bottom: none;
+  }
+}
 /* DETAILS */
 .card-details {
   min-width: 229px;
@@ -142,6 +152,9 @@
 .card-details * {
   margin: 4px 0;
 }
+.card-details img {
+  margin: 0;
+}
 .card-details-title {
   font-size: 20px;
   font-weight: 800 !important;
@@ -149,10 +162,10 @@
 .card-details-award {
   padding: 4px;
   font-size: 16px;
-  color: #ffb700;
+  color: #d4af37;
 }
 .trophy {
-  color: #ffb700;
+  color: #ffd700;
 }
 .card-details-position,
 .card-details-authors,
@@ -169,6 +182,9 @@
   font-style: italic;
 }
 .card-details-links {
-  white-space: nowrap;
   font-weight: 600 !important;
+  line-height: 1.4;
+}
+.card-details-links a {
+  white-space: nowrap;
 }
