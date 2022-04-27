@@ -12,9 +12,11 @@ a:hover {
 }
 #wrapper {
   min-height: 0;
+  scroll-behavior: smooth;
 }
 #main {
   width: clamp(350px, 70vw, 1000px);
+  scroll-behavior: smooth;
 }
 #footer {
   padding-top: 1rem;
