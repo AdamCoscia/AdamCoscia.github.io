@@ -1,12 +1,12 @@
 # Adam Coscia's Website
 
-Last updated: april 2022
+Last updated: April 2022
 
 Link: <https://adamcoscia.github.io/>
 
 ## TODO
 
-Nothing yet!
+Up to date!
 
 ## Credits
 
