@@ -3,11 +3,17 @@
   font-size: 16px;
   margin-bottom: 1rem;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: .25fr .75fr;
   grid-gap: 0.25rem 1rem;
 }
 .info-grid a {
   text-decoration: none;
+}
+.info-grid a span {
+  text-decoration: underline solid transparent;
+}
+.info-grid a span:hover {
+  text-decoration: underline solid currentColor;
 }
 .info-grid span {
   white-space: nowrap;
@@ -18,7 +24,7 @@
 .info-grid-right {
   justify-self: start;
 }
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 704px) {
   .info-grid {
     font-size: 14px;
     margin-bottom: 1rem;
