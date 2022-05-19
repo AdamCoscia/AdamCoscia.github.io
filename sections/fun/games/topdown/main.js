@@ -1,6 +1,6 @@
-import { Resolution } from "../../modules/display.js";
-import { KeyboardController } from "../../modules/inputs.js";
-import { GameState, GameEngine } from "../../modules/state.js";
+import { Resolution } from "../modules/display.js";
+import { KeyboardController } from "../modules/inputs.js";
+import { GameState, GameEngine } from "../modules/state.js";
 
 PIXI.settings.ROUND_PIXELS = true; // stop pixel interpolation
 

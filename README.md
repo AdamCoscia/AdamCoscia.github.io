@@ -6,7 +6,7 @@ Link: <https://adamcoscia.github.io/>
 
 ## TODO
 
-Up to date!
+- Add speed dial: <https://jh3y.medium.com/how-to-create-the-speed-dial-style-floating-action-button-from-material-design-b30d49f9a0ff>
 
 ## Credits
 
