@@ -101,14 +101,21 @@
 .card {
   padding: 18px;
   margin-bottom: 12px;
-  border: solid 1px transparent;
-  border-radius: 12px;
-  box-shadow: 0 2px 2px 0 rgb(0 0 0 / 14%), 0 3px 1px -2px rgb(0 0 0 / 12%), 0 1px 5px 0 rgb(0 0 0 / 20%);
   gap: 12px;
   align-content: flex-start;
+  border-radius: 12px;
+  box-shadow: 0 2px 2px 0 rgb(0 0 0 / 14%), 0 3px 1px -2px rgb(0 0 0 / 12%), 0 1px 5px 0 rgb(0 0 0 / 20%);
+  background: rgba(0 0 0 / 0.025);
+  -webkit-transition: background-color 100ms linear, transform 0.2s ease-in-out;
+  -ms-transition: background-color 100ms linear, transform 0.2s ease-in-out;
+  transition: background-color 100ms linear, transform 0.2s ease-in-out;
 }
 .card:hover {
-  border: solid 1px black;
+  transform: scale(1.025);
+  background: rgba(0 0 0 / 0.05);
+  -webkit-transition: background-color 100ms linear, transform 0.2s ease-in-out;
+  -ms-transition: background-color 100ms linear, transform 0.2s ease-in-out;
+  transition: background-color 100ms linear, transform 0.2s ease-in-out;
 }
 /* TEASER, LOGO */
 @media only screen and (min-width: 872px) {
@@ -123,7 +130,7 @@
 .card-logo {
   min-width: 198px;
   overflow: hidden;
-  background-color: #fff;
+  background-color: transparent;
 }
 .card-teaser img,
 .card-logo img {
