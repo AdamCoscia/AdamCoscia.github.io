@@ -157,14 +157,20 @@
   flex-grow: 4;
 }
 .card-details * {
-  margin: 4px 0;
+  margin: 6px 0;
+}
+.card-details *:first-child {
+  margin: 0 0 6px 0;
+}
+.card-details *:last-child {
+  margin: 6px 0 0 0;
 }
 .card-details img {
   margin: 0;
 }
 .card-details-title {
   font-size: 20px;
-  font-weight: 800 !important;
+  font-weight: 700 !important;
 }
 .card-details-award {
   padding: 4px;
@@ -190,7 +196,7 @@
 }
 .card-details-links {
   font-weight: 600 !important;
-  line-height: 1.4;
+  line-height: 1.5;
 }
 .card-details-links a {
   white-space: nowrap;
