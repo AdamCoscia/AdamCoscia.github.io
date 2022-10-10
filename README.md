@@ -1,6 +1,6 @@
 # Adam Coscia's Website
 
-Last updated: May 2022
+Last updated: October 2022
 
 Link: <https://adamcoscia.github.io/>
 
