@@ -3,6 +3,16 @@
  * Contact: acoscia125 \[at\] gmail \[dot\] com
  */
 
+:root {
+  --highlights-icon-color: #2b2b2b;
+  --presentations-icon-color: #d62728;
+  --publications-icon-color: #2ca02c;
+  --projects-icon-color: #e377c2;
+  --education-icon-color: #1f77b4;
+  --employment-icon-color: #17becf;
+  --awards-icon-color: #ff7f0e;
+}
+
 body {
   font-family: "Lato", "arial", sans-serif;
   font-size: 16px;
