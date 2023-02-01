@@ -1,0 +1,178 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  font-size: 0.9rem;
+  font-weight: 400;
+  font-family: "Lato", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell,
+    "Helvetica Neue", sans-serif;
+}
+
+h1 {
+  margin: 0;
+  font-size: 1.414rem;
+  font-weight: 900;
+}
+h2 {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+h3 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+#app {
+  height: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+/* HEADER */
+#header-row {
+  background-color: #efefef;
+  box-shadow: 0 2px 2px 0 rgb(0 0 0 / 14%), 0 3px 1px -2px rgb(0 0 0 / 12%), 0 1px 5px 0 rgb(0 0 0 / 20%);
+  justify-content: space-between; /* horizontal */
+  align-items: center; /* vertical */
+}
+#header-row > * {
+  margin: 6px;
+}
+
+/* INPUTS */
+#input-wrapper {
+  overflow-x: auto;
+}
+#input-header-wrapper,
+#input-body-wrapper,
+#input-options-wrapper {
+  margin: 6px;
+  row-gap: 4px;
+  justify-content: space-around;
+}
+#input-header-wrapper > div.flex-row,
+#input-body-wrapper > div.flex-row,
+#input-options-wrapper > div.flex-row {
+  column-gap: 6px;
+}
+#input-header-wrapper {
+  text-align: right;
+}
+
+/* FILTERS */
+#filter-wrapper {
+  overflow-x: auto;
+}
+#filter-header-wrapper,
+#filter-body-wrapper {
+  margin: 6px;
+  row-gap: 4px;
+  justify-content: space-around;
+}
+#filter-header-wrapper > div.flex-row,
+#filter-body-wrapper > div.flex-row,
+#show-subjects-wrapper > div.flex-row {
+  column-gap: 6px;
+}
+#filter-header-wrapper {
+  text-align: right;
+}
+#search-text-input {
+  min-width: 0;
+  width: 100%;
+}
+
+/* VIEWS */
+#heat-map-wrapper,
+#set-view-wrapper,
+#scatter-plot-wrapper {
+  overflow: hidden;
+}
+#heat-controls,
+#set-controls,
+#scatter-controls {
+  flex-wrap: wrap;
+}
+#heat-controls > *,
+#set-controls > *,
+#scatter-controls > * {
+  margin: 6px;
+}
+
+#heat-map-legend > div {
+  display: flex;
+  align-items: center;
+  margin: 0 6px;
+  font-size: 10px;
+  white-space: normal;
+}
+#heat-map .x-axis text {
+  font-weight: 900;
+  text-decoration: underline;
+}
+#heat-map .heat-prediction-rect[hovered="true"],
+#heat-map .heat-prediction-rect[selected="true"] {
+  stroke: steelblue;
+  stroke-width: 1px;
+}
+
+#set-view .x-axis text {
+  font-weight: 900;
+  text-decoration: underline;
+}
+#set-view .set-prediction-text {
+  user-select: none;
+  cursor: pointer;
+  filter: drop-shadow(3px 0 0 white) drop-shadow(-3px 0 0 white) drop-shadow(0 3px 0 white) drop-shadow(0 -3px 0 white);
+}
+#set-view .set-prediction-text[hovered="true"],
+#set-view .set-prediction-text[selected="true"] {
+  stroke: steelblue;
+  stroke-width: 1px;
+}
+#set-view .set-prediction-line {
+  pointer-events: none;
+  fill: none;
+  stroke: #2b2b2b;
+  stroke-width: 6px;
+  stroke-opacity: 0.25;
+  stroke-linecap: round;
+}
+
+#scatter-plot .scatter-poi-point[dragged="true"] {
+  stroke: steelblue;
+  stroke-width: 6px;
+}
+#scatter-plot .scatter-common-prediction-point[hovered="true"],
+#scatter-plot .scatter-common-prediction-point[selected="true"] {
+  stroke: steelblue;
+  stroke-width: 3px;
+}
+#scatter-plot .scatter-common-prediction-text[hovered="true"],
+#scatter-plot .scatter-common-prediction-text[selected="true"] {
+  stroke: steelblue;
+  stroke-width: 1px;
+}
+#scatter-plot .scatter-common-prediction-text[occluded="true"] {
+  display: none;
+}
+#scatter-plot[hide-labels="true"] .scatter-common-prediction-texts {
+  display: none;
+}
+
+#views-tooltip {
+  position: absolute;
+  z-index: 1087;
+  display: none; /* hide by default */
+  opacity: 0; /* hide by default */
+  padding: 4px;
+  border: 2px solid #2b2b2b;
+  border-radius: 4px;
+  background-color: white;
+  box-sizing: border-box;
+}
