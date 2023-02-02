@@ -108,12 +108,28 @@ export default {
   },
 
   /**
+   * Deep copies object.
    * - See: https://developer.mozilla.org/en-US/docs/Glossary/Deep_copy
    * @param {*} obj
    * @returns
    */
   deepCopy: function deepCopy(obj) {
     return JSON.parse(JSON.stringify(obj));
+  },
+
+  /**
+   * Removes DOM element if it exists.
+   * - See: https://stackoverflow.com/a/65638130
+   * @param {*} parent
+   * @param {*} selector
+   */
+  removeElementIfExists: function removeElementIfExists(parent, selector = null) {
+    if (selector) {
+      const x = parent.querySelector(selector);
+      if (x) x.remove();
+    } else {
+      if (parent) parent.remove();
+    }
   },
 
   /**

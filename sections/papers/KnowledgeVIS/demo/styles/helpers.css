@@ -95,6 +95,7 @@
   box-shadow: none !important;
 }
 .remove-row-button {
+  width: 14.86px;
   height: 36px;
   display: flex;
   justify-content: flex-end;

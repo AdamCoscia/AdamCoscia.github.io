@@ -16,6 +16,10 @@ var elements = {
     inputWrapper: document.getElementById("input-wrapper"),
     filterWrapper: document.getElementById("filter-wrapper"),
 
+    domainAdaptationButton: document.getElementById("domain-adaptation-button"),
+    biasEvaluationButton: document.getElementById("bias-evaluation-button"),
+    knowledgeProbingButton: document.getElementById("knowledge-probing-button"),
+
     dataQueryButton: document.getElementById("data-query-button"),
     dataExportButton: document.getElementById("data-export-button"),
     settingsModelSelect: document.getElementById("settings-model-select"),
@@ -87,10 +91,6 @@ function init() {
   elements.views["setView"].plot.init();
   elements.views["scatterPlot"].plot.init();
   setEventListeners();
-  elements.settings.settingsModelSelect.value = "bert";
-  elements.settings.settingsTopkInput.value = 30;
-  elements.settings.sentencesInputWrapper.querySelector('[data-value="1"]').innerHTML =
-    "In [subject], they like to buy _.";
 }
 
 /**
@@ -172,7 +172,6 @@ function requestData(params) {
     .catch((error) => {
       utils.handleFetchError(error);
       console.log("not connected :(");
-      elements.settings.dataQueryButton.disabled = false; // enable query button
     });
 }
 
@@ -432,6 +431,9 @@ function renderView(viewName) {
  */
 function setEventListeners() {
   // INPUTS
+  const domainAdaptationButton = elements.settings.domainAdaptationButton;
+  const biasEvaluationButton = elements.settings.biasEvaluationButton;
+  const knowledgeProbingButton = elements.settings.knowledgeProbingButton;
   const dataQueryButton = elements.settings.dataQueryButton;
   const dataExportButton = elements.settings.dataExportButton;
   const settingsModelSelect = elements.settings.settingsModelSelect;
@@ -469,10 +471,152 @@ function setEventListeners() {
   const setScatterDivider = elements.dividers.setScatterDivider;
   const scatterPlotWrapper = elements.views.scatterPlot.wrapper;
 
+  // helper function to remove row of button and text inputs
+  const removeSentenceRow = (rid) => {
+    utils.removeElementIfExists(removeSentencesWrapper, `[data-value="${rid}"]`);
+    utils.removeElementIfExists(sentencesInputWrapper, `[data-value="${rid}"]`);
+    utils.removeElementIfExists(subjectsInputWrapper, `[data-value="${rid}"]`);
+  };
+
+  // helper function to clear all sentence and subject inputs
+  const clearSentencesAndSubjects = () => {
+    // clear first row
+    sentencesInputWrapper.querySelector('[data-value="1"]').innerHTML = "";
+    [...subjectsInputWrapper.querySelector('[data-value="1"]').querySelectorAll("a")].forEach((elem) =>
+      utils.removeElementIfExists(elem)
+    );
+    // remove any existing rows beyond the first
+    const range = [...Array(store.counter - 2).keys()].map((i) => i + 2);
+    range.forEach((rid) => removeSentenceRow(rid));
+  };
+
+  // helper function to add new row of button and text inputs
+  const addSentenceRow = (rid) => {
+    let templateString = "";
+
+    // add remove row button and attach event listener to it
+    templateString = `<div class="remove-row-button" data-value="${rid}"><div><i class="icon times circle"></i></div></div>`;
+    const removeRowButtonTemplate = utils.createElementFromTemplate(templateString);
+    const removeRowButton = removeSentencesWrapper.appendChild(removeRowButtonTemplate).children[0];
+    removeRowButton.addEventListener("click", () => removeSentenceRow(rid));
+
+    // add sentence text input
+    templateString = `<div class="sentence-text-input" contenteditable="true" data-value="${rid}"></div>`;
+    const sentenceTextInputTemplate = utils.createElementFromTemplate(templateString);
+    const sentenceTextInput = sentencesInputWrapper.appendChild(sentenceTextInputTemplate);
+    sentenceTextInput.addEventListener("keyup", () => sentenceTextInput.classList.remove("input-error"));
+
+    // add subjects text input and initialize as semantic UI element
+    templateString = `<div class="subjects-text-input ui fluid multiple search selection dropdown" data-value="${rid}"><div class="text"></div></div>`;
+    const subjectsTextInputTemplate = utils.createElementFromTemplate(templateString);
+    subjectsInputWrapper.appendChild(subjectsTextInputTemplate);
+    $(`.subjects-text-input[data-value="${rid}"]`).dropdown({ allowAdditions: true });
+    const subjectsTextInputDiv = subjectsInputWrapper.querySelector(`[data-value="${rid}"]`);
+    const subjectsTextInput = subjectsTextInputDiv.querySelector("input");
+    subjectsTextInput.addEventListener("keyup", () => subjectsTextInputDiv.classList.remove("input-error"));
+  };
+
+  // helper function to add sentences and subjects to the input fields
+  const addSentencesAndSubjects = (pairs) => {
+    // add first pair to first row
+    const sentence = pairs[0][0];
+    const subjects = pairs[0][1];
+    sentencesInputWrapper.querySelector('[data-value="1"]').innerHTML = sentence;
+    if (subjects.length) {
+      let templateString = "";
+      const subjectsElements = [];
+      subjects.forEach((subject) => {
+        templateString = `
+          <a class="ui label transition visible" 
+             data-value="${subject}" 
+             style="display: block !important;"
+          > 
+            ${subject}
+            <i class="delete icon"></i>
+          </a>`;
+        const aTemplate = utils.createElementFromTemplate(templateString);
+        subjectsElements.push(aTemplate);
+      });
+      const subjectsTextInput = subjectsInputWrapper.querySelector('[data-value="1"]');
+      subjectsElements
+        .slice()
+        .reverse()
+        .forEach((a) => subjectsTextInput.prepend(a));
+    }
+
+    // for the rest of the pairs, add a new sentence row before adding sentences and subjects
+    pairs.slice(1, pairs.length).forEach((pair) => {
+      const nextDataValue = store.counter;
+      store.counter++;
+      addSentenceRow(nextDataValue);
+      const sentence = pair[0];
+      const subjects = pair[1];
+      sentencesInputWrapper.querySelector(`[data-value="${nextDataValue}"]`).innerHTML = sentence;
+      if (subjects.length) {
+        let templateString = "";
+        const subjectsElements = [];
+        subjects.forEach((subject) => {
+          templateString = `
+            <a class="ui label transition visible" 
+               data-value="${subject}" 
+               style="display: block !important;"
+            > 
+              ${subject}
+              <i class="delete icon"></i>
+            </a>`;
+          const aTemplate = utils.createElementFromTemplate(templateString);
+          subjectsElements.push(aTemplate);
+        });
+        const subjectsTextInput = subjectsInputWrapper.querySelector(`[data-value="${nextDataValue}"]`);
+        subjectsElements
+          .slice()
+          .reverse()
+          .forEach((a) => subjectsTextInput.prepend(a));
+      }
+    });
+  };
+
   // re-render on window resize
   window.addEventListener("resize", utils.throttle(renderAllViews, 1000), true);
 
   // INPUTS
+
+  domainAdaptationButton.addEventListener("click", () => {
+    clearSentencesAndSubjects();
+    const model = "scibert";
+    const topk = 10;
+    const pairs = [
+      ["Therapeutic anticoagulation is _ for trauma patients to receive.", []],
+      ["It is _ for trauma patients to receive therapeutic anticoagulation.", []],
+    ];
+    settingsModelSelect.value = model;
+    settingsTopKInput.value = topk;
+    addSentencesAndSubjects(pairs);
+  });
+
+  biasEvaluationButton.addEventListener("click", () => {
+    clearSentencesAndSubjects();
+    const model = "bert";
+    const topk = 20;
+    const pairs = [["The [subject] worked as a _.", ["man", "woman"]]];
+    settingsModelSelect.value = model;
+    settingsTopKInput.value = topk;
+    addSentencesAndSubjects(pairs);
+  });
+
+  knowledgeProbingButton.addEventListener("click", () => {
+    clearSentencesAndSubjects();
+    const model = "distilbert";
+    const topk = 30;
+    const pairs = [
+      ["In New York, they like to [subject] _.", ["buy", "sell"]],
+      ["In Texas, they like to [subject] _.", ["buy", "sell"]],
+      ["In California, they like to [subject] _.", ["buy", "sell"]],
+    ];
+    settingsModelSelect.value = model;
+    settingsTopKInput.value = topk;
+    addSentencesAndSubjects(pairs);
+  });
 
   settingsModelSelect.addEventListener("change", () => settingsModelSelect.classList.remove("input-error"));
   settingsTopKInput.addEventListener("change", () => settingsTopKInput.classList.remove("input-error"));
@@ -491,37 +635,9 @@ function setEventListeners() {
   });
 
   sentencesAddButton.addEventListener("click", () => {
-    let templateString = "";
     const nextDataValue = store.counter;
     store.counter++;
-
-    // helper function to remove added button and text inputs
-    const removeSentenceRow = (rid) => {
-      removeSentencesWrapper.querySelector(`[data-value="${rid}"]`).remove();
-      sentencesInputWrapper.querySelector(`[data-value="${rid}"]`).remove();
-      subjectsInputWrapper.querySelector(`[data-value="${rid}"]`).remove();
-    };
-
-    // add remove row button and attach event listener to it
-    templateString = `<div class="remove-row-button" data-value="${nextDataValue}"><div><i class="icon times circle"></i></div></div>`;
-    const removeRowButtonTemplate = utils.createElementFromTemplate(templateString);
-    const removeRowButton = removeSentencesWrapper.appendChild(removeRowButtonTemplate).children[0];
-    removeRowButton.addEventListener("click", () => removeSentenceRow(nextDataValue));
-
-    // add sentence text input
-    templateString = `<div class="sentence-text-input" contenteditable="true" data-value="${nextDataValue}"></div>`;
-    const sentenceTextInputTemplate = utils.createElementFromTemplate(templateString);
-    const sentenceTextInput = sentencesInputWrapper.appendChild(sentenceTextInputTemplate);
-    sentenceTextInput.addEventListener("keyup", () => sentenceTextInput.classList.remove("input-error"));
-
-    // add subjects text input and initialize as semantic UI element
-    templateString = `<div class="subjects-text-input ui fluid multiple search selection dropdown" data-value="${nextDataValue}"><div class="text"></div></div>`;
-    const subjectsTextInputTemplate = utils.createElementFromTemplate(templateString);
-    subjectsInputWrapper.appendChild(subjectsTextInputTemplate);
-    $(".subjects-text-input").dropdown({ allowAdditions: true });
-    const subjectsTextInputDiv = subjectsInputWrapper.querySelector(`[data-value="${nextDataValue}"]`);
-    const subjectsTextInput = subjectsTextInputDiv.querySelector("input");
-    subjectsTextInput.addEventListener("keyup", () => subjectsTextInputDiv.classList.remove("input-error"));
+    addSentenceRow(nextDataValue);
   });
 
   dataQueryButton.addEventListener("click", () => {

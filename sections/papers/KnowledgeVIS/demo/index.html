@@ -13,21 +13,14 @@
     <link rel="manifest" href="site.webmanifest" />
     <meta name="msapplication-TileColor" content="#00aba9" />
     <meta name="theme-color" content="#ffffff" />
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap" rel="stylesheet" />
-    <!-- Semantic UI CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.5.0/dist/semantic.min.css" />
-    <script
-      src="https://code.jquery.com/jquery-3.6.1.min.js"
-      integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
-      crossorigin="anonymous"
-    ></script>
-    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.5.0/dist/semantic.min.js"></script>
-    <!-- Style Sheets -->
+    <!-- CSS -->
+    <link rel="stylesheet" href="vendors/Semantic-UI-CSS-master/semantic.min.css" />
+    <link rel="stylesheet" href="styles/fonts.css" />
     <link rel="stylesheet" href="styles/helpers.css" />
     <link rel="stylesheet" href="styles/main.css" />
+    <!-- JS -->
+    <script src="vendors/jquery-3.6.1.min.js"></script>
+    <script src="vendors/Semantic-UI-CSS-master/semantic.min.js"></script>
   </head>
 
   <body>
@@ -41,13 +34,13 @@
           </div>
           <div id="header-examples" class="flex-row">
             <h3>Try an example:</h3>
-            <div class="ui segment">
+            <div id="domain-adaptation-button" class="ui segment">
               <span>Domain Adaptation</span>
             </div>
-            <div class="ui segment">
+            <div id="bias-evaluation-button" class="ui segment">
               <span>Bias Evaluation</span>
             </div>
-            <div class="ui segment">
+            <div id="knowledge-probing-button" class="ui segment">
               <span>Knowledge Probing</span>
             </div>
           </div>
@@ -88,7 +81,7 @@
               <div class="flex-row">
                 <div id="remove-sentences-wrapper" class="flex-col flex-size-to-content">
                   <div style="height: 18px; width: 14.86px"></div>
-                  <div style="height: 36px; width: 14.86px"></div>
+                  <div class="remove-row-button" data-value="1"></div>
                 </div>
                 <div id="sentences-input-wrapper" class="flex-col flex-fill-remaining">
                   <div>

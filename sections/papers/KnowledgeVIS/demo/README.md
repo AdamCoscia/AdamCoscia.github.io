@@ -1,5 +1,11 @@
 # frontend
 
-Getting started:
+## Getting started
 
-1. Run `python -m http.server`
+Windows:
+
+1. Run `py -3.10 -m http.server`
+
+MacOS / Linux:
+
+1. Run `python3.10 -m http.server`
