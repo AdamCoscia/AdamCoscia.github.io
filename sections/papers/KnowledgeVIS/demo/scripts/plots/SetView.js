@@ -330,7 +330,7 @@ export default class SetView {
           self.controls.disableZoom = true; // disable scrolling
           connectorLines.selectAll("line").remove(); // remove all lines
           d3.selectAll("text.set-prediction-text").attr("selected", false).style("opacity", 0).style("display", "none"); // hide all text
-          yScale.range([tb * 2 + xAxisHeight, bb]); // adjust yScale to fit within view
+          yScale.range([xAxisBackgroundHeight, bb]); // adjust yScale to fit within view
           drawSelectedNeighborhood(tid); // draw neighborhood of words around selected word
           drawConnectorLines(tid, true); // re-draw connector lines
         } else {
@@ -342,7 +342,7 @@ export default class SetView {
       } else {
         if (self.controls.sortBy === "rank") {
           connectorLines.selectAll("line").remove(); // clear connector lines
-          yScale.range([tb * 2 + xAxisHeight, Math.max(bb, bw * self.plot.rows.length)]); // reset yScale to fit number of rows
+          yScale.range([xAxisBackgroundHeight, Math.max(bb, bw * self.plot.rows.length)]); // reset yScale to fit number of rows
           subjectGroups
             .selectAll("text")
             .attr("y", (_, i) => yScale(i + 1))
@@ -368,11 +368,10 @@ export default class SetView {
     function drawSelectedNeighborhood(targetID) {
       const nNeighborhoodWords = 5; // most number of words to draw around center word
       const dyNeighborhoodWords = 16; // pixels to draw neighborhood words apart
-      const finalIndex = self.plot.rows.length - 2; // remove extra row added to avoid clipping
-      const middleIndex = Math.floor((1 / 2) * finalIndex);
+      const finalIndex = self.plot.rows.length - 1; // remove extra row added to avoid clipping
       const topY = yScale(1);
-      const centerY = yScale(middleIndex);
-      const bottomY = yScale(finalIndex + 1);
+      const centerY = yScale(Math.ceil((1 / 2) * (finalIndex - 1)) + 1);
+      const bottomY = yScale(finalIndex);
       const centerX = (1 / 2) * xScale.bandwidth();
       subjectGroups.each(function () {
         const subjectG = d3.select(this);
@@ -388,7 +387,7 @@ export default class SetView {
           // draw up to `nNeighborhoodWords` above/below the selected word
           const texts = subjectG.selectAll("text.set-prediction-text");
           const startIndex = Math.max(0, textIndex - nNeighborhoodWords);
-          const endIndex = Math.min(textIndex + nNeighborhoodWords, finalIndex);
+          const endIndex = Math.min(textIndex + nNeighborhoodWords, finalIndex - 1);
           for (let i = startIndex; i <= endIndex; i++) {
             texts
               .filter(function () {
@@ -402,7 +401,7 @@ export default class SetView {
           // draw lines above/below selected word
           if (textIndex > nNeighborhoodWords) {
             const maxTopLineLength = centerY - topY - (nNeighborhoodWords + 1) * dyNeighborhoodWords;
-            const ratio = (textIndex - nNeighborhoodWords) / (finalIndex - nNeighborhoodWords);
+            const ratio = (textIndex - nNeighborhoodWords) / (finalIndex - nNeighborhoodWords - 1);
             const topLineLength = ratio * maxTopLineLength;
             subjectG
               .insert("line", ":first-child")
@@ -412,9 +411,9 @@ export default class SetView {
               .attr("x2", centerX)
               .attr("y2", topY + maxTopLineLength);
           }
-          if (textIndex < finalIndex - nNeighborhoodWords) {
+          if (textIndex < finalIndex - nNeighborhoodWords - 1) {
             const maxBottomLineLength = bottomY - centerY - (nNeighborhoodWords + 1) * dyNeighborhoodWords;
-            const ratio = (finalIndex - nNeighborhoodWords - textIndex) / (finalIndex - nNeighborhoodWords);
+            const ratio = (finalIndex - nNeighborhoodWords - textIndex - 1) / (finalIndex - nNeighborhoodWords - 1);
             const bottomLineLength = ratio * maxBottomLineLength;
             subjectG
               .insert("line", ":first-child")
