@@ -66,9 +66,7 @@ a:hover span.alabel {
 }
 .header-links a span.alabel {
   margin-left: -4px;
-}
-#footer {
-  padding-top: 1rem;
+  clip-path: inset(0 0.2em 0 0);
 }
 .footer-contacts {
   margin: 0;
@@ -76,6 +74,12 @@ a:hover span.alabel {
   list-style: none;
   display: flex;
   justify-content: center;
+}
+#footer {
+  padding-top: 1rem;
+}
+#footer a span.alabel {
+  clip-path: inset(0 0.2em 0 0);
 }
 .inline-logo {
   display: inline;
