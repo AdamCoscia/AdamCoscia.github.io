@@ -386,8 +386,7 @@ sup {
 
 hr {
   border: 0;
-  border-bottom: solid 1px #c8cccf;
-  margin: 2em 0 2em 0;
+  margin: 0.5rem;
 }
 
 /* Form */
@@ -717,6 +716,7 @@ ul {
 
 ul li {
   padding-left: 0.5em;
+  height: 24px;
 }
 
 ul.alt {

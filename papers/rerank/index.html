@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Toward a Bias-Aware Future for Mixed-Initiative Visual Analytics &mdash; Adam Coscia</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <meta name="author" content="Adam Coscia" />
+    <meta
+      name="description"
+      content="Adam Coscia is a PhD student at Georgia Tech's School of Interactive Computing combining visual analytics and HCI to help people make sense of data."
+    />
+    <meta
+      name="keywords"
+      content="phd,visual analytics,georgia tech,interactive computing,information visualization,infovis,infoviz,data science,machine learning,data manipulation,cognitive bias,artificial intelligence,AI"
+    />
+    <!-- Favicon -->
+    <link rel="manifest" href="/assets/favicon/site.webmanifest" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png" />
+    <!-- Style Sheets -->
+    <link rel="stylesheet" href="/styles/html5up/html5up.css" />
+    <noscript>
+      <link rel="stylesheet" href="/css/noscript.css" />
+    </noscript>
+    <link rel="stylesheet" href="/styles/main.css" />
+    <link rel="stylesheet" href="/styles/paper.css" />
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-229540506-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "UA-229540506-2");
+    </script>
+  </head>
+
+  <body class="is-preload">
+    <div id="wrapper">
+      <section id="main">
+        <!-- HEADER -->
+        <header id="header"></header>
+
+        <hr />
+
+        <!-- BODY -->
+        <div id="body">
+          <div class="text-wrapper">
+            <!-- HEADER -->
+            <div class="paper-header">
+              <!-- TITLE -->
+              <div class="paper-title">
+                <span>ReRank: Visual Analytics for Interactively Modeling Science Value via Machine Teaching</span>
+              </div>
+
+              <!-- AUTHORS -->
+              <div class="paper-authors">
+                <span><b>Adam Coscia</b>, Alex Endert, Scott Davidoff</span>
+              </div>
+
+              <!-- VENUE -->
+              <div class="paper-venue">
+                <span>NASA JPL summer internship project, 2023</span>
+              </div>
+            </div>
+
+            <!-- TEASER -->
+            <div class="paper-teaser">
+              <img src="/papers/rerank/teaser.png" alt="ReRank paper teaser figure" />
+            </div>
+
+            <!-- ABSTRACT -->
+            <div class="paper-abstract">
+              <div class="section-title">
+                <span>Abstract</span>
+              </div>
+              <div class="section-body">
+                <p>
+                  Future high autonomy missions such as Endurance A on the moon require autonomous targeting
+                  capabilities during long, pre-planned drives where humans are not always in the loop. Previous
+                  missions were limited to fixed campaigns developed manually by machine learning engineers interfacing
+                  with scientists to program valuation models for automatically identified targets. We present a novel
+                  machine teaching user interface, <b>ReRank</b>, that allows scientists to directly program valuation
+                  models by demonstration through interactive targeting and visualization. <b>ReRank</b> places
+                  scientists in an immersive 2D and 3D environment of a solar scene and leverages direct manipulation to
+                  automatically learn preferences when scientists click on targets of interest. We visualize the
+                  preferences for learned features of each target and apply Ranking SVM to learn a model of science
+                  value that can be applied in new scenes to automatically rank unseen targets. We envision applying
+                  <b>ReRank</b> to planetary missions such as Endurance A that are likely to change on touchdown and
+                  where human attention is divided between multiple spacecraft. Our approach will broadly enable more
+                  flexible and rapid campaign updates that increase science return by empowering scientists to be the
+                  programmer.
+                </p>
+              </div>
+            </div>
+
+            <!-- MATERIALS -->
+            <div class="paper-links">
+              <div class="section-title">
+                <span>Materials</span>
+              </div>
+              <div class="section-body">
+                <a href="/papers/rerank/rerank-presentation.pdf" target="_blank">
+                  <span class="icon solid fa-file-powerpoint" style="color: #d04423"></span>
+                  <span class="alabel">Presentation</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- CITATION -->
+            <div class="paper-citation">
+              <div class="section-title">
+                <span>Citation</span>
+              </div>
+              <div class="bibtex">
+                <pre>Coming soon!</pre>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <hr />
+
+        <!-- FOOTER -->
+        <footer id="footer" class="row"></footer>
+      </section>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script type="text/javascript" src="/vendors/jQuery/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="/scripts/main.js"></script>
+    <script>
+      if ("addEventListener" in window) {
+        window.addEventListener("load", function () {
+          document.body.className = document.body.className.replace(/\bis-preload\b/, "");
+        });
+        document.body.className += navigator.userAgent.match(/(MSIE|rv:11\.0)/) ? " is-ie" : "";
+      }
+    </script>
+
+    <!-- NO SCRIPT -->
+    <noscript>
+      <style type="text/css">
+        .page-container {
+          display: none;
+        }
+
+        .no-script-container {
+          margin: 0;
+          padding: 2rem;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          text-align: center;
+          transform: translate(-50%, -50%);
+          border-radius: 4px;
+          background-color: rgba(255 255 255 / 90%);
+        }
+
+        .no-script-msg {
+          margin: 0;
+          margin-bottom: 2rem;
+        }
+
+        .no-script-footer {
+          margin: 0;
+        }
+      </style>
+      <div class="no-script-container">
+        <h3 class="no-script-msg">This website requires Javascript to be enabled!</h3>
+        <h6>&copy; 2022 Adam Coscia</h6>
+      </div>
+    </noscript>
+  </body>
+</html>

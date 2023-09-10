@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Toward a Bias-Aware Future for Mixed-Initiative Visual Analytics &mdash; Adam Coscia</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <meta name="author" content="Adam Coscia" />
+    <meta
+      name="description"
+      content="Adam Coscia is a PhD student at Georgia Tech's School of Interactive Computing combining visual analytics and HCI to help people make sense of data."
+    />
+    <meta
+      name="keywords"
+      content="phd,visual analytics,georgia tech,interactive computing,information visualization,infovis,infoviz,data science,machine learning,data manipulation,cognitive bias,artificial intelligence,AI"
+    />
+    <!-- Favicon -->
+    <link rel="manifest" href="/assets/favicon/site.webmanifest" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png" />
+    <!-- Style Sheets -->
+    <link rel="stylesheet" href="/styles/html5up/html5up.css" />
+    <noscript>
+      <link rel="stylesheet" href="/css/noscript.css" />
+    </noscript>
+    <link rel="stylesheet" href="/styles/main.css" />
+    <link rel="stylesheet" href="/styles/paper.css" />
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-229540506-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "UA-229540506-2");
+    </script>
+  </head>
+
+  <body class="is-preload">
+    <div id="wrapper">
+      <section id="main">
+        <!-- HEADER -->
+        <header id="header"></header>
+
+        <hr />
+
+        <!-- BODY -->
+        <div id="body">
+          <div class="text-wrapper">
+            <!-- HEADER -->
+            <div class="paper-header">
+              <!-- TITLE -->
+              <div class="paper-title">
+                <span> KnowledgeVIS: Interpreting Language Models by Comparing Fill-in-the-Blank Prompts </span>
+              </div>
+
+              <!-- AUTHORS -->
+              <div class="paper-authors">
+                <span><b>Adam Coscia</b>, Alex Endert</span>
+              </div>
+
+              <!-- VENUE -->
+              <div class="paper-venue">
+                <span>2023 (paper under review)</span>
+              </div>
+            </div>
+
+            <!-- TEASER -->
+            <div class="paper-teaser">
+              <img src="/papers/knowledgevis/teaser.png" alt="KnowledgeVIS teaser" />
+            </div>
+
+            <!-- ABSTRACT -->
+            <div class="paper-abstract">
+              <div class="section-title">
+                <span>Abstract</span>
+              </div>
+              <div class="section-body">
+                <p>
+                  Recent growth in the popularity of large language models has led to their increased usage for
+                  summarizing, translating, predicting, and generating text, making it vital to help researchers
+                  understand how and why they work. We present <b>KnowledgeVIS</b>, a human-in-the-loop visual analytics
+                  system for interpreting language models using fill-in-the-blank sentences as prompts. By comparing
+                  predictions between sentences, <b>KnowledgeVIS</b> reveals learned associations that intuitively
+                  connect what language models learn during training to natural language tasks downstream. Tightly
+                  integrated views in <b>KnowledgeVIS</b> help users create and test multiple prompt variations
+                  simultaneously, analyze predicted words using a novel semantic clustering technique, and discover
+                  insights using expressive and interactive visualizations. Collectively, these visualizations help
+                  users identify the likelihood and uniqueness of individual predictions, compare sets of predictions
+                  between prompts, and summarize patterns and relationships between predictions across all prompts. We
+                  demonstrate the capabilities of <b>KnowledgeVIS</b> with feedback from six NLP experts as well as
+                  three different use cases: (1) probing biomedical knowledge in two domain-adapted models; and (2)
+                  evaluating harmful identity stereotypes and (3) discovering facts and relationships between three
+                  general-purpose models. <b>KnowledgeVIS</b> shows how human-in-the-loop visual analytics can help
+                  researchers interpret language models by providing insight into what they have learned.
+                </p>
+              </div>
+            </div>
+
+            <!-- MATERIALS -->
+            <div class="paper-links">
+              <div class="section-title">
+                <span>Materials</span>
+              </div>
+              <div class="section-body">
+                <a href="/papers/knowledgevis/KnowledgeVIS_CRIDC_2023.pdf" target="_blank">
+                  <span class="icon solid fa-chalkboard-teacher"></span>
+                  <span class="alabel">Poster</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- CITATION -->
+            <div class="paper-citation">
+              <div class="section-title">
+                <span>Citation</span>
+              </div>
+              <div class="bibtex">
+                <pre>Coming soon!</pre>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <hr />
+
+        <!-- FOOTER -->
+        <footer id="footer" class="row"></footer>
+      </section>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script type="text/javascript" src="/vendors/jQuery/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="/scripts/main.js"></script>
+    <script>
+      if ("addEventListener" in window) {
+        window.addEventListener("load", function () {
+          document.body.className = document.body.className.replace(/\bis-preload\b/, "");
+        });
+        document.body.className += navigator.userAgent.match(/(MSIE|rv:11\.0)/) ? " is-ie" : "";
+      }
+    </script>
+
+    <!-- NO SCRIPT -->
+    <noscript>
+      <style type="text/css">
+        .page-container {
+          display: none;
+        }
+
+        .no-script-container {
+          margin: 0;
+          padding: 2rem;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          text-align: center;
+          transform: translate(-50%, -50%);
+          border-radius: 4px;
+          background-color: rgba(255 255 255 / 90%);
+        }
+
+        .no-script-msg {
+          margin: 0;
+          margin-bottom: 2rem;
+        }
+
+        .no-script-footer {
+          margin: 0;
+        }
+      </style>
+      <div class="no-script-container">
+        <h3 class="no-script-msg">This website requires Javascript to be enabled!</h3>
+        <h6>&copy; 2022 Adam Coscia</h6>
+      </div>
+    </noscript>
+  </body>
+</html>

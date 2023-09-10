@@ -16,12 +16,15 @@
 body {
   font-family: "Lato", "arial", sans-serif;
   font-size: 16px;
+  text-rendering: optimizeLegibility;
 }
 a {
   color: #357edd;
+}
+a span.alabel {
   text-decoration: underline solid transparent;
 }
-a:hover {
+a:hover span.alabel {
   text-decoration: underline solid Currentcolor;
 }
 #wrapper {
@@ -29,9 +32,40 @@ a:hover {
   scroll-behavior: smooth;
 }
 #main {
-  width: clamp(350px, 70vw, 1000px);
+  padding: 1.5rem 3rem;
+  width: clamp(350px, 80vw, 1000px);
   scroll-behavior: smooth;
   border-radius: 12px;
+}
+@media only screen and (max-width: 846px) {
+  #main {
+    padding: 1rem 2rem;
+  }
+}
+#header p {
+  margin: 0 0 1rem 0;
+}
+.header-title {
+  font-size: 28pt;
+  font-weight: 900;
+  line-height: 1.5;
+  padding-bottom: 0.5rem;
+  border-bottom: 3px solid darkseagreen;
+}
+@media only screen and (max-width: 886px) {
+  .header-title {
+    font-size: 26pt;
+    font-weight: 900;
+  }
+}
+@media only screen and (max-width: 486px) {
+  .header-title {
+    font-size: 24pt;
+    font-weight: 700;
+  }
+}
+.header-links a span.alabel {
+  margin-left: -4px;
 }
 #footer {
   padding-top: 1rem;
@@ -61,6 +95,7 @@ a:hover {
 .text-muted {
   color: gray;
   font-weight: 100 !important;
+  white-space: nowrap;
 }
 .text-nowrap {
   white-space: nowrap;

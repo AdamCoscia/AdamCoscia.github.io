@@ -5,7 +5,9 @@
 
 /* INFO GRID */
 .info-grid {
-  font-size: 15px;
+  text-transform: none;
+  letter-spacing: 1px;
+  font-size: 14pt;
   margin-bottom: 1rem;
   display: grid;
   grid-template-columns: 0.25fr 0.75fr;
@@ -25,6 +27,8 @@
 }
 .info-grid-left {
   justify-self: end;
+  height: 36px;
+  border-bottom: 3px solid darkseagreen;
 }
 .info-grid-right {
   justify-self: start;
@@ -37,7 +41,10 @@
     grid-template-columns: 1fr;
     grid-gap: 0.25rem;
   }
-  .info-grid-left,
+  .info-grid-left {
+    height: 28px;
+    justify-self: center;
+  }
   .info-grid-right {
     justify-self: center;
   }

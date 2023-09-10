@@ -45,19 +45,84 @@
         <!-- HEADER -->
         <header id="header"></header>
 
-        <hr />
+        <!-- <hr /> -->
 
         <!-- CONTENT -->
         <div id="body" style="text-align: left">
+          <!-- SUMMARY -->
           <div id="summary" class="row">
             <div class="column summary-text">
               <div class="introduction">
-                <p style="font-size: 16pt">Hey, I'm Adam!</p>
+                <p class="introduction-title">
+                  <span>Hey, I'm Adam!</span>
+                </p>
+
+                <!-- PROFILE (when screen is small) -->
+                <div class="profile only-when-small">
+                  <!-- PICTURE -->
+                  <img src="/assets/profile/coscia-adam.jpg" alt="My profile picture" />
+
+                  <!-- CONTACT -->
+                  <div class="profile-links">
+                    <!-- CONTACT -->
+                    <ul class="profile-links-contact">
+                      <!-- SV -->
+                      <li>
+                        <a href="/cv">
+                          <span class="icon solid fa-address-card" style="color: #414f57"></span>
+                          <span class="alabel">Curriculum Vitae (CV)</span>
+                        </a>
+                      </li>
+                      <!-- Email -->
+                      <li>
+                        <a href="mailto:acoscia6@gatech.edu">
+                          <span class="icon solid fa-envelope" style="color: #414f57"></span>
+                          <span class="alabel">acoscia6@gatech.edu</span>
+                        </a>
+                      </li>
+                      <!-- Google Scholar -->
+                      <li>
+                        <a href="https://scholar.google.com/citations?hl=en&user=diVuti8AAAAJ" target="_blank">
+                          <span class="icon solid fa-graduation-cap" style="color: #414f57"></span>
+                          <span class="alabel">Google Scholar</span>
+                        </a>
+                      </li>
+                      <!-- GitHub -->
+                      <li>
+                        <a href="https://github.com/AdamCoscia" target="_blank">
+                          <span class="icon brands fa-github" style="color: #6e5494"></span>
+                          <span class="alabel">@AdamCoscia</span>
+                        </a>
+                      </li>
+                      <!-- Twitter -->
+                      <li>
+                        <a href="https://twitter.com/AdamCoscia" target="_blank">
+                          <span class="icon brands fa-twitter" style="color: #1da1f2"></span>
+                          <span class="alabel">@AdamCoscia</span>
+                        </a>
+                      </li>
+                      <!-- LinkedIn -->
+                      <li>
+                        <a href="https://www.linkedin.com/in/adam-coscia/" target="_blank">
+                          <span class="icon brands fa-linkedin" style="color: #0e76a8"></span>
+                          <span class="alabel">/in/adam-coscia</span>
+                        </a>
+                      </li>
+                      <!-- Fun -->
+                      <li>
+                        <a href="/fun">
+                          <span class="icon solid fa-gamepad" style="color: #1db954"></span>
+                          <span class="alabel">Fun Stuff</span>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
 
                 <p>
                   I'm a
                   <a href="https://www.cc.gatech.edu/degree-programs/phd-human-centered-computing" target="_blank">
-                    Human-Centered Computing
+                    <span class="alabel">Human-Centered Computing</span>
                   </a>
                   PhD student at
                   <img
@@ -65,34 +130,30 @@
                     src="/assets/icons/other/GeorgiaTech_TechGoldNavy_RGB.png"
                     alt="Interlocking GT"
                   />
-                  <a href="https://www.gatech.edu/" target="_blank">Georgia Tech.</a>
+                  <a href="https://www.gatech.edu/" target="_blank">
+                    <span class="alabel">Georgia Tech.</span>
+                  </a>
                   I work with
-                  <a href="https://va.gatech.edu/endert/" target="_blank">Alex Endert</a>
+                  <a href="https://va.gatech.edu/endert/" target="_blank">
+                    <span class="alabel">Alex Endert</span>
+                  </a>
                   as a member of the
-                  <a href="https://gtvalab.github.io/" target="_blank">Visual Analytics Lab.</a>
+                  <a href="https://gtvalab.github.io/" target="_blank">
+                    <span class="alabel">Visual Analytics Lab.</span>
+                  </a>
                 </p>
 
                 <p>
-                  <b>I make complex data simpler</b> by combining research methods from
-                  <a href="https://en.wikipedia.org/wiki/Visual_analytics" target="_blank">visual analytics</a>
-                  and
-                  <a href="https://en.wikipedia.org/wiki/Human%E2%80%93computer_interaction" target="_blank">
-                    human-computer interaction
-                  </a>
-                  to build novel <b>data visualization tools</b>. My work helps scientists, researchers and engineers
-                  understand how AI/ML works, make decisions, and mitigate biases.
+                  I design and develop <b>visual analytics tools</b> to help people understand complex data, mitigate
+                  biases, and make decisions. My current focus is helping NLP researchers and engineers analyze and
+                  interpret what <b>large language models (LLMs)</b> have learned during training, how they perform
+                  during inference, and how different models compare. I've also worked alongside scientists in
+                  <b>field and mission operations</b> to create visual analytics solutions for supporting deep ocean
+                  expeditions and scientist-guided spacecraft autonomy.
                 </p>
 
                 <p>
                   I have collaborated with incredible designers, engineers, scientists, and researchers at
-                  <img class="inline-logo" src="/assets/icons/other/nasa-logo-web-rgb.png" alt="NASA logo" />
-                  NASA Jet Propulsion Laboratory,
-                  <img
-                    class="inline-logo"
-                    src="/assets/icons/other/Seal_of_the_California_Institute_of_Technology.svg"
-                    alt="Caltech seal"
-                  />
-                  Caltech,
                   <img
                     class="inline-logo"
                     src="/assets/icons/other/Vanderbilt-University-Logo.svg"
@@ -100,271 +161,84 @@
                   />
                   Vanderbilt,
                   <img class="inline-logo" src="/assets/icons/other/tufts-university-logo.png" alt="Tufts logo" />
-                  Tufts, and
+                  Tufts,
                   <img class="inline-logo" src="/assets/icons/other/emory-shield.png" alt="Emory shield" />
-                  Emory.
+                  Emory,
+                  <img
+                    class="inline-logo"
+                    src="/assets/icons/other/Seal_of_the_California_Institute_of_Technology.svg"
+                    alt="Caltech seal"
+                  />
+                  Caltech,
+                  <img class="inline-logo" src="/assets/icons/other/MBARI.svg" alt="MBARI logo" />
+                  MBARI, and
+                  <img class="inline-logo" src="/assets/icons/other/nasa-logo-web-rgb.png" alt="NASA logo" />
+                  NASA Jet Propulsion Laboratory.
                 </p>
               </div>
             </div>
 
             <!-- RIGHT PANEL -->
             <div class="column summary-links">
-              <!-- PROFILE -->
-              <div class="profile">
+              <!-- PROFILE (when screen is big) -->
+              <div class="profile only-when-big">
                 <!-- PICTURE -->
                 <img src="/assets/profile/coscia-adam.jpg" alt="My profile picture" />
 
                 <!-- CONTACT -->
                 <div class="profile-links">
-                  <!-- PAGE LINKS -->
-                  <div class="profile-links-pages">
-                    <a href="/sections/cv" class="icon solid fa-address-card" style="color: #414f57">
-                      <span>CV</span>
-                    </a>
-                    <a href="/sections/fun" class="icon solid fa-gamepad" style="color: #1db954">
-                      <span>Fun</span>
-                    </a>
-                  </div>
                   <!-- CONTACT -->
                   <ul class="profile-links-contact">
+                    <!-- SV -->
+                    <li>
+                      <a href="/cv">
+                        <span class="icon solid fa-address-card" style="color: #414f57"></span>
+                        <span class="alabel">Curriculum Vitae (CV)</span>
+                      </a>
+                    </li>
+                    <!-- Email -->
+                    <li>
+                      <a href="mailto:acoscia6@gatech.edu">
+                        <span class="icon solid fa-envelope" style="color: #414f57"></span>
+                        <span class="alabel">acoscia6@gatech.edu</span>
+                      </a>
+                    </li>
                     <!-- Google Scholar -->
                     <li>
                       <a href="https://scholar.google.com/citations?hl=en&user=diVuti8AAAAJ" target="_blank">
                         <span class="icon solid fa-graduation-cap" style="color: #414f57"></span>
-                        Google Scholar
-                      </a>
-                    </li>
-                    <!-- LinkedIn -->
-                    <li>
-                      <a href="https://www.linkedin.com/in/adam-coscia/" target="_blank">
-                        <span class="icon brands fa-linkedin" style="color: #0e76a8"></span>
-                        LinkedIn
-                      </a>
-                    </li>
-                    <!-- Twitter -->
-                    <li>
-                      <a href="https://twitter.com/AdamCoscia" target="_blank">
-                        <span class="icon brands fa-twitter" style="color: #1da1f2"></span>
-                        @AdamCoscia
+                        <span class="alabel">Google Scholar</span>
                       </a>
                     </li>
                     <!-- GitHub -->
                     <li>
                       <a href="https://github.com/AdamCoscia" target="_blank">
                         <span class="icon brands fa-github" style="color: #6e5494"></span>
-                        @AdamCoscia
+                        <span class="alabel">@AdamCoscia</span>
+                      </a>
+                    </li>
+                    <!-- Twitter -->
+                    <li>
+                      <a href="https://twitter.com/AdamCoscia" target="_blank">
+                        <span class="icon brands fa-twitter" style="color: #1da1f2"></span>
+                        <span class="alabel">@AdamCoscia</span>
+                      </a>
+                    </li>
+                    <!-- LinkedIn -->
+                    <li>
+                      <a href="https://www.linkedin.com/in/adam-coscia/" target="_blank">
+                        <span class="icon brands fa-linkedin" style="color: #0e76a8"></span>
+                        <span class="alabel">/in/adam-coscia</span>
+                      </a>
+                    </li>
+                    <!-- Fun -->
+                    <li>
+                      <a href="/fun">
+                        <span class="icon solid fa-gamepad" style="color: #1db954"></span>
+                        <span class="alabel">Fun Stuff</span>
                       </a>
                     </li>
                   </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <hr />
-
-          <!-- HIGHLIGHTS -->
-          <div id="highlights" class="row">
-            <!-- HEADER -->
-            <header class="section-header row">
-              <div class="column" style="min-width: 225px">
-                <h2 style="margin-bottom: 0">
-                  <span class="icon solid fa-newspaper" style="color: var(--highlights-icon-color)"></span>
-                  Highlights
-                </h2>
-              </div>
-            </header>
-
-            <!-- CONTENT -->
-            <div class="section-content">
-              <div class="highlights-grid">
-                <!-- 2023 -->
-                <span class="column highlights-year" style="margin-top: 0">
-                  &mdash;&nbsp;&nbsp;2023&nbsp;&nbsp;&mdash;
-                </span>
-
-                <!-- News Item -->
-                <span class="highlights-date">Jun</span>
-                <div class="column highlights-text">
-                  <span class="highlights-desc">
-                    <span class="icon solid fa-building" style="color: var(--employment-icon-color)"></span>
-                    Started
-                    <a href="https://www.jpl.nasa.gov/edu/intern/apply/summer-internship-program/" target="_blank">
-                      Summer Internship Program
-                    </a>
-                    at
-                    <img class="inline-logo" src="/assets/icons/other/nasa-logo-web-rgb.png" alt="NASA logo" />
-                    <a href="https://www.jpl.nasa.gov/" target="_blank">NASA Jet Propulsion Laboratory.</a>
-                  </span>
-                </div>
-
-                <!-- News Item -->
-                <span class="highlights-date">Apr</span>
-                <div class="column highlights-text">
-                  <span class="highlights-desc">
-                    <span
-                      class="icon solid fa-chalkboard-teacher"
-                      style="color: var(--presentations-icon-color)"
-                    ></span>
-                    Presented my on-going work at the Georgia Tech
-                    <a
-                      href="https://aialoe.org/coscia-presents-visualizations-for-interpreting-large-language-models/"
-                      target="_blank"
-                    >
-                      Spring GVU Research Showcase.
-                    </a>
-                  </span>
-                </div>
-
-                <!-- News Item -->
-                <span class="highlights-date">Feb</span>
-                <div class="column highlights-text">
-                  <span class="highlights-desc">
-                    <span class="icon solid fa-award" style="color: var(--awards-icon-color)"></span>
-                    <a href="https://smartech.gatech.edu/handle/1853/70254" target="_blank">KnowledgeVIS</a>
-                    recieved College of Computing (CoC) award at
-                    <a
-                      href="https://grad.gatech.edu/career-research-and-innovation-development-conference-cridc"
-                      target="_blank"
-                    >
-                      CRIDC Poster Competition.
-                    </a>
-                  </span>
-                </div>
-
-                <!-- 2022 -->
-                <span class="column highlights-year"> &mdash;&nbsp;&nbsp;2022&nbsp;&nbsp;&mdash; </span>
-
-                <!-- News Item -->
-                <span class="highlights-date">Nov</span>
-                <div class="column highlights-text">
-                  <span class="highlights-desc">
-                    <span
-                      class="icon solid fa-chalkboard-teacher"
-                      style="color: var(--presentations-icon-color)"
-                    ></span>
-                    Presented my on-going work at the Georgia Tech
-                    <a href="https://twitter.com/GT_Vis/status/1588237174708707328" target="_blank">
-                      Fall GVU Research Showcase (@ 0:40s).
-                    </a>
-                  </span>
-                </div>
-
-                <!-- News Item -->
-                <span class="highlights-date">Oct</span>
-                <div class="column highlights-text">
-                  <span class="highlights-desc">
-                    <span class="icon solid fa-building" style="color: var(--employment-icon-color)"></span>
-                    Attended
-                    <a href="https://ieeevis.org/year/2022/welcome" target="_blank">IEEE VIS 2022</a>
-                    in-person in Oklahoma City, Oklahoma, USA.
-                  </span>
-                </div>
-
-                <!-- News Item -->
-                <span class="highlights-date">Apr</span>
-                <div class="column highlights-text">
-                  <span class="highlights-desc">
-                    <span class="icon solid fa-book" style="color: var(--education-icon-color)"></span>
-                    Passed my
-                    <a href="https://www.cc.gatech.edu/degree-programs/phd-human-centered-computing" target="_blank">
-                      HCC PhD Qualifying Exam!
-                    </a>
-                  </span>
-                </div>
-
-                <!-- 2021 -->
-                <span class="column highlights-year">&mdash;&nbsp;&nbsp;2021&nbsp;&nbsp;&mdash;</span>
-
-                <!-- News Item -->
-                <span class="highlights-date">Jul</span>
-                <div class="column highlights-text">
-                  <span class="highlights-desc">
-                    <span class="icon solid fa-pen-nib" style="color: var(--publications-icon-color)"></span>
-                    Two papers accepted to IEEE VIS 2021:
-                    <a href="/sections/papers/Left-Right-Gender/21-left_right_gender-vis.pdf" target="_blank">
-                      Left, Right, and Gender
-                    </a>
-                    and
-                    <a href="https://lumos-vis.github.io/" target="_blank">Lumos</a>.
-                  </span>
-                </div>
-
-                <!-- News Item -->
-                <span class="highlights-date">Jun</span>
-                <div class="column highlights-text">
-                  <span class="highlights-desc">
-                    <span class="icon solid fa-building" style="color: var(--employment-icon-color)"></span>
-                    Started research internship,
-                    <a href="https://datavis.caltech.edu/" target="_blank">Data to Discovery Program,</a>
-                    at
-                    <img class="inline-logo" src="/assets/icons/other/nasa-logo-web-rgb.png" alt="NASA logo" />
-                    <a href="https://www.jpl.nasa.gov/" target="_blank">NASA Jet Propulsion Laboratory.</a>
-                  </span>
-                </div>
-
-                <!-- News Item -->
-                <span class="highlights-date">Feb</span>
-                <div class="column highlights-text">
-                  <span class="highlights-desc">
-                    <span class="icon solid fa-award" style="color: var(--awards-icon-color)"></span>
-                    <a href="https://smartech.gatech.edu/handle/1853/64385" target="_blank">Lumos</a>
-                    recieved Executive Vice President for Research (EVPR) award at
-                    <a
-                      href="https://grad.gatech.edu/career-research-and-innovation-development-conference-cridc"
-                      target="_blank"
-                    >
-                      CRIDC Poster Competition.
-                    </a>
-                  </span>
-                </div>
-
-                <!-- 2020 -->
-                <span class="column highlights-year">&mdash;&nbsp;&nbsp;2020&nbsp;&nbsp;&mdash;</span>
-
-                <!-- News Item -->
-                <span class="highlights-date">Oct</span>
-                <div class="column highlights-text">
-                  <span class="highlights-desc">
-                    <span class="icon solid fa-pen-nib" style="color: var(--publications-icon-color)"></span>
-                    <a href="#20-BIASAWARE-ARXIV">Bias-Aware Visual Analytics</a>
-                    presented at
-                    <a href="https://trexvis.github.io/Workshop2020/" target="_blank">
-                      Workshop on TRust and EXpertise in Visual Analytics
-                    </a>
-                    IEEE VIS 2020.
-                  </span>
-                </div>
-
-                <!-- News Item -->
-                <span class="highlights-date">Aug</span>
-                <div class="column highlights-text">
-                  <span class="highlights-desc">
-                    <span class="icon solid fa-building" style="color: var(--employment-icon-color)"></span>
-                    Joined the
-                    <a href="https://www.cc.gatech.edu/degree-programs/phd-human-centered-computing" target="_blank">
-                      Human-Centered Computing
-                    </a>
-                    PhD program at
-                    <a href="https://www.gatech.edu/" target="_blank">Georgia Tech</a>
-                    and the
-                    <a href="https://gtvalab.github.io/" target="_blank">Visual Analytics Lab</a>.
-                  </span>
-                </div>
-
-                <!-- News Item -->
-                <span class="highlights-date">Jun</span>
-                <div class="column highlights-text">
-                  <span class="highlights-desc">
-                    <span class="icon solid fa-pen-nib" style="color: var(--publications-icon-color)"></span>
-                    Published an article:
-                    <a
-                      href="https://www.ewaab.org/post/what-is-data-science-how-does-it-work-and-why-is-it-important"
-                      target="_blank"
-                    >
-                      <i>What is Data Science, How Does it Work, and Why is it Important?</i>
-                    </a>
-                  </span>
                 </div>
               </div>
             </div>
@@ -379,7 +253,7 @@
               <div class="column" style="min-width: 225px">
                 <h2 style="margin-bottom: 0">
                   <span class="icon solid fa-pen-nib" style="color: var(--publications-icon-color)"></span>
-                  Publications
+                  <span class="section-header-text">Research Highlights</span>
                 </h2>
               </div>
             </header>
@@ -387,32 +261,178 @@
             <!-- CONTENT -->
             <div class="section-content">
               <div class="card-grid">
-                <!-- LRG -->
-                <div id="21-LRG-VIS" class="row card">
+                <!-- ISCORE -->
+                <div id="24-ISCORE-IUI" class="row card">
                   <!-- TEASER -->
                   <div class="column card-teaser">
-                    <a href="/sections/papers/Left-Right-Gender/21-left_right_gender-vis.pdf" target="_blank">
-                      <img src="/sections/papers/Left-Right-Gender/teaser.png" alt="Left, Right and Gender teaser" />
+                    <a href="/papers/iscore/">
+                      <img src="/papers/iscore/teaser.png" alt="iScore teaser" />
                     </a>
                   </div>
 
                   <!-- DETAILS -->
                   <div class="column card-details">
-                    <span class="card-details-title">Left, Right, and Gender</span>
-                    <span class="card-details-desc">Exploring interaction traces to mitigate human biases.</span>
-                    <span class="card-details-authors">
-                      Emily Wall, Arpit Narechania, <b>Adam Coscia</b>, Jamal Paden, and Alex Endert
+                    <span class="card-details-title">
+                      <a href="/papers/iscore/">
+                        <span class="alabel">iScore</span>
+                      </a>
                     </span>
-                    <span class="card-details-venue">IEEE TVCG 2021 (Proc. IEEE VIS 2021)</span>
+                    <span class="card-details-desc">
+                      Visual analytics for interpreting how language models score student summaries in intelligent
+                      textbooks. 2023 (paper under review)
+                    </span>
+                    <span class="card-details-links"></span>
+                  </div>
+                </div>
+
+                <!-- RERANK -->
+                <div id="24-RERANK-VIS" class="row card">
+                  <!-- TEASER -->
+                  <div class="column card-teaser">
+                    <a href="/papers/rerank/">
+                      <img src="/papers/rerank/teaser.png" alt="ReRank teaser" />
+                    </a>
+                  </div>
+
+                  <!-- DETAILS -->
+                  <div class="column card-details">
+                    <span class="card-details-title">
+                      <a href="/papers/rerank/">
+                        <span class="alabel">ReRank</span>
+                      </a>
+                    </span>
+                    <span class="card-details-desc">
+                      A novel machine teaching UI for scientists to directly program science value models. NASA JPL
+                      summer internship project 2023.
+                    </span>
                     <span class="card-details-links">
-                      <a href="/sections/papers/Left-Right-Gender/21-left_right_gender-vis.pdf" target="_blank">
+                      <a href="/papers/rerank/rerank-presentation.pdf" target="_blank">
+                        <span class="icon solid fa-file-powerpoint" style="color: #d04423"></span>
+                        <span class="alabel">Presentation</span>
+                      </a>
+                    </span>
+                  </div>
+                </div>
+
+                <!-- KNOWLEDGEVIS -->
+                <div id="23-KNOWLEDGEVIS-TVCG" class="row card">
+                  <!-- TEASER -->
+                  <div class="column card-teaser">
+                    <a href="/papers/knowledgevis/">
+                      <img src="/papers/knowledgevis/teaser.png" alt="KnowledgeVIS teaser" />
+                    </a>
+                  </div>
+
+                  <!-- DETAILS -->
+                  <div class="column card-details">
+                    <span class="card-details-title">
+                      <a href="/papers/knowledgevis/">
+                        <span class="alabel">KnowledgeVIS</span>
+                      </a>
+                    </span>
+                    <span class="card-details-desc">
+                      Interpreting language models by comparing fill-in-the-blank prompts. 2023. (under review)
+                    </span>
+                    <span class="card-details-links">
+                      <a href="/papers/knowledgevis/KnowledgeVIS_CRIDC_2023.pdf" target="_blank">
+                        <span class="icon solid fa-chalkboard-teacher"></span>
+                        <span class="alabel">Poster</span>
+                      </a>
+                    </span>
+                  </div>
+                </div>
+
+                <!-- VAGUIDELINES -->
+                <div id="23-VAGUIDELINES-TVCG" class="row card">
+                  <!-- TEASER -->
+                  <div class="column card-teaser">
+                    <a href="/papers/vaguidelines/">
+                      <img src="/papers/vaguidelines/teaser.png" alt="VA Guidelines teaser" />
+                    </a>
+                  </div>
+
+                  <!-- DETAILS -->
+                  <div class="column card-details">
+                    <span class="card-details-title">
+                      <a href="/papers/vaguidelines/">
+                        <span class="alabel">Combining Integration and Visualization</span>
+                      </a>
+                    </span>
+                    <span class="card-details-desc">
+                      Preliminary guidelines for combining data integration and visual data analysis. 2022. (under
+                      review)
+                    </span>
+                    <span class="card-details-links"> </span>
+                  </div>
+                </div>
+
+                <!-- DEEPSEE -->
+                <div id="24-CHI-DEEPSEE" class="row card">
+                  <!-- TEASER -->
+                  <div class="column card-teaser">
+                    <a href="/papers/deepsee/">
+                      <img src="/papers/deepsee/teaser.png" alt="DeepSee teaser" />
+                    </a>
+                  </div>
+
+                  <!-- DETAILS -->
+                  <div class="column card-details">
+                    <span class="card-details-title">
+                      <a href="/papers/deepsee/">
+                        <span class="alabel">DeepSee</span>
+                      </a>
+                    </span>
+                    <span class="card-details-desc"
+                      >Multidimensional visualizations of seabed ecosystems. NASA JPL summer internship project
+                      2021.</span
+                    >
+                    <span class="card-details-links">
+                      <a href="https://www.its.caltech.edu/~datavis/projects/orphan/DEEPSEE/build/" target="_blank">
+                        <span class="icon solid fa-play"></span>
+                        <span class="alabel">Demo</span>
+                      </a>
+                      &nbsp;
+                      <a href="/papers/deepsee/deepsee-presentation.pdf" target="_blank">
+                        <span class="icon solid fa-file-powerpoint" style="color: #d04423"></span>
+                        <span class="alabel">Presentation</span>
+                      </a>
+                      &nbsp;
+                      <a href="https://youtu.be/lrhq0jpwMEs" target="_blank">
+                        <span class="icon brands fa-youtube" style="color: #ff0000"></span>
+                        <span class="alabel">Video</span>
+                      </a>
+                    </span>
+                  </div>
+                </div>
+
+                <!-- LRG -->
+                <div id="21-LRG-VIS" class="row card">
+                  <!-- TEASER -->
+                  <div class="column card-teaser">
+                    <a href="/papers/lrg/">
+                      <img src="/papers/lrg/teaser.png" alt="Left, Right and Gender teaser" />
+                    </a>
+                  </div>
+
+                  <!-- DETAILS -->
+                  <div class="column card-details">
+                    <span class="card-details-title">
+                      <a href="/papers/lrg/">
+                        <span class="alabel">Left, Right, and Gender</span>
+                      </a>
+                    </span>
+                    <span class="card-details-desc">
+                      Exploring interaction traces to mitigate human biases. VIS 2021.
+                    </span>
+                    <span class="card-details-links">
+                      <a href="/papers/lrg/21-lrg-vis.pdf" target="_blank">
                         <span class="icon solid fa-file-pdf" style="color: #ed2224"></span>
-                        Paper
+                        <span class="alabel">Paper</span>
                       </a>
                       &nbsp;
                       <a href="https://www.youtube.com/watch?v=BScEMdLnskI" target="_blank">
                         <span class="icon brands fa-youtube" style="color: #ff0000"></span>
-                        Video
+                        <span class="alabel">Video</span>
                       </a>
                     </span>
                   </div>
@@ -422,35 +442,35 @@
                 <div id="21-LUMOS-VIS" class="row card">
                   <!-- TEASER -->
                   <div class="column card-teaser">
-                    <a href="https://lumos-vis.github.io/" target="_blank">
-                      <img src="/sections/papers/Lumos/teaser.png" alt="Lumos teaser" />
+                    <a href="/papers/lumos/">
+                      <img src="/papers/lumos/teaser.png" alt="Lumos teaser" />
                     </a>
                   </div>
 
                   <!-- DETAILS -->
                   <div class="column card-details">
-                    <span class="card-details-title">Lumos</span>
+                    <span class="card-details-title">
+                      <a href="/papers/lumos/">
+                        <span class="alabel">Lumos</span>
+                      </a>
+                    </span>
                     <span class="card-details-desc">
-                      Increasing awareness of analytic behaviors during visual data analysis.
+                      Increasing awareness of analytic behaviors during visual data analysis. VIS 2021.
                     </span>
-                    <span class="card-details-authors">
-                      Arpit Narechania, <b>Adam Coscia</b>, Emily Wall, and Alex Endert
-                    </span>
-                    <span class="card-details-venue">IEEE TVCG 2021 (Proc. IEEE VIS 2021)</span>
                     <span class="card-details-links">
                       <a href="https://lumos-vis.github.io/" target="_blank">
                         <span class="icon solid fa-link" style="color: #545454"></span>
-                        Project
+                        <span class="alabel">Project</span>
                       </a>
                       &nbsp;
-                      <a href="/sections/papers/Lumos/21-lumos-vis.pdf" target="_blank">
+                      <a href="/papers/lumos/21-lumos-vis.pdf" target="_blank">
                         <span class="icon solid fa-file-pdf" style="color: #ed2224"></span>
-                        Paper
+                        <span class="alabel">Paper</span>
                       </a>
                       &nbsp;
                       <a href="https://www.youtube.com/watch?v=G_pOu4OGtPI" target="_blank">
                         <span class="icon brands fa-youtube" style="color: #ff0000"></span>
-                        Video
+                        <span class="alabel">Video</span>
                       </a>
                     </span>
                   </div>
@@ -460,33 +480,726 @@
                 <div id="20-BIASAWARE-ARXIV" class="row card">
                   <!-- TEASER -->
                   <div class="column card-teaser">
-                    <a href="/sections/papers/Bias-Aware-Future/20-bias_aware_VA.pdf" target="_blank">
-                      <img src="/sections/papers/Bias-Aware-Future/teaser.png" alt="TREX at VIS'20" />
+                    <a href="/papers/biasfuture/">
+                      <img src="/papers/biasfuture/teaser.png" alt="TREX at VIS'20" />
                     </a>
                   </div>
 
                   <!-- DETAILS -->
                   <div class="column card-details">
-                    <span class="card-details-title">Bias-Aware Visual Analytics</span>
-                    <span class="card-details-desc">
-                      Toward a bias-aware future for mixed-initiative visual analytics.
+                    <span class="card-details-title">
+                      <a href="/papers/biasfuture/">
+                        <span class="alabel">Bias-Aware Visual Analytics</span>
+                      </a>
                     </span>
-                    <span class="card-details-authors"><b>Adam Coscia</b>, Duen Horng Chau, and Alex Endert</span>
-                    <span class="card-details-venue">
-                      Workshop on TRust and EXpertise in Visual Analytics (TREX), IEEE VIS 2020
+                    <span class="card-details-desc">
+                      Toward a bias-aware future for mixed-initiative visual analytics. VIS 2020.
                     </span>
                     <span class="card-details-links">
-                      <a href="/sections/papers/Bias-Aware-Future/20-bias_aware_VA.pdf" target="_blank">
+                      <a href="/papers/biasfuture/20-biasfuture-vis.pdf" target="_blank">
                         <span class="icon solid fa-file-pdf" style="color: #ed2224"></span>
-                        Paper
+                        <span class="alabel">Paper</span>
                       </a>
                       &nbsp;
                       <a href="https://www.youtube.com/watch?v=LTGzCvhv05M&t=12272" target="_blank">
                         <span class="icon brands fa-youtube" style="color: #ff0000"></span>
-                        Talk
+                        <span class="alabel">Talk</span>
                       </a>
                     </span>
                   </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <hr />
+
+          <!-- EMPLOYMENT -->
+          <div id="employment" class="row">
+            <!-- HEADER -->
+            <header class="section-header row">
+              <div class="column" style="min-width: 225px">
+                <h2 style="margin-bottom: 0">
+                  <span class="icon solid fa-building" style="color: var(--employment-icon-color)"></span>
+                  <span class="section-header-text">Employment</span>
+                </h2>
+              </div>
+            </header>
+
+            <!-- CONTENT -->
+            <div class="section-content">
+              <!-- GEORGIA TECH RESEARCH ASSISTANT -->
+              <div id="Georgia-Tech-GRA" class="row card">
+                <!-- LOGO -->
+                <div class="column card-logo">
+                  <img src="/assets/icons/education/GTExtended_TechGoldNavy_RGB.svg" alt="Georgia Tech Extended Logo" />
+                </div>
+
+                <!-- DETAILS -->
+                <div class="column card-details">
+                  <span class="card-details-title">
+                    <a href="https://www.gatech.edu/" target="_blank">
+                      <span class="alabel">Georgia Institute of Technology,</span>
+                    </a>
+
+                    <span class="text-muted">Atlanta, GA</span>
+                  </span>
+                  <span class="card-details-position">
+                    Graduate Research Assistant &#8226;
+                    <a href="https://www.ic.gatech.edu/" target="_blank">
+                      <span class="alabel">School of Interactive Computing</span>
+                    </a>
+                  </span>
+                  <span class="card-details-desc">
+                    Aug 2020 - Present &#8226; Mentor:
+                    <a href="https://va.gatech.edu/endert/" target="_blank">
+                      <span class="alabel">Alex Endert</span>
+                    </a>
+                  </span>
+                </div>
+              </div>
+
+              <!-- JPL SIP 2023 -->
+              <div id="Science-Intent" class="row card">
+                <!-- LOGO -->
+                <div class="column card-logo">
+                  <img src="/assets/icons/employment/logo_nasa_trio.png" alt="NASA JPL Logo" />
+                </div>
+
+                <!-- DETAILS -->
+                <div class="column card-details">
+                  <span class="card-details-title">
+                    <a href="https://www.jpl.nasa.gov/" target="_blank">
+                      <span class="alabel">NASA Jet Propulsion Laboratory,</span>
+                    </a>
+
+                    <span class="text-muted">Pasadena, CA</span>
+                  </span>
+                  <span class="card-details-position">
+                    AI / ML Research Intern &#8226;
+                    <a href="https://www.jpl.nasa.gov/edu/intern/apply/summer-internship-program/" target="_blank">
+                      <span class="alabel">JPL Summer Internship Program (SIP)</span>
+                    </a>
+                  </span>
+                  <span class="card-details-desc">
+                    Summer 2023 &#8226; Mentor:
+                    <a href="https://scottdavidoff.com/" target="_blank">
+                      <span class="alabel">Scott Davidoff</span>
+                    </a>
+                  </span>
+                </div>
+              </div>
+
+              <!-- DATA TO DISCOVERY 2021 -->
+              <div id="Data-To-Discovery" class="row card">
+                <!-- LOGO -->
+                <div class="column card-logo">
+                  <img src="/assets/icons/employment/logo_nasa_trio.png" alt="NASA JPL Logo" />
+                </div>
+
+                <!-- DETAILS -->
+                <div class="column card-details">
+                  <span class="card-details-title">
+                    <a href="https://www.jpl.nasa.gov/" target="_blank">
+                      <span class="alabel">NASA Jet Propulsion Laboratory,</span>
+                    </a>
+
+                    <span class="text-muted">Pasadena, CA</span>
+                  </span>
+                  <span class="card-details-position">
+                    CS Research Intern &#8226;
+                    <a href="https://datavis.caltech.edu/" target="_blank">
+                      <span class="alabel">Data to Discovery</span>
+                    </a>
+                  </span>
+                  <span class="card-details-desc">
+                    Summer 2021 &#8226; Mentor:
+                    <a href="https://scottdavidoff.com/" target="_blank">
+                      <span class="alabel">Scott Davidoff</span>
+                    </a>
+                  </span>
+                </div>
+              </div>
+
+              <!-- NEW YORK LIFE 2020 -->
+              <div id="NYL-2020" class="row card">
+                <!-- LOGO -->
+                <div class="column card-logo">
+                  <img
+                    style="width: 30%; margin: 0 auto"
+                    src="/assets/icons/employment/nyl-logo.svg"
+                    alt="New York Life Logo"
+                  />
+                </div>
+
+                <!-- DETAILS -->
+                <div class="column card-details">
+                  <span class="card-details-title">
+                    <a href="https://www.newyorklife.com/" target="_blank">
+                      <span class="alabel">New York Life Insurance Company,</span>
+                    </a>
+
+                    <span class="text-muted">New York, NY</span>
+                  </span>
+                  <span class="card-details-position">
+                    Machine Learning / DevOps (MLOps) Intern &#8226; Center for Data Science and Artificial Intelligence
+                    (CDSAi)
+                  </span>
+                  <span class="card-details-desc">
+                    Summer 2020 &#8226; Mentor:
+                    <a href="https://www.linkedin.com/in/paul-janis-19aa5230/" target="_blank">
+                      <span class="alabel">Paul Janis</span>
+                    </a>
+                  </span>
+                </div>
+              </div>
+
+              <!-- NEW YORK LIFE 2019 -->
+              <div id="NYL-2019" class="row card">
+                <!-- LOGO -->
+                <div class="column card-logo">
+                  <img
+                    style="width: 30%; margin: 0 auto"
+                    src="/assets/icons/employment/nyl-logo.svg"
+                    alt="New York Life Logo"
+                  />
+                </div>
+
+                <!-- DETAILS -->
+                <div class="column card-details">
+                  <span class="card-details-title">
+                    <a href="https://www.newyorklife.com/" target="_blank">
+                      <span class="alabel">New York Life Insurance Company,</span>
+                    </a>
+
+                    <span class="text-muted">New York, NY</span>
+                  </span>
+                  <span class="card-details-position">
+                    Data / Platform Engineering Intern &#8226; Center for Data Science and Analytics (CDSA)
+                  </span>
+                  <span class="card-details-desc">
+                    Summer 2019 &#8226; Mentor:
+                    <a href="https://www.linkedin.com/in/paul-janis-19aa5230/" target="_blank">
+                      <span class="alabel">Paul Janis</span>
+                    </a>
+                  </span>
+                </div>
+              </div>
+
+              <!-- STEVENTS RESEARCH ASSISTANT 2018 -->
+              <div id="Stevens-RA" class="row card">
+                <!-- LOGO -->
+                <div class="column card-logo">
+                  <img src="/assets/icons/education/Stevens-Primary-Logo-2020_4C.svg" alt="Stevens Logo" />
+                </div>
+
+                <!-- DETAILS -->
+                <div class="column card-details">
+                  <span class="card-details-title">
+                    <a href="https://www.stevens.edu/" target="_blank">
+                      <span class="alabel">Stevens Institute of Technology,</span>
+                    </a>
+
+                    <span class="text-muted">Hoboken, NJ</span>
+                  </span>
+                  <span class="card-details-position">
+                    Research Assistant &#8226;
+                    <a
+                      href="https://www.stevens.edu/school-of-business/research/information-systems-analytics"
+                      target="_blank"
+                    >
+                      <span class="alabel">Information Systems and Analytics</span>
+                    </a>
+                  </span>
+                  <span class="card-details-desc">
+                    Aug 2018 - May 2020 &#8226; Mentors:
+                    <a href="https://scholar.google.com/citations?user=PVi_NyEAAAAJ&hl=en" target="_blank">
+                      <span class="alabel">Aron Lindberg,</span>
+                    </a>
+
+                    <a href="https://scholar.google.com/citations?user=VMf3wfMAAAAJ&hl=en" target="_blank">
+                      <span class="alabel">Amir H. Gandomi</span>
+                    </a>
+                  </span>
+                </div>
+              </div>
+
+              <!-- KU LEUVEN RESEARCH ASSISTANT 2017 -->
+              <div id="KU-Leuven-RA" class="row card">
+                <!-- LOGO -->
+                <div class="column card-logo">
+                  <img src="/assets/icons/employment/KU_Leuven_logo.svg" alt="KU Leuven Logo" />
+                </div>
+
+                <!-- DETAILS -->
+                <div class="column card-details">
+                  <span class="card-details-title">
+                    <a href="https://www.kuleuven.be/english/" target="_blank">
+                      <span class="alabel">Katholieke Universiteit Leuven,</span>
+                    </a>
+
+                    <span class="text-muted">Leuven, Belgium</span>
+                  </span>
+                  <span class="card-details-position">
+                    Visiting Research Scholar &#8226;
+                    <a href="https://fys.kuleuven.be/english" target="_blank">
+                      <span class="alabel">Department of Physics and Astronomy</span>
+                    </a>
+                  </span>
+                  <span class="card-details-desc">
+                    Summer 2017 &#8226; Mentors:
+                    <a href="https://fys.kuleuven.be/qsp/people/linodacostapereira" target="_blank">
+                      <span class="alabel">Lino Da Costa Pereira,</span>
+                    </a>
+
+                    <a href="https://scholar.google.be/citations?user=DQR0MM4AAAAJ&hl=en" target="_blank">
+                      <span class="alabel">Tiago Abel de Lemos Lima</span>
+                    </a>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <hr />
+
+          <!-- EDUCATION -->
+          <div id="education" class="row">
+            <!-- HEADER -->
+            <header class="section-header row">
+              <div class="column" style="min-width: 225px">
+                <h2 style="margin-bottom: 0">
+                  <span class="icon solid fa-book" style="color: var(--education-icon-color)"></span>
+                  <span class="section-header-text">Education</span>
+                </h2>
+              </div>
+            </header>
+
+            <!-- CONTENT -->
+            <div class="section-content">
+              <!-- GEORGIA TECH -->
+              <div id="Georgia-Tech-Grad" class="row card">
+                <!-- LOGO -->
+                <div class="column card-logo">
+                  <img src="/assets/icons/education/GTExtended_TechGoldNavy_RGB.svg" alt="Georgia Tech Extended Logo" />
+                </div>
+
+                <!-- DETAILS -->
+                <div class="column card-details">
+                  <span class="card-details-title">
+                    <a href="https://www.gatech.edu/" target="_blank">
+                      <span class="alabel">Georgia Institute of Technology,</span>
+                    </a>
+
+                    <span class="text-muted">Atlanta, GA</span>
+                  </span>
+                  <span class="card-details-desc">
+                    <a href="https://www.cc.gatech.edu/degree-programs/phd-human-centered-computing" target="_blank">
+                      <span class="alabel">Ph.D., Human-Centered Computing</span>
+                    </a>
+                  </span>
+                  <span class="card-details-desc">GPA: 4.00 / 4.00</span>
+                  <span class="card-details-desc">
+                    Advisor:
+                    <a href="https://va.gatech.edu/endert/" target="_blank">
+                      <span class="alabel">Alex Endert</span>
+                    </a>
+                  </span>
+                  <span class="card-details-desc">Aug 2020 - Present</span>
+                </div>
+              </div>
+
+              <!-- STEVENS -->
+              <div id="Stevens-Undergrad" class="row card">
+                <!-- LOGO -->
+                <div class="column card-logo">
+                  <img src="/assets/icons/education/Stevens-Primary-Logo-2020_4C.svg" alt="Stevens Logo" />
+                </div>
+
+                <!-- DETAILS -->
+                <div class="column card-details">
+                  <span class="card-details-title">
+                    <a href="https://www.stevens.edu/" target="_blank">
+                      <span class="alabel">Stevens Institute of Technology,</span>
+                    </a>
+
+                    <span class="text-muted">Hoboken, NJ</span>
+                  </span>
+                  <span class="card-details-desc">
+                    <a
+                      href="https://www.stevens.edu/schaefer-school-engineering-science/departments/physics/undergraduate-programs/physics"
+                      target="_blank"
+                    >
+                      <span class="alabel">B.S., Physics</span>
+                    </a>
+                    <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+                    Minors: Computer Science, Mathematics
+                  </span>
+                  <span class="card-details-desc"> GPA: 3.98 / 4.00 </span>
+                  <span class="card-details-desc">
+                    <a href="https://www.stevens.edu/pinnaclescholars" target="_blank">
+                      <span class="alabel">Pinnacle Scholars Program</span>
+                    </a>
+                  </span>
+                  <span class="card-details-desc">Aug 2016 - Aug 2020</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <hr />
+
+          <!-- AWARDS -->
+          <div id="awards" class="row">
+            <!-- HEADER -->
+            <header class="section-header row">
+              <div class="column" style="min-width: 225px">
+                <h2 style="margin-bottom: 0">
+                  <span class="icon solid fa-award" style="color: var(--awards-icon-color)"></span>
+                  <span class="section-header-text">Awards and Honors</span>
+                </h2>
+              </div>
+            </header>
+
+            <!-- CONTENT -->
+            <div class="section-content">
+              <div class="awards-grid">
+                <!-- COC AWARD 2023 -->
+                <span class="awards-date">2023</span>
+                <div class="column highlights-text">
+                  <span class="highlights-title">College of Computing (CoC) Poster Award</span>
+                  <span class="card-details-desc">Georgia Institute of Technology</span>
+                  <span class="highlights-desc">
+                    Awarded to
+                    <a href="https://smartech.gatech.edu/handle/1853/70254" target="_blank">
+                      <span class="alabel">KnowledgeVIS</span>
+                    </a>
+                    poster; recieved at
+                    <a
+                      href="https://grad.gatech.edu/career-research-and-innovation-development-conference-cridc"
+                      target="_blank"
+                    >
+                      <span class="alabel">CRIDC Poster Competition</span>
+                    </a>
+                  </span>
+                </div>
+
+                <!-- EVPR AWARD 2021 -->
+                <span class="awards-date">2021</span>
+                <div class="column highlights-text">
+                  <span class="highlights-title">Executive Vice President for Research (EVPR) Poster Award</span>
+                  <span class="card-details-desc">Georgia Institute of Technology</span>
+                  <span class="highlights-desc">
+                    Awarded to
+                    <a href="https://smartech.gatech.edu/handle/1853/64385" target="_blank">
+                      <span class="alabel">Lumos</span>
+                    </a>
+                    poster; recieved at
+                    <a
+                      href="https://grad.gatech.edu/career-research-and-innovation-development-conference-cridc"
+                      target="_blank"
+                    >
+                      <span class="alabel">CRIDC Poster Competition</span>
+                    </a>
+                  </span>
+                </div>
+
+                <!-- PRESIDENT'S FELLOWSHIP -->
+                <span class="awards-date">2020</span>
+                <div class="column highlights-text">
+                  <span class="highlights-title">
+                    <a href="https://grad.gatech.edu/presidents-fellowships" target="_blank">
+                      <span class="alabel">President's Fellowship</span>
+                    </a>
+                  </span>
+                  <span class="card-details-desc">Georgia Institute of Technology</span>
+                  <span class="highlights-desc">
+                    Selected upon admission from top 10% of applicant pool; four-year semesterly stipend award.
+                  </span>
+                </div>
+
+                <!-- ALFRED M. MAYER PRIZE -->
+                <span class="awards-date">2020</span>
+                <div class="column highlights-text">
+                  <span class="highlights-title">
+                    <a href="https://www.stevens.edu/campus-life/student-affairs/student-awards" target="_blank">
+                      <span class="alabel">Alfred M. Mayer Prize</span>
+                    </a>
+                  </span>
+                  <span class="card-details-desc">Stevens Institute of Technology</span>
+                  <span class="highlights-desc">
+                    Cash prize awarded to senior ranked first in all physics courses taken during undergraduate career.
+                  </span>
+                </div>
+
+                <!-- SIGMA PI SIGMA -->
+                <span class="awards-date">2019</span>
+                <div class="column highlights-text">
+                  <span class="highlights-title">
+                    <a href="https://www.sigmapisigma.org/sigmapisigma" target="_blank">
+                      <span class="alabel">Sigma Pi Sigma Physics Honor Society</span>
+                    </a>
+                  </span>
+                  <span class="card-details-desc">American Institute of Physics</span>
+                  <span class="highlights-desc"> Inducted as a Lifetime Member. </span>
+                </div>
+
+                <!-- DISTINGUISHED TEACHING ASSISTANT -->
+                <span class="awards-date">2018</span>
+                <div class="column highlights-text">
+                  <span class="highlights-title">
+                    <a href="https://www.stevens.edu/campus-life/student-affairs/student-awards" target="_blank">
+                      <span class="alabel">Distinguished Teaching Assistant Award</span>
+                    </a>
+                  </span>
+                  <span class="card-details-desc">Stevens Institute of Technology</span>
+                  <span class="highlights-desc">
+                    Awarded to student faculty member that students benefit from the most and learn from both inside and
+                    outside of the classroom.
+                  </span>
+                </div>
+
+                <!-- PRESIDENTIAL SCHOLARSHIP -->
+                <span class="awards-date">2016</span>
+                <div class="column highlights-text">
+                  <span class="highlights-title">
+                    <a
+                      href="https://www.stevens.edu/admissions/tuition-financial-aid/undergraduate-scholarships-aid/stevens-scholarships"
+                      target="_blank"
+                    >
+                      <span class="alabel">Presidential Scholarship</span>
+                    </a>
+                  </span>
+                  <span class="card-details-desc">Stevens Institute of Technology</span>
+                  <span class="highlights-desc">
+                    Selected for academic excellence; four-year, half-tuition award.
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <hr />
+
+          <!-- HIGHLIGHTS -->
+          <div id="highlights" class="row">
+            <!-- HEADER -->
+            <header class="section-header row">
+              <div class="column" style="min-width: 225px">
+                <h2 style="margin-bottom: 0">
+                  <span class="icon solid fa-newspaper" style="color: var(--highlights-icon-color)"></span>
+                  <span class="section-header-text">News</span>
+                </h2>
+              </div>
+            </header>
+
+            <!-- CONTENT -->
+            <div class="section-content">
+              <div class="highlights-grid">
+                <!-- News Item -->
+                <span class="highlights-date-year">2023</span>
+                <span class="highlights-date-month">Jun</span>
+                <div class="column highlights-text">
+                  <span class="highlights-desc">
+                    Started
+                    <a href="https://www.jpl.nasa.gov/edu/intern/apply/summer-internship-program/" target="_blank">
+                      <span class="alabel">internship</span>
+                    </a>
+                    at
+                    <img class="inline-logo" src="/assets/icons/other/nasa-logo-web-rgb.png" alt="NASA logo" />
+                    <a href="https://www.jpl.nasa.gov/" target="_blank">
+                      <span class="alabel">NASA Jet Propulsion Laboratory</span>
+                    </a>
+                    <span class="icon solid fa-building" style="color: var(--employment-icon-color)"></span>
+                  </span>
+                </div>
+
+                <!-- News Item -->
+                <span class="highlights-date-year"></span>
+                <span class="highlights-date-month">Apr</span>
+                <div class="column highlights-text">
+                  <span class="highlights-desc">
+                    Presented my work at the
+                    <a
+                      href="https://aialoe.org/coscia-presents-visualizations-for-interpreting-large-language-models/"
+                      target="_blank"
+                    >
+                      <span class="alabel">Spring GVU Research Showcase</span>
+                    </a>
+                    <span
+                      class="icon solid fa-chalkboard-teacher"
+                      style="color: var(--presentations-icon-color)"
+                    ></span>
+                  </span>
+                </div>
+
+                <!-- News Item -->
+                <span class="highlights-date-year"></span>
+                <span class="highlights-date-month">Feb</span>
+                <div class="column highlights-text">
+                  <span class="highlights-desc">
+                    <a href="https://smartech.gatech.edu/handle/1853/70254" target="_blank">
+                      <span class="alabel"><i>KnowledgeVIS</i></span>
+                    </a>
+                    recieved CoC award at
+                    <a
+                      href="https://grad.gatech.edu/career-research-and-innovation-development-conference-cridc"
+                      target="_blank"
+                    >
+                      <span class="alabel">CRIDC Poster Competition</span>
+                    </a>
+                    <span class="icon solid fa-award" style="color: var(--awards-icon-color)"></span>
+                  </span>
+                </div>
+
+                <!-- News Item -->
+                <span class="highlights-date-year">2022</span>
+                <span class="highlights-date-month">Nov</span>
+                <div class="column highlights-text">
+                  <span class="highlights-desc">
+                    Presented my work at the
+                    <a href="https://twitter.com/GT_Vis/status/1588237174708707328" target="_blank">
+                      <span class="alabel">Fall GVU Research Showcase (@ 0:40s)</span>
+                    </a>
+                    <span
+                      class="icon solid fa-chalkboard-teacher"
+                      style="color: var(--presentations-icon-color)"
+                    ></span>
+                  </span>
+                </div>
+
+                <!-- News Item -->
+                <span class="highlights-date-year"></span>
+                <span class="highlights-date-month">Oct</span>
+                <div class="column highlights-text">
+                  <span class="highlights-desc">
+                    Attended
+                    <a href="https://ieeevis.org/year/2022/welcome" target="_blank">
+                      <span class="alabel">IEEE VIS 2022</span>
+                    </a>
+                    in-person in Oklahoma City, Oklahoma, USA
+                    <span class="icon solid fa-building" style="color: var(--employment-icon-color)"></span>
+                  </span>
+                </div>
+
+                <!-- News Item -->
+                <span class="highlights-date-year"></span>
+                <span class="highlights-date-month">Apr</span>
+                <div class="column highlights-text">
+                  <span class="highlights-desc">
+                    Passed my
+                    <a href="https://www.cc.gatech.edu/degree-programs/phd-human-centered-computing" target="_blank">
+                      <span class="alabel">HCC PhD Qualifying Exam</span>
+                    </a>
+                    !
+                    <span class="icon solid fa-book" style="color: var(--education-icon-color)"></span>
+                  </span>
+                </div>
+
+                <!-- News Item -->
+                <span class="highlights-date-year">2021</span>
+                <span class="highlights-date-month">Jul</span>
+                <div class="column highlights-text">
+                  <span class="highlights-desc">
+                    <a href="/papers/lrg/">
+                      <span class="alabel"><i>Left, Right, and Gender</i></span>
+                    </a>
+                    and
+                    <a href="/papers/lumos/">
+                      <span class="alabel"><i>Lumos</i></span>
+                    </a>
+                    accepted to IEEE VIS 2021!
+                    <span class="icon solid fa-pen-nib" style="color: var(--publications-icon-color)"></span>
+                  </span>
+                </div>
+
+                <!-- News Item -->
+                <span class="highlights-date-year"></span>
+                <span class="highlights-date-month">Jun</span>
+                <div class="column highlights-text">
+                  <span class="highlights-desc">
+                    Started
+                    <a href="https://datavis.caltech.edu/" target="_blank">
+                      <span class="alabel">Data to Discovery</span>
+                    </a>
+                    internship at
+                    <img class="inline-logo" src="/assets/icons/other/nasa-logo-web-rgb.png" alt="NASA logo" />
+                    <a href="https://www.jpl.nasa.gov/" target="_blank">
+                      <span class="alabel">NASA Jet Propulsion Laboratory</span>
+                    </a>
+                    <span class="icon solid fa-building" style="color: var(--employment-icon-color)"></span>
+                  </span>
+                </div>
+
+                <!-- News Item -->
+                <span class="highlights-date-year"></span>
+                <span class="highlights-date-month">Feb</span>
+                <div class="column highlights-text">
+                  <span class="highlights-desc">
+                    <a href="https://smartech.gatech.edu/handle/1853/64385" target="_blank">
+                      <span class="alabel"><i>Lumos</i></span>
+                    </a>
+                    recieved EVPR award at
+                    <a
+                      href="https://grad.gatech.edu/career-research-and-innovation-development-conference-cridc"
+                      target="_blank"
+                    >
+                      <span class="alabel">CRIDC Poster Competition</span>
+                    </a>
+                    <span class="icon solid fa-award" style="color: var(--awards-icon-color)"></span>
+                  </span>
+                </div>
+
+                <!-- News Item -->
+                <span class="highlights-date-year">2020</span>
+                <span class="highlights-date-month">Oct</span>
+                <div class="column highlights-text">
+                  <span class="highlights-desc">
+                    <a href="/papers/biasfuture">
+                      <span class="alabel"><i>Bias-Aware Visual Analytics</i></span>
+                    </a>
+                    presented at
+                    <a href="https://trexvis.github.io/Workshop2020/" target="_blank">
+                      <span class="alabel">TREX</span>
+                    </a>
+                    workshop, IEEE VIS 2020
+                    <span class="icon solid fa-pen-nib" style="color: var(--publications-icon-color)"></span>
+                  </span>
+                </div>
+
+                <!-- News Item -->
+                <span class="highlights-date-year"></span>
+                <span class="highlights-date-month">Aug</span>
+                <div class="column highlights-text">
+                  <span class="highlights-desc">
+                    Joined the
+                    <a href="https://www.cc.gatech.edu/degree-programs/phd-human-centered-computing" target="_blank">
+                      <span class="alabel">HCC</span>
+                    </a>
+                    PhD program and the
+                    <a href="https://gtvalab.github.io/" target="_blank">
+                      <span class="alabel">Visual Analytics Lab</span>
+                    </a>
+                    <span class="icon solid fa-building" style="color: var(--employment-icon-color)"></span>
+                  </span>
+                </div>
+
+                <!-- News Item -->
+                <span class="highlights-date-year"></span>
+                <span class="highlights-date-month">Jun</span>
+                <div class="column highlights-text">
+                  <span class="highlights-desc">
+                    Article:
+                    <a
+                      href="https://www.ewaab.org/post/what-is-data-science-how-does-it-work-and-why-is-it-important"
+                      target="_blank"
+                    >
+                      <span class="alabel">
+                        <i>What is Data Science, How Does it Work, and Why is it Important?</i>
+                      </span>
+                    </a>
+                    <span class="icon solid fa-pen-nib" style="color: var(--publications-icon-color)"></span>
+                  </span>
                 </div>
               </div>
             </div>
@@ -501,7 +1214,7 @@
               <div class="column" style="min-width: 225px">
                 <h2 style="margin-bottom: 0">
                   <span class="icon solid fa-project-diagram" style="color: var(--projects-icon-color)"></span>
-                  Projects
+                  <span class="section-header-text">Other (Cool) Projects</span>
                 </h2>
               </div>
             </header>
@@ -509,52 +1222,12 @@
             <!-- CONTENT -->
             <div class="section-content">
               <div class="card-grid">
-                <!-- DeepSee -->
-                <div id="DEEPSEE" class="row card">
-                  <!-- TEASER -->
-                  <div class="column card-teaser">
-                    <a href="https://www.its.caltech.edu/~datavis/projects/orphan/DEEPSEE/build/" target="_blank">
-                      <img src="/sections/projects/DeepSee/teaser.png" alt="DeepSee" />
-                    </a>
-                  </div>
-
-                  <!-- DETAILS -->
-                  <div class="column card-details">
-                    <span class="card-details-title">DeepSee</span>
-                    <span class="card-details-desc">
-                      Data visualization system with interactive side-by-side 3D interpolations and 2D maps.
-                    </span>
-                    <span class="card-details-venue">
-                      Joint project between
-                      <a href="https://www.jpl.nasa.gov/" target="_blank">NASA Jet Propulsion Laboratory</a>
-                      and
-                      <a href="https://www.caltech.edu/" target="_blank">Caltech</a>.
-                    </span>
-                    <span class="card-details-links">
-                      <a href="https://www.its.caltech.edu/~datavis/projects/orphan/DEEPSEE/build/" target="_blank">
-                        <span class="icon solid fa-play"></span>
-                        Demo
-                      </a>
-                      &nbsp;
-                      <a href="https://youtu.be/lrhq0jpwMEs" target="_blank">
-                        <span class="icon brands fa-youtube" style="color: #ff0000"></span>
-                        Video
-                      </a>
-                      &nbsp;
-                      <a href="/sections/projects/DeepSee/presentation.pdf" target="_blank">
-                        <span class="icon solid fa-file-powerpoint" style="color: #d04423"></span>
-                        Presentation
-                      </a>
-                    </span>
-                  </div>
-                </div>
-
                 <!-- Trust In AI -->
                 <div id="TRUST-IN-AI" class="row card">
                   <!-- TEASER -->
                   <div class="column card-teaser">
-                    <a href="/sections/projects/Impact-Trust-AI/21-trust_in_ai.pdf" target="_blank">
-                      <img src="/sections/projects/Impact-Trust-AI/teaser.png" alt="Trust In AI" />
+                    <a href="/projects/Impact-Trust-AI/21-trust_in_ai.pdf" target="_blank">
+                      <img src="/projects/Impact-Trust-AI/teaser.png" alt="Trust In AI" />
                     </a>
                   </div>
 
@@ -570,19 +1243,19 @@
                     </span>
                     <span class="card-details-venue">CS 6795 Introduction to Cognitive Science</span>
                     <span class="card-details-links">
-                      <a href="/sections/projects/Impact-Trust-AI/21-trust_in_ai.pdf" target="_blank">
+                      <a href="/projects/Impact-Trust-AI/21-trust_in_ai.pdf" target="_blank">
                         <span class="icon solid fa-file-pdf" style="color: #ed2224"></span>
-                        Paper
+                        <span class="alabel">Paper</span>
                       </a>
                       &nbsp;
                       <a href="https://youtu.be/NfrUjdmJHXQ" target="_blank">
                         <span class="icon brands fa-youtube" style="color: #ff0000"></span>
-                        Video
+                        <span class="alabel">Video</span>
                       </a>
                       &nbsp;
                       <a href="https://github.com/AdamCoscia/Trust-In-AI" target="_blank">
                         <span class="icon solid fa-code"></span>
-                        Code
+                        <span class="alabel">Code</span>
                       </a>
                     </span>
                   </div>
@@ -594,7 +1267,7 @@
                   <div class="column card-teaser">
                     <a href="https://youtu.be/HxeJD9Fzkpg" target="_blank">
                       <img
-                        src="/sections/projects/Wellness-Management-Nurses/teaser.png"
+                        src="/projects/Wellness-Management-Nurses/teaser.png"
                         alt="Health and Wellness Management For Nurses"
                       />
                     </a>
@@ -612,12 +1285,12 @@
                     <span class="card-details-links">
                       <a href="https://youtu.be/HxeJD9Fzkpg" target="_blank">
                         <span class="icon brands fa-youtube" style="color: #ff0000"></span>
-                        Video
+                        <span class="alabel">Video</span>
                       </a>
                       &nbsp;
-                      <a href="/sections/projects/Wellness-Management-Nurses/presentation.pdf" target="_blank">
+                      <a href="/projects/Wellness-Management-Nurses/presentation.pdf" target="_blank">
                         <span class="icon solid fa-file-powerpoint" style="color: #d04423"></span>
-                        Presentation
+                        <span class="alabel">Presentation</span>
                       </a>
                     </span>
                   </div>
@@ -627,8 +1300,8 @@
                 <div id="CONVERSATIONAL-VUI" class="row card">
                   <!-- TEASER -->
                   <div class="column card-teaser">
-                    <a href="/sections/projects/Conversational-VUI" target="_blank">
-                      <img src="/sections/projects/Conversational-VUI/teaser.png" alt="Conversational VUI" />
+                    <a href="/projects/Conversational-VUI" target="_blank">
+                      <img src="/projects/Conversational-VUI/teaser.png" alt="Conversational VUI" />
                     </a>
                   </div>
 
@@ -638,24 +1311,24 @@
                     <span class="card-details-desc">Web-based conversational voice user interface (VUI).</span>
                     <span class="card-details-venue">CS 6456 Principles of User Interface Software</span>
                     <span class="card-details-links">
-                      <a href="/sections/projects/Conversational-VUI" target="_blank">
+                      <a href="/projects/Conversational-VUI" target="_blank">
                         <span class="icon solid fa-play"></span>
-                        Demo
+                        <span class="alabel">Demo</span>
                       </a>
                       &nbsp;
-                      <a href="/sections/projects/Conversational-VUI/21-chatting_with_your_clock.pdf" target="_blank">
+                      <a href="/projects/Conversational-VUI/21-chatting_with_your_clock.pdf" target="_blank">
                         <span class="icon solid fa-file-pdf" style="color: #ed2224"></span>
-                        Paper
+                        <span class="alabel">Paper</span>
                       </a>
                       &nbsp;
-                      <a href="/sections/projects/Conversational-VUI/presentation.pdf" target="_blank">
+                      <a href="/projects/Conversational-VUI/presentation.pdf" target="_blank">
                         <span class="icon solid fa-file-powerpoint" style="color: #d04423"></span>
-                        Presentation
+                        <span class="alabel">Presentation</span>
                       </a>
                       &nbsp;
                       <a href="https://github.com/AdamCoscia/Conversational-VUI" target="_blank">
                         <span class="icon solid fa-code"></span>
-                        Code
+                        <span class="alabel">Code</span>
                       </a>
                     </span>
                   </div>
@@ -665,8 +1338,8 @@
                 <div id="PAINTINGS-BY-COMPARISON" class="row card">
                   <!-- TEASER -->
                   <div class="column card-teaser">
-                    <a href="/sections/projects/Paintings-By-Comparison" target="_blank">
-                      <img src="/sections/projects/Paintings-By-Comparison/teaser.png" alt="Paintings By Comparison" />
+                    <a href="/projects/Paintings-By-Comparison" target="_blank">
+                      <img src="/projects/Paintings-By-Comparison/teaser.png" alt="Paintings By Comparison" />
                     </a>
                   </div>
 
@@ -676,442 +1349,44 @@
                     <span class="card-details-desc">Interactive visualization of painting data from WikiData.</span>
                     <span class="card-details-venue">CS 7450 Information Visualization</span>
                     <span class="card-details-links">
-                      <a href="/sections/projects/Paintings-By-Comparison" target="_blank">
+                      <a href="/projects/Paintings-By-Comparison" target="_blank">
                         <span class="icon solid fa-play"></span>
-                        Demo
+                        <span class="alabel">Demo</span>
                       </a>
                       &nbsp;
                       <a href="https://youtu.be/6aTiNRW_now" target="_blank">
                         <span class="icon brands fa-youtube" style="color: #ff0000"></span>
-                        Video
+                        <span class="alabel">Video</span>
                       </a>
                       &nbsp;
                       <a href="https://github.com/AdamCoscia/Paintings-By-Comparison" target="_blank">
                         <span class="icon solid fa-code"></span>
-                        Code
+                        <span class="alabel">Code</span>
                       </a>
                     </span>
                   </div>
                 </div>
-              </div>
-            </div>
-          </div>
 
-          <hr />
-
-          <!-- EDUCATION -->
-          <div id="education" class="row">
-            <!-- HEADER -->
-            <header class="section-header row">
-              <div class="column" style="min-width: 225px">
-                <h2 style="margin-bottom: 0">
-                  <span class="icon solid fa-book" style="color: var(--education-icon-color)"></span>
-                  Education
-                </h2>
-              </div>
-            </header>
-
-            <!-- CONTENT -->
-            <div class="section-content">
-              <!-- GEORGIA TECH -->
-              <div id="Georgia-Tech-Grad" class="row card">
-                <!-- LOGO -->
-                <div class="column card-logo">
-                  <img src="/assets/icons/education/GTExtended_TechGoldNavy_RGB.svg" alt="Georgia Tech Extended Logo" />
-                </div>
-
-                <!-- DETAILS -->
-                <div class="column card-details">
-                  <span class="card-details-title">
-                    <a href="https://www.gatech.edu/" target="_blank">Georgia Institute of Technology,</a>
-                    <span class="text-muted">Atlanta, GA</span>
-                  </span>
-                  <span class="card-details-desc">
-                    <a href="https://www.cc.gatech.edu/degree-programs/phd-human-centered-computing" target="_blank">
-                      Ph.D., Human-Centered Computing
+                <!-- Snake -->
+                <div id="SNAKE" class="row card">
+                  <!-- TEASER -->
+                  <div class="column card-teaser">
+                    <a href="/fun/games/snake/" target="_blank">
+                      <img src="/fun/games/snake/teaser.png" alt="Snake" />
                     </a>
-                  </span>
-                  <span class="card-details-desc">GPA: 4.00 / 4.00</span>
-                  <span class="card-details-desc">
-                    Advisor: <a href="https://va.gatech.edu/endert/" target="_blank">Alex Endert</a>
-                  </span>
-                  <span class="card-details-desc">Aug 2020 - Present</span>
-                </div>
-              </div>
+                  </div>
 
-              <!-- STEVENS -->
-              <div id="Stevens-Undergrad" class="row card">
-                <!-- LOGO -->
-                <div class="column card-logo">
-                  <img src="/assets/icons/education/Stevens-Primary-Logo-2020_4C.svg" alt="Stevens Logo" />
-                </div>
-
-                <!-- DETAILS -->
-                <div class="column card-details">
-                  <span class="card-details-title">
-                    <a href="https://www.stevens.edu/" target="_blank">Stevens Institute of Technology,</a>
-                    <span class="text-muted">Hoboken, NJ</span>
-                  </span>
-                  <span class="card-details-desc">
-                    <a
-                      href="https://www.stevens.edu/schaefer-school-engineering-science/departments/physics/undergraduate-programs/physics"
-                      target="_blank"
-                    >
-                      B.S., Physics
-                    </a>
-                    <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
-                    Minors: Computer Science, Mathematics
-                  </span>
-                  <span class="card-details-desc"> GPA: 3.98 / 4.00 </span>
-                  <span class="card-details-desc">
-                    <a href="https://www.stevens.edu/pinnaclescholars" target="_blank"> Pinnacle Scholars Program </a>
-                  </span>
-                  <span class="card-details-desc">Aug 2016 - Aug 2020</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <hr />
-
-          <!-- EMPLOYMENT -->
-          <div id="employment" class="row">
-            <!-- HEADER -->
-            <header class="section-header row">
-              <div class="column" style="min-width: 225px">
-                <h2 style="margin-bottom: 0">
-                  <span class="icon solid fa-building" style="color: var(--employment-icon-color)"></span>
-                  Employment
-                </h2>
-              </div>
-            </header>
-
-            <!-- CONTENT -->
-            <div class="section-content">
-              <!-- GEORGIA TECH RESEARCH ASSISTANT -->
-              <div id="Georgia-Tech-GRA" class="row card">
-                <!-- LOGO -->
-                <div class="column card-logo">
-                  <img src="/assets/icons/education/GTExtended_TechGoldNavy_RGB.svg" alt="Georgia Tech Extended Logo" />
-                </div>
-
-                <!-- DETAILS -->
-                <div class="column card-details">
-                  <span class="card-details-title">
-                    <a href="https://www.gatech.edu/" target="_blank">Georgia Institute of Technology,</a>
-                    <span class="text-muted">Atlanta, GA</span>
-                  </span>
-                  <span class="card-details-position">Graduate Research Assistant</span>
-                  <span class="card-details-desc">
-                    <a href="https://gtvalab.github.io/" target="_blank">Visual Analytics Lab,</a>
-                    <a href="https://www.ic.gatech.edu/" target="_blank"> School of Interactive Computing </a>
-                  </span>
-                  <span class="card-details-desc">
-                    Mentor:
-                    <a href="https://va.gatech.edu/endert/" target="_blank">Alex Endert</a>
-                  </span>
-                  <span class="card-details-desc">Aug 2020 - Present</span>
-                </div>
-              </div>
-
-              <!-- SUMMER INTERNSHIP PROGRAM, 2023 -->
-              <div id="Science-Intent" class="row card">
-                <!-- LOGO -->
-                <div class="column card-logo">
-                  <img src="/assets/icons/employment/logo_nasa_trio.png" alt="NASA JPL Logo" />
-                </div>
-
-                <!-- DETAILS -->
-                <div class="column card-details">
-                  <span class="card-details-title">
-                    <a href="https://www.jpl.nasa.gov/" target="_blank">NASA Jet Propulsion Laboratory,</a>
-                    <span class="text-muted">Pasadena, CA</span>
-                  </span>
-                  <span class="card-details-position">AI/ML Research Intern</span>
-                  <span class="card-details-desc">
-                    <a href="https://www.jpl.nasa.gov/edu/intern/apply/summer-internship-program/" target="_blank">
-                      JPL Summer Internship Program (SIP)
-                    </a>
-                  </span>
-                  <span class="card-details-desc">
-                    Mentor:
-                    <a href="https://scottdavidoff.com/" target="_blank">Scott Davidoff</a>
-                  </span>
-                  <span class="card-details-desc">Summer 2023</span>
-                </div>
-              </div>
-
-              <!-- DATA TO DISCOVERY 2021 -->
-              <div id="Data-To-Discovery" class="row card">
-                <!-- LOGO -->
-                <div class="column card-logo">
-                  <img src="/assets/icons/employment/logo_nasa_trio.png" alt="NASA JPL Logo" />
-                </div>
-
-                <!-- DETAILS -->
-                <div class="column card-details">
-                  <span class="card-details-title">
-                    <a href="https://www.jpl.nasa.gov/" target="_blank">NASA Jet Propulsion Laboratory,</a>
-                    <span class="text-muted">Pasadena, CA</span>
-                  </span>
-                  <span class="card-details-position">CS Research Intern</span>
-                  <span class="card-details-desc">
-                    <a href="https://datavis.caltech.edu/" target="_blank">Data to Discovery,</a>
-                    <a href="https://www.jpl.nasa.gov/edu/intern/apply/summer-internship-program/" target="_blank">
-                      JPL Summer Internship Program (SIP)
-                    </a>
-                  </span>
-                  <span class="card-details-desc">
-                    Mentor:
-                    <a href="https://scottdavidoff.com/" target="_blank">Scott Davidoff</a>
-                  </span>
-                  <span class="card-details-desc">Summer 2021</span>
-                </div>
-              </div>
-
-              <!-- NEW YORK LIFE 2020 -->
-              <div id="NYL-2020" class="row card">
-                <!-- LOGO -->
-                <div class="column card-logo">
-                  <img
-                    style="width: 60%; margin: 0 auto"
-                    src="/assets/icons/employment/nyl-logo.svg"
-                    alt="New York Life Logo"
-                  />
-                </div>
-
-                <!-- DETAILS -->
-                <div class="column card-details">
-                  <span class="card-details-title">
-                    <a href="https://www.newyorklife.com/" target="_blank">New York Life Insurance Company,</a>
-                    <span class="text-muted">New York, NY</span>
-                  </span>
-                  <span class="card-details-position">Machine Learning / DevOps (MLOps) Intern</span>
-                  <span class="card-details-desc">Center for Data Science and Artificial Intelligence (CDSAi)</span>
-                  <span class="card-details-desc">
-                    Mentor:
-                    <a href="https://www.linkedin.com/in/paul-janis-19aa5230/" target="_blank"> Paul Janis </a>
-                  </span>
-                  <span class="card-details-desc">Summer 2020</span>
-                </div>
-              </div>
-
-              <!-- NEW YORK LIFE 2019 -->
-              <div id="NYL-2019" class="row card">
-                <!-- LOGO -->
-                <div class="column card-logo">
-                  <img
-                    style="width: 60%; margin: 0 auto"
-                    src="/assets/icons/employment/nyl-logo.svg"
-                    alt="New York Life Logo"
-                  />
-                </div>
-
-                <!-- DETAILS -->
-                <div class="column card-details">
-                  <span class="card-details-title">
-                    <a href="https://www.newyorklife.com/" target="_blank">New York Life Insurance Company,</a>
-                    <span class="text-muted">New York, NY</span>
-                  </span>
-                  <span class="card-details-position">Data / Platform Engineering Intern</span>
-                  <span class="card-details-desc">Center for Data Science and Analytics (CDSA)</span>
-                  <span class="card-details-desc">
-                    Mentor:
-                    <a href="https://www.linkedin.com/in/paul-janis-19aa5230/" target="_blank"> Paul Janis </a>
-                  </span>
-                  <span class="card-details-desc">Summer 2019</span>
-                </div>
-              </div>
-
-              <!-- STEVENTS RESEARCH ASSISTANT 2018 -->
-              <div id="Stevens-RA" class="row card">
-                <!-- LOGO -->
-                <div class="column card-logo">
-                  <img src="/assets/icons/education/Stevens-Primary-Logo-2020_4C.svg" alt="Stevens Logo" />
-                </div>
-
-                <!-- DETAILS -->
-                <div class="column card-details">
-                  <span class="card-details-title">
-                    <a href="https://www.stevens.edu/" target="_blank">Stevens Institute of Technology,</a>
-                    <span class="text-muted">Hoboken, NJ</span>
-                  </span>
-                  <span class="card-details-position">Research Assistant</span>
-                  <span class="card-details-desc">
-                    <a
-                      href="https://www.stevens.edu/school-of-business/research/information-systems-analytics"
-                      target="_blank"
-                    >
-                      Information Systems and Analytics,
-                    </a>
-                    <a href="https://www.stevens.edu/school-business" target="_blank"> School of Business </a>
-                  </span>
-                  <span class="card-details-desc">
-                    Mentors:
-                    <a href="https://scholar.google.com/citations?user=PVi_NyEAAAAJ&hl=en" target="_blank">
-                      Aron Lindberg,
-                    </a>
-                    <a href="https://scholar.google.com/citations?user=VMf3wfMAAAAJ&hl=en" target="_blank">
-                      Amir H. Gandomi
-                    </a>
-                  </span>
-                  <span class="card-details-desc">Aug 2018 - May 2020</span>
-                </div>
-              </div>
-
-              <!-- KU LEUVEN RESEARCH ASSISTANT 2017 -->
-              <div id="KU-Leuven-RA" class="row card">
-                <!-- LOGO -->
-                <div class="column card-logo">
-                  <img src="/assets/icons/employment/KU_Leuven_logo.svg" alt="KU Leuven Logo" />
-                </div>
-
-                <!-- DETAILS -->
-                <div class="column card-details">
-                  <span class="card-details-title">
-                    <a href="https://www.kuleuven.be/english/" target="_blank">Katholieke Universiteit Leuven,</a>
-                    <span class="text-muted">Leuven, Belgium</span>
-                  </span>
-                  <span class="card-details-position">Visiting Research Scholar</span>
-                  <span class="card-details-desc">
-                    <a href="https://fys.kuleuven.be/english" target="_blank"> Department of Physics and Astronomy </a>
-                  </span>
-                  <span class="card-details-desc">
-                    Mentors:
-                    <a href="https://fys.kuleuven.be/qsp/people/linodacostapereira" target="_blank">
-                      Lino Da Costa Pereira,
-                    </a>
-                    <a href="https://scholar.google.be/citations?user=DQR0MM4AAAAJ&hl=en" target="_blank">
-                      Tiago Abel de Lemos Lima
-                    </a>
-                  </span>
-                  <span class="card-details-desc">Summer 2017</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <hr />
-
-          <!-- AWARDS -->
-          <div id="awards" class="row">
-            <!-- HEADER -->
-            <header class="section-header row">
-              <div class="column" style="min-width: 225px">
-                <h2 style="margin-bottom: 0">
-                  <span class="icon solid fa-award" style="color: var(--awards-icon-color)"></span>
-                  Awards and Honors
-                </h2>
-              </div>
-            </header>
-
-            <!-- CONTENT -->
-            <div class="section-content">
-              <div class="highlights-grid">
-                <!-- COC AWARD 2023 -->
-                <span class="highlights-date">2023</span>
-                <div class="column highlights-text">
-                  <span class="highlights-title">College of Computing (CoC) Poster Award</span>
-                  <span class="card-details-desc">Georgia Institute of Technology</span>
-                  <span class="highlights-desc">
-                    Awarded to
-                    <a href="https://smartech.gatech.edu/handle/1853/70254" target="_blank">KnowledgeVIS</a>
-                    poster; recieved at
-                    <a
-                      href="https://grad.gatech.edu/career-research-and-innovation-development-conference-cridc"
-                      target="_blank"
-                    >
-                      CRIDC Poster Competition.
-                    </a>
-                  </span>
-                </div>
-
-                <!-- EVPR AWARD 2021 -->
-                <span class="highlights-date">2021</span>
-                <div class="column highlights-text">
-                  <span class="highlights-title">Executive Vice President for Research (EVPR) Poster Award</span>
-                  <span class="card-details-desc">Georgia Institute of Technology</span>
-                  <span class="highlights-desc">
-                    Awarded to
-                    <a href="https://smartech.gatech.edu/handle/1853/64385" target="_blank">Lumos</a>
-                    poster; recieved at
-                    <a
-                      href="https://grad.gatech.edu/career-research-and-innovation-development-conference-cridc"
-                      target="_blank"
-                    >
-                      CRIDC Poster Competition.
-                    </a>
-                  </span>
-                </div>
-
-                <!-- PRESIDENT'S FELLOWSHIP -->
-                <span class="highlights-date">2020</span>
-                <div class="column highlights-text">
-                  <span class="highlights-title">
-                    <a href="https://grad.gatech.edu/presidents-fellowships" target="_blank">President's Fellowship</a>
-                  </span>
-                  <span class="card-details-desc">Georgia Institute of Technology</span>
-                  <span class="highlights-desc">
-                    Selected upon admission from top 10% of applicant pool; four-year semesterly stipend award.
-                  </span>
-                </div>
-
-                <!-- ALFRED M. MAYER PRIZE -->
-                <span class="highlights-date">2020</span>
-                <div class="column highlights-text">
-                  <span class="highlights-title">
-                    <a href="https://www.stevens.edu/campus-life/student-affairs/student-awards" target="_blank">
-                      Alfred M. Mayer Prize
-                    </a>
-                  </span>
-                  <span class="card-details-desc">Stevens Institute of Technology</span>
-                  <span class="highlights-desc">
-                    Cash prize awarded to senior ranked first in all physics courses taken during undergraduate career.
-                  </span>
-                </div>
-
-                <!-- SIGMA PI SIGMA -->
-                <span class="highlights-date">2019</span>
-                <div class="column highlights-text">
-                  <span class="highlights-title">
-                    <a href="https://www.sigmapisigma.org/sigmapisigma" target="_blank">
-                      Sigma Pi Sigma Physics Honor Society
-                    </a>
-                  </span>
-                  <span class="card-details-desc">American Institute of Physics</span>
-                  <span class="highlights-desc"> Inducted as a Lifetime Member. </span>
-                </div>
-
-                <!-- DISTINGUISHED TEACHING ASSISTANT -->
-                <span class="highlights-date">2018</span>
-                <div class="column highlights-text">
-                  <span class="highlights-title">
-                    <a href="https://www.stevens.edu/campus-life/student-affairs/student-awards" target="_blank">
-                      Distinguished Teaching Assistant Award
-                    </a>
-                  </span>
-                  <span class="card-details-desc">Stevens Institute of Technology</span>
-                  <span class="highlights-desc">
-                    Awarded to student faculty member that students benefit from the most and learn from both inside and
-                    outside of the classroom.
-                  </span>
-                </div>
-
-                <!-- PRESIDENTIAL SCHOLARSHIP -->
-                <span class="highlights-date">2016</span>
-                <div class="column highlights-text">
-                  <span class="highlights-title">
-                    <a
-                      href="https://www.stevens.edu/admissions/tuition-financial-aid/undergraduate-scholarships-aid/stevens-scholarships"
-                      target="_blank"
-                    >
-                      Presidential Scholarship
-                    </a>
-                  </span>
-                  <span class="card-details-desc">Stevens Institute of Technology</span>
-                  <span class="highlights-desc">
-                    Selected for academic excellence; four-year, half-tuition award.
-                  </span>
+                  <!-- DETAILS -->
+                  <div class="column card-details">
+                    <span class="card-details-title">Snake</span>
+                    <span class="card-details-desc">Yum.</span>
+                    <span class="card-details-links">
+                      <a href="/fun/games/snake/" target="_blank">
+                        <span class="icon solid fa-play"></span>
+                        <span class="alabel">Play</span>
+                      </a>
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>

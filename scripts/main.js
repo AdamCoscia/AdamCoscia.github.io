@@ -4,9 +4,9 @@
  */
 
 // load the header
-$("#header").load("/includes/header.html", () => {
+$("#header").load("/includes/header.html", function (response, status, xhr) {
   // load the footer
-  $("#footer").load("/includes/footer.html", () => {
+  $("#footer").load("/includes/footer.html", function (response, status, xhr) {
     // URL updates and the element focus is maintained
     // originally found via in Update 3 on http://www.learningjquery.com/2007/10/improved-animated-scrolling-script-for-same-page-links
     var locationPath = filterPath(location.pathname);
