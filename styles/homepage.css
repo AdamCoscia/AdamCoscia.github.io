@@ -3,11 +3,6 @@
   display: none;
   opacity: 0;
 }
-.inline-logo {
-  display: inline;
-  width: 24px;
-  vertical-align: middle;
-}
 .section-header {
   margin-bottom: 1.5rem;
 }
@@ -211,10 +206,7 @@
 .card-details-award {
   padding: 4px;
   font-size: 16px;
-  color: #d4af37;
-}
-.trophy {
-  color: #ffd700;
+  color: var(--awards-icon-color);
 }
 .card-details-position,
 .card-details-authors,

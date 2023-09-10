@@ -32,9 +32,7 @@ p {
 }
 
 /* SECTIONS */
-.paper-title,
-.paper-authors,
-.paper-venue {
+.paper-header > div {
   margin-bottom: 1rem;
 }
 .paper-title {

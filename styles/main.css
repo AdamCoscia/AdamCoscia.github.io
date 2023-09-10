@@ -77,6 +77,11 @@ a:hover span.alabel {
   display: flex;
   justify-content: center;
 }
+.inline-logo {
+  display: inline;
+  width: 24px;
+  vertical-align: bottom;
+}
 .row {
   width: 100%;
   display: flex;
