@@ -127,7 +127,7 @@
   }
 }
 
-/* PUBLICATIONS, PROJECTS, EDUCATION, EMPLOYMENT, AWARDS */
+/* PUBLICATIONS, EMPLOYMENT, EDUCATION, AWARDS, NEWS, PROJECTS */
 .card-grid {
   display: grid;
   grid-gap: 12px;
@@ -265,7 +265,7 @@
   font-weight: 600 !important;
   color: grey;
   text-align: right;
-  margin-right: 1.6rem;
+  margin-right: 0.6rem;
 }
 .highlights-title {
   font-weight: 600 !important;
@@ -283,4 +283,10 @@
     margin-right: 0;
     text-align: left;
   }
+}
+.news-icon {
+  margin-right: 4px;
+  width: 24px;
+  text-align: right;
+  display: inline-block;
 }
