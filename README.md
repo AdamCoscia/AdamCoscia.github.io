@@ -1,6 +1,6 @@
 # Adam Coscia's Website
 
-Last updated: September 2023
+Last updated: February 2024
 
 Link: <https://adamcoscia.com>
 
