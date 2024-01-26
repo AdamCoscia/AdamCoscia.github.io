@@ -192,7 +192,7 @@
   flex-grow: 4;
 }
 .card-details > * {
-  margin: 2px 0;
+  margin: 4px 0;
 }
 .card-details img {
   margin: 0;
@@ -220,14 +220,20 @@
   font-weight: 700 !important;
 }
 .card-details-venue {
+  font-weight: 700;
   font-style: italic;
 }
 .card-details-links {
   font-weight: 600 !important;
-  line-height: 1.5;
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 4px;
 }
 .card-details-links a {
   white-space: nowrap;
+  background-color: #dedede;
+  padding: 4px 8px;
+  border-radius: 32px;
 }
 
 .awards-grid {

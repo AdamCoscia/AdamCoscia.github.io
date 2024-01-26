@@ -112,6 +112,13 @@ a:hover span.alabel {
 .flex-nowrap {
   flex-wrap: nowrap;
 }
+.img-crisp {
+  image-rendering: -moz-crisp-edges; /* Firefox */
+  image-rendering: -o-crisp-edges; /* Opera */
+  image-rendering: -webkit-optimize-contrast; /* Webkit (non-standard naming) */
+  image-rendering: crisp-edges;
+  -ms-interpolation-mode: nearest-neighbor; /* IE (non-standard property) */
+}
 
 /** TOOLTIP */
 @-webkit-keyframes fadeIn {
