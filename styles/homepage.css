@@ -227,13 +227,13 @@
   font-weight: 600 !important;
   display: flex;
   flex-wrap: wrap;
-  row-gap: 4px;
+  row-gap: 6px;
 }
 .card-details-links a {
   white-space: nowrap;
-  background-color: #dedede;
-  padding: 4px 8px;
-  border-radius: 32px;
+  background: #4263A615;
+  padding: 6px 12px;
+  border-radius: 6px;
 }
 
 .awards-grid {
