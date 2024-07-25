@@ -204,9 +204,15 @@
   font-weight: 900;
 }
 .card-details-award {
-  padding: 4px;
-  font-size: 16px;
+  margin-bottom: 6px;
+  padding: 4px 8px;
+  font-size: 14px;
+  font-weight: 700;
   color: var(--awards-icon-color);
+  background: #fff;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  box-shadow: 1px 1px 1px #ccc;
 }
 .card-details-position,
 .card-details-authors,
@@ -231,7 +237,7 @@
 }
 .card-details-links a {
   white-space: nowrap;
-  background: #4263A615;
+  background: #4263a615;
   padding: 6px 12px;
   border-radius: 6px;
 }
