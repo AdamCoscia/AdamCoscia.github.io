@@ -70,6 +70,21 @@
   text-transform: none;
   letter-spacing: 0;
 }
+.introduction ul.list {
+  margin-inline-start: 0.5rem;
+  margin-bottom: 1rem;
+  line-height: 1.5;
+  text-transform: none;
+  letter-spacing: 0;
+}
+.introduction ul.list li {
+  display: inline-block;
+}
+.introduction ul.list li:before {
+  content: "";
+  display: list-item;
+  position: absolute;
+}
 /* PROFILE */
 .summary-links {
   flex: 1;
@@ -83,11 +98,17 @@
 .profile img {
   width: 100%;
   border-radius: 12px;
+  margin-bottom: -12px;
 }
 .profile-links {
+  width: 240px;
+  margin: auto;
   text-transform: none;
   text-align: left;
-  letter-spacing: 1px;
+  letter-spacing: 0;
+  background-color: rgba(0 0 0 / 0.025);
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
 }
 .profile-links-pages {
   display: grid;
@@ -98,8 +119,25 @@
 }
 .profile-links-contact {
   margin: 0;
-  padding: 0 0 0 0.5rem;
+  padding: 6px 12px 12px 12px;
   list-style: none;
+}
+.profile-links-contact li {
+  font-weight: 700;
+  font-size: 16px;
+  padding-left: 0;
+  height: 26px;
+}
+.profile-links-contact li.name {
+  font-weight: 900;
+  font-size: 18px;
+  line-height: 26px;
+}
+.profile-links-contact li a {
+  white-space: nowrap;
+  /* background: #4263a615; */
+  padding: 3px 8px 3px 4px;
+  border-radius: 6px;
 }
 .profile-links-contact li a span.icon {
   display: inline-block;
