@@ -5,12 +5,12 @@
 
 :root {
   --highlights-icon-color: #2b2b2b;
-  --presentations-icon-color: #d62728;
   --publications-icon-color: #2ca02c;
-  --projects-icon-color: #e377c2;
-  --education-icon-color: #1f77b4;
-  --employment-icon-color: #17becf;
+  --presentations-icon-color: #d62728;
   --awards-icon-color: #ff7f0e;
+  --employment-icon-color: #e377c2;
+  --education-icon-color: #1f77b4;
+  --projects-icon-color: #17becf;
 }
 
 body {
@@ -75,8 +75,11 @@ a:hover span.alabel {
   display: flex;
   justify-content: center;
 }
-#footer {
+.footer-copyright {
   padding-top: 1rem;
+}
+#footer {
+  padding: 0;
 }
 #footer a span.alabel {
   clip-path: inset(0 0.2em 0 0);

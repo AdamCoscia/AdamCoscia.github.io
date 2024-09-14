@@ -292,46 +292,81 @@
 }
 
 /* HIGHLIGHTS */
-.highlights-grid {
-  margin-left: 2.5rem;
-  line-height: 1.6rem;
+.news-wrapper {
+  padding: 12px;
+  max-height: 206px;
+  overflow: hidden;
   text-transform: none;
   letter-spacing: 0;
-  display: inline-grid;
-  grid-template-columns: repeat(3, auto);
+  font-size: 0.9rem;
+  background-color: #4263a615;
+  border-radius: 12px;
 }
-.highlights-date-year {
-  font-weight: 600 !important;
-  color: grey;
-  text-align: right;
-  margin-right: 1rem;
+.news-grid {
+  display: grid;
+  grid-template-columns: [c1] 100px [c2] 1rem [c3] minmax(0, max-content) [c4] 0.5rem [c5] auto [c6];
+  grid-template-rows: repeat(auto-fit, minmax(0, 1fr));
 }
-.highlights-date-month {
-  font-weight: 600 !important;
-  color: grey;
-  text-align: right;
-  margin-right: 0.6rem;
+.news-grid.fade {
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0px, rgba(0, 0, 0, 1) 86px, rgba(0, 0, 0, 0) 186px);
 }
-.highlights-title {
-  font-weight: 600 !important;
+.news-item {
+  display: grid;
+  grid-column: c1 / c6;
+  grid-template-columns: subgrid;
+  grid-template-rows: subgrid;
+}
+.news-date {
+  grid-column: c1 / c2;
+  display: inline-block;
+  text-align: end;
+  color: #999;
+  font-weight: 300;
+}
+.news-type {
+  grid-column: c3 / c4;
+  display: inline-block;
+  text-align: end;
+}
+.news-content {
+  grid-column: c5 / c6;
+  display: inline-block;
+  text-wrap: pretty;
 }
 @media only screen and (max-width: 623px) {
-  .highlights-grid {
-    margin: 0;
-    grid: auto / repeat(1, 1fr);
+  .news-grid {
+    grid-template-columns: [c1] minmax(0, max-content) [c2] 0.5rem [c3] auto [c4];
+    grid-template-rows: repeat(auto-fit, minmax(0, 1fr));
   }
-  .highlights-grid > *:nth-child(3n) {
-    margin-bottom: 1.5rem;
+  .news-item {
+    display: grid;
+    grid-column: c1 / c4;
+    grid-template-columns: subgrid;
+    grid-template-rows: repeat(2, minmax(0, max-content));
+    margin-bottom: 0.5rem;
   }
-  .highlights-date-year,
-  .highlights-date-month {
-    margin-right: 0;
-    text-align: left;
+  .news-date {
+    grid-column: c1 / c4;
+    text-align: start;
+  }
+  .news-type {
+    grid-column: c1 / c2;
+    margin-inline-start: 0.5rem;
+  }
+  .news-content {
+    grid-column: c3 / c4;
   }
 }
-.news-icon {
-  margin-right: 4px;
-  width: 24px;
-  text-align: right;
-  display: inline-block;
+.news-showmorebtn-wrapper {
+  height: 0;
+  position: relative;
+  bottom: 18px;
+  left: 50%;
+  transform: translate(-50%);
+  max-width: fit-content;
+}
+.news-showmorebtn-wrapper button {
+  height: 18px;
+  line-height: 0;
+  background: white;
 }
