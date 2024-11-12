@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      VisPile: Incorporating Large Language Models and Knowledge Graphs Into Visual Text Analysis to Support Sensemaking
+      &mdash; Adam Coscia
+    </title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <meta name="author" content="Adam Coscia" />
+    <meta
+      name="description"
+      content="Adam Coscia is a PhD student at Georgia Tech's School of Interactive Computing combining visual analytics and HCI to help people make sense of data."
+    />
+    <meta
+      name="keywords"
+      content="phd,visual analytics,georgia tech,interactive computing,information visualization,infovis,infoviz,data science,machine learning,data manipulation,cognitive bias,artificial intelligence,AI"
+    />
+    <!-- Favicon -->
+    <link rel="manifest" href="/assets/favicon/site.webmanifest" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png" />
+    <!-- Style Sheets -->
+    <link rel="stylesheet" href="/styles/html5up/html5up.css" />
+    <noscript>
+      <link rel="stylesheet" href="/css/noscript.css" />
+    </noscript>
+    <link rel="stylesheet" href="/styles/main.css" />
+    <link rel="stylesheet" href="/styles/paper.css" />
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-229540506-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "UA-229540506-2");
+    </script>
+  </head>
+
+  <body class="is-preload">
+    <div id="wrapper">
+      <section id="main">
+        <!-- HEADER -->
+        <header id="header"></header>
+
+        <hr />
+
+        <!-- BODY -->
+        <div id="body">
+          <div class="text-wrapper">
+            <!-- HEADER -->
+            <div class="paper-header">
+              <!-- TITLE -->
+              <div class="paper-title">
+                <span>
+                  VisPile: Incorporating Large Language Models and Knowledge Graphs Into Visual Text Analysis to Support
+                  Sensemaking
+                </span>
+              </div>
+
+              <!-- AUTHORS -->
+              <div class="paper-authors">
+                <span><b>Adam Coscia</b>, Alex Endert, Liz Richerson, Sue Mi K., Stephen S., Tim S.</span>
+              </div>
+
+              <!-- AFFILIATIONS -->
+              <div class="paper-affiliations">
+                <span>
+                  <img
+                    class="inline-logo"
+                    src="/assets/icons/other/las-logo.png"
+                    alt="LAS logo"
+                    style="vertical-align: text-top"
+                  />
+                  NCSU LAS &nbsp;
+                </span>
+                <span>
+                  <img class="inline-logo" src="/assets/icons/other/nsa-seal.svg" alt="NSA seal" />
+                  NSA &nbsp;
+                </span>
+                <span>
+                  <img class="inline-logo" src="/assets/icons/other/gt-logo.png" alt="Interlocking GT" />
+                  Georgia Tech
+                </span>
+              </div>
+
+              <!-- VENUE -->
+              <div class="paper-venue">
+                <span>LAS Research Symposium, 2024</span>
+              </div>
+            </div>
+
+            <!-- TEASER -->
+            <div class="paper-teaser">
+              <img src="/papers/vispile/teaser.png" alt="VisPile teaser figure" />
+            </div>
+
+            <!-- ABSTRACT -->
+            <div class="paper-abstract">
+              <div class="section-title">
+                <span>Abstract</span>
+              </div>
+              <div class="section-body">
+                <p>
+                  Text analysis tools are increasingly using large language models (LLMs) and knowledge graphs (KGs) to
+                  support sensemaking of document datasets too large to read. Yet opportunities for incorporating them
+                  into visual document analysis, and how they might affect sensemaking, remain under-explored. In
+                  response, we developed a novel visual analytics tool, VisPile, that embeds LLMs and KGs in an
+                  interactive document piling interface. With VisPile, we studied how users leveraged LLMs and KGs in
+                  conjunction with document piles to support sensemaking of 845 documents. We first conducted a
+                  usability study with students (n=17). We discovered LLMs and KGs uniquely support sensemaking and, in
+                  conjunction with piles, support novel interaction patterns. We then conducted the same study with
+                  intelligence analysts (n=6), providing support for patterns observed. Finally, we synthesized lessons
+                  learned about how to effectively incorporate LLMs and KGs into future visual analytics tools for
+                  supporting sensemaking during document analysis.
+                </p>
+              </div>
+            </div>
+
+            <!-- MATERIALS -->
+            <div class="paper-links">
+              <div class="section-title">
+                <span>Materials</span>
+              </div>
+              <div class="section-body">
+                <span>Coming soon!</span>
+                <!-- <a href="/papers/vispile/demo/" target="_blank">
+                  <span class="icon solid fa-rocket"></span>
+                  <span class="alabel">Live demo</span>
+                </a>
+                &nbsp;
+                <a href="https://youtu.be/FqJIZJqfeTM" target="_blank">
+                  <span class="icon brands fa-youtube" style="color: #ff0000"></span>
+                  <span class="alabel">Talk</span>
+                </a>
+                &nbsp;
+                <a href="/papers/vispile/24-las-vispile-video-slides.pdf" target="_blank">
+                  <span class="icon solid fa-file-powerpoint" style="color: #d04423"></span>
+                  <span class="alabel">Slides</span>
+                </a>
+                &nbsp;
+                <a href="/papers/vispile/24-las-vispile-poster.pdf" target="_blank">
+                  <span class="icon solid fa-chalkboard-teacher"></span>
+                  <span class="alabel">Poster</span>
+                </a>
+                &nbsp;
+                <a href="https://youtu.be/HJ4zbueJ9cs" target="_blank">
+                  <span class="icon brands fa-youtube" style="color: #ff0000"></span>
+                  <span class="alabel">Demo video</span>
+                </a>
+                &nbsp;
+                <a href="https://github.com/AdamCoscia/VisPile" target="_blank">
+                  <span class="icon brands fa-github" style="color: black"></span>
+                  <span class="alabel">Code</span>
+                </a> -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <hr />
+
+        <!-- FOOTER -->
+        <footer id="footer" class="row"></footer>
+      </section>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script type="text/javascript" src="/vendors/jQuery/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="/scripts/main.js"></script>
+    <script>
+      if ("addEventListener" in window) {
+        window.addEventListener("load", function () {
+          document.body.className = document.body.className.replace(/\bis-preload\b/, "");
+        });
+        document.body.className += navigator.userAgent.match(/(MSIE|rv:11\.0)/) ? " is-ie" : "";
+      }
+    </script>
+
+    <!-- NO SCRIPT -->
+    <noscript>
+      <style type="text/css">
+        .page-container {
+          display: none;
+        }
+
+        .no-script-container {
+          margin: 0;
+          padding: 2rem;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          text-align: center;
+          transform: translate(-50%, -50%);
+          border-radius: 4px;
+          background-color: rgba(255 255 255 / 90%);
+        }
+
+        .no-script-msg {
+          margin: 0;
+          margin-bottom: 2rem;
+        }
+
+        .no-script-footer {
+          margin: 0;
+        }
+      </style>
+      <div class="no-script-container">
+        <h3 class="no-script-msg">This website requires Javascript to be enabled!</h3>
+        <h6>&copy; 2022 Adam Coscia</h6>
+      </div>
+    </noscript>
+  </body>
+</html>
