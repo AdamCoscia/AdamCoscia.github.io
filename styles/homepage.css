@@ -285,6 +285,9 @@
   row-gap: 0.75rem;
   column-gap: 1rem;
 }
+.awards-grid .highlights-title {
+  font-weight: 900;
+}
 .awards-date {
   font-weight: 600 !important;
   color: grey;
