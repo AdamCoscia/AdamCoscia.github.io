@@ -2,8 +2,8 @@
 <html>
   <head>
     <title>
-      VisPile: A Visual Analytics System for Analyzing Multiple Text Documents With Large Language Models and Knowledge
-      Graphs &mdash; Adam Coscia
+      OnGoal: Tracking and Visualizing Conversational Goals in Multi-Turn Dialogue with Large Language Models &mdash;
+      Adam Coscia
     </title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
@@ -56,30 +56,21 @@
               <!-- TITLE -->
               <div class="paper-title">
                 <span>
-                  VisPile: A Visual Analytics System for Analyzing Multiple Text Documents With Large Language Models
-                  and Knowledge Graphs
+                  OnGoal: Tracking and Visualizing Conversational Goals in Multi-Turn Dialogue with Large Language
+                  Models
                 </span>
               </div>
 
               <!-- AUTHORS -->
               <div class="paper-authors">
-                <span><b>Adam Coscia</b> and Alex Endert</span>
+                <span><b>Adam Coscia</b>, Shunan Guo, Eunyee Koh, Alex Endert</span>
               </div>
 
               <!-- AFFILIATIONS -->
               <div class="paper-affiliations">
                 <span>
-                  <img
-                    class="inline-logo"
-                    src="/assets/icons/other/las-logo.png"
-                    alt="LAS logo"
-                    style="vertical-align: text-top"
-                  />
-                  NCSU LAS &nbsp;
-                </span>
-                <span>
-                  <img class="inline-logo" src="/assets/icons/other/nsa-seal.svg" alt="NSA seal" />
-                  NSA &nbsp;
+                  <img class="inline-logo" src="/assets/icons/other/Visit-Adobe-badge.png" alt="Adobe logo" />
+                  Adobe Research &nbsp;
                 </span>
                 <span>
                   <img class="inline-logo" src="/assets/icons/other/gt-logo.png" alt="Interlocking GT" />
@@ -89,13 +80,13 @@
 
               <!-- VENUE -->
               <div class="paper-venue">
-                <span>The 59th Hawaii International Conference on System Sciences (HICSS), 2026</span>
+                <span>ACM Symposium on User Interface Software and Technology (UIST), 2025</span>
               </div>
             </div>
 
             <!-- TEASER -->
             <div class="paper-teaser">
-              <img src="/papers/vispile/teaser.png" alt="VisPile teaser figure" />
+              <img src="/papers/ongoal/teaser.png" alt="OnGoal teaser figure" />
             </div>
 
             <!-- ABSTRACT -->
@@ -105,16 +96,17 @@
               </div>
               <div class="section-body">
                 <p>
-                  Intelligence analysts perform sensemaking over collections of documents using various visual and
-                  analytic techniques to gain insights from large amounts of text. As data scales grow, our work
-                  explores how to leverage two AI technologies, large language models (LLMs) and knowledge graphs (KGs),
-                  in a visual text analysis tool, enhancing sensemaking and helping analysts keep pace. Collaborating
-                  with intelligence community experts, we developed a visual analytics system called <b>VisPile</b>.
-                  <b>VisPile</b> integrates an LLM and a KG into various UI functions that assist analysts in grouping
-                  documents into piles, performing sensemaking tasks like summarization and relationship mapping on
-                  piles, and validating LLM- and KG-generated evidence. Our paper describes the tool, as well as
-                  feedback received from six professional intelligence analysts that used <b>VisPile</b> to analyze a
-                  text document corpus.
+                  As multi-turn dialogues with large language models (LLMs) grow longer and more complex, how can users
+                  better evaluate and review progress on their conversational goals? We present <b>OnGoal</b>, an LLM
+                  chat interface that helps users better manage goal progress. <b>OnGoal</b> provides real-time feedback
+                  on goal alignment through LLM-assisted evaluation, explanations for evaluation results with examples,
+                  and overviews of goal progression over time, enabling users to navigate complex dialogues more
+                  effectively. Through a study with 20 participants on a writing task, we evaluate <b>OnGoal</b> against
+                  a baseline chat interface without goal tracking. Using <b>OnGoal</b>, participants spent less time and
+                  effort to achieve their goals while exploring new prompting strategies to overcome miscommunication,
+                  suggesting tracking and visualizing goals can enhance engagement and resilience in LLM dialogues. Our
+                  findings inspired design implications for future LLM chat interfaces that improve goal communication,
+                  reduce cognitive load, enhance interactivity, and enable feedback to improve LLM performance.
                 </p>
               </div>
             </div>
@@ -125,35 +117,39 @@
                 <span>Materials</span>
               </div>
               <div class="section-body">
-                <a href="/papers/vispile/demo/" target="_blank">
-                  <span class="icon solid fa-rocket"></span>
-                  <span class="alabel">Live demo</span>
+                <a href="https://arxiv.org/abs/2508.21061" target="_blank">
+                  <span class="icon solid fa-file-pdf" style="color: #ed2224"></span>
+                  <span class="alabel">Paper</span>
                 </a>
                 &nbsp;
-                <a href="https://youtu.be/W3gHFm8xJTc" target="_blank">
-                  <span class="icon brands fa-youtube" style="color: #ff0000"></span>
-                  <span class="alabel">Talk</span>
-                </a>
-                &nbsp;
-                <a href="/papers/vispile/24-las-vispile-video-slides.pdf" target="_blank">
-                  <span class="icon solid fa-file-powerpoint" style="color: #d04423"></span>
-                  <span class="alabel">Slides</span>
-                </a>
-                &nbsp;
-                <a href="/papers/vispile/24-las-vispile-poster.pdf" target="_blank">
-                  <span class="icon solid fa-chalkboard-teacher"></span>
-                  <span class="alabel">Poster</span>
-                </a>
-                &nbsp;
-                <a href="https://youtu.be/vY6SqkkNeMQ" target="_blank">
+                <a href="https://youtu.be/uobhmxo6EIE" target="_blank">
                   <span class="icon brands fa-youtube" style="color: #ff0000"></span>
                   <span class="alabel">Demo video</span>
                 </a>
-                <!-- &nbsp;
-                <a href="https://github.com/AdamCoscia/VisPile" target="_blank">
-                  <span class="icon brands fa-github" style="color: black"></span>
-                  <span class="alabel">Code</span>
-                </a> -->
+              </div>
+            </div>
+
+            <!-- CITATION -->
+            <div class="paper-citation">
+              <div class="section-title">
+                <span>Citation</span>
+              </div>
+              <div class="bibtex">
+                <pre>
+@inproceedings{Coscia:2025:OnGoal,  
+  author = {Coscia, Adam and Guo, Shunan and Koh, Eunyee and Endert, Alex},  
+  title = {OnGoal: Tracking and Visualizing Conversational Goals in Multi-Turn Dialogue with Large Language Models},  
+  year = {2025},  
+  isbn = {979-8-4007-2037-6/2025/09},  
+  publisher = {Association for Computing Machinery},  
+  address = {New York, NY, USA},  
+  url = {https://doi.org/10.1145/3746059.3747746},  
+  doi = {10.1145/3746059.3747746},  
+  booktitle = {The 38th Annual ACM Symposium on User Interface Software and Technology},  
+  location = {Busan, Republic of Korea},  
+  series = {UIST '25}  
+}</pre
+                >
               </div>
             </div>
           </div>

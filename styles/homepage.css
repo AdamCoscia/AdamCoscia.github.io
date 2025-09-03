@@ -293,6 +293,10 @@
   color: grey;
   text-align: right;
 }
+.awards-giver {
+  font-style: italic;
+  color: #999;
+}
 
 /* HIGHLIGHTS */
 .news-wrapper {
@@ -311,7 +315,12 @@
   grid-template-rows: repeat(auto-fit, minmax(0, 1fr));
 }
 .news-grid.fade {
-  -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0px, rgba(0, 0, 0, 1) 86px, rgba(0, 0, 0, 0) 186px);
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 1) 0px,
+    rgba(0, 0, 0, 1) 86px,
+    rgba(0, 0, 0, 0) 186px
+  );
 }
 .news-item {
   display: grid;
