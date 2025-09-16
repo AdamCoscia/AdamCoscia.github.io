@@ -7,7 +7,7 @@ var newsFullHeight = false;
 
 // load the components of the page, if the element exists
 $("#header").load("/sections/header.html #header > *");
-$("#summary").load("/sections/summary.html #summary > *");
+$("#bio").load("/sections/bio.html #bio > *");
 $("#news").load("/sections/news.html #news > *", function (response, status, xhr) {
   // load interactions
   $("#news-showmorebtn").on("click", function (evt) {

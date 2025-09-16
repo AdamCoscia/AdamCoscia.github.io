@@ -22,7 +22,7 @@
 }
 
 /* SUMMARY */
-#summary {
+#bio {
   column-gap: 2rem;
 }
 .summary-text {
@@ -85,8 +85,15 @@
   display: list-item;
   position: absolute;
 }
+.introduction .announcement {
+  padding: 1rem;
+  border-radius: 12px;
+  border: 1px solid #4263a630;
+  background-color: #4263a615;
+}
 /* PROFILE */
 .summary-links {
+  justify-content: start;
   flex: 1;
   min-width: 256px;
   max-width: 256px;
@@ -98,7 +105,9 @@
 .profile img {
   width: 100%;
   border-radius: 12px;
+  border: 1px solid #ccc;
   margin-bottom: -12px;
+  box-shadow: 0px 1px 1px 1px #515151;
 }
 .profile-links {
   width: 240px;
@@ -107,6 +116,7 @@
   text-align: left;
   letter-spacing: 0;
   background-color: #4263a615;
+  border: 1px solid #4263a630;
   /* background-color: rgba(0 0 0 / 0.025); */
   border-bottom-left-radius: 12px;
   border-bottom-right-radius: 12px;
@@ -150,7 +160,7 @@
   display: none;
 }
 .profile.only-when-big {
-  margin-top: 1.5rem;
+  margin-top: 3rem;
   opacity: 1;
   display: block;
 }
