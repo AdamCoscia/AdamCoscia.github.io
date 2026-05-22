@@ -1,0 +1,353 @@
+<!doctype html>
+<html>
+  <head>
+    <title>
+      Detecting and Mitigating Pedagogical Risks in Large Language Models with Visual Analytics &mdash; Adam Coscia
+    </title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <meta name="author" content="Adam Coscia" />
+    <meta
+      name="description"
+      content="Adam Coscia is a PhD student at Georgia Tech's School of Interactive Computing combining visual analytics and HCI to help people make sense of data."
+    />
+    <meta
+      name="keywords"
+      content="phd,visual analytics,georgia tech,interactive computing,information visualization,infovis,infoviz,data science,machine learning,data manipulation,cognitive bias,artificial intelligence,AI"
+    />
+    <!-- Favicon -->
+    <link rel="manifest" href="/assets/favicon/site.webmanifest" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png" />
+    <!-- Style Sheets -->
+    <link rel="stylesheet" href="/styles/html5up/html5up.css" />
+    <noscript>
+      <link rel="stylesheet" href="/css/noscript.css" />
+    </noscript>
+    <link rel="stylesheet" href="/styles/main.css" />
+    <link rel="stylesheet" href="/styles/paper.css" />
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-229540506-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "UA-229540506-2");
+    </script>
+  </head>
+
+  <body class="is-preload">
+    <div id="wrapper">
+      <section id="main">
+        <!-- HEADER -->
+        <header id="header"></header>
+
+        <hr />
+
+        <!-- BODY -->
+        <div id="body">
+          <div class="text-wrapper">
+            <!-- HEADER -->
+            <div class="paper-header">
+              <!-- TITLE -->
+              <div class="paper-title">
+                <span>Detecting and Mitigating Pedagogical Risks in Large Language Models with Visual Analytics</span>
+              </div>
+
+              <!-- TEASER -->
+              <div class="paper-teaser">
+                <img src="/dissertation/teaser.png" alt="VisPile teaser figure" />
+              </div>
+
+              <!-- AUTHORS -->
+              <div class="paper-authors">
+                <div>
+                  <div style="font-size: 1.2rem; margin-bottom: 0.2em">
+                    <b style="color: #999">Thesis Committee</b>
+                  </div>
+                  <div>
+                    <b><a href="https://va.gatech.edu/endert/" target="_blank">Alex Endert</a></b
+                    >, <span>School of Interactive Computing</span>,
+                    <i style="color: #999">Georgia Institute of Technology</i>
+                    <br />
+                    <b><a href="https://poloclub.github.io/polochau/" target="_blank">Duen Horng (Polo) Chau</a></b
+                    >, <span>School of Computational Science & Engineering</span>,
+                    <i style="color: #999">Georgia Institute of Technology</i>
+                    <br />
+                    <b><a href="https://cyxiong.com/" target="_blank">Cindy Xiong Bearfield</a></b
+                    >, <span>School of Interactive Computing</span>,
+                    <i style="color: #999">Georgia Institute of Technology</i>
+                    <br />
+                    <b><a href="https://ivi.cc.gatech.edu/pi.html" target="_blank">Yalong Yang</a></b
+                    >, <span>School of Interactive Computing</span>,
+                    <i style="color: #999">Georgia Institute of Technology</i>
+                    <br />
+                    <b>
+                      <a href="https://peabody.vanderbilt.edu/bio/scott-crossley/" target="_blank">Scott Crossley</a></b
+                    >, <span>Department of Psychology and Human Development</span>,
+                    <i style="color: #999">Vanderbilt University</i>
+                  </div>
+                </div>
+              </div>
+
+              <!-- AFFILIATIONS -->
+              <div class="paper-affiliations">
+                <span>
+                  <img class="inline-logo" src="/assets/icons/other/gt-logo.png" alt="Interlocking GT" />
+                  Georgia Tech
+                </span>
+              </div>
+
+              <!-- VENUE -->
+              <div class="paper-venue">
+                <span>April 27, 2026 | Atlanta, GA, USA</span>
+              </div>
+            </div>
+
+            <!-- MATERIALS -->
+            <div class="paper-links">
+              <div class="section-title">
+                <span>Materials</span>
+              </div>
+              <div class="section-body">
+                <a href="https://drive.google.com/file/d/1JeOMIA0i1evGLaqYHk1o1Yvn6BqulrLO/view?usp=sharing" target="_blank">
+                  <span class="icon solid fa-file-pdf" style="color: #ed2224"></span>
+                  <span class="alabel">Thesis Document</span>
+                </a>
+                &nbsp;
+                <a href="https://youtu.be/cg0kODMdn3w" target="_blank">
+                  <span class="icon brands fa-youtube" style="color: #ff0000"></span>
+                  <span class="alabel">Oral Defense</span>
+                </a>
+                &nbsp;
+                <a href="https://drive.google.com/file/d/1NlYVvRDaZ2wdOZQsbc21OFOgz1lfBy4o/view?usp=sharing" target="_blank">
+                  <span class="icon solid fa-file-powerpoint" style="color: #d04423"></span>
+                  <span class="alabel">Defense Slides</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- ABSTRACT -->
+            <div class="paper-abstract">
+              <div class="section-title">
+                <span>Abstract</span>
+              </div>
+              <div class="section-body">
+                <p>
+                  The advent of powerful new large language models (LLMs) has catalyzed a surge in LLM-powered
+                  educational technologies, enabling transformational advances that can empower learner agency, deliver
+                  personalized study materials, and promote active learning. Data scientists in education, called
+                  learning engineers, are at the forefront of this technological revolution, leading efforts to
+                  integrate LLMs into adaptive learning experiences. Yet persistent pedagogical risks, from bias and
+                  hallucinations to unfair grading and misalignment with instructional goals, highlight a critical gap.
+                  Existing tools for selecting, fine-tuning, and evaluating LLMs are not designed to address the unique
+                  challenges of educational contexts, limiting the broader adoption of LLM-powered tools for learning.
+                </p>
+                <br />
+                <p>
+                  To address this gap, this thesis explores how <b>human-in-the-loop visual analytics</b> can equip
+                  learning engineers to better discover, understand, and address these risks by combining automated
+                  analysis with interactive visualizations that support more informed, iterative decision-making
+                  throughout the LLM development lifecycle. Specifically, this thesis makes contributions to
+                  <i>visual analytics</i>, <i>human computer interaction</i>, <i>artificial intelligence</i>, and
+                  <i>educational technology</i> across several related thrusts.
+                </p>
+                <br />
+                <p>
+                  <b style="font-size: 1rem">1. Uncovering Harmful LLM Biases and Stereotypes</b>
+                  <br /><br />
+                  <span>
+                    🧠 <a href="/papers/knowledgevis/">KnowledgeVIS</a> enables visual exploration of latent biases in
+                    foundation LLMs during model selection.
+                  </span>
+                  <br /><br />
+                  <b style="font-size: 1rem">2. Diagnosing LLM Decision-Making Criteria</b>
+                  <br /><br />
+                  <span>
+                    📊 <a href="/papers/iscore/">iScore</a> visualizes internal and external model perturbations to
+                    diagnosis unintended decision-making during fine-tuning.
+                  </span>
+                  <br /><br />
+                  <b style="font-size: 1rem">3. Measuring and Visualizing LLM Trustworthiness</b>
+                  <br /><br />
+                  <span>
+                    🤝 Our novel trustworthiness framework makes pedagogical risks interpretable and traceable during
+                    LLM evaluation.
+                  </span>
+                  <br /><br />
+                  <b style="font-size: 1rem">4. Broadening Access to Visual Analytics</b>
+                  <br /><br />
+                  <span>
+                    🚀 TrustyVis implements modular visual analytics components for reusable integration into real-world
+                    workflows.
+                  </span>
+                </p>
+              </div>
+            </div>
+
+            <!-- BIO -->
+            <div class="paper-abstract">
+              <div class="section-title">
+                <span>Thesis Defense</span>
+              </div>
+              <div class="section-body" style="text-align: center; overflow: auto">
+                <iframe
+                  style="width: 70%; min-width: 500px; aspect-ratio: 16 / 9"
+                  src="https://www.youtube.com/embed/cg0kODMdn3w?si=BYC-V9Ef1EkyqIhT"
+                  title="YouTube video player"
+                  frameborder="0"
+                  allow="
+                    accelerometer;
+                    autoplay;
+                    clipboard-write;
+                    encrypted-media;
+                    gyroscope;
+                    picture-in-picture;
+                    web-share;
+                  "
+                  referrerpolicy="strict-origin-when-cross-origin"
+                  allowfullscreen
+                ></iframe>
+              </div>
+            </div>
+
+            <!-- CITATION -->
+            <!-- <div class="paper-citation">
+              <div class="section-title">
+                <span>Citation</span>
+              </div>
+              <div class="bibtex">
+                <pre></pre>
+              </div>
+            </div> -->
+
+            <!-- BIO -->
+            <div class="paper-abstract">
+              <div class="section-title">
+                <span>Professional Bio (May 2026)</span>
+              </div>
+              <div class="section-body">
+                <p>
+                  Adam Coscia is a PhD Candidate in Human-Centered Computing at Georgia Institute of Technology, where
+                  he develops AI-augmented visual analytics systems that advance explainable, adaptive, and
+                  collaborative human-AI decision-making. Through rich mixed-methods studies and real-world deployments,
+                  he investigates how interactive visualizations can improve experts' ability to calibrate trust in AI,
+                  incorporate AI-driven insight discovery, and achieve timely, defensible decision-making with agentic
+                  AI partners.
+                </p>
+                <br />
+                <p>
+                  His interdisciplinary research spans visual analytics, human-centered computing, and artificial
+                  intelligence, with applications across national security, robotics, education, and space systems. His
+                  systems have been deployed to help researchers, scientists, analysts, and engineers at NASA JPL, MIT
+                  Lincoln Lab, Caltech, Vanderbilt, and the DOW. His work has led to funding and sponsorships from the
+                  NSF, DARPA, NASA, and NSA, as well as publications at premier HCI and visualization venues including
+                  CHI, VIS, TVCG, UIST, and IUI.
+                </p>
+              </div>
+            </div>
+
+            <!-- VITA -->
+            <div class="paper-abstract">
+              <div class="section-title">
+                <span>Vita (May 2026)</span>
+              </div>
+              <div class="section-body">
+                <p>
+                  Adam Coscia was born on January 14, 1998, to parents Jana and Bruce Coscia in Allentown, Pennsylvania.
+                  He attended elementary, middle, and high school locally in the Parkland School District, where he
+                  participated in marching band, concert band, jazz band, architecture club, football, baseball, and
+                  track and field until graduating in 2016.
+                </p>
+                <br />
+                <p>
+                  In 2020, Adam graduated highest honors with a Bachelor of Science (B.S.) in Physics and Minors in
+                  Mathematics and Computer Science from Stevens Institute of Technology in Hoboken, New Jersey, winning
+                  the Alfred M. Mayer Prize for ranking first in all Physics courses taken. During undergrad as a
+                  Stevens Pinnacle Scholar, he served as an academic peer advisor, conducted undergraduate summer
+                  research, earned a Presedential Scholarship, was inducted into the Sigma Pi Sigma Physics Honor
+                  Society, and interned during summers once at the Katholieke Universiteit Leuven and twice at the New
+                  York Life Insurance Company. He also worked as a teaching assistant for 3 courses over the course of 3
+                  years, during which he earned a Distinguished Teaching Assistant of the Year award.
+                </p>
+                <br />
+                <p>
+                  Following Stevens, Adam moved to Atlanta, Georgia to pursue his Ph.D. and in 2026, graduated from the
+                  Georgia Institute of Technology with a Ph.D. in Human-Centered Computing. During his graduate years as
+                  a Georgia Tech President's Fellow, he served as a graduate research and teaching assistant, mentored
+                  several Masters and first-year Ph.D. students, contributed to service roles within several IEEE and
+                  ACM professional societies and conference program and organizing committees, and interned during
+                  summers twice at NASA Jet Propulsion Laboratory, once at Adobe Research, and once at MIT Lincoln
+                  Laboratory. He was inducted into the Sigma Xi Scientific Research Honor Society.
+                </p>
+                <br />
+                <p>
+                  Adam currently lives with his wife Emma in Atlanta, Georgia, where they enjoy spending time with their
+                  family cat Metallica.
+                </p>
+                <br />
+                <div class="paper-teaser" style="text-align: center">
+                  <img src="/dissertation/Coscia_family_photo.png" alt="VisPile teaser figure" style="width: 70%" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <hr />
+
+        <!-- FOOTER -->
+        <footer id="footer" class="row"></footer>
+      </section>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script type="text/javascript" src="/vendors/jQuery/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="/scripts/main.js"></script>
+    <script>
+      if ("addEventListener" in window) {
+        window.addEventListener("load", function () {
+          document.body.className = document.body.className.replace(/\bis-preload\b/, "");
+        });
+        document.body.className += navigator.userAgent.match(/(MSIE|rv:11\.0)/) ? " is-ie" : "";
+      }
+    </script>
+
+    <!-- NO SCRIPT -->
+    <noscript>
+      <style type="text/css">
+        .page-container {
+          display: none;
+        }
+
+        .no-script-container {
+          margin: 0;
+          padding: 2rem;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          text-align: center;
+          transform: translate(-50%, -50%);
+          border-radius: 4px;
+          background-color: rgba(255 255 255 / 90%);
+        }
+
+        .no-script-msg {
+          margin: 0;
+          margin-bottom: 2rem;
+        }
+
+        .no-script-footer {
+          margin: 0;
+        }
+      </style>
+      <div class="no-script-container">
+        <h3 class="no-script-msg">This website requires Javascript to be enabled!</h3>
+        <h6>&copy; 2022 Adam Coscia</h6>
+      </div>
+    </noscript>
+  </body>
+</html>
