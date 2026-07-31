@@ -1,0 +1,1163 @@
+{
+  "documents": [
+    {
+      "date": null,
+      "id": 0,
+      "location": "Chicago",
+      "name": "somewhere_in_time",
+      "source": null,
+      "text": "In 1972, college theater student Richard Collier celebrates the debut of his new play. An elderly woman approaches him, places an ornate gold pocket watch in his hand, and pleads, \"Come back to me.\"\n\nEight years later, Richard is a successful playwright living in Chicago. While struggling with writer's block after breaking up with his girlfriend, he takes a road trip. Passing the Grand Hotel, he has the impulse to stay there. In the hotel's Hall of History, he becomes enthralled with a vintage photograph of Elise McKenna, an early-20th-century stage actress. Research at the library shows that she is the woman who gave him the pocket watch. Richard visits Laura Roberts, Elise's former housekeeper and companion. She reveals that Elise died the night she gave Richard the watch. Among Elise's personal effects is a book on time travel written by his old college professor, Dr. Gerard Finney,[a] and a miniature Grand Hotel music box she commissioned that plays the 18th variation of Rhapsody on a Theme of Paganini by Rachmaninoff, his favorite musical piece.\n\nHaving fallen in love with Elise, Richard becomes obsessed with traveling back to 1912 and meeting her. He visits Finney, who believes that he briefly time-traveled through the power of self-suggestion. Richard outfits himself with a vintage suit and 1912 currency. He fills a coin pocket in the suit with pocket change before realizing that modern coinage would break the spell, then empties the pocket. He attempts to will himself to 1912 using tape-recorded suggestions. The attempt fails, but he realizes he will succeed after finding a 1912 hotel register containing his signature.\n\nHe makes another attempt, hiding the tape recorder after realizing it was a reminder of the present. When he awakens in 1912, he finds Elise walking by the lake. Upon meeting him, she asks, \"Is it you?” Her manager, William Fawcett Robinson, intervenes and sends Richard away. Although Elise is initially uninterested, Richard pursues her until she agrees to accompany him on a stroll the following afternoon. He asks what Elise meant by \"Is it you?\" Elise reveals that Robinson had predicted that she would meet a man who will change her life and that she should be afraid. On a rowboat, Richard hums Rachmaninoff's Rhapsody, which intrigues Elise as she had never heard it before, its premiere still decades later. Richard shows her the pocket watch she will give him in 60 years.\n\nRichard attends Elise's play, where she recites an impromptu romantic monologue while making eye contact with him. In the interval, Elise poses for a photograph and, once more, makes eye contact with Richard, breaking into a radiant smile. This is the photograph Richard saw hanging at the hotel. During the play, Richard receives a message from Robinson requesting an urgent meeting. Robinson wants him to leave Elise so she can fulfill his prediction of stardom on the stage. When Richard declares his intention to stand by Elise for the rest of her life, Robinson has him beaten and bound inside the stables. Robinson tells Elise that Richard has left. Richard wakes the next morning and frees himself. The acting company has left for Denver, but Elise has stayed behind to find him. They go to her room, express their love, and make love. Elise checks the time of day on his pocket watch. They agree to marry, and Elise promises to buy Richard a new suit, as his was fashionable before 1900. Emptying pockets, Richard discovers he had missed a penny with a 1979 mint date. This modern item breaks the hypnotic suggestion, pulling Richard into the present.\n\nHe awakens in 1980, physically weakened by the time travel. His attempts to return to 1912 are unsuccessful. He despondently wanders the hotel grounds and finally stops eating. The hotel manager finds him catatonic in his hotel room, but he dies before he can be taken to a hospital. Richard is reunited with Elise in the afterlife.",
+      "title": null
+    }
+  ],
+  "graph": {
+    "directed": true,
+    "multigraph": true,
+    "graph": {},
+    "nodes": [
+      {
+        "degree": 38,
+        "description": "A college theater student in 1972 who later becomes a successful playwright living in Chicago and attempts to time-travel to 1912 to meet Elise McKenna.",
+        "doc_count": 1,
+        "entity_type": "person",
+        "first_seen": null,
+        "last_seen": null,
+        "locations": [
+          "Chicago"
+        ],
+        "name": "Richard Collier",
+        "sentiment": "neutral",
+        "sources": [],
+        "id": "Richard Collier"
+      },
+      {
+        "degree": 1,
+        "description": null,
+        "doc_count": 1,
+        "entity_type": null,
+        "first_seen": null,
+        "last_seen": null,
+        "locations": [
+          "Chicago"
+        ],
+        "name": "1972",
+        "sentiment": "neutral",
+        "sources": [],
+        "id": "1972"
+      },
+      {
+        "degree": 1,
+        "description": "A play whose debut Richard Collier celebrates in 1972.",
+        "doc_count": 1,
+        "entity_type": "other",
+        "first_seen": null,
+        "last_seen": null,
+        "locations": [
+          "Chicago"
+        ],
+        "name": "Richard Collier's new play",
+        "sentiment": "positive",
+        "sources": [],
+        "id": "Richard Collier's new play"
+      },
+      {
+        "degree": 1,
+        "description": "The city where Richard Collier lives eight years after 1972.",
+        "doc_count": 1,
+        "entity_type": "location",
+        "first_seen": null,
+        "last_seen": null,
+        "locations": [
+          "Chicago"
+        ],
+        "name": "Chicago",
+        "sentiment": "positive",
+        "sources": [],
+        "id": "Chicago"
+      },
+      {
+        "degree": 1,
+        "description": "Richard Collier's girlfriend, from whom he breaks up prior to his road trip.",
+        "doc_count": 1,
+        "entity_type": "person",
+        "first_seen": null,
+        "last_seen": null,
+        "locations": [
+          "Chicago"
+        ],
+        "name": "Richard Collier's girlfriend",
+        "sentiment": "negative",
+        "sources": [],
+        "id": "Richard Collier's girlfriend"
+      },
+      {
+        "degree": 1,
+        "description": null,
+        "doc_count": 1,
+        "entity_type": null,
+        "first_seen": null,
+        "last_seen": null,
+        "locations": [
+          "Chicago"
+        ],
+        "name": "a road trip",
+        "sentiment": "neutral",
+        "sources": [],
+        "id": "a road trip"
+      },
+      {
+        "degree": 2,
+        "description": "A hotel Richard Collier passes on a road trip, stays at, and later wanders its grounds.",
+        "doc_count": 1,
+        "entity_type": "location",
+        "first_seen": null,
+        "last_seen": null,
+        "locations": [
+          "Chicago"
+        ],
+        "name": "the Grand Hotel",
+        "sentiment": "neutral",
+        "sources": [],
+        "id": "the Grand Hotel"
+      },
+      {
+        "degree": 1,
+        "description": "An area in the Grand Hotel where Richard Collier sees a vintage photograph of Elise McKenna.",
+        "doc_count": 1,
+        "entity_type": "location",
+        "first_seen": null,
+        "last_seen": null,
+        "locations": [
+          "Chicago"
+        ],
+        "name": "the hotel's Hall of History",
+        "sentiment": "neutral",
+        "sources": [],
+        "id": "the hotel's Hall of History"
+      },
+      {
+        "degree": 1,
+        "description": "A photograph in the Grand Hotel that enthralls Richard Collier and is later identified as the same photo taken during Elise's play interval.",
+        "doc_count": 1,
+        "entity_type": "asset",
+        "first_seen": null,
+        "last_seen": null,
+        "locations": [
+          "Chicago"
+        ],
+        "name": "a vintage photograph of Elise McKenna",
+        "sentiment": "positive",
+        "sources": [],
+        "id": "a vintage photograph of Elise McKenna"
+      },
+      {
+        "degree": 13,
+        "description": "An early-20th-century stage actress whom Richard Collier falls in love with and meets in 1912.",
+        "doc_count": 1,
+        "entity_type": "person",
+        "first_seen": null,
+        "last_seen": null,
+        "locations": [
+          "Chicago"
+        ],
+        "name": "Elise McKenna",
+        "sentiment": "neutral",
+        "sources": [],
+        "id": "Elise McKenna"
+      },
+      {
+        "degree": 1,
+        "description": "Clothing Richard Collier uses as part of his attempt to time-travel to 1912.",
+        "doc_count": 1,
+        "entity_type": "asset",
+        "first_seen": null,
+        "last_seen": null,
+        "locations": [
+          "Chicago"
+        ],
+        "name": "a vintage suit",
+        "sentiment": "neutral",
+        "sources": [],
+        "id": "a vintage suit"
+      },
+      {
+        "degree": 1,
+        "description": "Money from 1912 that Richard Collier obtains to support his time-travel attempt.",
+        "doc_count": 1,
+        "entity_type": "asset",
+        "first_seen": null,
+        "last_seen": null,
+        "locations": [
+          "Chicago"
+        ],
+        "name": "1912 currency",
+        "sentiment": "neutral",
+        "sources": [],
+        "id": "1912 currency"
+      },
+      {
+        "degree": 1,
+        "description": null,
+        "doc_count": 1,
+        "entity_type": null,
+        "first_seen": null,
+        "last_seen": null,
+        "locations": [
+          "Chicago"
+        ],
+        "name": "pocket change",
+        "sentiment": "neutral",
+        "sources": [],
+        "id": "pocket change"
+      },
+      {
+        "degree": 1,
+        "description": null,
+        "doc_count": 1,
+        "entity_type": null,
+        "first_seen": null,
+        "last_seen": null,
+        "locations": [
+          "Chicago"
+        ],
+        "name": "the pocket",
+        "sentiment": "neutral",
+        "sources": [],
+        "id": "the pocket"
+      },
+      {
+        "degree": 1,
+        "description": "Recordings Richard Collier uses to attempt to will himself back to 1912.",
+        "doc_count": 1,
+        "entity_type": "product",
+        "first_seen": null,
+        "last_seen": null,
+        "locations": [
+          "Chicago"
+        ],
+        "name": "tape-recorded suggestions",
+        "sentiment": "neutral",
+        "sources": [],
+        "id": "tape-recorded suggestions"
+      },
+      {
+        "degree": 1,
+        "description": null,
+        "doc_count": 1,
+        "entity_type": null,
+        "first_seen": null,
+        "last_seen": null,
+        "locations": [
+          "Chicago"
+        ],
+        "name": "the attempt",
+        "sentiment": "negative",
+        "sources": [],
+        "id": "the attempt"
+      },
+      {
+        "degree": 1,
+        "description": "A lake in 1912 where Richard Collier sees Elise McKenna walking.",
+        "doc_count": 1,
+        "entity_type": "location",
+        "first_seen": null,
+        "last_seen": null,
+        "locations": [
+          "Chicago"
+        ],
+        "name": "the lake",
+        "sentiment": "neutral",
+        "sources": [],
+        "id": "the lake"
+      },
+      {
+        "degree": 1,
+        "description": "A planned stroll Elise McKenna agrees to take with Richard Collier.",
+        "doc_count": 1,
+        "entity_type": "event",
+        "first_seen": null,
+        "last_seen": null,
+        "locations": [
+          "Chicago"
+        ],
+        "name": "a stroll the following afternoon",
+        "sentiment": "positive",
+        "sources": [],
+        "id": "a stroll the following afternoon"
+      },
+      {
+        "degree": 5,
+        "description": "William Fawcett Robinson, Elise McKenna's manager.",
+        "doc_count": 1,
+        "entity_type": "person",
+        "first_seen": null,
+        "last_seen": null,
+        "locations": [
+          "Chicago"
+        ],
+        "name": "William Fawcett Robinson",
+        "sentiment": "negative",
+        "sources": [],
+        "id": "William Fawcett Robinson"
+      },
+      {
+        "degree": 1,
+        "description": "Richard Collier humming Rachmaninoff's Rhapsody on a rowboat, which intrigues Elise McKenna.",
+        "doc_count": 1,
+        "entity_type": "other",
+        "first_seen": null,
+        "last_seen": null,
+        "locations": [
+          "Chicago"
+        ],
+        "name": "Richard Collier's humming of Rachmaninoff's Rhapsody",
+        "sentiment": "positive",
+        "sources": [],
+        "id": "Richard Collier's humming of Rachmaninoff's Rhapsody"
+      },
+      {
+        "degree": 1,
+        "description": "A monologue Elise McKenna recites during her play while making eye contact with Richard Collier.",
+        "doc_count": 1,
+        "entity_type": "other",
+        "first_seen": null,
+        "last_seen": null,
+        "locations": [
+          "Chicago"
+        ],
+        "name": "an impromptu romantic monologue",
+        "sentiment": "positive",
+        "sources": [],
+        "id": "an impromptu romantic monologue"
+      },
+      {
+        "degree": 1,
+        "description": null,
+        "doc_count": 1,
+        "entity_type": null,
+        "first_seen": null,
+        "last_seen": null,
+        "locations": [
+          "Chicago"
+        ],
+        "name": "Richard Collier to leave Elise McKenna",
+        "sentiment": "negative",
+        "sources": [],
+        "id": "Richard Collier to leave Elise McKenna"
+      },
+      {
+        "degree": 1,
+        "description": "Robinson's stated prediction that Elise McKenna should fulfill stardom on the stage.",
+        "doc_count": 1,
+        "entity_type": "other",
+        "first_seen": null,
+        "last_seen": null,
+        "locations": [
+          "Chicago"
+        ],
+        "name": "Robinson's prediction of stardom on the stage",
+        "sentiment": "neutral",
+        "sources": [],
+        "id": "Robinson's prediction of stardom on the stage"
+      },
+      {
+        "degree": 1,
+        "description": "A place where Robinson has Richard Collier beaten and bound.",
+        "doc_count": 1,
+        "entity_type": "location",
+        "first_seen": null,
+        "last_seen": null,
+        "locations": [
+          "Chicago"
+        ],
+        "name": "the stables",
+        "sentiment": "negative",
+        "sources": [],
+        "id": "the stables"
+      },
+      {
+        "degree": 1,
+        "description": null,
+        "doc_count": 1,
+        "entity_type": null,
+        "first_seen": null,
+        "last_seen": null,
+        "locations": [
+          "Chicago"
+        ],
+        "name": "Richard Collier had left",
+        "sentiment": "negative",
+        "sources": [],
+        "id": "Richard Collier had left"
+      },
+      {
+        "degree": 1,
+        "description": "A suit Elise McKenna promises to buy for Richard Collier.",
+        "doc_count": 1,
+        "entity_type": "asset",
+        "first_seen": null,
+        "last_seen": null,
+        "locations": [
+          "Chicago"
+        ],
+        "name": "a new suit",
+        "sentiment": "positive",
+        "sources": [],
+        "id": "a new suit"
+      },
+      {
+        "degree": 1,
+        "description": null,
+        "doc_count": 1,
+        "entity_type": null,
+        "first_seen": null,
+        "last_seen": null,
+        "locations": [
+          "Chicago"
+        ],
+        "name": "the time travel",
+        "sentiment": "negative",
+        "sources": [],
+        "id": "the time travel"
+      },
+      {
+        "degree": 1,
+        "description": "The grounds around the Grand Hotel where Richard Collier wanders despondently.",
+        "doc_count": 1,
+        "entity_type": "location",
+        "first_seen": null,
+        "last_seen": null,
+        "locations": [
+          "Chicago"
+        ],
+        "name": "the hotel grounds",
+        "sentiment": "negative",
+        "sources": [],
+        "id": "the hotel grounds"
+      },
+      {
+        "degree": 1,
+        "description": null,
+        "doc_count": 1,
+        "entity_type": null,
+        "first_seen": null,
+        "last_seen": null,
+        "locations": [
+          "Chicago"
+        ],
+        "name": "food",
+        "sentiment": "negative",
+        "sources": [],
+        "id": "food"
+      },
+      {
+        "degree": 1,
+        "description": "A manager at the Grand Hotel who finds Richard Collier catatonic in his room.",
+        "doc_count": 1,
+        "entity_type": "person",
+        "first_seen": null,
+        "last_seen": null,
+        "locations": [
+          "Chicago"
+        ],
+        "name": "the hotel manager",
+        "sentiment": "neutral",
+        "sources": [],
+        "id": "the hotel manager"
+      },
+      {
+        "degree": 1,
+        "description": "A room at the Grand Hotel where Richard Collier is found catatonic.",
+        "doc_count": 1,
+        "entity_type": "location",
+        "first_seen": null,
+        "last_seen": null,
+        "locations": [
+          "Chicago"
+        ],
+        "name": "Richard Collier's hotel room",
+        "sentiment": "negative",
+        "sources": [],
+        "id": "Richard Collier's hotel room"
+      },
+      {
+        "degree": 1,
+        "description": "A hospital Richard Collier cannot be taken to before he dies.",
+        "doc_count": 1,
+        "entity_type": "location",
+        "first_seen": null,
+        "last_seen": null,
+        "locations": [
+          "Chicago"
+        ],
+        "name": "a hospital",
+        "sentiment": "negative",
+        "sources": [],
+        "id": "a hospital"
+      },
+      {
+        "degree": 1,
+        "description": "A realm where Richard Collier is stated to be reunited with Elise McKenna.",
+        "doc_count": 1,
+        "entity_type": "other",
+        "first_seen": null,
+        "last_seen": null,
+        "locations": [
+          "Chicago"
+        ],
+        "name": "the afterlife",
+        "sentiment": "positive",
+        "sources": [],
+        "id": "the afterlife"
+      }
+    ],
+    "links": [
+      {
+        "date": null,
+        "dates": [],
+        "documents": [
+          0
+        ],
+        "label": "was a college theater student in",
+        "locations": [
+          "Chicago"
+        ],
+        "relation_type": "other",
+        "sentiment": "neutral",
+        "source_name": "Richard Collier",
+        "sources": [],
+        "target_name": "1972",
+        "source": "Richard Collier",
+        "target": "1972",
+        "key": 0
+      },
+      {
+        "date": null,
+        "dates": [],
+        "documents": [
+          0
+        ],
+        "label": "celebrated the debut of",
+        "locations": [
+          "Chicago"
+        ],
+        "relation_type": "other",
+        "sentiment": "positive",
+        "source_name": "Richard Collier",
+        "sources": [],
+        "target_name": "Richard Collier's new play",
+        "source": "Richard Collier",
+        "target": "Richard Collier's new play",
+        "key": 1
+      },
+      {
+        "date": null,
+        "dates": [],
+        "documents": [
+          0
+        ],
+        "label": "was a successful playwright living in",
+        "locations": [
+          "Chicago"
+        ],
+        "relation_type": "location",
+        "sentiment": "positive",
+        "source_name": "Richard Collier",
+        "sources": [],
+        "target_name": "Chicago",
+        "source": "Richard Collier",
+        "target": "Chicago",
+        "key": 5
+      },
+      {
+        "date": null,
+        "dates": [],
+        "documents": [
+          0
+        ],
+        "label": "struggled with writer's block after breaking up with",
+        "locations": [
+          "Chicago"
+        ],
+        "relation_type": "conflict",
+        "sentiment": "negative",
+        "source_name": "Richard Collier",
+        "sources": [],
+        "target_name": "Richard Collier's girlfriend",
+        "source": "Richard Collier",
+        "target": "Richard Collier's girlfriend",
+        "key": 6
+      },
+      {
+        "date": null,
+        "dates": [],
+        "documents": [
+          0
+        ],
+        "label": "took",
+        "locations": [
+          "Chicago"
+        ],
+        "relation_type": "other",
+        "sentiment": "neutral",
+        "source_name": "Richard Collier",
+        "sources": [],
+        "target_name": "a road trip",
+        "source": "Richard Collier",
+        "target": "a road trip",
+        "key": 7
+      },
+      {
+        "date": null,
+        "dates": [],
+        "documents": [
+          0
+        ],
+        "label": "passed",
+        "locations": [
+          "Chicago"
+        ],
+        "relation_type": "location",
+        "sentiment": "neutral",
+        "source_name": "Richard Collier",
+        "sources": [],
+        "target_name": "the Grand Hotel",
+        "source": "Richard Collier",
+        "target": "the Grand Hotel",
+        "key": 8
+      },
+      {
+        "date": null,
+        "dates": [],
+        "documents": [
+          0
+        ],
+        "label": "had the impulse to stay at",
+        "locations": [
+          "Chicago"
+        ],
+        "relation_type": "location",
+        "sentiment": "neutral",
+        "source_name": "Richard Collier",
+        "sources": [],
+        "target_name": "the Grand Hotel",
+        "source": "Richard Collier",
+        "target": "the Grand Hotel",
+        "key": 9
+      },
+      {
+        "date": null,
+        "dates": [],
+        "documents": [
+          0
+        ],
+        "label": "was in",
+        "locations": [
+          "Chicago"
+        ],
+        "relation_type": "location",
+        "sentiment": "neutral",
+        "source_name": "Richard Collier",
+        "sources": [],
+        "target_name": "the hotel's Hall of History",
+        "source": "Richard Collier",
+        "target": "the hotel's Hall of History",
+        "key": 10
+      },
+      {
+        "date": null,
+        "dates": [],
+        "documents": [
+          0
+        ],
+        "label": "became enthralled with",
+        "locations": [
+          "Chicago"
+        ],
+        "relation_type": "other",
+        "sentiment": "positive",
+        "source_name": "Richard Collier",
+        "sources": [],
+        "target_name": "a vintage photograph of Elise McKenna",
+        "source": "Richard Collier",
+        "target": "a vintage photograph of Elise McKenna",
+        "key": 11
+      },
+      {
+        "date": null,
+        "dates": [],
+        "documents": [
+          0
+        ],
+        "label": "fell in love with",
+        "locations": [
+          "Chicago"
+        ],
+        "relation_type": "other",
+        "sentiment": "positive",
+        "source_name": "Richard Collier",
+        "sources": [],
+        "target_name": "Elise McKenna",
+        "source": "Richard Collier",
+        "target": "Elise McKenna",
+        "key": 22
+      },
+      {
+        "date": null,
+        "dates": [],
+        "documents": [
+          0
+        ],
+        "label": "outfitted himself with",
+        "locations": [
+          "Chicago"
+        ],
+        "relation_type": "ownership",
+        "sentiment": "neutral",
+        "source_name": "Richard Collier",
+        "sources": [],
+        "target_name": "a vintage suit",
+        "source": "Richard Collier",
+        "target": "a vintage suit",
+        "key": 26
+      },
+      {
+        "date": null,
+        "dates": [],
+        "documents": [
+          0
+        ],
+        "label": "outfitted himself with",
+        "locations": [
+          "Chicago"
+        ],
+        "relation_type": "ownership",
+        "sentiment": "neutral",
+        "source_name": "Richard Collier",
+        "sources": [],
+        "target_name": "1912 currency",
+        "source": "Richard Collier",
+        "target": "1912 currency",
+        "key": 27
+      },
+      {
+        "date": null,
+        "dates": [],
+        "documents": [
+          0
+        ],
+        "label": "filled a coin pocket in the suit with",
+        "locations": [
+          "Chicago"
+        ],
+        "relation_type": "other",
+        "sentiment": "neutral",
+        "source_name": "Richard Collier",
+        "sources": [],
+        "target_name": "pocket change",
+        "source": "Richard Collier",
+        "target": "pocket change",
+        "key": 28
+      },
+      {
+        "date": null,
+        "dates": [],
+        "documents": [
+          0
+        ],
+        "label": "emptied",
+        "locations": [
+          "Chicago"
+        ],
+        "relation_type": "other",
+        "sentiment": "neutral",
+        "source_name": "Richard Collier",
+        "sources": [],
+        "target_name": "the pocket",
+        "source": "Richard Collier",
+        "target": "the pocket",
+        "key": 30
+      },
+      {
+        "date": null,
+        "dates": [],
+        "documents": [
+          0
+        ],
+        "label": "attempted to will himself to 1912 using",
+        "locations": [
+          "Chicago"
+        ],
+        "relation_type": "other",
+        "sentiment": "neutral",
+        "source_name": "Richard Collier",
+        "sources": [],
+        "target_name": "tape-recorded suggestions",
+        "source": "Richard Collier",
+        "target": "tape-recorded suggestions",
+        "key": 31
+      },
+      {
+        "date": null,
+        "dates": [],
+        "documents": [
+          0
+        ],
+        "label": "found Elise McKenna walking by",
+        "locations": [
+          "Chicago"
+        ],
+        "relation_type": "location",
+        "sentiment": "neutral",
+        "source_name": "Richard Collier",
+        "sources": [],
+        "target_name": "the lake",
+        "source": "Richard Collier",
+        "target": "the lake",
+        "key": 36
+      },
+      {
+        "date": null,
+        "dates": [],
+        "documents": [
+          0
+        ],
+        "label": "was beaten and bound inside",
+        "locations": [
+          "Chicago"
+        ],
+        "relation_type": "location",
+        "sentiment": "negative",
+        "source_name": "Richard Collier",
+        "sources": [],
+        "target_name": "the stables",
+        "source": "Richard Collier",
+        "target": "the stables",
+        "key": 58
+      },
+      {
+        "date": null,
+        "dates": [],
+        "documents": [
+          0
+        ],
+        "label": "was physically weakened by",
+        "locations": [
+          "Chicago"
+        ],
+        "relation_type": "other",
+        "sentiment": "negative",
+        "source_name": "Richard Collier",
+        "sources": [],
+        "target_name": "the time travel",
+        "source": "Richard Collier",
+        "target": "the time travel",
+        "key": 67
+      },
+      {
+        "date": null,
+        "dates": [],
+        "documents": [
+          0
+        ],
+        "label": "wandered",
+        "locations": [
+          "Chicago"
+        ],
+        "relation_type": "location",
+        "sentiment": "negative",
+        "source_name": "Richard Collier",
+        "sources": [],
+        "target_name": "the hotel grounds",
+        "source": "Richard Collier",
+        "target": "the hotel grounds",
+        "key": 69
+      },
+      {
+        "date": null,
+        "dates": [],
+        "documents": [
+          0
+        ],
+        "label": "stopped eating",
+        "locations": [
+          "Chicago"
+        ],
+        "relation_type": "other",
+        "sentiment": "negative",
+        "source_name": "Richard Collier",
+        "sources": [],
+        "target_name": "food",
+        "source": "Richard Collier",
+        "target": "food",
+        "key": 70
+      },
+      {
+        "date": null,
+        "dates": [],
+        "documents": [
+          0
+        ],
+        "label": "was catatonic in",
+        "locations": [
+          "Chicago"
+        ],
+        "relation_type": "location",
+        "sentiment": "negative",
+        "source_name": "Richard Collier",
+        "sources": [],
+        "target_name": "Richard Collier's hotel room",
+        "source": "Richard Collier",
+        "target": "Richard Collier's hotel room",
+        "key": 72
+      },
+      {
+        "date": null,
+        "dates": [],
+        "documents": [
+          0
+        ],
+        "label": "died before being taken to",
+        "locations": [
+          "Chicago"
+        ],
+        "relation_type": "other",
+        "sentiment": "negative",
+        "source_name": "Richard Collier",
+        "sources": [],
+        "target_name": "a hospital",
+        "source": "Richard Collier",
+        "target": "a hospital",
+        "key": 73
+      },
+      {
+        "date": null,
+        "dates": [],
+        "documents": [
+          0
+        ],
+        "label": "was reunited with Elise McKenna in",
+        "locations": [
+          "Chicago"
+        ],
+        "relation_type": "location",
+        "sentiment": "positive",
+        "source_name": "Richard Collier",
+        "sources": [],
+        "target_name": "the afterlife",
+        "source": "Richard Collier",
+        "target": "the afterlife",
+        "key": 74
+      },
+      {
+        "date": null,
+        "dates": [],
+        "documents": [
+          0
+        ],
+        "label": "asked",
+        "locations": [
+          "Chicago"
+        ],
+        "relation_type": "communication",
+        "sentiment": "neutral",
+        "source_name": "Elise McKenna",
+        "sources": [],
+        "target_name": "Richard Collier",
+        "source": "Elise McKenna",
+        "target": "Richard Collier",
+        "key": 37
+      },
+      {
+        "date": null,
+        "dates": [],
+        "documents": [
+          0
+        ],
+        "label": "agreed to accompany Richard Collier on",
+        "locations": [
+          "Chicago"
+        ],
+        "relation_type": "other",
+        "sentiment": "positive",
+        "source_name": "Elise McKenna",
+        "sources": [],
+        "target_name": "a stroll the following afternoon",
+        "source": "Elise McKenna",
+        "target": "a stroll the following afternoon",
+        "key": 40
+      },
+      {
+        "date": null,
+        "dates": [],
+        "documents": [
+          0
+        ],
+        "label": "recited",
+        "locations": [
+          "Chicago"
+        ],
+        "relation_type": "communication",
+        "sentiment": "positive",
+        "source_name": "Elise McKenna",
+        "sources": [],
+        "target_name": "an impromptu romantic monologue",
+        "source": "Elise McKenna",
+        "target": "an impromptu romantic monologue",
+        "key": 49
+      },
+      {
+        "date": null,
+        "dates": [],
+        "documents": [
+          0
+        ],
+        "label": "promised to buy",
+        "locations": [
+          "Chicago"
+        ],
+        "relation_type": "transaction",
+        "sentiment": "positive",
+        "source_name": "Elise McKenna",
+        "sources": [],
+        "target_name": "a new suit",
+        "source": "Elise McKenna",
+        "target": "a new suit",
+        "key": 62
+      },
+      {
+        "date": null,
+        "dates": [],
+        "documents": [
+          0
+        ],
+        "label": "failed",
+        "locations": [
+          "Chicago"
+        ],
+        "relation_type": "other",
+        "sentiment": "negative",
+        "source_name": "the attempt",
+        "sources": [],
+        "target_name": "Richard Collier",
+        "source": "the attempt",
+        "target": "Richard Collier",
+        "key": 32
+      },
+      {
+        "date": null,
+        "dates": [],
+        "documents": [
+          0
+        ],
+        "label": "wanted",
+        "locations": [
+          "Chicago"
+        ],
+        "relation_type": "conflict",
+        "sentiment": "negative",
+        "source_name": "William Fawcett Robinson",
+        "sources": [],
+        "target_name": "Richard Collier to leave Elise McKenna",
+        "source": "William Fawcett Robinson",
+        "target": "Richard Collier to leave Elise McKenna",
+        "key": 55
+      },
+      {
+        "date": null,
+        "dates": [],
+        "documents": [
+          0
+        ],
+        "label": "wanted Elise McKenna to fulfill",
+        "locations": [
+          "Chicago"
+        ],
+        "relation_type": "other",
+        "sentiment": "neutral",
+        "source_name": "William Fawcett Robinson",
+        "sources": [],
+        "target_name": "Robinson's prediction of stardom on the stage",
+        "source": "William Fawcett Robinson",
+        "target": "Robinson's prediction of stardom on the stage",
+        "key": 56
+      },
+      {
+        "date": null,
+        "dates": [],
+        "documents": [
+          0
+        ],
+        "label": "had beaten and bound",
+        "locations": [
+          "Chicago"
+        ],
+        "relation_type": "conflict",
+        "sentiment": "negative",
+        "source_name": "William Fawcett Robinson",
+        "sources": [],
+        "target_name": "Richard Collier",
+        "source": "William Fawcett Robinson",
+        "target": "Richard Collier",
+        "key": 57
+      },
+      {
+        "date": null,
+        "dates": [],
+        "documents": [
+          0
+        ],
+        "label": "told Elise McKenna that",
+        "locations": [
+          "Chicago"
+        ],
+        "relation_type": "communication",
+        "sentiment": "negative",
+        "source_name": "William Fawcett Robinson",
+        "sources": [],
+        "target_name": "Richard Collier had left",
+        "source": "William Fawcett Robinson",
+        "target": "Richard Collier had left",
+        "key": 59
+      },
+      {
+        "date": null,
+        "dates": [],
+        "documents": [
+          0
+        ],
+        "label": "intrigued",
+        "locations": [
+          "Chicago"
+        ],
+        "relation_type": "communication",
+        "sentiment": "positive",
+        "source_name": "Richard Collier's humming of Rachmaninoff's Rhapsody",
+        "sources": [],
+        "target_name": "Elise McKenna",
+        "source": "Richard Collier's humming of Rachmaninoff's Rhapsody",
+        "target": "Elise McKenna",
+        "key": 44
+      },
+      {
+        "date": null,
+        "dates": [],
+        "documents": [
+          0
+        ],
+        "label": "found",
+        "locations": [
+          "Chicago"
+        ],
+        "relation_type": "other",
+        "sentiment": "neutral",
+        "source_name": "the hotel manager",
+        "sources": [],
+        "target_name": "Richard Collier",
+        "source": "the hotel manager",
+        "target": "Richard Collier",
+        "key": 71
+      }
+    ]
+  }
+}

@@ -1,0 +1,1543 @@
+{
+  "documents": [
+    {
+      "date": 771724800000,
+      "id": 0,
+      "location": "Vienna",
+      "name": "before_sunrise",
+      "source": null,
+      "text": "On June 16, 1994, Jesse meets Céline on a train from Budapest, and they strike up a conversation. Jesse is going to Vienna with a Eurail pass to catch a flight back to the United States, whereas Céline is returning to university in Paris after visiting her grandmother in Budapest. When they reach Vienna, Jesse asks Céline to disembark with him, saying that 10 or 20 years down the road, she might not be happy with her significant other and might wonder how her life would have been different if she had picked someone else. Alternatively, she may just realize Jesse himself is not that different from the rest. Lacking the money to rent a room for the night, they decide to roam around in Vienna until Jesse's flight the next morning.\n\nAfter visiting a few landmarks in Vienna, they share a kiss at the top of the Wiener Riesenrad at sunset and start to feel a romantic connection. As they continue to roam around the city, they begin to talk more openly with each other, with conversations ranging from topics about love, life, religion, and their observations of Vienna.\n\nWhen they are walking alongside the Donaukanal, they are approached by a man who offers to write them a poem with a word of their choice inside. Jesse and Céline decide on the word \"milkshake” and are soon presented with the poem \"Delusion Angel\" (written for the film by poet David Jewell)—a poem that Jesse cynically claims the man had already previously written and just inserts the words people choose.\n\nLater, while playing pinball at a local club, Céline tells Jesse that her last boyfriend broke up with her six months ago, claiming that she \"loved him too much.” When questioned, Jesse reveals he had initially come to Europe to spend time with his girlfriend who was studying in Madrid, but they broke up soon after he was there. He found a cheap flight home, via Vienna, but it did not leave for two weeks so he bought a Eurail pass and traveled around Europe. In a Viennese café, Jesse and Céline stage fake phone conversations with each other, playing each other's friends they pretend to call. Céline reveals that she was ready to get off the train with Jesse before he convinced her. Jesse reveals that after he broke up with his girlfriend, he bought a flight that really was not much cheaper, and all he really wanted was an escape from his life.\n\nThey admit their attraction to each other and how the night has made them feel, though they understand that they probably will not see each other again. They decide to make the best of what time they have left. They then get a bottle of wine and share it together in a park and begin discussing whether or not they should have sex. Céline says that she doesn't just want to be a one-night stand for Jesse; Jesse then explains that, if given the choice, he would marry her instead of never seeing her again. They begin kissing passionately and embracing each other, then it is heavily implied Jesse and Céline have sex in the park. The film ends the next day at the train station, where, just as Céline's train is about to leave, the couple decide not to exchange any contact information but instead meet at the same place in six months.",
+      "title": null
+    }
+  ],
+  "graph": {
+    "directed": true,
+    "multigraph": true,
+    "graph": {},
+    "nodes": [
+      {
+        "degree": 18,
+        "description": "A traveler who meets Céline on a train from Budapest and plans to catch a flight from Vienna back to the United States.",
+        "doc_count": 1,
+        "entity_type": "person",
+        "first_seen": 771724800000,
+        "last_seen": 771724800000,
+        "locations": [
+          "Vienna"
+        ],
+        "name": "Jesse",
+        "sentiment": "neutral",
+        "sources": [],
+        "id": "Jesse"
+      },
+      {
+        "degree": 9,
+        "description": "A university student returning to Paris after visiting her grandmother in Budapest who meets Jesse on a train.",
+        "doc_count": 1,
+        "entity_type": "person",
+        "first_seen": 771724800000,
+        "last_seen": 771724800000,
+        "locations": [
+          "Vienna"
+        ],
+        "name": "Céline",
+        "sentiment": "neutral",
+        "sources": [],
+        "id": "Céline"
+      },
+      {
+        "degree": 1,
+        "description": "The train on which Jesse meets Céline.",
+        "doc_count": 1,
+        "entity_type": "asset",
+        "first_seen": 771724800000,
+        "last_seen": 771724800000,
+        "locations": [
+          "Vienna"
+        ],
+        "name": "a train from Budapest",
+        "sentiment": "neutral",
+        "sources": [],
+        "id": "a train from Budapest"
+      },
+      {
+        "degree": 3,
+        "description": "The city where Jesse and Céline disembark and spend the night roaming before Jesse's flight.",
+        "doc_count": 1,
+        "entity_type": "location",
+        "first_seen": 771724800000,
+        "last_seen": 771724800000,
+        "locations": [
+          "Vienna"
+        ],
+        "name": "Vienna",
+        "sentiment": "neutral",
+        "sources": [],
+        "id": "Vienna"
+      },
+      {
+        "degree": 2,
+        "description": "A pass Jesse uses to travel, including going to Vienna and traveling around Europe.",
+        "doc_count": 1,
+        "entity_type": "asset",
+        "first_seen": 771724800000,
+        "last_seen": 771724800000,
+        "locations": [
+          "Vienna"
+        ],
+        "name": "a Eurail pass",
+        "sentiment": "neutral",
+        "sources": [],
+        "id": "a Eurail pass"
+      },
+      {
+        "degree": 2,
+        "description": "The flight Jesse intends to catch from Vienna to return to the United States.",
+        "doc_count": 1,
+        "entity_type": "asset",
+        "first_seen": 771724800000,
+        "last_seen": 771724800000,
+        "locations": [
+          "Vienna"
+        ],
+        "name": "a flight back to the United States",
+        "sentiment": "neutral",
+        "sources": [],
+        "id": "a flight back to the United States"
+      },
+      {
+        "degree": 1,
+        "description": "Jesse's destination after his flight from Vienna.",
+        "doc_count": 1,
+        "entity_type": "location",
+        "first_seen": 771724800000,
+        "last_seen": 771724800000,
+        "locations": [
+          "Vienna"
+        ],
+        "name": "the United States",
+        "sentiment": "neutral",
+        "sources": [],
+        "id": "the United States"
+      },
+      {
+        "degree": 1,
+        "description": "The city where Céline is returning to university.",
+        "doc_count": 1,
+        "entity_type": "location",
+        "first_seen": 771724800000,
+        "last_seen": 771724800000,
+        "locations": [
+          "Vienna"
+        ],
+        "name": "Paris",
+        "sentiment": "neutral",
+        "sources": [],
+        "id": "Paris"
+      },
+      {
+        "degree": 2,
+        "description": "Céline's grandmother, whom Céline visited in Budapest.",
+        "doc_count": 1,
+        "entity_type": "person",
+        "first_seen": 771724800000,
+        "last_seen": 771724800000,
+        "locations": [
+          "Vienna"
+        ],
+        "name": "Céline's grandmother",
+        "sentiment": "neutral",
+        "sources": [],
+        "id": "Céline's grandmother"
+      },
+      {
+        "degree": 1,
+        "description": "The departure city for the train where Jesse meets Céline and where Céline visited her grandmother.",
+        "doc_count": 1,
+        "entity_type": "location",
+        "first_seen": 771724800000,
+        "last_seen": 771724800000,
+        "locations": [
+          "Vienna"
+        ],
+        "name": "Budapest",
+        "sentiment": "neutral",
+        "sources": [],
+        "id": "Budapest"
+      },
+      {
+        "degree": 1,
+        "description": null,
+        "doc_count": 1,
+        "entity_type": null,
+        "first_seen": 771724800000,
+        "last_seen": 771724800000,
+        "locations": [
+          "Vienna"
+        ],
+        "name": "Céline's significant other",
+        "sentiment": "negative",
+        "sources": [],
+        "id": "Céline's significant other"
+      },
+      {
+        "degree": 1,
+        "description": null,
+        "doc_count": 1,
+        "entity_type": null,
+        "first_seen": 771724800000,
+        "last_seen": 771724800000,
+        "locations": [
+          "Vienna"
+        ],
+        "name": "the rest",
+        "sentiment": "neutral",
+        "sources": [],
+        "id": "the rest"
+      },
+      {
+        "degree": 1,
+        "description": null,
+        "doc_count": 1,
+        "entity_type": null,
+        "first_seen": 771724800000,
+        "last_seen": 771724800000,
+        "locations": [
+          "Vienna"
+        ],
+        "name": "a room for the night",
+        "sentiment": "negative",
+        "sources": [],
+        "id": "a room for the night"
+      },
+      {
+        "degree": 1,
+        "description": "The flight Jesse is scheduled to take the morning after roaming Vienna with Céline.",
+        "doc_count": 1,
+        "entity_type": "asset",
+        "first_seen": 771724800000,
+        "last_seen": 771724800000,
+        "locations": [
+          "Vienna"
+        ],
+        "name": "Jesse's flight the next morning",
+        "sentiment": "neutral",
+        "sources": [],
+        "id": "Jesse's flight the next morning"
+      },
+      {
+        "degree": 1,
+        "description": "A landmark in Vienna where Jesse and Céline kiss at the top at sunset.",
+        "doc_count": 1,
+        "entity_type": "location",
+        "first_seen": 771724800000,
+        "last_seen": 771724800000,
+        "locations": [
+          "Vienna"
+        ],
+        "name": "the Wiener Riesenrad",
+        "sentiment": "positive",
+        "sources": [],
+        "id": "the Wiener Riesenrad"
+      },
+      {
+        "degree": 4,
+        "description": "A man who approaches Jesse and Céline alongside the Donaukanal and offers to write them a poem.",
+        "doc_count": 1,
+        "entity_type": "person",
+        "first_seen": 771724800000,
+        "last_seen": 771724800000,
+        "locations": [
+          "Vienna"
+        ],
+        "name": "a man",
+        "sentiment": "neutral",
+        "sources": [],
+        "id": "a man"
+      },
+      {
+        "degree": 13,
+        "description": null,
+        "doc_count": 1,
+        "entity_type": null,
+        "first_seen": 771724800000,
+        "last_seen": 771724800000,
+        "locations": [
+          "Vienna"
+        ],
+        "name": "Jesse and Céline",
+        "sentiment": "neutral",
+        "sources": [],
+        "id": "Jesse and Céline"
+      },
+      {
+        "degree": 1,
+        "description": "The word Jesse and Céline choose to be included inside the poem they are offered.",
+        "doc_count": 1,
+        "entity_type": "other",
+        "first_seen": 771724800000,
+        "last_seen": 771724800000,
+        "locations": [
+          "Vienna"
+        ],
+        "name": "the word \"milkshake\"",
+        "sentiment": "neutral",
+        "sources": [],
+        "id": "the word \"milkshake\""
+      },
+      {
+        "degree": 4,
+        "description": "A poem presented to Jesse and Céline after they choose the word \"milkshake\".",
+        "doc_count": 1,
+        "entity_type": "product",
+        "first_seen": 771724800000,
+        "last_seen": 771724800000,
+        "locations": [
+          "Vienna"
+        ],
+        "name": "the poem \"Delusion Angel\"",
+        "sentiment": "negative",
+        "sources": [],
+        "id": "the poem \"Delusion Angel\""
+      },
+      {
+        "degree": 1,
+        "description": "The poet credited in the text as having written \"Delusion Angel\" for the film.",
+        "doc_count": 1,
+        "entity_type": "person",
+        "first_seen": 771724800000,
+        "last_seen": 771724800000,
+        "locations": [
+          "Vienna"
+        ],
+        "name": "poet David Jewell",
+        "sentiment": "neutral",
+        "sources": [],
+        "id": "poet David Jewell"
+      },
+      {
+        "degree": 2,
+        "description": "The game Jesse and Céline play at a local club.",
+        "doc_count": 1,
+        "entity_type": "product",
+        "first_seen": 771724800000,
+        "last_seen": 771724800000,
+        "locations": [
+          "Vienna"
+        ],
+        "name": "pinball",
+        "sentiment": "neutral",
+        "sources": [],
+        "id": "pinball"
+      },
+      {
+        "degree": 2,
+        "description": "Céline's previous boyfriend who broke up with her six months earlier.",
+        "doc_count": 1,
+        "entity_type": "person",
+        "first_seen": 771724800000,
+        "last_seen": 771724800000,
+        "locations": [
+          "Vienna"
+        ],
+        "name": "Céline's last boyfriend",
+        "sentiment": "negative",
+        "sources": [],
+        "id": "Céline's last boyfriend"
+      },
+      {
+        "degree": 1,
+        "description": null,
+        "doc_count": 1,
+        "entity_type": null,
+        "first_seen": 771724800000,
+        "last_seen": 771724800000,
+        "locations": [
+          "Vienna"
+        ],
+        "name": "six months ago",
+        "sentiment": "negative",
+        "sources": [],
+        "id": "six months ago"
+      },
+      {
+        "degree": 2,
+        "description": "Jesse's girlfriend who was studying in Madrid and later broke up with Jesse.",
+        "doc_count": 1,
+        "entity_type": "person",
+        "first_seen": 771724800000,
+        "last_seen": 771724800000,
+        "locations": [
+          "Vienna"
+        ],
+        "name": "Jesse's girlfriend",
+        "sentiment": "neutral",
+        "sources": [],
+        "id": "Jesse's girlfriend"
+      },
+      {
+        "degree": 1,
+        "description": "The city where Jesse's girlfriend was studying.",
+        "doc_count": 1,
+        "entity_type": "location",
+        "first_seen": 771724800000,
+        "last_seen": 771724800000,
+        "locations": [
+          "Vienna"
+        ],
+        "name": "Madrid",
+        "sentiment": "neutral",
+        "sources": [],
+        "id": "Madrid"
+      },
+      {
+        "degree": 3,
+        "description": "A flight Jesse finds after breaking up with his girlfriend, routed via Vienna.",
+        "doc_count": 1,
+        "entity_type": "asset",
+        "first_seen": 771724800000,
+        "last_seen": 771724800000,
+        "locations": [
+          "Vienna"
+        ],
+        "name": "a cheap flight home",
+        "sentiment": "neutral",
+        "sources": [],
+        "id": "a cheap flight home"
+      },
+      {
+        "degree": 1,
+        "description": null,
+        "doc_count": 1,
+        "entity_type": null,
+        "first_seen": 771724800000,
+        "last_seen": 771724800000,
+        "locations": [
+          "Vienna"
+        ],
+        "name": "two weeks",
+        "sentiment": "neutral",
+        "sources": [],
+        "id": "two weeks"
+      },
+      {
+        "degree": 1,
+        "description": "The continent where Jesse travels around using a Eurail pass.",
+        "doc_count": 1,
+        "entity_type": "location",
+        "first_seen": 771724800000,
+        "last_seen": 771724800000,
+        "locations": [
+          "Vienna"
+        ],
+        "name": "Europe",
+        "sentiment": "neutral",
+        "sources": [],
+        "id": "Europe"
+      },
+      {
+        "degree": 1,
+        "description": "A café in Vienna where Jesse and Céline stage fake phone conversations.",
+        "doc_count": 1,
+        "entity_type": "location",
+        "first_seen": 771724800000,
+        "last_seen": 771724800000,
+        "locations": [
+          "Vienna"
+        ],
+        "name": "a Viennese café",
+        "sentiment": "positive",
+        "sources": [],
+        "id": "a Viennese café"
+      },
+      {
+        "degree": 1,
+        "description": null,
+        "doc_count": 1,
+        "entity_type": null,
+        "first_seen": 771724800000,
+        "last_seen": 771724800000,
+        "locations": [
+          "Vienna"
+        ],
+        "name": "each other's friends",
+        "sentiment": "neutral",
+        "sources": [],
+        "id": "each other's friends"
+      },
+      {
+        "degree": 1,
+        "description": null,
+        "doc_count": 1,
+        "entity_type": null,
+        "first_seen": 771724800000,
+        "last_seen": 771724800000,
+        "locations": [
+          "Vienna"
+        ],
+        "name": "an escape from Jesse's life",
+        "sentiment": "neutral",
+        "sources": [],
+        "id": "an escape from Jesse's life"
+      },
+      {
+        "degree": 1,
+        "description": null,
+        "doc_count": 1,
+        "entity_type": null,
+        "first_seen": 771724800000,
+        "last_seen": 771724800000,
+        "locations": [
+          "Vienna"
+        ],
+        "name": "each other",
+        "sentiment": "positive",
+        "sources": [],
+        "id": "each other"
+      },
+      {
+        "degree": 1,
+        "description": null,
+        "doc_count": 1,
+        "entity_type": null,
+        "first_seen": 771724800000,
+        "last_seen": 771724800000,
+        "locations": [
+          "Vienna"
+        ],
+        "name": "each other again",
+        "sentiment": "negative",
+        "sources": [],
+        "id": "each other again"
+      },
+      {
+        "degree": 1,
+        "description": null,
+        "doc_count": 1,
+        "entity_type": null,
+        "first_seen": 771724800000,
+        "last_seen": 771724800000,
+        "locations": [
+          "Vienna"
+        ],
+        "name": "what time they have left",
+        "sentiment": "positive",
+        "sources": [],
+        "id": "what time they have left"
+      },
+      {
+        "degree": 2,
+        "description": "The wine Jesse and Céline get and share together in a park.",
+        "doc_count": 1,
+        "entity_type": "product",
+        "first_seen": 771724800000,
+        "last_seen": 771724800000,
+        "locations": [
+          "Vienna"
+        ],
+        "name": "a bottle of wine",
+        "sentiment": "neutral",
+        "sources": [],
+        "id": "a bottle of wine"
+      },
+      {
+        "degree": 2,
+        "description": "The park where Jesse and Céline share wine and discuss whether to have sex.",
+        "doc_count": 1,
+        "entity_type": "location",
+        "first_seen": 771724800000,
+        "last_seen": 771724800000,
+        "locations": [
+          "Vienna"
+        ],
+        "name": "a park",
+        "sentiment": "neutral",
+        "sources": [],
+        "id": "a park"
+      },
+      {
+        "degree": 1,
+        "description": null,
+        "doc_count": 1,
+        "entity_type": null,
+        "first_seen": 771724800000,
+        "last_seen": 771724800000,
+        "locations": [
+          "Vienna"
+        ],
+        "name": "having sex",
+        "sentiment": "neutral",
+        "sources": [],
+        "id": "having sex"
+      }
+    ],
+    "links": [
+      {
+        "date": 771724800000,
+        "dates": [
+          771724800000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "meets",
+        "locations": [
+          "Vienna"
+        ],
+        "relation_type": "other",
+        "sentiment": "neutral",
+        "source_name": "Jesse",
+        "sources": [],
+        "target_name": "Céline",
+        "source": "Jesse",
+        "target": "Céline",
+        "key": 0
+      },
+      {
+        "date": 771724800000,
+        "dates": [
+          771724800000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "meets Céline on",
+        "locations": [
+          "Vienna"
+        ],
+        "relation_type": "location",
+        "sentiment": "neutral",
+        "source_name": "Jesse",
+        "sources": [],
+        "target_name": "a train from Budapest",
+        "source": "Jesse",
+        "target": "a train from Budapest",
+        "key": 1
+      },
+      {
+        "date": 771724800000,
+        "dates": [
+          771724800000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "is going to",
+        "locations": [
+          "Vienna"
+        ],
+        "relation_type": "location",
+        "sentiment": "neutral",
+        "source_name": "Jesse",
+        "sources": [],
+        "target_name": "Vienna",
+        "source": "Jesse",
+        "target": "Vienna",
+        "key": 2
+      },
+      {
+        "date": 771724800000,
+        "dates": [
+          771724800000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "is going to Vienna with",
+        "locations": [
+          "Vienna"
+        ],
+        "relation_type": "other",
+        "sentiment": "neutral",
+        "source_name": "Jesse",
+        "sources": [],
+        "target_name": "a Eurail pass",
+        "source": "Jesse",
+        "target": "a Eurail pass",
+        "key": 3
+      },
+      {
+        "date": 771724800000,
+        "dates": [
+          771724800000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "bought",
+        "locations": [
+          "Vienna"
+        ],
+        "relation_type": "transaction",
+        "sentiment": "neutral",
+        "source_name": "Jesse",
+        "sources": [],
+        "target_name": "a Eurail pass",
+        "source": "Jesse",
+        "target": "a Eurail pass",
+        "key": 33
+      },
+      {
+        "date": 771724800000,
+        "dates": [
+          771724800000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "is going to Vienna to catch",
+        "locations": [
+          "Vienna"
+        ],
+        "relation_type": "transaction",
+        "sentiment": "neutral",
+        "source_name": "Jesse",
+        "sources": [],
+        "target_name": "a flight back to the United States",
+        "source": "Jesse",
+        "target": "a flight back to the United States",
+        "key": 4
+      },
+      {
+        "date": 771724800000,
+        "dates": [
+          771724800000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "says that 10 or 20 years down the road, Céline might not be happy with",
+        "locations": [
+          "Vienna"
+        ],
+        "relation_type": "other",
+        "sentiment": "negative",
+        "source_name": "Jesse",
+        "sources": [],
+        "target_name": "Céline's significant other",
+        "source": "Jesse",
+        "target": "Céline's significant other",
+        "key": 9
+      },
+      {
+        "date": 771724800000,
+        "dates": [
+          771724800000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "lacks the money to rent",
+        "locations": [
+          "Vienna"
+        ],
+        "relation_type": "transaction",
+        "sentiment": "negative",
+        "source_name": "Jesse",
+        "sources": [],
+        "target_name": "a room for the night",
+        "source": "Jesse",
+        "target": "a room for the night",
+        "key": 11
+      },
+      {
+        "date": 771724800000,
+        "dates": [
+          771724800000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "has",
+        "locations": [
+          "Vienna"
+        ],
+        "relation_type": "transaction",
+        "sentiment": "neutral",
+        "source_name": "Jesse",
+        "sources": [],
+        "target_name": "Jesse's flight the next morning",
+        "source": "Jesse",
+        "target": "Jesse's flight the next morning",
+        "key": 13
+      },
+      {
+        "date": 771724800000,
+        "dates": [
+          771724800000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "shares a kiss with Céline at the top of",
+        "locations": [
+          "Vienna"
+        ],
+        "relation_type": "location",
+        "sentiment": "positive",
+        "source_name": "Jesse",
+        "sources": [],
+        "target_name": "the Wiener Riesenrad",
+        "source": "Jesse",
+        "target": "the Wiener Riesenrad",
+        "key": 14
+      },
+      {
+        "date": 771724800000,
+        "dates": [
+          771724800000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "claims a man had already previously written",
+        "locations": [
+          "Vienna"
+        ],
+        "relation_type": "communication",
+        "sentiment": "negative",
+        "source_name": "Jesse",
+        "sources": [],
+        "target_name": "the poem \"Delusion Angel\"",
+        "source": "Jesse",
+        "target": "the poem \"Delusion Angel\"",
+        "key": 21
+      },
+      {
+        "date": 771724800000,
+        "dates": [
+          771724800000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "plays",
+        "locations": [
+          "Vienna"
+        ],
+        "relation_type": "other",
+        "sentiment": "neutral",
+        "source_name": "Jesse",
+        "sources": [],
+        "target_name": "pinball",
+        "source": "Jesse",
+        "target": "pinball",
+        "key": 24
+      },
+      {
+        "date": 771724800000,
+        "dates": [
+          771724800000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "reveals Jesse had initially come to Europe to spend time with",
+        "locations": [
+          "Vienna"
+        ],
+        "relation_type": "communication",
+        "sentiment": "neutral",
+        "source_name": "Jesse",
+        "sources": [],
+        "target_name": "Jesse's girlfriend",
+        "source": "Jesse",
+        "target": "Jesse's girlfriend",
+        "key": 28
+      },
+      {
+        "date": 771724800000,
+        "dates": [
+          771724800000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "found",
+        "locations": [
+          "Vienna"
+        ],
+        "relation_type": "transaction",
+        "sentiment": "neutral",
+        "source_name": "Jesse",
+        "sources": [],
+        "target_name": "a cheap flight home",
+        "source": "Jesse",
+        "target": "a cheap flight home",
+        "key": 30
+      },
+      {
+        "date": 771724800000,
+        "dates": [
+          771724800000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "traveled around",
+        "locations": [
+          "Vienna"
+        ],
+        "relation_type": "location",
+        "sentiment": "neutral",
+        "source_name": "Jesse",
+        "sources": [],
+        "target_name": "Europe",
+        "source": "Jesse",
+        "target": "Europe",
+        "key": 34
+      },
+      {
+        "date": 771724800000,
+        "dates": [
+          771724800000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "wanted",
+        "locations": [
+          "Vienna"
+        ],
+        "relation_type": "other",
+        "sentiment": "neutral",
+        "source_name": "Jesse",
+        "sources": [],
+        "target_name": "an escape from Jesse's life",
+        "source": "Jesse",
+        "target": "an escape from Jesse's life",
+        "key": 37
+      },
+      {
+        "date": 771724800000,
+        "dates": [
+          771724800000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "is returning to university in",
+        "locations": [
+          "Vienna"
+        ],
+        "relation_type": "location",
+        "sentiment": "neutral",
+        "source_name": "Céline",
+        "sources": [],
+        "target_name": "Paris",
+        "source": "Céline",
+        "target": "Paris",
+        "key": 6
+      },
+      {
+        "date": 771724800000,
+        "dates": [
+          771724800000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "visited",
+        "locations": [
+          "Vienna"
+        ],
+        "relation_type": "other",
+        "sentiment": "neutral",
+        "source_name": "Céline",
+        "sources": [],
+        "target_name": "Céline's grandmother",
+        "source": "Céline",
+        "target": "Céline's grandmother",
+        "key": 7
+      },
+      {
+        "date": 771724800000,
+        "dates": [
+          771724800000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "may realize Jesse is not that different from",
+        "locations": [
+          "Vienna"
+        ],
+        "relation_type": "other",
+        "sentiment": "neutral",
+        "source_name": "Céline",
+        "sources": [],
+        "target_name": "the rest",
+        "source": "Céline",
+        "target": "the rest",
+        "key": 10
+      },
+      {
+        "date": 771724800000,
+        "dates": [
+          771724800000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "decides with Jesse to roam around in",
+        "locations": [
+          "Vienna"
+        ],
+        "relation_type": "location",
+        "sentiment": "neutral",
+        "source_name": "Céline",
+        "sources": [],
+        "target_name": "Vienna",
+        "source": "Céline",
+        "target": "Vienna",
+        "key": 12
+      },
+      {
+        "date": 771724800000,
+        "dates": [
+          771724800000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "plays",
+        "locations": [
+          "Vienna"
+        ],
+        "relation_type": "other",
+        "sentiment": "neutral",
+        "source_name": "Céline",
+        "sources": [],
+        "target_name": "pinball",
+        "source": "Céline",
+        "target": "pinball",
+        "key": 23
+      },
+      {
+        "date": 771724800000,
+        "dates": [
+          771724800000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "tells",
+        "locations": [
+          "Vienna"
+        ],
+        "relation_type": "communication",
+        "sentiment": "neutral",
+        "source_name": "Céline",
+        "sources": [],
+        "target_name": "Jesse",
+        "source": "Céline",
+        "target": "Jesse",
+        "key": 25
+      },
+      {
+        "date": 771724800000,
+        "dates": [
+          771724800000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "returns to",
+        "locations": [
+          "Vienna"
+        ],
+        "relation_type": "location",
+        "sentiment": "neutral",
+        "source_name": "a flight back to the United States",
+        "sources": [],
+        "target_name": "the United States",
+        "source": "a flight back to the United States",
+        "target": "the United States",
+        "key": 5
+      },
+      {
+        "date": 771724800000,
+        "dates": [
+          771724800000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "is in",
+        "locations": [
+          "Vienna"
+        ],
+        "relation_type": "location",
+        "sentiment": "neutral",
+        "source_name": "Céline's grandmother",
+        "sources": [],
+        "target_name": "Budapest",
+        "source": "Céline's grandmother",
+        "target": "Budapest",
+        "key": 8
+      },
+      {
+        "date": 771724800000,
+        "dates": [
+          771724800000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "approaches",
+        "locations": [
+          "Vienna"
+        ],
+        "relation_type": "communication",
+        "sentiment": "neutral",
+        "source_name": "a man",
+        "sources": [],
+        "target_name": "Jesse",
+        "source": "a man",
+        "target": "Jesse",
+        "key": 15
+      },
+      {
+        "date": 771724800000,
+        "dates": [
+          771724800000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "approaches",
+        "locations": [
+          "Vienna"
+        ],
+        "relation_type": "communication",
+        "sentiment": "neutral",
+        "source_name": "a man",
+        "sources": [],
+        "target_name": "Céline",
+        "source": "a man",
+        "target": "Céline",
+        "key": 16
+      },
+      {
+        "date": 771724800000,
+        "dates": [
+          771724800000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "offers to write a poem with a word of Jesse and Céline's choice inside to",
+        "locations": [
+          "Vienna"
+        ],
+        "relation_type": "communication",
+        "sentiment": "neutral",
+        "source_name": "a man",
+        "sources": [],
+        "target_name": "Jesse and Céline",
+        "source": "a man",
+        "target": "Jesse and Céline",
+        "key": 17
+      },
+      {
+        "date": 771724800000,
+        "dates": [
+          771724800000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "inserts the words people choose into",
+        "locations": [
+          "Vienna"
+        ],
+        "relation_type": "other",
+        "sentiment": "negative",
+        "source_name": "a man",
+        "sources": [],
+        "target_name": "the poem \"Delusion Angel\"",
+        "source": "a man",
+        "target": "the poem \"Delusion Angel\"",
+        "key": 22
+      },
+      {
+        "date": 771724800000,
+        "dates": [
+          771724800000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "decide on",
+        "locations": [
+          "Vienna"
+        ],
+        "relation_type": "other",
+        "sentiment": "neutral",
+        "source_name": "Jesse and Céline",
+        "sources": [],
+        "target_name": "the word \"milkshake\"",
+        "source": "Jesse and Céline",
+        "target": "the word \"milkshake\"",
+        "key": 18
+      },
+      {
+        "date": 771724800000,
+        "dates": [
+          771724800000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "are presented with",
+        "locations": [
+          "Vienna"
+        ],
+        "relation_type": "transaction",
+        "sentiment": "neutral",
+        "source_name": "Jesse and Céline",
+        "sources": [],
+        "target_name": "the poem \"Delusion Angel\"",
+        "source": "Jesse and Céline",
+        "target": "the poem \"Delusion Angel\"",
+        "key": 19
+      },
+      {
+        "date": 771724800000,
+        "dates": [
+          771724800000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "stage fake phone conversations with each other in",
+        "locations": [
+          "Vienna"
+        ],
+        "relation_type": "communication",
+        "sentiment": "positive",
+        "source_name": "Jesse and Céline",
+        "sources": [],
+        "target_name": "a Viennese café",
+        "source": "Jesse and Céline",
+        "target": "a Viennese café",
+        "key": 35
+      },
+      {
+        "date": 771724800000,
+        "dates": [
+          771724800000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "pretend to call",
+        "locations": [
+          "Vienna"
+        ],
+        "relation_type": "communication",
+        "sentiment": "neutral",
+        "source_name": "Jesse and Céline",
+        "sources": [],
+        "target_name": "each other's friends",
+        "source": "Jesse and Céline",
+        "target": "each other's friends",
+        "key": 36
+      },
+      {
+        "date": 771724800000,
+        "dates": [
+          771724800000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "admit their attraction to",
+        "locations": [
+          "Vienna"
+        ],
+        "relation_type": "communication",
+        "sentiment": "positive",
+        "source_name": "Jesse and Céline",
+        "sources": [],
+        "target_name": "each other",
+        "source": "Jesse and Céline",
+        "target": "each other",
+        "key": 38
+      },
+      {
+        "date": 771724800000,
+        "dates": [
+          771724800000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "understand they probably will not see",
+        "locations": [
+          "Vienna"
+        ],
+        "relation_type": "other",
+        "sentiment": "negative",
+        "source_name": "Jesse and Céline",
+        "sources": [],
+        "target_name": "each other again",
+        "source": "Jesse and Céline",
+        "target": "each other again",
+        "key": 39
+      },
+      {
+        "date": 771724800000,
+        "dates": [
+          771724800000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "decide to make the best of",
+        "locations": [
+          "Vienna"
+        ],
+        "relation_type": "other",
+        "sentiment": "positive",
+        "source_name": "Jesse and Céline",
+        "sources": [],
+        "target_name": "what time they have left",
+        "source": "Jesse and Céline",
+        "target": "what time they have left",
+        "key": 40
+      },
+      {
+        "date": 771724800000,
+        "dates": [
+          771724800000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "get",
+        "locations": [
+          "Vienna"
+        ],
+        "relation_type": "transaction",
+        "sentiment": "neutral",
+        "source_name": "Jesse and Céline",
+        "sources": [],
+        "target_name": "a bottle of wine",
+        "source": "Jesse and Céline",
+        "target": "a bottle of wine",
+        "key": 41
+      },
+      {
+        "date": 771724800000,
+        "dates": [
+          771724800000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "share",
+        "locations": [
+          "Vienna"
+        ],
+        "relation_type": "transaction",
+        "sentiment": "positive",
+        "source_name": "Jesse and Céline",
+        "sources": [],
+        "target_name": "a bottle of wine",
+        "source": "Jesse and Céline",
+        "target": "a bottle of wine",
+        "key": 42
+      },
+      {
+        "date": 771724800000,
+        "dates": [
+          771724800000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "share a bottle of wine together in",
+        "locations": [
+          "Vienna"
+        ],
+        "relation_type": "location",
+        "sentiment": "neutral",
+        "source_name": "Jesse and Céline",
+        "sources": [],
+        "target_name": "a park",
+        "source": "Jesse and Céline",
+        "target": "a park",
+        "key": 43
+      },
+      {
+        "date": 771724800000,
+        "dates": [
+          771724800000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "are heavily implied to have sex in",
+        "locations": [
+          "Vienna"
+        ],
+        "relation_type": "location",
+        "sentiment": "neutral",
+        "source_name": "Jesse and Céline",
+        "sources": [],
+        "target_name": "a park",
+        "source": "Jesse and Céline",
+        "target": "a park",
+        "key": 45
+      },
+      {
+        "date": 771724800000,
+        "dates": [
+          771724800000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "begin discussing whether they should have sex",
+        "locations": [
+          "Vienna"
+        ],
+        "relation_type": "communication",
+        "sentiment": "neutral",
+        "source_name": "Jesse and Céline",
+        "sources": [],
+        "target_name": "having sex",
+        "source": "Jesse and Céline",
+        "target": "having sex",
+        "key": 44
+      },
+      {
+        "date": 771724800000,
+        "dates": [
+          771724800000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "wrote",
+        "locations": [
+          "Vienna"
+        ],
+        "relation_type": "other",
+        "sentiment": "neutral",
+        "source_name": "poet David Jewell",
+        "sources": [],
+        "target_name": "the poem \"Delusion Angel\"",
+        "source": "poet David Jewell",
+        "target": "the poem \"Delusion Angel\"",
+        "key": 20
+      },
+      {
+        "date": 771724800000,
+        "dates": [
+          771724800000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "broke up with",
+        "locations": [
+          "Vienna"
+        ],
+        "relation_type": "conflict",
+        "sentiment": "negative",
+        "source_name": "Céline's last boyfriend",
+        "sources": [],
+        "target_name": "Céline",
+        "source": "Céline's last boyfriend",
+        "target": "Céline",
+        "key": 26
+      },
+      {
+        "date": 771724800000,
+        "dates": [
+          771724800000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "broke up with Céline",
+        "locations": [
+          "Vienna"
+        ],
+        "relation_type": "other",
+        "sentiment": "negative",
+        "source_name": "Céline's last boyfriend",
+        "sources": [],
+        "target_name": "six months ago",
+        "source": "Céline's last boyfriend",
+        "target": "six months ago",
+        "key": 27
+      },
+      {
+        "date": 771724800000,
+        "dates": [
+          771724800000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "was studying in",
+        "locations": [
+          "Vienna"
+        ],
+        "relation_type": "location",
+        "sentiment": "neutral",
+        "source_name": "Jesse's girlfriend",
+        "sources": [],
+        "target_name": "Madrid",
+        "source": "Jesse's girlfriend",
+        "target": "Madrid",
+        "key": 29
+      },
+      {
+        "date": 771724800000,
+        "dates": [
+          771724800000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "was via",
+        "locations": [
+          "Vienna"
+        ],
+        "relation_type": "location",
+        "sentiment": "neutral",
+        "source_name": "a cheap flight home",
+        "sources": [],
+        "target_name": "Vienna",
+        "source": "a cheap flight home",
+        "target": "Vienna",
+        "key": 31
+      },
+      {
+        "date": 771724800000,
+        "dates": [
+          771724800000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "did not leave for",
+        "locations": [
+          "Vienna"
+        ],
+        "relation_type": "other",
+        "sentiment": "neutral",
+        "source_name": "a cheap flight home",
+        "sources": [],
+        "target_name": "two weeks",
+        "source": "a cheap flight home",
+        "target": "two weeks",
+        "key": 32
+      }
+    ]
+  }
+}

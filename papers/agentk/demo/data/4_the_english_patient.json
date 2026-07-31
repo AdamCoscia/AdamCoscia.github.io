@@ -1,0 +1,3151 @@
+{
+  "documents": [
+    {
+      "date": -794361600000,
+      "id": 0,
+      "location": "Italy",
+      "name": "the_english_patient",
+      "source": null,
+      "text": "German gunners shoot down a British biplane, containing a pilot and a slumped down woman, flying across the desert. A group of Bedouin pulls the badly burned pilot from the wreckage, rescuing him.\n\nHana, a French-Canadian Royal Canadian Army Medical Corps nurse, learns from a wounded soldier that her boyfriend has been killed. In October 1944 Italy, she is caring for the dying, severely burned English-accented patient who says he cannot remember his name. His only possession is a copy of Herodotus's Histories, with personal notes, pictures, and mementos stored inside.\n\nWhen a fellow nurse is killed in front of her, Hana decides she's a curse to her loved ones. She gains permission to settle in a bombed-out monastery with her patient, as he is suffering during their hospital unit's relocation. She's joined by Lieutenant Kip Singh, a Sikh sapper in the British Army posted with Sergeant Hardy to clear German mines and booby traps, and David Caravaggio, a Canadian Intelligence Corps operative who was tortured in German captivity. Caravaggio questions the patient, drawing out details of his past while Hana and Kip begin a love affair.\n\nIn the late 1930s, Hungarian cartographer Count László Almásy is exploring a region of the Sahara as part of a Royal Geographical Society archeological and surveying expedition, which includes his good friend Englishman Peter Madox, and British couple Geoffrey and Katharine Clifton, who conduct aerial surveys from their plane.\n\nAlmásy discovers the location of the ancient Cave of Swimmers, containing cave paintings. As the group documents the find, Almásy and Katharine fall in love. He writes about her in notes folded into his book, which she discovers when he awkwardly accepts two watercolours of the cave walls and asks her to paste them into the book.\n\nThey return to Cairo and begin an affair, while the group arranges for more detailed archaeological surveys of the cave and surrounding area. Almásy buys her a silver thimble as a gift. Geoffrey secretly watches her from his car and realizes she is being unfaithful. Later, Katharine breaks it off, saying she cannot continue. Almásy takes it badly. When the geographic projects are halted by the onset of the war, Madox leaves his Tiger Moth airplane at Kufra Oasis and returns to Britain.\n\nCaravaggio seeks revenge for his injuries, killing the German interrogator who cut his thumbs off and the spy who betrayed him, and seeks out whoever provided maps to the Germans, allowing them to infiltrate Cairo. He confronts Almásy about the Cliftons' death, and he concedes \"Maybe ... I did\".\n\nHana overhears Almásy telling Caravaggio about packing camp in 1941 when Geoffrey arrives in the biplane. He aims at Almásy, who jumps out of the way, and crashes. Almásy finds Geoffrey dead at the controls and Katharine badly injured in the front seat. It was an attempted double murder-suicide, as he had uncovered their affair. Almásy carries Katharine to the Cave of Swimmers and observes that she is still wearing the thimble he gave her and she declares she has always loved him.\n\nLeaving her with provisions and his book, Almásy walks three days across the desert to British-held El Tag. He asks for help to rescue her, but a young officer detains him on suspicion of being a spy. Transported away by train, Almásy escapes and encounters a German army unit which takes him to the Kufra Oasis, where Madox has hidden his plane. Exchanging maps for fuel, Almásy flies to the cave, finds Katharine dead, and is shot down flying her body away. After hearing the story, Caravaggio abandons his quest for revenge.\n\nThe war ends and Kip is reposted and agrees with Hana they'll meet again. Almásy tells her he's had enough by pushing vials of morphine towards her. Though distraught, Hana grants his wish, administering a lethal dose. As he drifts to sleep, she reads him Katharine's final letter, written while alone in the cave. The next morning, Hana goes with Caravaggio to Florence, clutching Almásy's book.",
+      "title": null
+    }
+  ],
+  "graph": {
+    "directed": true,
+    "multigraph": true,
+    "graph": {},
+    "nodes": [
+      {
+        "degree": 1,
+        "description": "A German military unit that shoots down an aircraft over the desert.",
+        "doc_count": 1,
+        "entity_type": "organization",
+        "first_seen": -794361600000,
+        "last_seen": -794361600000,
+        "locations": [
+          "Italy"
+        ],
+        "name": "German gunners",
+        "sentiment": "negative",
+        "sources": [],
+        "id": "German gunners"
+      },
+      {
+        "degree": 7,
+        "description": "An aircraft flying across the desert that is shot down.",
+        "doc_count": 1,
+        "entity_type": "asset",
+        "first_seen": -794361600000,
+        "last_seen": -794361600000,
+        "locations": [
+          "Italy"
+        ],
+        "name": "a British biplane",
+        "sentiment": "neutral",
+        "sources": [],
+        "id": "a British biplane"
+      },
+      {
+        "degree": 3,
+        "description": "A person aboard the British biplane who is badly burned in the crash.",
+        "doc_count": 1,
+        "entity_type": "person",
+        "first_seen": -794361600000,
+        "last_seen": -794361600000,
+        "locations": [
+          "Italy"
+        ],
+        "name": "a pilot",
+        "sentiment": "neutral",
+        "sources": [],
+        "id": "a pilot"
+      },
+      {
+        "degree": 1,
+        "description": "A woman aboard the British biplane at the time it is shot down.",
+        "doc_count": 1,
+        "entity_type": "person",
+        "first_seen": -794361600000,
+        "last_seen": -794361600000,
+        "locations": [
+          "Italy"
+        ],
+        "name": "a slumped down woman",
+        "sentiment": "neutral",
+        "sources": [],
+        "id": "a slumped down woman"
+      },
+      {
+        "degree": 2,
+        "description": "The area explored by Almásy in the late 1930s.",
+        "doc_count": 1,
+        "entity_type": "location",
+        "first_seen": -794361600000,
+        "last_seen": -794361600000,
+        "locations": [
+          "Italy"
+        ],
+        "name": "a region of the Sahara",
+        "sentiment": "neutral",
+        "sources": [],
+        "id": "a region of the Sahara"
+      },
+      {
+        "degree": 1,
+        "description": "A group that rescues the badly burned pilot from the wreckage.",
+        "doc_count": 1,
+        "entity_type": "organization",
+        "first_seen": -794361600000,
+        "last_seen": -794361600000,
+        "locations": [
+          "Italy"
+        ],
+        "name": "a group of Bedouin",
+        "sentiment": "positive",
+        "sources": [],
+        "id": "a group of Bedouin"
+      },
+      {
+        "degree": 17,
+        "description": "A French-Canadian nurse in the Royal Canadian Army Medical Corps.",
+        "doc_count": 1,
+        "entity_type": "person",
+        "first_seen": -794361600000,
+        "last_seen": -794361600000,
+        "locations": [
+          "Italy"
+        ],
+        "name": "Hana",
+        "sentiment": "neutral",
+        "sources": [],
+        "id": "Hana"
+      },
+      {
+        "degree": 1,
+        "description": "The military medical corps Hana serves in.",
+        "doc_count": 1,
+        "entity_type": "organization",
+        "first_seen": -794361600000,
+        "last_seen": -794361600000,
+        "locations": [
+          "Italy"
+        ],
+        "name": "Royal Canadian Army Medical Corps",
+        "sentiment": "neutral",
+        "sources": [],
+        "id": "Royal Canadian Army Medical Corps"
+      },
+      {
+        "degree": 2,
+        "description": "A soldier who tells Hana that Hana's boyfriend has been killed.",
+        "doc_count": 1,
+        "entity_type": "person",
+        "first_seen": -794361600000,
+        "last_seen": -794361600000,
+        "locations": [
+          "Italy"
+        ],
+        "name": "a wounded soldier",
+        "sentiment": "neutral",
+        "sources": [],
+        "id": "a wounded soldier"
+      },
+      {
+        "degree": 1,
+        "description": null,
+        "doc_count": 1,
+        "entity_type": null,
+        "first_seen": -794361600000,
+        "last_seen": -794361600000,
+        "locations": [
+          "Italy"
+        ],
+        "name": "Hana's boyfriend has been killed",
+        "sentiment": "negative",
+        "sources": [],
+        "id": "Hana's boyfriend has been killed"
+      },
+      {
+        "degree": 2,
+        "description": "The place where Hana is caring for a severely burned patient in October 1944.",
+        "doc_count": 1,
+        "entity_type": "location",
+        "first_seen": -794361600000,
+        "last_seen": -794361600000,
+        "locations": [
+          "Italy"
+        ],
+        "name": "Italy",
+        "sentiment": "neutral",
+        "sources": [],
+        "id": "Italy"
+      },
+      {
+        "degree": 9,
+        "description": "A patient cared for by Hana who cannot remember his name and possesses Herodotus's Histories.",
+        "doc_count": 1,
+        "entity_type": "person",
+        "first_seen": -794361600000,
+        "last_seen": -794361600000,
+        "locations": [
+          "Italy"
+        ],
+        "name": "the dying, severely burned English-accented patient",
+        "sentiment": "neutral",
+        "sources": [],
+        "id": "the dying, severely burned English-accented patient"
+      },
+      {
+        "degree": 1,
+        "description": null,
+        "doc_count": 1,
+        "entity_type": null,
+        "first_seen": -794361600000,
+        "last_seen": -794361600000,
+        "locations": [
+          "Italy"
+        ],
+        "name": "his name",
+        "sentiment": "neutral",
+        "sources": [],
+        "id": "his name"
+      },
+      {
+        "degree": 5,
+        "description": "A book possessed by the English-accented patient, containing notes, pictures, and mementos.",
+        "doc_count": 1,
+        "entity_type": "product",
+        "first_seen": -794361600000,
+        "last_seen": -794361600000,
+        "locations": [
+          "Italy"
+        ],
+        "name": "a copy of Herodotus's Histories",
+        "sentiment": "neutral",
+        "sources": [],
+        "id": "a copy of Herodotus's Histories"
+      },
+      {
+        "degree": 1,
+        "description": "Notes stored inside the copy of Herodotus's Histories.",
+        "doc_count": 1,
+        "entity_type": "other",
+        "first_seen": -794361600000,
+        "last_seen": -794361600000,
+        "locations": [
+          "Italy"
+        ],
+        "name": "personal notes",
+        "sentiment": "neutral",
+        "sources": [],
+        "id": "personal notes"
+      },
+      {
+        "degree": 1,
+        "description": "Pictures stored inside the copy of Herodotus's Histories.",
+        "doc_count": 1,
+        "entity_type": "other",
+        "first_seen": -794361600000,
+        "last_seen": -794361600000,
+        "locations": [
+          "Italy"
+        ],
+        "name": "pictures",
+        "sentiment": "neutral",
+        "sources": [],
+        "id": "pictures"
+      },
+      {
+        "degree": 1,
+        "description": "A nurse who is killed in front of Hana.",
+        "doc_count": 1,
+        "entity_type": "person",
+        "first_seen": -794361600000,
+        "last_seen": -794361600000,
+        "locations": [
+          "Italy"
+        ],
+        "name": "a fellow nurse",
+        "sentiment": "negative",
+        "sources": [],
+        "id": "a fellow nurse"
+      },
+      {
+        "degree": 1,
+        "description": null,
+        "doc_count": 1,
+        "entity_type": null,
+        "first_seen": -794361600000,
+        "last_seen": -794361600000,
+        "locations": [
+          "Italy"
+        ],
+        "name": "Hana is a curse to her loved ones",
+        "sentiment": "negative",
+        "sources": [],
+        "id": "Hana is a curse to her loved ones"
+      },
+      {
+        "degree": 1,
+        "description": "A monastery where Hana is permitted to settle with her patient.",
+        "doc_count": 1,
+        "entity_type": "location",
+        "first_seen": -794361600000,
+        "last_seen": -794361600000,
+        "locations": [
+          "Italy"
+        ],
+        "name": "a bombed-out monastery",
+        "sentiment": "neutral",
+        "sources": [],
+        "id": "a bombed-out monastery"
+      },
+      {
+        "degree": 1,
+        "description": null,
+        "doc_count": 1,
+        "entity_type": null,
+        "first_seen": -794361600000,
+        "last_seen": -794361600000,
+        "locations": [
+          "Italy"
+        ],
+        "name": "their hospital unit's relocation",
+        "sentiment": "negative",
+        "sources": [],
+        "id": "their hospital unit's relocation"
+      },
+      {
+        "degree": 7,
+        "description": "A Sikh sapper in the British Army who joins Hana at the monastery.",
+        "doc_count": 1,
+        "entity_type": "person",
+        "first_seen": -794361600000,
+        "last_seen": -794361600000,
+        "locations": [
+          "Italy"
+        ],
+        "name": "Lieutenant Kip Singh",
+        "sentiment": "neutral",
+        "sources": [],
+        "id": "Lieutenant Kip Singh"
+      },
+      {
+        "degree": 2,
+        "description": "The army in which Lieutenant Kip Singh serves.",
+        "doc_count": 1,
+        "entity_type": "organization",
+        "first_seen": -794361600000,
+        "last_seen": -794361600000,
+        "locations": [
+          "Italy"
+        ],
+        "name": "the British Army",
+        "sentiment": "neutral",
+        "sources": [],
+        "id": "the British Army"
+      },
+      {
+        "degree": 1,
+        "description": "A sergeant posted with Lieutenant Kip Singh to clear German mines and booby traps.",
+        "doc_count": 1,
+        "entity_type": "person",
+        "first_seen": -794361600000,
+        "last_seen": -794361600000,
+        "locations": [
+          "Italy"
+        ],
+        "name": "Sergeant Hardy",
+        "sentiment": "neutral",
+        "sources": [],
+        "id": "Sergeant Hardy"
+      },
+      {
+        "degree": 1,
+        "description": "Explosive hazards that Kip Singh and Sergeant Hardy are posted to clear.",
+        "doc_count": 1,
+        "entity_type": "asset",
+        "first_seen": -794361600000,
+        "last_seen": -794361600000,
+        "locations": [
+          "Italy"
+        ],
+        "name": "German mines and booby traps",
+        "sentiment": "neutral",
+        "sources": [],
+        "id": "German mines and booby traps"
+      },
+      {
+        "degree": 11,
+        "description": "A Canadian Intelligence Corps operative who was tortured in German captivity.",
+        "doc_count": 1,
+        "entity_type": "person",
+        "first_seen": -794361600000,
+        "last_seen": -794361600000,
+        "locations": [
+          "Italy"
+        ],
+        "name": "David Caravaggio",
+        "sentiment": "negative",
+        "sources": [],
+        "id": "David Caravaggio"
+      },
+      {
+        "degree": 1,
+        "description": "The organization for which David Caravaggio works.",
+        "doc_count": 1,
+        "entity_type": "organization",
+        "first_seen": -794361600000,
+        "last_seen": -794361600000,
+        "locations": [
+          "Italy"
+        ],
+        "name": "Canadian Intelligence Corps",
+        "sentiment": "neutral",
+        "sources": [],
+        "id": "Canadian Intelligence Corps"
+      },
+      {
+        "degree": 1,
+        "description": "The period during which Caravaggio was held and tortured.",
+        "doc_count": 1,
+        "entity_type": "event",
+        "first_seen": -794361600000,
+        "last_seen": -794361600000,
+        "locations": [
+          "Italy"
+        ],
+        "name": "German captivity",
+        "sentiment": "negative",
+        "sources": [],
+        "id": "German captivity"
+      },
+      {
+        "degree": 33,
+        "description": "A Hungarian cartographer who explored the Sahara and later is confronted about the Cliftons' death.",
+        "doc_count": 1,
+        "entity_type": "person",
+        "first_seen": -794361600000,
+        "last_seen": -794361600000,
+        "locations": [
+          "Italy"
+        ],
+        "name": "Count László Almásy",
+        "sentiment": "neutral",
+        "sources": [],
+        "id": "Count László Almásy"
+      },
+      {
+        "degree": 1,
+        "description": null,
+        "doc_count": 1,
+        "entity_type": null,
+        "first_seen": -794361600000,
+        "last_seen": -794361600000,
+        "locations": [
+          "Italy"
+        ],
+        "name": "Hungarian cartographer",
+        "sentiment": "neutral",
+        "sources": [],
+        "id": "Hungarian cartographer"
+      },
+      {
+        "degree": 2,
+        "description": "An expedition in the late 1930s that includes Almásy, Madox, and the Cliftons.",
+        "doc_count": 1,
+        "entity_type": "event",
+        "first_seen": -794361600000,
+        "last_seen": -794361600000,
+        "locations": [
+          "Italy"
+        ],
+        "name": "a Royal Geographical Society archeological and surveying expedition",
+        "sentiment": "neutral",
+        "sources": [],
+        "id": "a Royal Geographical Society archeological and surveying expedition"
+      },
+      {
+        "degree": 5,
+        "description": "An Englishman and Almásy's good friend who is part of the expedition.",
+        "doc_count": 1,
+        "entity_type": "person",
+        "first_seen": -794361600000,
+        "last_seen": -794361600000,
+        "locations": [
+          "Italy"
+        ],
+        "name": "Peter Madox",
+        "sentiment": "neutral",
+        "sources": [],
+        "id": "Peter Madox"
+      },
+      {
+        "degree": 11,
+        "description": "A British man who conducts aerial surveys and later crashes a biplane in an attempted murder-suicide.",
+        "doc_count": 1,
+        "entity_type": "person",
+        "first_seen": -794361600000,
+        "last_seen": -794361600000,
+        "locations": [
+          "Italy"
+        ],
+        "name": "Geoffrey Clifton",
+        "sentiment": "negative",
+        "sources": [],
+        "id": "Geoffrey Clifton"
+      },
+      {
+        "degree": 1,
+        "description": "The plane used by Geoffrey and Katharine Clifton to conduct aerial surveys.",
+        "doc_count": 1,
+        "entity_type": "asset",
+        "first_seen": -794361600000,
+        "last_seen": -794361600000,
+        "locations": [
+          "Italy"
+        ],
+        "name": "their plane",
+        "sentiment": "neutral",
+        "sources": [],
+        "id": "their plane"
+      },
+      {
+        "degree": 5,
+        "description": "An ancient cave discovered by Almásy that contains cave paintings.",
+        "doc_count": 1,
+        "entity_type": "location",
+        "first_seen": -794361600000,
+        "last_seen": -794361600000,
+        "locations": [
+          "Italy"
+        ],
+        "name": "the ancient Cave of Swimmers",
+        "sentiment": "neutral",
+        "sources": [],
+        "id": "the ancient Cave of Swimmers"
+      },
+      {
+        "degree": 1,
+        "description": "Paintings found in the Cave of Swimmers.",
+        "doc_count": 1,
+        "entity_type": "other",
+        "first_seen": -794361600000,
+        "last_seen": -794361600000,
+        "locations": [
+          "Italy"
+        ],
+        "name": "cave paintings",
+        "sentiment": "neutral",
+        "sources": [],
+        "id": "cave paintings"
+      },
+      {
+        "degree": 9,
+        "description": "A British woman who conducts aerial surveys and has an affair with Almásy.",
+        "doc_count": 1,
+        "entity_type": "person",
+        "first_seen": -794361600000,
+        "last_seen": -794361600000,
+        "locations": [
+          "Italy"
+        ],
+        "name": "Katharine Clifton",
+        "sentiment": "positive",
+        "sources": [],
+        "id": "Katharine Clifton"
+      },
+      {
+        "degree": 1,
+        "description": "Watercolours given to Almásy and intended to be pasted into his book.",
+        "doc_count": 1,
+        "entity_type": "other",
+        "first_seen": -794361600000,
+        "last_seen": -794361600000,
+        "locations": [
+          "Italy"
+        ],
+        "name": "two watercolours of the cave walls",
+        "sentiment": "neutral",
+        "sources": [],
+        "id": "two watercolours of the cave walls"
+      },
+      {
+        "degree": 2,
+        "description": "The city where the group returns and where Almásy and Katharine begin an affair.",
+        "doc_count": 1,
+        "entity_type": "location",
+        "first_seen": -794361600000,
+        "last_seen": -794361600000,
+        "locations": [
+          "Italy"
+        ],
+        "name": "Cairo",
+        "sentiment": "neutral",
+        "sources": [],
+        "id": "Cairo"
+      },
+      {
+        "degree": 2,
+        "description": "A gift Almásy buys for Katharine.",
+        "doc_count": 1,
+        "entity_type": "asset",
+        "first_seen": -794361600000,
+        "last_seen": -794361600000,
+        "locations": [
+          "Italy"
+        ],
+        "name": "a silver thimble",
+        "sentiment": "positive",
+        "sources": [],
+        "id": "a silver thimble"
+      },
+      {
+        "degree": 1,
+        "description": "The car from which Geoffrey secretly watches Katharine.",
+        "doc_count": 1,
+        "entity_type": "asset",
+        "first_seen": -794361600000,
+        "last_seen": -794361600000,
+        "locations": [
+          "Italy"
+        ],
+        "name": "his car",
+        "sentiment": "neutral",
+        "sources": [],
+        "id": "his car"
+      },
+      {
+        "degree": 1,
+        "description": null,
+        "doc_count": 1,
+        "entity_type": null,
+        "first_seen": -794361600000,
+        "last_seen": -794361600000,
+        "locations": [
+          "Italy"
+        ],
+        "name": "Katharine Clifton is being unfaithful",
+        "sentiment": "negative",
+        "sources": [],
+        "id": "Katharine Clifton is being unfaithful"
+      },
+      {
+        "degree": 1,
+        "description": null,
+        "doc_count": 1,
+        "entity_type": null,
+        "first_seen": -794361600000,
+        "last_seen": -794361600000,
+        "locations": [
+          "Italy"
+        ],
+        "name": "Katharine Clifton breaking off the affair",
+        "sentiment": "negative",
+        "sources": [],
+        "id": "Katharine Clifton breaking off the affair"
+      },
+      {
+        "degree": 1,
+        "description": null,
+        "doc_count": 1,
+        "entity_type": null,
+        "first_seen": -794361600000,
+        "last_seen": -794361600000,
+        "locations": [
+          "Italy"
+        ],
+        "name": "Madox's Tiger Moth airplane at Kufra Oasis",
+        "sentiment": "neutral",
+        "sources": [],
+        "id": "Madox's Tiger Moth airplane at Kufra Oasis"
+      },
+      {
+        "degree": 2,
+        "description": "The country to which Madox returns.",
+        "doc_count": 1,
+        "entity_type": "location",
+        "first_seen": -794361600000,
+        "last_seen": -794361600000,
+        "locations": [
+          "Italy"
+        ],
+        "name": "Britain",
+        "sentiment": "neutral",
+        "sources": [],
+        "id": "Britain"
+      },
+      {
+        "degree": 1,
+        "description": "Injuries for which Caravaggio seeks revenge.",
+        "doc_count": 1,
+        "entity_type": "other",
+        "first_seen": -794361600000,
+        "last_seen": -794361600000,
+        "locations": [
+          "Italy"
+        ],
+        "name": "Caravaggio's injuries",
+        "sentiment": "negative",
+        "sources": [],
+        "id": "Caravaggio's injuries"
+      },
+      {
+        "degree": 2,
+        "description": "A German interrogator killed by Caravaggio.",
+        "doc_count": 1,
+        "entity_type": "person",
+        "first_seen": -794361600000,
+        "last_seen": -794361600000,
+        "locations": [
+          "Italy"
+        ],
+        "name": "the German interrogator who cut his thumbs off",
+        "sentiment": "negative",
+        "sources": [],
+        "id": "the German interrogator who cut his thumbs off"
+      },
+      {
+        "degree": 1,
+        "description": "Caravaggio's thumbs that were cut off by the German interrogator.",
+        "doc_count": 1,
+        "entity_type": "other",
+        "first_seen": -794361600000,
+        "last_seen": -794361600000,
+        "locations": [
+          "Italy"
+        ],
+        "name": "Caravaggio's thumbs",
+        "sentiment": "negative",
+        "sources": [],
+        "id": "Caravaggio's thumbs"
+      },
+      {
+        "degree": 1,
+        "description": "A spy killed by Caravaggio.",
+        "doc_count": 1,
+        "entity_type": "person",
+        "first_seen": -794361600000,
+        "last_seen": -794361600000,
+        "locations": [
+          "Italy"
+        ],
+        "name": "the spy who betrayed him",
+        "sentiment": "negative",
+        "sources": [],
+        "id": "the spy who betrayed him"
+      },
+      {
+        "degree": 1,
+        "description": null,
+        "doc_count": 1,
+        "entity_type": null,
+        "first_seen": -794361600000,
+        "last_seen": -794361600000,
+        "locations": [
+          "Italy"
+        ],
+        "name": "Geoffrey Clifton and Katharine Clifton's death",
+        "sentiment": "negative",
+        "sources": [],
+        "id": "Geoffrey Clifton and Katharine Clifton's death"
+      },
+      {
+        "degree": 1,
+        "description": null,
+        "doc_count": 1,
+        "entity_type": null,
+        "first_seen": -794361600000,
+        "last_seen": -794361600000,
+        "locations": [
+          "Italy"
+        ],
+        "name": "Maybe Count László Almásy did",
+        "sentiment": "neutral",
+        "sources": [],
+        "id": "Maybe Count László Almásy did"
+      },
+      {
+        "degree": 1,
+        "description": null,
+        "doc_count": 1,
+        "entity_type": null,
+        "first_seen": -794361600000,
+        "last_seen": -794361600000,
+        "locations": [
+          "Italy"
+        ],
+        "name": "Count László Almásy telling David Caravaggio about packing camp in 1941",
+        "sentiment": "neutral",
+        "sources": [],
+        "id": "Count László Almásy telling David Caravaggio about packing camp in 1941"
+      },
+      {
+        "degree": 1,
+        "description": null,
+        "doc_count": 1,
+        "entity_type": null,
+        "first_seen": -794361600000,
+        "last_seen": -794361600000,
+        "locations": [
+          "Italy"
+        ],
+        "name": "Geoffrey Clifton dead at the controls",
+        "sentiment": "negative",
+        "sources": [],
+        "id": "Geoffrey Clifton dead at the controls"
+      },
+      {
+        "degree": 1,
+        "description": null,
+        "doc_count": 1,
+        "entity_type": null,
+        "first_seen": -794361600000,
+        "last_seen": -794361600000,
+        "locations": [
+          "Italy"
+        ],
+        "name": "Count László Almásy and Katharine Clifton",
+        "sentiment": "negative",
+        "sources": [],
+        "id": "Count László Almásy and Katharine Clifton"
+      },
+      {
+        "degree": 1,
+        "description": null,
+        "doc_count": 1,
+        "entity_type": null,
+        "first_seen": -794361600000,
+        "last_seen": -794361600000,
+        "locations": [
+          "Italy"
+        ],
+        "name": "Count László Almásy and Katharine Clifton's affair",
+        "sentiment": "negative",
+        "sources": [],
+        "id": "Count László Almásy and Katharine Clifton's affair"
+      },
+      {
+        "degree": 1,
+        "description": null,
+        "doc_count": 1,
+        "entity_type": null,
+        "first_seen": -794361600000,
+        "last_seen": -794361600000,
+        "locations": [
+          "Italy"
+        ],
+        "name": "the desert",
+        "sentiment": "neutral",
+        "sources": [],
+        "id": "the desert"
+      },
+      {
+        "degree": 2,
+        "description": "A British-held place where Almásy asks for help.",
+        "doc_count": 1,
+        "entity_type": "location",
+        "first_seen": -794361600000,
+        "last_seen": -794361600000,
+        "locations": [
+          "Italy"
+        ],
+        "name": "El Tag",
+        "sentiment": "neutral",
+        "sources": [],
+        "id": "El Tag"
+      },
+      {
+        "degree": 3,
+        "description": "An officer who detains Almásy on suspicion of being a spy.",
+        "doc_count": 1,
+        "entity_type": "person",
+        "first_seen": -794361600000,
+        "last_seen": -794361600000,
+        "locations": [
+          "Italy"
+        ],
+        "name": "a young officer",
+        "sentiment": "negative",
+        "sources": [],
+        "id": "a young officer"
+      },
+      {
+        "degree": 1,
+        "description": null,
+        "doc_count": 1,
+        "entity_type": null,
+        "first_seen": -794361600000,
+        "last_seen": -794361600000,
+        "locations": [
+          "Italy"
+        ],
+        "name": "a spy",
+        "sentiment": "negative",
+        "sources": [],
+        "id": "a spy"
+      },
+      {
+        "degree": 3,
+        "description": "A German unit that takes Almásy to Kufra Oasis.",
+        "doc_count": 1,
+        "entity_type": "organization",
+        "first_seen": -794361600000,
+        "last_seen": -794361600000,
+        "locations": [
+          "Italy"
+        ],
+        "name": "a German army unit",
+        "sentiment": "neutral",
+        "sources": [],
+        "id": "a German army unit"
+      },
+      {
+        "degree": 2,
+        "description": "An oasis where Madox leaves his plane and where Almásy later goes with a German unit.",
+        "doc_count": 1,
+        "entity_type": "location",
+        "first_seen": -794361600000,
+        "last_seen": -794361600000,
+        "locations": [
+          "Italy"
+        ],
+        "name": "Kufra Oasis",
+        "sentiment": "neutral",
+        "sources": [],
+        "id": "Kufra Oasis"
+      },
+      {
+        "degree": 2,
+        "description": "Madox's airplane that he leaves at Kufra Oasis.",
+        "doc_count": 1,
+        "entity_type": "asset",
+        "first_seen": -794361600000,
+        "last_seen": -794361600000,
+        "locations": [
+          "Italy"
+        ],
+        "name": "Madox's Tiger Moth airplane",
+        "sentiment": "neutral",
+        "sources": [],
+        "id": "Madox's Tiger Moth airplane"
+      },
+      {
+        "degree": 1,
+        "description": null,
+        "doc_count": 1,
+        "entity_type": null,
+        "first_seen": -794361600000,
+        "last_seen": -794361600000,
+        "locations": [
+          "Italy"
+        ],
+        "name": "maps for fuel",
+        "sentiment": "neutral",
+        "sources": [],
+        "id": "maps for fuel"
+      },
+      {
+        "degree": 1,
+        "description": "Katharine Clifton's body that Almásy attempts to fly away with.",
+        "doc_count": 1,
+        "entity_type": "other",
+        "first_seen": -794361600000,
+        "last_seen": -794361600000,
+        "locations": [
+          "Italy"
+        ],
+        "name": "Katharine's body",
+        "sentiment": "negative",
+        "sources": [],
+        "id": "Katharine's body"
+      },
+      {
+        "degree": 1,
+        "description": null,
+        "doc_count": 1,
+        "entity_type": null,
+        "first_seen": -794361600000,
+        "last_seen": -794361600000,
+        "locations": [
+          "Italy"
+        ],
+        "name": "his quest for revenge",
+        "sentiment": "neutral",
+        "sources": [],
+        "id": "his quest for revenge"
+      },
+      {
+        "degree": 1,
+        "description": "A war that ends near the conclusion of the narrative.",
+        "doc_count": 1,
+        "entity_type": "event",
+        "first_seen": -794361600000,
+        "last_seen": -794361600000,
+        "locations": [
+          "Italy"
+        ],
+        "name": "the war",
+        "sentiment": "neutral",
+        "sources": [],
+        "id": "the war"
+      },
+      {
+        "degree": 1,
+        "description": null,
+        "doc_count": 1,
+        "entity_type": null,
+        "first_seen": -794361600000,
+        "last_seen": -794361600000,
+        "locations": [
+          "Italy"
+        ],
+        "name": "Hana they'll meet again",
+        "sentiment": "positive",
+        "sources": [],
+        "id": "Hana they'll meet again"
+      },
+      {
+        "degree": 1,
+        "description": null,
+        "doc_count": 1,
+        "entity_type": null,
+        "first_seen": -794361600000,
+        "last_seen": -794361600000,
+        "locations": [
+          "Italy"
+        ],
+        "name": "vials of morphine towards Hana",
+        "sentiment": "neutral",
+        "sources": [],
+        "id": "vials of morphine towards Hana"
+      },
+      {
+        "degree": 2,
+        "description": "A dose administered by Hana to kill Almásy.",
+        "doc_count": 1,
+        "entity_type": "other",
+        "first_seen": -794361600000,
+        "last_seen": -794361600000,
+        "locations": [
+          "Italy"
+        ],
+        "name": "a lethal dose",
+        "sentiment": "negative",
+        "sources": [],
+        "id": "a lethal dose"
+      },
+      {
+        "degree": 2,
+        "description": "A letter written by Katharine while alone in the cave, read by Hana to Almásy.",
+        "doc_count": 1,
+        "entity_type": "product",
+        "first_seen": -794361600000,
+        "last_seen": -794361600000,
+        "locations": [
+          "Italy"
+        ],
+        "name": "Katharine's final letter",
+        "sentiment": "neutral",
+        "sources": [],
+        "id": "Katharine's final letter"
+      },
+      {
+        "degree": 1,
+        "description": "The city Hana goes to with Caravaggio after Almásy's death.",
+        "doc_count": 1,
+        "entity_type": "location",
+        "first_seen": -794361600000,
+        "last_seen": -794361600000,
+        "locations": [
+          "Italy"
+        ],
+        "name": "Florence",
+        "sentiment": "neutral",
+        "sources": [],
+        "id": "Florence"
+      }
+    ],
+    "links": [
+      {
+        "date": -794361600000,
+        "dates": [
+          -794361600000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "shoot down",
+        "locations": [
+          "Italy"
+        ],
+        "relation_type": "conflict",
+        "sentiment": "negative",
+        "source_name": "German gunners",
+        "sources": [],
+        "target_name": "a British biplane",
+        "source": "German gunners",
+        "target": "a British biplane",
+        "key": 0
+      },
+      {
+        "date": -794361600000,
+        "dates": [
+          -794361600000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "contains",
+        "locations": [
+          "Italy"
+        ],
+        "relation_type": "other",
+        "sentiment": "neutral",
+        "source_name": "a British biplane",
+        "sources": [],
+        "target_name": "a pilot",
+        "source": "a British biplane",
+        "target": "a pilot",
+        "key": 1
+      },
+      {
+        "date": -794361600000,
+        "dates": [
+          -794361600000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "contains",
+        "locations": [
+          "Italy"
+        ],
+        "relation_type": "other",
+        "sentiment": "neutral",
+        "source_name": "a British biplane",
+        "sources": [],
+        "target_name": "a slumped down woman",
+        "source": "a British biplane",
+        "target": "a slumped down woman",
+        "key": 2
+      },
+      {
+        "date": -794361600000,
+        "dates": [
+          -794361600000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "is flying across",
+        "locations": [
+          "Italy"
+        ],
+        "relation_type": "location",
+        "sentiment": "neutral",
+        "source_name": "a British biplane",
+        "sources": [],
+        "target_name": "a region of the Sahara",
+        "source": "a British biplane",
+        "target": "a region of the Sahara",
+        "key": 3
+      },
+      {
+        "date": -794361600000,
+        "dates": [
+          -794361600000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "is badly burned",
+        "locations": [
+          "Italy"
+        ],
+        "relation_type": "other",
+        "sentiment": "negative",
+        "source_name": "a pilot",
+        "sources": [],
+        "target_name": "a British biplane",
+        "source": "a pilot",
+        "target": "a British biplane",
+        "key": 5
+      },
+      {
+        "date": -794361600000,
+        "dates": [
+          -794361600000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "pulls from the wreckage and rescues",
+        "locations": [
+          "Italy"
+        ],
+        "relation_type": "conflict",
+        "sentiment": "positive",
+        "source_name": "a group of Bedouin",
+        "sources": [],
+        "target_name": "a pilot",
+        "source": "a group of Bedouin",
+        "target": "a pilot",
+        "key": 4
+      },
+      {
+        "date": -794361600000,
+        "dates": [
+          -794361600000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "is a",
+        "locations": [
+          "Italy"
+        ],
+        "relation_type": "membership",
+        "sentiment": "neutral",
+        "source_name": "Hana",
+        "sources": [],
+        "target_name": "Royal Canadian Army Medical Corps",
+        "source": "Hana",
+        "target": "Royal Canadian Army Medical Corps",
+        "key": 6
+      },
+      {
+        "date": -794361600000,
+        "dates": [
+          -794361600000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "learns from",
+        "locations": [
+          "Italy"
+        ],
+        "relation_type": "communication",
+        "sentiment": "neutral",
+        "source_name": "Hana",
+        "sources": [],
+        "target_name": "a wounded soldier",
+        "source": "Hana",
+        "target": "a wounded soldier",
+        "key": 7
+      },
+      {
+        "date": -794361600000,
+        "dates": [
+          -794361600000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "is in",
+        "locations": [
+          "Italy"
+        ],
+        "relation_type": "location",
+        "sentiment": "neutral",
+        "source_name": "Hana",
+        "sources": [],
+        "target_name": "Italy",
+        "source": "Hana",
+        "target": "Italy",
+        "key": 9
+      },
+      {
+        "date": -794361600000,
+        "dates": [
+          -794361600000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "is caring for",
+        "locations": [
+          "Italy"
+        ],
+        "relation_type": "other",
+        "sentiment": "neutral",
+        "source_name": "Hana",
+        "sources": [],
+        "target_name": "the dying, severely burned English-accented patient",
+        "source": "Hana",
+        "target": "the dying, severely burned English-accented patient",
+        "key": 10
+      },
+      {
+        "date": -794361600000,
+        "dates": [
+          -794361600000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "settles in a bombed-out monastery with",
+        "locations": [
+          "Italy"
+        ],
+        "relation_type": "affiliation",
+        "sentiment": "neutral",
+        "source_name": "Hana",
+        "sources": [],
+        "target_name": "the dying, severely burned English-accented patient",
+        "source": "Hana",
+        "target": "the dying, severely burned English-accented patient",
+        "key": 19
+      },
+      {
+        "date": -794361600000,
+        "dates": [
+          -794361600000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "decides",
+        "locations": [
+          "Italy"
+        ],
+        "relation_type": "other",
+        "sentiment": "negative",
+        "source_name": "Hana",
+        "sources": [],
+        "target_name": "Hana is a curse to her loved ones",
+        "source": "Hana",
+        "target": "Hana is a curse to her loved ones",
+        "key": 17
+      },
+      {
+        "date": -794361600000,
+        "dates": [
+          -794361600000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "gains permission to settle in",
+        "locations": [
+          "Italy"
+        ],
+        "relation_type": "location",
+        "sentiment": "neutral",
+        "source_name": "Hana",
+        "sources": [],
+        "target_name": "a bombed-out monastery",
+        "source": "Hana",
+        "target": "a bombed-out monastery",
+        "key": 18
+      },
+      {
+        "date": -794361600000,
+        "dates": [
+          -794361600000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "is joined by",
+        "locations": [
+          "Italy"
+        ],
+        "relation_type": "affiliation",
+        "sentiment": "neutral",
+        "source_name": "Hana",
+        "sources": [],
+        "target_name": "Lieutenant Kip Singh",
+        "source": "Hana",
+        "target": "Lieutenant Kip Singh",
+        "key": 21
+      },
+      {
+        "date": -794361600000,
+        "dates": [
+          -794361600000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "begins a love affair with",
+        "locations": [
+          "Italy"
+        ],
+        "relation_type": "affiliation",
+        "sentiment": "positive",
+        "source_name": "Hana",
+        "sources": [],
+        "target_name": "Lieutenant Kip Singh",
+        "source": "Hana",
+        "target": "Lieutenant Kip Singh",
+        "key": 30
+      },
+      {
+        "date": -794361600000,
+        "dates": [
+          -794361600000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "is joined by",
+        "locations": [
+          "Italy"
+        ],
+        "relation_type": "affiliation",
+        "sentiment": "neutral",
+        "source_name": "Hana",
+        "sources": [],
+        "target_name": "David Caravaggio",
+        "source": "Hana",
+        "target": "David Caravaggio",
+        "key": 25
+      },
+      {
+        "date": -794361600000,
+        "dates": [
+          -794361600000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "overhears",
+        "locations": [
+          "Italy"
+        ],
+        "relation_type": "communication",
+        "sentiment": "neutral",
+        "source_name": "Hana",
+        "sources": [],
+        "target_name": "Count László Almásy telling David Caravaggio about packing camp in 1941",
+        "source": "Hana",
+        "target": "Count László Almásy telling David Caravaggio about packing camp in 1941",
+        "key": 64
+      },
+      {
+        "date": -794361600000,
+        "dates": [
+          -794361600000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "administers",
+        "locations": [
+          "Italy"
+        ],
+        "relation_type": "transaction",
+        "sentiment": "negative",
+        "source_name": "Hana",
+        "sources": [],
+        "target_name": "a lethal dose",
+        "source": "Hana",
+        "target": "a lethal dose",
+        "key": 96
+      },
+      {
+        "date": -794361600000,
+        "dates": [
+          -794361600000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "reads",
+        "locations": [
+          "Italy"
+        ],
+        "relation_type": "communication",
+        "sentiment": "neutral",
+        "source_name": "Hana",
+        "sources": [],
+        "target_name": "Katharine's final letter",
+        "source": "Hana",
+        "target": "Katharine's final letter",
+        "key": 98
+      },
+      {
+        "date": -794361600000,
+        "dates": [
+          -794361600000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "goes to",
+        "locations": [
+          "Italy"
+        ],
+        "relation_type": "location",
+        "sentiment": "neutral",
+        "source_name": "Hana",
+        "sources": [],
+        "target_name": "Florence",
+        "source": "Hana",
+        "target": "Florence",
+        "key": 100
+      },
+      {
+        "date": -794361600000,
+        "dates": [
+          -794361600000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "clutches",
+        "locations": [
+          "Italy"
+        ],
+        "relation_type": "ownership",
+        "sentiment": "neutral",
+        "source_name": "Hana",
+        "sources": [],
+        "target_name": "a copy of Herodotus's Histories",
+        "source": "Hana",
+        "target": "a copy of Herodotus's Histories",
+        "key": 101
+      },
+      {
+        "date": -794361600000,
+        "dates": [
+          -794361600000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "says",
+        "locations": [
+          "Italy"
+        ],
+        "relation_type": "communication",
+        "sentiment": "negative",
+        "source_name": "a wounded soldier",
+        "sources": [],
+        "target_name": "Hana's boyfriend has been killed",
+        "source": "a wounded soldier",
+        "target": "Hana's boyfriend has been killed",
+        "key": 8
+      },
+      {
+        "date": -794361600000,
+        "dates": [
+          -794361600000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "says he cannot remember",
+        "locations": [
+          "Italy"
+        ],
+        "relation_type": "communication",
+        "sentiment": "neutral",
+        "source_name": "the dying, severely burned English-accented patient",
+        "sources": [],
+        "target_name": "the dying, severely burned English-accented patient",
+        "source": "the dying, severely burned English-accented patient",
+        "target": "the dying, severely burned English-accented patient",
+        "key": 11
+      },
+      {
+        "date": -794361600000,
+        "dates": [
+          -794361600000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "cannot remember",
+        "locations": [
+          "Italy"
+        ],
+        "relation_type": "other",
+        "sentiment": "neutral",
+        "source_name": "the dying, severely burned English-accented patient",
+        "sources": [],
+        "target_name": "his name",
+        "source": "the dying, severely burned English-accented patient",
+        "target": "his name",
+        "key": 12
+      },
+      {
+        "date": -794361600000,
+        "dates": [
+          -794361600000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "has as his only possession",
+        "locations": [
+          "Italy"
+        ],
+        "relation_type": "ownership",
+        "sentiment": "neutral",
+        "source_name": "the dying, severely burned English-accented patient",
+        "sources": [],
+        "target_name": "a copy of Herodotus's Histories",
+        "source": "the dying, severely burned English-accented patient",
+        "target": "a copy of Herodotus's Histories",
+        "key": 13
+      },
+      {
+        "date": -794361600000,
+        "dates": [
+          -794361600000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "is suffering during",
+        "locations": [
+          "Italy"
+        ],
+        "relation_type": "other",
+        "sentiment": "negative",
+        "source_name": "the dying, severely burned English-accented patient",
+        "sources": [],
+        "target_name": "their hospital unit's relocation",
+        "source": "the dying, severely burned English-accented patient",
+        "target": "their hospital unit's relocation",
+        "key": 20
+      },
+      {
+        "date": -794361600000,
+        "dates": [
+          -794361600000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "are stored inside",
+        "locations": [
+          "Italy"
+        ],
+        "relation_type": "location",
+        "sentiment": "neutral",
+        "source_name": "personal notes",
+        "sources": [],
+        "target_name": "a copy of Herodotus's Histories",
+        "source": "personal notes",
+        "target": "a copy of Herodotus's Histories",
+        "key": 14
+      },
+      {
+        "date": -794361600000,
+        "dates": [
+          -794361600000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "are stored inside",
+        "locations": [
+          "Italy"
+        ],
+        "relation_type": "location",
+        "sentiment": "neutral",
+        "source_name": "pictures",
+        "sources": [],
+        "target_name": "a copy of Herodotus's Histories",
+        "source": "pictures",
+        "target": "a copy of Herodotus's Histories",
+        "key": 15
+      },
+      {
+        "date": -794361600000,
+        "dates": [
+          -794361600000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "is killed in front of",
+        "locations": [
+          "Italy"
+        ],
+        "relation_type": "conflict",
+        "sentiment": "negative",
+        "source_name": "a fellow nurse",
+        "sources": [],
+        "target_name": "Hana",
+        "source": "a fellow nurse",
+        "target": "Hana",
+        "key": 16
+      },
+      {
+        "date": -794361600000,
+        "dates": [
+          -794361600000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "is a Sikh sapper in",
+        "locations": [
+          "Italy"
+        ],
+        "relation_type": "membership",
+        "sentiment": "neutral",
+        "source_name": "Lieutenant Kip Singh",
+        "sources": [],
+        "target_name": "the British Army",
+        "source": "Lieutenant Kip Singh",
+        "target": "the British Army",
+        "key": 22
+      },
+      {
+        "date": -794361600000,
+        "dates": [
+          -794361600000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "is reposted",
+        "locations": [
+          "Italy"
+        ],
+        "relation_type": "membership",
+        "sentiment": "neutral",
+        "source_name": "Lieutenant Kip Singh",
+        "sources": [],
+        "target_name": "the British Army",
+        "source": "Lieutenant Kip Singh",
+        "target": "the British Army",
+        "key": 92
+      },
+      {
+        "date": -794361600000,
+        "dates": [
+          -794361600000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "is posted with",
+        "locations": [
+          "Italy"
+        ],
+        "relation_type": "affiliation",
+        "sentiment": "neutral",
+        "source_name": "Lieutenant Kip Singh",
+        "sources": [],
+        "target_name": "Sergeant Hardy",
+        "source": "Lieutenant Kip Singh",
+        "target": "Sergeant Hardy",
+        "key": 23
+      },
+      {
+        "date": -794361600000,
+        "dates": [
+          -794361600000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "clears",
+        "locations": [
+          "Italy"
+        ],
+        "relation_type": "conflict",
+        "sentiment": "neutral",
+        "source_name": "Lieutenant Kip Singh",
+        "sources": [],
+        "target_name": "German mines and booby traps",
+        "source": "Lieutenant Kip Singh",
+        "target": "German mines and booby traps",
+        "key": 24
+      },
+      {
+        "date": -794361600000,
+        "dates": [
+          -794361600000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "agrees with",
+        "locations": [
+          "Italy"
+        ],
+        "relation_type": "communication",
+        "sentiment": "positive",
+        "source_name": "Lieutenant Kip Singh",
+        "sources": [],
+        "target_name": "Hana they'll meet again",
+        "source": "Lieutenant Kip Singh",
+        "target": "Hana they'll meet again",
+        "key": 93
+      },
+      {
+        "date": -794361600000,
+        "dates": [
+          -794361600000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "is a",
+        "locations": [
+          "Italy"
+        ],
+        "relation_type": "membership",
+        "sentiment": "neutral",
+        "source_name": "David Caravaggio",
+        "sources": [],
+        "target_name": "Canadian Intelligence Corps",
+        "source": "David Caravaggio",
+        "target": "Canadian Intelligence Corps",
+        "key": 26
+      },
+      {
+        "date": -794361600000,
+        "dates": [
+          -794361600000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "was tortured in",
+        "locations": [
+          "Italy"
+        ],
+        "relation_type": "conflict",
+        "sentiment": "negative",
+        "source_name": "David Caravaggio",
+        "sources": [],
+        "target_name": "German captivity",
+        "source": "David Caravaggio",
+        "target": "German captivity",
+        "key": 27
+      },
+      {
+        "date": -794361600000,
+        "dates": [
+          -794361600000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "questions",
+        "locations": [
+          "Italy"
+        ],
+        "relation_type": "communication",
+        "sentiment": "neutral",
+        "source_name": "David Caravaggio",
+        "sources": [],
+        "target_name": "the dying, severely burned English-accented patient",
+        "source": "David Caravaggio",
+        "target": "the dying, severely burned English-accented patient",
+        "key": 28
+      },
+      {
+        "date": -794361600000,
+        "dates": [
+          -794361600000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "draws out details of the past of",
+        "locations": [
+          "Italy"
+        ],
+        "relation_type": "communication",
+        "sentiment": "neutral",
+        "source_name": "David Caravaggio",
+        "sources": [],
+        "target_name": "the dying, severely burned English-accented patient",
+        "source": "David Caravaggio",
+        "target": "the dying, severely burned English-accented patient",
+        "key": 29
+      },
+      {
+        "date": -794361600000,
+        "dates": [
+          -794361600000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "seeks revenge for",
+        "locations": [
+          "Italy"
+        ],
+        "relation_type": "conflict",
+        "sentiment": "negative",
+        "source_name": "David Caravaggio",
+        "sources": [],
+        "target_name": "Caravaggio's injuries",
+        "source": "David Caravaggio",
+        "target": "Caravaggio's injuries",
+        "key": 55
+      },
+      {
+        "date": -794361600000,
+        "dates": [
+          -794361600000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "kills",
+        "locations": [
+          "Italy"
+        ],
+        "relation_type": "conflict",
+        "sentiment": "negative",
+        "source_name": "David Caravaggio",
+        "sources": [],
+        "target_name": "the German interrogator who cut his thumbs off",
+        "source": "David Caravaggio",
+        "target": "the German interrogator who cut his thumbs off",
+        "key": 56
+      },
+      {
+        "date": -794361600000,
+        "dates": [
+          -794361600000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "confronts",
+        "locations": [
+          "Italy"
+        ],
+        "relation_type": "conflict",
+        "sentiment": "negative",
+        "source_name": "David Caravaggio",
+        "sources": [],
+        "target_name": "Count László Almásy",
+        "source": "David Caravaggio",
+        "target": "Count László Almásy",
+        "key": 61
+      },
+      {
+        "date": -794361600000,
+        "dates": [
+          -794361600000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "confronts Count László Almásy about",
+        "locations": [
+          "Italy"
+        ],
+        "relation_type": "communication",
+        "sentiment": "negative",
+        "source_name": "David Caravaggio",
+        "sources": [],
+        "target_name": "Geoffrey Clifton and Katharine Clifton's death",
+        "source": "David Caravaggio",
+        "target": "Geoffrey Clifton and Katharine Clifton's death",
+        "key": 62
+      },
+      {
+        "date": -794361600000,
+        "dates": [
+          -794361600000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "abandons",
+        "locations": [
+          "Italy"
+        ],
+        "relation_type": "other",
+        "sentiment": "neutral",
+        "source_name": "David Caravaggio",
+        "sources": [],
+        "target_name": "his quest for revenge",
+        "source": "David Caravaggio",
+        "target": "his quest for revenge",
+        "key": 90
+      },
+      {
+        "date": -794361600000,
+        "dates": [
+          -794361600000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "is a",
+        "locations": [
+          "Italy"
+        ],
+        "relation_type": "other",
+        "sentiment": "neutral",
+        "source_name": "Count László Almásy",
+        "sources": [],
+        "target_name": "Hungarian cartographer",
+        "source": "Count László Almásy",
+        "target": "Hungarian cartographer",
+        "key": 31
+      },
+      {
+        "date": -794361600000,
+        "dates": [
+          -794361600000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "is exploring",
+        "locations": [
+          "Italy"
+        ],
+        "relation_type": "location",
+        "sentiment": "neutral",
+        "source_name": "Count László Almásy",
+        "sources": [],
+        "target_name": "a region of the Sahara",
+        "source": "Count László Almásy",
+        "target": "a region of the Sahara",
+        "key": 32
+      },
+      {
+        "date": -794361600000,
+        "dates": [
+          -794361600000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "discovers the location of",
+        "locations": [
+          "Italy"
+        ],
+        "relation_type": "location",
+        "sentiment": "neutral",
+        "source_name": "Count László Almásy",
+        "sources": [],
+        "target_name": "the ancient Cave of Swimmers",
+        "source": "Count László Almásy",
+        "target": "the ancient Cave of Swimmers",
+        "key": 37
+      },
+      {
+        "date": -794361600000,
+        "dates": [
+          -794361600000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "carries Katharine Clifton to",
+        "locations": [
+          "Italy"
+        ],
+        "relation_type": "location",
+        "sentiment": "neutral",
+        "source_name": "Count László Almásy",
+        "sources": [],
+        "target_name": "the ancient Cave of Swimmers",
+        "source": "Count László Almásy",
+        "target": "the ancient Cave of Swimmers",
+        "key": 73
+      },
+      {
+        "date": -794361600000,
+        "dates": [
+          -794361600000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "flies to",
+        "locations": [
+          "Italy"
+        ],
+        "relation_type": "location",
+        "sentiment": "neutral",
+        "source_name": "Count László Almásy",
+        "sources": [],
+        "target_name": "the ancient Cave of Swimmers",
+        "source": "Count László Almásy",
+        "target": "the ancient Cave of Swimmers",
+        "key": 88
+      },
+      {
+        "date": -794361600000,
+        "dates": [
+          -794361600000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "falls in love with",
+        "locations": [
+          "Italy"
+        ],
+        "relation_type": "affiliation",
+        "sentiment": "positive",
+        "source_name": "Count László Almásy",
+        "sources": [],
+        "target_name": "Katharine Clifton",
+        "source": "Count László Almásy",
+        "target": "Katharine Clifton",
+        "key": 39
+      },
+      {
+        "date": -794361600000,
+        "dates": [
+          -794361600000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "writes about",
+        "locations": [
+          "Italy"
+        ],
+        "relation_type": "communication",
+        "sentiment": "positive",
+        "source_name": "Count László Almásy",
+        "sources": [],
+        "target_name": "Katharine Clifton",
+        "source": "Count László Almásy",
+        "target": "Katharine Clifton",
+        "key": 41
+      },
+      {
+        "date": -794361600000,
+        "dates": [
+          -794361600000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "buys a silver thimble as a gift for",
+        "locations": [
+          "Italy"
+        ],
+        "relation_type": "transaction",
+        "sentiment": "positive",
+        "source_name": "Count László Almásy",
+        "sources": [],
+        "target_name": "Katharine Clifton",
+        "source": "Count László Almásy",
+        "target": "Katharine Clifton",
+        "key": 46
+      },
+      {
+        "date": -794361600000,
+        "dates": [
+          -794361600000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "carries",
+        "locations": [
+          "Italy"
+        ],
+        "relation_type": "other",
+        "sentiment": "neutral",
+        "source_name": "Count László Almásy",
+        "sources": [],
+        "target_name": "Katharine Clifton",
+        "source": "Count László Almásy",
+        "target": "Katharine Clifton",
+        "key": 72
+      },
+      {
+        "date": -794361600000,
+        "dates": [
+          -794361600000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "accepts",
+        "locations": [
+          "Italy"
+        ],
+        "relation_type": "transaction",
+        "sentiment": "neutral",
+        "source_name": "Count László Almásy",
+        "sources": [],
+        "target_name": "two watercolours of the cave walls",
+        "source": "Count László Almásy",
+        "target": "two watercolours of the cave walls",
+        "key": 42
+      },
+      {
+        "date": -794361600000,
+        "dates": [
+          -794361600000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "returns to",
+        "locations": [
+          "Italy"
+        ],
+        "relation_type": "location",
+        "sentiment": "neutral",
+        "source_name": "Count László Almásy",
+        "sources": [],
+        "target_name": "Cairo",
+        "source": "Count László Almásy",
+        "target": "Cairo",
+        "key": 43
+      },
+      {
+        "date": -794361600000,
+        "dates": [
+          -794361600000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "buys",
+        "locations": [
+          "Italy"
+        ],
+        "relation_type": "transaction",
+        "sentiment": "positive",
+        "source_name": "Count László Almásy",
+        "sources": [],
+        "target_name": "a silver thimble",
+        "source": "Count László Almásy",
+        "target": "a silver thimble",
+        "key": 45
+      },
+      {
+        "date": -794361600000,
+        "dates": [
+          -794361600000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "takes it badly",
+        "locations": [
+          "Italy"
+        ],
+        "relation_type": "other",
+        "sentiment": "negative",
+        "source_name": "Count László Almásy",
+        "sources": [],
+        "target_name": "Katharine Clifton breaking off the affair",
+        "source": "Count László Almásy",
+        "target": "Katharine Clifton breaking off the affair",
+        "key": 51
+      },
+      {
+        "date": -794361600000,
+        "dates": [
+          -794361600000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "concedes",
+        "locations": [
+          "Italy"
+        ],
+        "relation_type": "communication",
+        "sentiment": "neutral",
+        "source_name": "Count László Almásy",
+        "sources": [],
+        "target_name": "Maybe Count László Almásy did",
+        "source": "Count László Almásy",
+        "target": "Maybe Count László Almásy did",
+        "key": 63
+      },
+      {
+        "date": -794361600000,
+        "dates": [
+          -794361600000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "jumps out of the way of",
+        "locations": [
+          "Italy"
+        ],
+        "relation_type": "conflict",
+        "sentiment": "neutral",
+        "source_name": "Count László Almásy",
+        "sources": [],
+        "target_name": "Geoffrey Clifton",
+        "source": "Count László Almásy",
+        "target": "Geoffrey Clifton",
+        "key": 67
+      },
+      {
+        "date": -794361600000,
+        "dates": [
+          -794361600000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "finds",
+        "locations": [
+          "Italy"
+        ],
+        "relation_type": "other",
+        "sentiment": "negative",
+        "source_name": "Count László Almásy",
+        "sources": [],
+        "target_name": "Geoffrey Clifton dead at the controls",
+        "source": "Count László Almásy",
+        "target": "Geoffrey Clifton dead at the controls",
+        "key": 69
+      },
+      {
+        "date": -794361600000,
+        "dates": [
+          -794361600000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "leaves",
+        "locations": [
+          "Italy"
+        ],
+        "relation_type": "transaction",
+        "sentiment": "neutral",
+        "source_name": "Count László Almásy",
+        "sources": [],
+        "target_name": "a copy of Herodotus's Histories",
+        "source": "Count László Almásy",
+        "target": "a copy of Herodotus's Histories",
+        "key": 75
+      },
+      {
+        "date": -794361600000,
+        "dates": [
+          -794361600000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "walks three days across",
+        "locations": [
+          "Italy"
+        ],
+        "relation_type": "location",
+        "sentiment": "neutral",
+        "source_name": "Count László Almásy",
+        "sources": [],
+        "target_name": "the desert",
+        "source": "Count László Almásy",
+        "target": "the desert",
+        "key": 76
+      },
+      {
+        "date": -794361600000,
+        "dates": [
+          -794361600000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "walks to",
+        "locations": [
+          "Italy"
+        ],
+        "relation_type": "location",
+        "sentiment": "neutral",
+        "source_name": "Count László Almásy",
+        "sources": [],
+        "target_name": "El Tag",
+        "source": "Count László Almásy",
+        "target": "El Tag",
+        "key": 77
+      },
+      {
+        "date": -794361600000,
+        "dates": [
+          -794361600000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "escapes",
+        "locations": [
+          "Italy"
+        ],
+        "relation_type": "conflict",
+        "sentiment": "neutral",
+        "source_name": "Count László Almásy",
+        "sources": [],
+        "target_name": "a young officer",
+        "source": "Count László Almásy",
+        "target": "a young officer",
+        "key": 81
+      },
+      {
+        "date": -794361600000,
+        "dates": [
+          -794361600000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "encounters",
+        "locations": [
+          "Italy"
+        ],
+        "relation_type": "conflict",
+        "sentiment": "neutral",
+        "source_name": "Count László Almásy",
+        "sources": [],
+        "target_name": "a German army unit",
+        "source": "Count László Almásy",
+        "target": "a German army unit",
+        "key": 82
+      },
+      {
+        "date": -794361600000,
+        "dates": [
+          -794361600000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "exchanges",
+        "locations": [
+          "Italy"
+        ],
+        "relation_type": "transaction",
+        "sentiment": "neutral",
+        "source_name": "Count László Almásy",
+        "sources": [],
+        "target_name": "maps for fuel",
+        "source": "Count László Almásy",
+        "target": "maps for fuel",
+        "key": 87
+      },
+      {
+        "date": -794361600000,
+        "dates": [
+          -794361600000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "is shot down while flying",
+        "locations": [
+          "Italy"
+        ],
+        "relation_type": "conflict",
+        "sentiment": "negative",
+        "source_name": "Count László Almásy",
+        "sources": [],
+        "target_name": "Katharine's body",
+        "source": "Count László Almásy",
+        "target": "Katharine's body",
+        "key": 89
+      },
+      {
+        "date": -794361600000,
+        "dates": [
+          -794361600000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "tells",
+        "locations": [
+          "Italy"
+        ],
+        "relation_type": "communication",
+        "sentiment": "neutral",
+        "source_name": "Count László Almásy",
+        "sources": [],
+        "target_name": "Hana",
+        "source": "Count László Almásy",
+        "target": "Hana",
+        "key": 94
+      },
+      {
+        "date": -794361600000,
+        "dates": [
+          -794361600000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "pushes",
+        "locations": [
+          "Italy"
+        ],
+        "relation_type": "transaction",
+        "sentiment": "neutral",
+        "source_name": "Count László Almásy",
+        "sources": [],
+        "target_name": "vials of morphine towards Hana",
+        "source": "Count László Almásy",
+        "target": "vials of morphine towards Hana",
+        "key": 95
+      },
+      {
+        "date": -794361600000,
+        "dates": [
+          -794361600000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "includes",
+        "locations": [
+          "Italy"
+        ],
+        "relation_type": "membership",
+        "sentiment": "neutral",
+        "source_name": "a Royal Geographical Society archeological and surveying expedition",
+        "sources": [],
+        "target_name": "Peter Madox",
+        "source": "a Royal Geographical Society archeological and surveying expedition",
+        "target": "Peter Madox",
+        "key": 33
+      },
+      {
+        "date": -794361600000,
+        "dates": [
+          -794361600000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "includes",
+        "locations": [
+          "Italy"
+        ],
+        "relation_type": "membership",
+        "sentiment": "neutral",
+        "source_name": "a Royal Geographical Society archeological and surveying expedition",
+        "sources": [],
+        "target_name": "Geoffrey Clifton",
+        "source": "a Royal Geographical Society archeological and surveying expedition",
+        "target": "Geoffrey Clifton",
+        "key": 34
+      },
+      {
+        "date": -794361600000,
+        "dates": [
+          -794361600000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "is a good friend of",
+        "locations": [
+          "Italy"
+        ],
+        "relation_type": "affiliation",
+        "sentiment": "positive",
+        "source_name": "Peter Madox",
+        "sources": [],
+        "target_name": "Count László Almásy",
+        "source": "Peter Madox",
+        "target": "Count László Almásy",
+        "key": 35
+      },
+      {
+        "date": -794361600000,
+        "dates": [
+          -794361600000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "leaves",
+        "locations": [
+          "Italy"
+        ],
+        "relation_type": "location",
+        "sentiment": "neutral",
+        "source_name": "Peter Madox",
+        "sources": [],
+        "target_name": "Madox's Tiger Moth airplane at Kufra Oasis",
+        "source": "Peter Madox",
+        "target": "Madox's Tiger Moth airplane at Kufra Oasis",
+        "key": 53
+      },
+      {
+        "date": -794361600000,
+        "dates": [
+          -794361600000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "returns to",
+        "locations": [
+          "Italy"
+        ],
+        "relation_type": "location",
+        "sentiment": "neutral",
+        "source_name": "Peter Madox",
+        "sources": [],
+        "target_name": "Britain",
+        "source": "Peter Madox",
+        "target": "Britain",
+        "key": 54
+      },
+      {
+        "date": -794361600000,
+        "dates": [
+          -794361600000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "has hidden",
+        "locations": [
+          "Italy"
+        ],
+        "relation_type": "ownership",
+        "sentiment": "neutral",
+        "source_name": "Peter Madox",
+        "sources": [],
+        "target_name": "Madox's Tiger Moth airplane",
+        "source": "Peter Madox",
+        "target": "Madox's Tiger Moth airplane",
+        "key": 85
+      },
+      {
+        "date": -794361600000,
+        "dates": [
+          -794361600000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "conducts aerial surveys from",
+        "locations": [
+          "Italy"
+        ],
+        "relation_type": "other",
+        "sentiment": "neutral",
+        "source_name": "Geoffrey Clifton",
+        "sources": [],
+        "target_name": "their plane",
+        "source": "Geoffrey Clifton",
+        "target": "their plane",
+        "key": 36
+      },
+      {
+        "date": -794361600000,
+        "dates": [
+          -794361600000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "secretly watches",
+        "locations": [
+          "Italy"
+        ],
+        "relation_type": "other",
+        "sentiment": "negative",
+        "source_name": "Geoffrey Clifton",
+        "sources": [],
+        "target_name": "Katharine Clifton",
+        "source": "Geoffrey Clifton",
+        "target": "Katharine Clifton",
+        "key": 47
+      },
+      {
+        "date": -794361600000,
+        "dates": [
+          -794361600000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "watches from",
+        "locations": [
+          "Italy"
+        ],
+        "relation_type": "location",
+        "sentiment": "neutral",
+        "source_name": "Geoffrey Clifton",
+        "sources": [],
+        "target_name": "his car",
+        "source": "Geoffrey Clifton",
+        "target": "his car",
+        "key": 48
+      },
+      {
+        "date": -794361600000,
+        "dates": [
+          -794361600000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "realizes",
+        "locations": [
+          "Italy"
+        ],
+        "relation_type": "other",
+        "sentiment": "negative",
+        "source_name": "Geoffrey Clifton",
+        "sources": [],
+        "target_name": "Katharine Clifton is being unfaithful",
+        "source": "Geoffrey Clifton",
+        "target": "Katharine Clifton is being unfaithful",
+        "key": 49
+      },
+      {
+        "date": -794361600000,
+        "dates": [
+          -794361600000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "arrives in",
+        "locations": [
+          "Italy"
+        ],
+        "relation_type": "location",
+        "sentiment": "neutral",
+        "source_name": "Geoffrey Clifton",
+        "sources": [],
+        "target_name": "a British biplane",
+        "source": "Geoffrey Clifton",
+        "target": "a British biplane",
+        "key": 65
+      },
+      {
+        "date": -794361600000,
+        "dates": [
+          -794361600000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "crashes",
+        "locations": [
+          "Italy"
+        ],
+        "relation_type": "conflict",
+        "sentiment": "negative",
+        "source_name": "Geoffrey Clifton",
+        "sources": [],
+        "target_name": "a British biplane",
+        "source": "Geoffrey Clifton",
+        "target": "a British biplane",
+        "key": 68
+      },
+      {
+        "date": -794361600000,
+        "dates": [
+          -794361600000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "aims at",
+        "locations": [
+          "Italy"
+        ],
+        "relation_type": "conflict",
+        "sentiment": "negative",
+        "source_name": "Geoffrey Clifton",
+        "sources": [],
+        "target_name": "Count László Almásy",
+        "source": "Geoffrey Clifton",
+        "target": "Count László Almásy",
+        "key": 66
+      },
+      {
+        "date": -794361600000,
+        "dates": [
+          -794361600000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "attempted a double murder-suicide",
+        "locations": [
+          "Italy"
+        ],
+        "relation_type": "conflict",
+        "sentiment": "negative",
+        "source_name": "Geoffrey Clifton",
+        "sources": [],
+        "target_name": "Count László Almásy and Katharine Clifton",
+        "source": "Geoffrey Clifton",
+        "target": "Count László Almásy and Katharine Clifton",
+        "key": 70
+      },
+      {
+        "date": -794361600000,
+        "dates": [
+          -794361600000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "had uncovered",
+        "locations": [
+          "Italy"
+        ],
+        "relation_type": "other",
+        "sentiment": "negative",
+        "source_name": "Geoffrey Clifton",
+        "sources": [],
+        "target_name": "Count László Almásy and Katharine Clifton's affair",
+        "source": "Geoffrey Clifton",
+        "target": "Count László Almásy and Katharine Clifton's affair",
+        "key": 71
+      },
+      {
+        "date": -794361600000,
+        "dates": [
+          -794361600000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "contains",
+        "locations": [
+          "Italy"
+        ],
+        "relation_type": "other",
+        "sentiment": "neutral",
+        "source_name": "the ancient Cave of Swimmers",
+        "sources": [],
+        "target_name": "cave paintings",
+        "source": "the ancient Cave of Swimmers",
+        "target": "cave paintings",
+        "key": 38
+      },
+      {
+        "date": -794361600000,
+        "dates": [
+          -794361600000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "falls in love with",
+        "locations": [
+          "Italy"
+        ],
+        "relation_type": "affiliation",
+        "sentiment": "positive",
+        "source_name": "Katharine Clifton",
+        "sources": [],
+        "target_name": "Count László Almásy",
+        "source": "Katharine Clifton",
+        "target": "Count László Almásy",
+        "key": 40
+      },
+      {
+        "date": -794361600000,
+        "dates": [
+          -794361600000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "breaks it off with",
+        "locations": [
+          "Italy"
+        ],
+        "relation_type": "conflict",
+        "sentiment": "negative",
+        "source_name": "Katharine Clifton",
+        "sources": [],
+        "target_name": "Count László Almásy",
+        "source": "Katharine Clifton",
+        "target": "Count László Almásy",
+        "key": 50
+      },
+      {
+        "date": -794361600000,
+        "dates": [
+          -794361600000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "returns to",
+        "locations": [
+          "Italy"
+        ],
+        "relation_type": "location",
+        "sentiment": "neutral",
+        "source_name": "Katharine Clifton",
+        "sources": [],
+        "target_name": "Cairo",
+        "source": "Katharine Clifton",
+        "target": "Cairo",
+        "key": 44
+      },
+      {
+        "date": -794361600000,
+        "dates": [
+          -794361600000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "is still wearing",
+        "locations": [
+          "Italy"
+        ],
+        "relation_type": "ownership",
+        "sentiment": "neutral",
+        "source_name": "Katharine Clifton",
+        "sources": [],
+        "target_name": "a silver thimble",
+        "source": "Katharine Clifton",
+        "target": "a silver thimble",
+        "key": 74
+      },
+      {
+        "date": -794361600000,
+        "dates": [
+          -794361600000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "cut off",
+        "locations": [
+          "Italy"
+        ],
+        "relation_type": "conflict",
+        "sentiment": "negative",
+        "source_name": "the German interrogator who cut his thumbs off",
+        "sources": [],
+        "target_name": "Caravaggio's thumbs",
+        "source": "the German interrogator who cut his thumbs off",
+        "target": "Caravaggio's thumbs",
+        "key": 57
+      },
+      {
+        "date": -794361600000,
+        "dates": [
+          -794361600000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "betrayed",
+        "locations": [
+          "Italy"
+        ],
+        "relation_type": "conflict",
+        "sentiment": "negative",
+        "source_name": "the spy who betrayed him",
+        "sources": [],
+        "target_name": "David Caravaggio",
+        "source": "the spy who betrayed him",
+        "target": "David Caravaggio",
+        "key": 58
+      },
+      {
+        "date": -794361600000,
+        "dates": [
+          -794361600000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "is British-held",
+        "locations": [
+          "Italy"
+        ],
+        "relation_type": "ownership",
+        "sentiment": "neutral",
+        "source_name": "El Tag",
+        "sources": [],
+        "target_name": "Britain",
+        "source": "El Tag",
+        "target": "Britain",
+        "key": 78
+      },
+      {
+        "date": -794361600000,
+        "dates": [
+          -794361600000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "detains",
+        "locations": [
+          "Italy"
+        ],
+        "relation_type": "conflict",
+        "sentiment": "negative",
+        "source_name": "a young officer",
+        "sources": [],
+        "target_name": "Count László Almásy",
+        "source": "a young officer",
+        "target": "Count László Almásy",
+        "key": 79
+      },
+      {
+        "date": -794361600000,
+        "dates": [
+          -794361600000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "detains Count László Almásy on suspicion of being",
+        "locations": [
+          "Italy"
+        ],
+        "relation_type": "conflict",
+        "sentiment": "negative",
+        "source_name": "a young officer",
+        "sources": [],
+        "target_name": "a spy",
+        "source": "a young officer",
+        "target": "a spy",
+        "key": 80
+      },
+      {
+        "date": -794361600000,
+        "dates": [
+          -794361600000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "takes",
+        "locations": [
+          "Italy"
+        ],
+        "relation_type": "transaction",
+        "sentiment": "neutral",
+        "source_name": "a German army unit",
+        "sources": [],
+        "target_name": "Count László Almásy",
+        "source": "a German army unit",
+        "target": "Count László Almásy",
+        "key": 83
+      },
+      {
+        "date": -794361600000,
+        "dates": [
+          -794361600000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "takes Count László Almásy to",
+        "locations": [
+          "Italy"
+        ],
+        "relation_type": "location",
+        "sentiment": "neutral",
+        "source_name": "a German army unit",
+        "sources": [],
+        "target_name": "Kufra Oasis",
+        "source": "a German army unit",
+        "target": "Kufra Oasis",
+        "key": 84
+      },
+      {
+        "date": -794361600000,
+        "dates": [
+          -794361600000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "is hidden at",
+        "locations": [
+          "Italy"
+        ],
+        "relation_type": "location",
+        "sentiment": "neutral",
+        "source_name": "Madox's Tiger Moth airplane",
+        "sources": [],
+        "target_name": "Kufra Oasis",
+        "source": "Madox's Tiger Moth airplane",
+        "target": "Kufra Oasis",
+        "key": 86
+      },
+      {
+        "date": -794361600000,
+        "dates": [
+          -794361600000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "ends",
+        "locations": [
+          "Italy"
+        ],
+        "relation_type": "other",
+        "sentiment": "neutral",
+        "source_name": "the war",
+        "sources": [],
+        "target_name": "Italy",
+        "source": "the war",
+        "target": "Italy",
+        "key": 91
+      },
+      {
+        "date": -794361600000,
+        "dates": [
+          -794361600000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "kills",
+        "locations": [
+          "Italy"
+        ],
+        "relation_type": "conflict",
+        "sentiment": "negative",
+        "source_name": "a lethal dose",
+        "sources": [],
+        "target_name": "Count László Almásy",
+        "source": "a lethal dose",
+        "target": "Count László Almásy",
+        "key": 97
+      },
+      {
+        "date": -794361600000,
+        "dates": [
+          -794361600000
+        ],
+        "documents": [
+          0
+        ],
+        "label": "was written while alone in",
+        "locations": [
+          "Italy"
+        ],
+        "relation_type": "location",
+        "sentiment": "neutral",
+        "source_name": "Katharine's final letter",
+        "sources": [],
+        "target_name": "the ancient Cave of Swimmers",
+        "source": "Katharine's final letter",
+        "target": "the ancient Cave of Swimmers",
+        "key": 99
+      }
+    ]
+  }
+}

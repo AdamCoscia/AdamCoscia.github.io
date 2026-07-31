@@ -1,0 +1,1292 @@
+{
+  "documents": [
+    {
+      "date": null,
+      "id": 0,
+      "location": "New York City",
+      "name": "big",
+      "source": null,
+      "text": "Thirteen-year-old Josh Baskin tries to impress a girl by going on a carnival ride but is rejected as he is too short. Dejected, he inserts a coin into an antique fortune-teller machine called Zoltar, and makes a wish to be \"big\". It dispenses a card stating \"Your wish is granted,\" but Josh discovers the machine has been unplugged the entire time.\n\nThe next morning, Josh discovers that he has grown into an adult overnight. Deducing that the Zoltar machine can actually make wishes come true, he tries to locate the machine, but finds that the carnival has moved on. Returning home, he desperately tries to explain his predicament to his mother, who panics and chases him from the house thinking he is a stranger who has kidnapped her son. He then finds his best friend Billy at his school and convinces him of his identity by reciting a song that only they know. With Billy's help, Josh learns that it will take at least six weeks to find the Zoltar machine again, so Josh rents a room in a flophouse in New York City and gets a job as a data entry clerk at the MacMillan Toy Company.\n\n\nThe Walking Piano, as featured in Big\nJosh meets the company's owner, Mr. MacMillan, at FAO Schwarz, and impresses him with his insight into current toys and his child-like enthusiasm. They use the store's Walking Piano to play duets (\"Heart and Soul\" and \"Chopsticks\"), and MacMillan invites Josh to a massive marketing campaign pitch meeting with senior executives. Unimpressed with the toy being pitched, Josh shocks and challenges the executives with a simple declaration that the toy is not fun, and while his follow-up suggestions invigorate the team for new ideas, he earns the animosity of Paul Davenport, the pitch's leader. Meanwhile, a pleased MacMillan promotes Josh to Vice President of Product Development. He soon attracts the attention of Susan Lawrence, a fellow executive, and a romance begins to develop, much to the dismay of her former boyfriend Davenport. Josh becomes increasingly entwined in his adult life by spending time with Susan, mingling with her friends, and entering into a steady relationship with her. His ideas become valuable assets to MacMillan Toys; however, he begins to forget what it is like to be a child, and his tight schedule rarely allows him to spend time with Billy.\n\nMacMillan asks Josh to come up with proposals for a new line of toys. He is intimidated by the need to formulate the business aspects of the proposal, but Susan says that she will handle the business end while he comes up with the ideas. Nevertheless, he feels pressured and longs for his old life. When he expresses doubts to Susan and attempts to explain that he is a child, she interprets this as fear of commitment on his part and dismisses his explanation.\n\nJosh learns from Billy that the Zoltar machine is now at Sea Point Park, and he leaves in the middle of his presentation to MacMillan and the other executives. Susan follows and encounters Billy, who tells her where Josh went. At the park, Josh finds the machine, unplugs it, and makes a wish to become a child again. Susan confronts him for running off, but upon seeing the machine and the fortune, she realizes that he was telling the truth and becomes despondent that their relationship will end. Josh is grateful for their time together and suggests she use the machine to turn herself into a little girl. Susan declines, but offers to drive Josh back to New Jersey. After sharing an emotional goodbye with Susan, Josh transforms into a child again before reuniting with his family and Billy.",
+      "title": null
+    }
+  ],
+  "graph": {
+    "directed": true,
+    "multigraph": true,
+    "graph": {},
+    "nodes": [
+      {
+        "degree": 42,
+        "description": "A thirteen-year-old boy who wishes to be \"big\" and becomes an adult overnight.",
+        "doc_count": 1,
+        "entity_type": "person",
+        "first_seen": null,
+        "last_seen": null,
+        "locations": [
+          "New York City"
+        ],
+        "name": "Josh Baskin",
+        "sentiment": "neutral",
+        "sources": [],
+        "id": "Josh Baskin"
+      },
+      {
+        "degree": 1,
+        "description": "A girl Josh Baskin tries to impress at a carnival.",
+        "doc_count": 1,
+        "entity_type": "person",
+        "first_seen": null,
+        "last_seen": null,
+        "locations": [
+          "New York City"
+        ],
+        "name": "a girl",
+        "sentiment": "neutral",
+        "sources": [],
+        "id": "a girl"
+      },
+      {
+        "degree": 1,
+        "description": null,
+        "doc_count": 1,
+        "entity_type": null,
+        "first_seen": null,
+        "last_seen": null,
+        "locations": [
+          "New York City"
+        ],
+        "name": "a carnival ride",
+        "sentiment": "negative",
+        "sources": [],
+        "id": "a carnival ride"
+      },
+      {
+        "degree": 2,
+        "description": "A fortune-teller machine that dispenses a card and is later deduced to make wishes come true.",
+        "doc_count": 1,
+        "entity_type": "product",
+        "first_seen": null,
+        "last_seen": null,
+        "locations": [
+          "New York City"
+        ],
+        "name": "an antique fortune-teller machine called Zoltar",
+        "sentiment": "neutral",
+        "sources": [],
+        "id": "an antique fortune-teller machine called Zoltar"
+      },
+      {
+        "degree": 1,
+        "description": null,
+        "doc_count": 1,
+        "entity_type": null,
+        "first_seen": null,
+        "last_seen": null,
+        "locations": [
+          "New York City"
+        ],
+        "name": "the machine has been unplugged the entire time",
+        "sentiment": "neutral",
+        "sources": [],
+        "id": "the machine has been unplugged the entire time"
+      },
+      {
+        "degree": 1,
+        "description": null,
+        "doc_count": 1,
+        "entity_type": null,
+        "first_seen": null,
+        "last_seen": null,
+        "locations": [
+          "New York City"
+        ],
+        "name": "an adult",
+        "sentiment": "neutral",
+        "sources": [],
+        "id": "an adult"
+      },
+      {
+        "degree": 1,
+        "description": null,
+        "doc_count": 1,
+        "entity_type": null,
+        "first_seen": null,
+        "last_seen": null,
+        "locations": [
+          "New York City"
+        ],
+        "name": "the Zoltar machine can actually make wishes come true",
+        "sentiment": "neutral",
+        "sources": [],
+        "id": "the Zoltar machine can actually make wishes come true"
+      },
+      {
+        "degree": 3,
+        "description": "The Zoltar fortune-teller machine referenced in the narrative.",
+        "doc_count": 1,
+        "entity_type": "product",
+        "first_seen": null,
+        "last_seen": null,
+        "locations": [
+          "New York City"
+        ],
+        "name": "the machine",
+        "sentiment": "neutral",
+        "sources": [],
+        "id": "the machine"
+      },
+      {
+        "degree": 1,
+        "description": null,
+        "doc_count": 1,
+        "entity_type": null,
+        "first_seen": null,
+        "last_seen": null,
+        "locations": [
+          "New York City"
+        ],
+        "name": "the carnival has moved on",
+        "sentiment": "neutral",
+        "sources": [],
+        "id": "the carnival has moved on"
+      },
+      {
+        "degree": 3,
+        "description": "Josh Baskin's mother who reacts to adult Josh as if he is a stranger.",
+        "doc_count": 1,
+        "entity_type": "person",
+        "first_seen": null,
+        "last_seen": null,
+        "locations": [
+          "New York City"
+        ],
+        "name": "Josh Baskin's mother",
+        "sentiment": "negative",
+        "sources": [],
+        "id": "Josh Baskin's mother"
+      },
+      {
+        "degree": 1,
+        "description": "The school where Josh Baskin finds Billy.",
+        "doc_count": 1,
+        "entity_type": "organization",
+        "first_seen": null,
+        "last_seen": null,
+        "locations": [
+          "New York City"
+        ],
+        "name": "Josh Baskin's school",
+        "sentiment": "neutral",
+        "sources": [],
+        "id": "Josh Baskin's school"
+      },
+      {
+        "degree": 1,
+        "description": null,
+        "doc_count": 1,
+        "entity_type": null,
+        "first_seen": null,
+        "last_seen": null,
+        "locations": [
+          "New York City"
+        ],
+        "name": "a song that only they know",
+        "sentiment": "neutral",
+        "sources": [],
+        "id": "a song that only they know"
+      },
+      {
+        "degree": 1,
+        "description": null,
+        "doc_count": 1,
+        "entity_type": null,
+        "first_seen": null,
+        "last_seen": null,
+        "locations": [
+          "New York City"
+        ],
+        "name": "it will take at least six weeks to find the Zoltar machine again",
+        "sentiment": "neutral",
+        "sources": [],
+        "id": "it will take at least six weeks to find the Zoltar machine again"
+      },
+      {
+        "degree": 1,
+        "description": "The place where Josh Baskin rents a room after becoming an adult.",
+        "doc_count": 1,
+        "entity_type": "location",
+        "first_seen": null,
+        "last_seen": null,
+        "locations": [
+          "New York City"
+        ],
+        "name": "a flophouse in New York City",
+        "sentiment": "neutral",
+        "sources": [],
+        "id": "a flophouse in New York City"
+      },
+      {
+        "degree": 2,
+        "description": "The company where Josh Baskin works as a data entry clerk.",
+        "doc_count": 1,
+        "entity_type": "organization",
+        "first_seen": null,
+        "last_seen": null,
+        "locations": [
+          "New York City"
+        ],
+        "name": "the MacMillan Toy Company",
+        "sentiment": "neutral",
+        "sources": [],
+        "id": "the MacMillan Toy Company"
+      },
+      {
+        "degree": 1,
+        "description": "A store where Josh meets Mr. MacMillan and plays the Walking Piano.",
+        "doc_count": 1,
+        "entity_type": "organization",
+        "first_seen": null,
+        "last_seen": null,
+        "locations": [
+          "New York City"
+        ],
+        "name": "FAO Schwarz",
+        "sentiment": "neutral",
+        "sources": [],
+        "id": "FAO Schwarz"
+      },
+      {
+        "degree": 1,
+        "description": "A toy presented during the pitch meeting that Josh criticizes as not fun.",
+        "doc_count": 1,
+        "entity_type": "product",
+        "first_seen": null,
+        "last_seen": null,
+        "locations": [
+          "New York City"
+        ],
+        "name": "the toy being pitched",
+        "sentiment": "negative",
+        "sources": [],
+        "id": "the toy being pitched"
+      },
+      {
+        "degree": 1,
+        "description": null,
+        "doc_count": 1,
+        "entity_type": null,
+        "first_seen": null,
+        "last_seen": null,
+        "locations": [
+          "New York City"
+        ],
+        "name": "the toy being pitched is not fun",
+        "sentiment": "negative",
+        "sources": [],
+        "id": "the toy being pitched is not fun"
+      },
+      {
+        "degree": 1,
+        "description": "Company executives whom Josh challenges during the pitch.",
+        "doc_count": 1,
+        "entity_type": "organization",
+        "first_seen": null,
+        "last_seen": null,
+        "locations": [
+          "New York City"
+        ],
+        "name": "the executives",
+        "sentiment": "negative",
+        "sources": [],
+        "id": "the executives"
+      },
+      {
+        "degree": 16,
+        "description": "A fellow executive who develops a romantic relationship with Josh.",
+        "doc_count": 1,
+        "entity_type": "person",
+        "first_seen": null,
+        "last_seen": null,
+        "locations": [
+          "New York City"
+        ],
+        "name": "Susan Lawrence",
+        "sentiment": "neutral",
+        "sources": [],
+        "id": "Susan Lawrence"
+      },
+      {
+        "degree": 1,
+        "description": "People Susan Lawrence socializes with and whom Josh mingles with.",
+        "doc_count": 1,
+        "entity_type": "organization",
+        "first_seen": null,
+        "last_seen": null,
+        "locations": [
+          "New York City"
+        ],
+        "name": "Susan Lawrence's friends",
+        "sentiment": "neutral",
+        "sources": [],
+        "id": "Susan Lawrence's friends"
+      },
+      {
+        "degree": 1,
+        "description": null,
+        "doc_count": 1,
+        "entity_type": null,
+        "first_seen": null,
+        "last_seen": null,
+        "locations": [
+          "New York City"
+        ],
+        "name": "the need to formulate the business aspects of the proposal",
+        "sentiment": "negative",
+        "sources": [],
+        "id": "the need to formulate the business aspects of the proposal"
+      },
+      {
+        "degree": 1,
+        "description": "The business aspects of Josh's toy proposal that Susan says she will handle.",
+        "doc_count": 1,
+        "entity_type": "other",
+        "first_seen": null,
+        "last_seen": null,
+        "locations": [
+          "New York City"
+        ],
+        "name": "the business end",
+        "sentiment": "positive",
+        "sources": [],
+        "id": "the business end"
+      },
+      {
+        "degree": 1,
+        "description": null,
+        "doc_count": 1,
+        "entity_type": null,
+        "first_seen": null,
+        "last_seen": null,
+        "locations": [
+          "New York City"
+        ],
+        "name": "the ideas",
+        "sentiment": "neutral",
+        "sources": [],
+        "id": "the ideas"
+      },
+      {
+        "degree": 1,
+        "description": null,
+        "doc_count": 1,
+        "entity_type": null,
+        "first_seen": null,
+        "last_seen": null,
+        "locations": [
+          "New York City"
+        ],
+        "name": "fear of commitment on Josh Baskin's part",
+        "sentiment": "negative",
+        "sources": [],
+        "id": "fear of commitment on Josh Baskin's part"
+      },
+      {
+        "degree": 1,
+        "description": null,
+        "doc_count": 1,
+        "entity_type": null,
+        "first_seen": null,
+        "last_seen": null,
+        "locations": [
+          "New York City"
+        ],
+        "name": "Josh Baskin's explanation",
+        "sentiment": "negative",
+        "sources": [],
+        "id": "Josh Baskin's explanation"
+      },
+      {
+        "degree": 1,
+        "description": "A park where the Zoltar machine is located later.",
+        "doc_count": 1,
+        "entity_type": "location",
+        "first_seen": null,
+        "last_seen": null,
+        "locations": [
+          "New York City"
+        ],
+        "name": "Sea Point Park",
+        "sentiment": "neutral",
+        "sources": [],
+        "id": "Sea Point Park"
+      },
+      {
+        "degree": 1,
+        "description": "The moment when Josh leaves during a presentation.",
+        "doc_count": 1,
+        "entity_type": "event",
+        "first_seen": null,
+        "last_seen": null,
+        "locations": [
+          "New York City"
+        ],
+        "name": "the middle of his presentation to MacMillan and the other executives",
+        "sentiment": "neutral",
+        "sources": [],
+        "id": "the middle of his presentation to MacMillan and the other executives"
+      },
+      {
+        "degree": 1,
+        "description": "The park where Josh finds the Zoltar machine (Sea Point Park).",
+        "doc_count": 1,
+        "entity_type": "location",
+        "first_seen": null,
+        "last_seen": null,
+        "locations": [
+          "New York City"
+        ],
+        "name": "the park",
+        "sentiment": "neutral",
+        "sources": [],
+        "id": "the park"
+      },
+      {
+        "degree": 1,
+        "description": null,
+        "doc_count": 1,
+        "entity_type": null,
+        "first_seen": null,
+        "last_seen": null,
+        "locations": [
+          "New York City"
+        ],
+        "name": "Josh Baskin was telling the truth",
+        "sentiment": "positive",
+        "sources": [],
+        "id": "Josh Baskin was telling the truth"
+      },
+      {
+        "degree": 1,
+        "description": null,
+        "doc_count": 1,
+        "entity_type": null,
+        "first_seen": null,
+        "last_seen": null,
+        "locations": [
+          "New York City"
+        ],
+        "name": "their relationship will end",
+        "sentiment": "negative",
+        "sources": [],
+        "id": "their relationship will end"
+      },
+      {
+        "degree": 1,
+        "description": "The form Josh suggests Susan take by using the Zoltar machine.",
+        "doc_count": 1,
+        "entity_type": "person",
+        "first_seen": null,
+        "last_seen": null,
+        "locations": [
+          "New York City"
+        ],
+        "name": "a little girl",
+        "sentiment": "neutral",
+        "sources": [],
+        "id": "a little girl"
+      },
+      {
+        "degree": 1,
+        "description": "The place Susan offers to drive Josh back to.",
+        "doc_count": 1,
+        "entity_type": "location",
+        "first_seen": null,
+        "last_seen": null,
+        "locations": [
+          "New York City"
+        ],
+        "name": "New Jersey",
+        "sentiment": "neutral",
+        "sources": [],
+        "id": "New Jersey"
+      },
+      {
+        "degree": 1,
+        "description": null,
+        "doc_count": 1,
+        "entity_type": null,
+        "first_seen": null,
+        "last_seen": null,
+        "locations": [
+          "New York City"
+        ],
+        "name": "a child",
+        "sentiment": "neutral",
+        "sources": [],
+        "id": "a child"
+      }
+    ],
+    "links": [
+      {
+        "date": null,
+        "dates": [],
+        "documents": [
+          0
+        ],
+        "label": "tries to impress",
+        "locations": [
+          "New York City"
+        ],
+        "relation_type": "communication",
+        "sentiment": "neutral",
+        "source_name": "Josh Baskin",
+        "sources": [],
+        "target_name": "a girl",
+        "source": "Josh Baskin",
+        "target": "a girl",
+        "key": 0
+      },
+      {
+        "date": null,
+        "dates": [],
+        "documents": [
+          0
+        ],
+        "label": "is too short for",
+        "locations": [
+          "New York City"
+        ],
+        "relation_type": "other",
+        "sentiment": "negative",
+        "source_name": "Josh Baskin",
+        "sources": [],
+        "target_name": "a carnival ride",
+        "source": "Josh Baskin",
+        "target": "a carnival ride",
+        "key": 1
+      },
+      {
+        "date": null,
+        "dates": [],
+        "documents": [
+          0
+        ],
+        "label": "inserts a coin into",
+        "locations": [
+          "New York City"
+        ],
+        "relation_type": "transaction",
+        "sentiment": "neutral",
+        "source_name": "Josh Baskin",
+        "sources": [],
+        "target_name": "an antique fortune-teller machine called Zoltar",
+        "source": "Josh Baskin",
+        "target": "an antique fortune-teller machine called Zoltar",
+        "key": 2
+      },
+      {
+        "date": null,
+        "dates": [],
+        "documents": [
+          0
+        ],
+        "label": "discovers",
+        "locations": [
+          "New York City"
+        ],
+        "relation_type": "other",
+        "sentiment": "neutral",
+        "source_name": "Josh Baskin",
+        "sources": [],
+        "target_name": "the machine has been unplugged the entire time",
+        "source": "Josh Baskin",
+        "target": "the machine has been unplugged the entire time",
+        "key": 4
+      },
+      {
+        "date": null,
+        "dates": [],
+        "documents": [
+          0
+        ],
+        "label": "has grown into",
+        "locations": [
+          "New York City"
+        ],
+        "relation_type": "other",
+        "sentiment": "neutral",
+        "source_name": "Josh Baskin",
+        "sources": [],
+        "target_name": "an adult",
+        "source": "Josh Baskin",
+        "target": "an adult",
+        "key": 5
+      },
+      {
+        "date": null,
+        "dates": [],
+        "documents": [
+          0
+        ],
+        "label": "deduces",
+        "locations": [
+          "New York City"
+        ],
+        "relation_type": "other",
+        "sentiment": "neutral",
+        "source_name": "Josh Baskin",
+        "sources": [],
+        "target_name": "the Zoltar machine can actually make wishes come true",
+        "source": "Josh Baskin",
+        "target": "the Zoltar machine can actually make wishes come true",
+        "key": 6
+      },
+      {
+        "date": null,
+        "dates": [],
+        "documents": [
+          0
+        ],
+        "label": "tries to locate",
+        "locations": [
+          "New York City"
+        ],
+        "relation_type": "other",
+        "sentiment": "neutral",
+        "source_name": "Josh Baskin",
+        "sources": [],
+        "target_name": "the machine",
+        "source": "Josh Baskin",
+        "target": "the machine",
+        "key": 7
+      },
+      {
+        "date": null,
+        "dates": [],
+        "documents": [
+          0
+        ],
+        "label": "unplugs",
+        "locations": [
+          "New York City"
+        ],
+        "relation_type": "other",
+        "sentiment": "neutral",
+        "source_name": "Josh Baskin",
+        "sources": [],
+        "target_name": "the machine",
+        "source": "Josh Baskin",
+        "target": "the machine",
+        "key": 59
+      },
+      {
+        "date": null,
+        "dates": [],
+        "documents": [
+          0
+        ],
+        "label": "makes a wish to become a child again using",
+        "locations": [
+          "New York City"
+        ],
+        "relation_type": "other",
+        "sentiment": "neutral",
+        "source_name": "Josh Baskin",
+        "sources": [],
+        "target_name": "the machine",
+        "source": "Josh Baskin",
+        "target": "the machine",
+        "key": 60
+      },
+      {
+        "date": null,
+        "dates": [],
+        "documents": [
+          0
+        ],
+        "label": "finds",
+        "locations": [
+          "New York City"
+        ],
+        "relation_type": "location",
+        "sentiment": "neutral",
+        "source_name": "Josh Baskin",
+        "sources": [],
+        "target_name": "the carnival has moved on",
+        "source": "Josh Baskin",
+        "target": "the carnival has moved on",
+        "key": 8
+      },
+      {
+        "date": null,
+        "dates": [],
+        "documents": [
+          0
+        ],
+        "label": "tries to explain his predicament to",
+        "locations": [
+          "New York City"
+        ],
+        "relation_type": "communication",
+        "sentiment": "neutral",
+        "source_name": "Josh Baskin",
+        "sources": [],
+        "target_name": "Josh Baskin's mother",
+        "source": "Josh Baskin",
+        "target": "Josh Baskin's mother",
+        "key": 9
+      },
+      {
+        "date": null,
+        "dates": [],
+        "documents": [
+          0
+        ],
+        "label": "finds Billy at",
+        "locations": [
+          "New York City"
+        ],
+        "relation_type": "location",
+        "sentiment": "neutral",
+        "source_name": "Josh Baskin",
+        "sources": [],
+        "target_name": "Josh Baskin's school",
+        "source": "Josh Baskin",
+        "target": "Josh Baskin's school",
+        "key": 13
+      },
+      {
+        "date": null,
+        "dates": [],
+        "documents": [
+          0
+        ],
+        "label": "convinces Billy of his identity by reciting",
+        "locations": [
+          "New York City"
+        ],
+        "relation_type": "communication",
+        "sentiment": "neutral",
+        "source_name": "Josh Baskin",
+        "sources": [],
+        "target_name": "a song that only they know",
+        "source": "Josh Baskin",
+        "target": "a song that only they know",
+        "key": 15
+      },
+      {
+        "date": null,
+        "dates": [],
+        "documents": [
+          0
+        ],
+        "label": "learns",
+        "locations": [
+          "New York City"
+        ],
+        "relation_type": "other",
+        "sentiment": "neutral",
+        "source_name": "Josh Baskin",
+        "sources": [],
+        "target_name": "it will take at least six weeks to find the Zoltar machine again",
+        "source": "Josh Baskin",
+        "target": "it will take at least six weeks to find the Zoltar machine again",
+        "key": 17
+      },
+      {
+        "date": null,
+        "dates": [],
+        "documents": [
+          0
+        ],
+        "label": "rents a room in",
+        "locations": [
+          "New York City"
+        ],
+        "relation_type": "location",
+        "sentiment": "neutral",
+        "source_name": "Josh Baskin",
+        "sources": [],
+        "target_name": "a flophouse in New York City",
+        "source": "Josh Baskin",
+        "target": "a flophouse in New York City",
+        "key": 18
+      },
+      {
+        "date": null,
+        "dates": [],
+        "documents": [
+          0
+        ],
+        "label": "gets a job as a data entry clerk at",
+        "locations": [
+          "New York City"
+        ],
+        "relation_type": "affiliation",
+        "sentiment": "neutral",
+        "source_name": "Josh Baskin",
+        "sources": [],
+        "target_name": "the MacMillan Toy Company",
+        "source": "Josh Baskin",
+        "target": "the MacMillan Toy Company",
+        "key": 19
+      },
+      {
+        "date": null,
+        "dates": [],
+        "documents": [
+          0
+        ],
+        "label": "meets Mr. MacMillan at",
+        "locations": [
+          "New York City"
+        ],
+        "relation_type": "location",
+        "sentiment": "neutral",
+        "source_name": "Josh Baskin",
+        "sources": [],
+        "target_name": "FAO Schwarz",
+        "source": "Josh Baskin",
+        "target": "FAO Schwarz",
+        "key": 22
+      },
+      {
+        "date": null,
+        "dates": [],
+        "documents": [
+          0
+        ],
+        "label": "is unimpressed with",
+        "locations": [
+          "New York City"
+        ],
+        "relation_type": "other",
+        "sentiment": "negative",
+        "source_name": "Josh Baskin",
+        "sources": [],
+        "target_name": "the toy being pitched",
+        "source": "Josh Baskin",
+        "target": "the toy being pitched",
+        "key": 29
+      },
+      {
+        "date": null,
+        "dates": [],
+        "documents": [
+          0
+        ],
+        "label": "declares",
+        "locations": [
+          "New York City"
+        ],
+        "relation_type": "communication",
+        "sentiment": "negative",
+        "source_name": "Josh Baskin",
+        "sources": [],
+        "target_name": "the toy being pitched is not fun",
+        "source": "Josh Baskin",
+        "target": "the toy being pitched is not fun",
+        "key": 30
+      },
+      {
+        "date": null,
+        "dates": [],
+        "documents": [
+          0
+        ],
+        "label": "shocks and challenges",
+        "locations": [
+          "New York City"
+        ],
+        "relation_type": "conflict",
+        "sentiment": "negative",
+        "source_name": "Josh Baskin",
+        "sources": [],
+        "target_name": "the executives",
+        "source": "Josh Baskin",
+        "target": "the executives",
+        "key": 31
+      },
+      {
+        "date": null,
+        "dates": [],
+        "documents": [
+          0
+        ],
+        "label": "attracts the attention of",
+        "locations": [
+          "New York City"
+        ],
+        "relation_type": "communication",
+        "sentiment": "positive",
+        "source_name": "Josh Baskin",
+        "sources": [],
+        "target_name": "Susan Lawrence",
+        "source": "Josh Baskin",
+        "target": "Susan Lawrence",
+        "key": 35
+      },
+      {
+        "date": null,
+        "dates": [],
+        "documents": [
+          0
+        ],
+        "label": "begins a romance with",
+        "locations": [
+          "New York City"
+        ],
+        "relation_type": "affiliation",
+        "sentiment": "positive",
+        "source_name": "Josh Baskin",
+        "sources": [],
+        "target_name": "Susan Lawrence",
+        "source": "Josh Baskin",
+        "target": "Susan Lawrence",
+        "key": 36
+      },
+      {
+        "date": null,
+        "dates": [],
+        "documents": [
+          0
+        ],
+        "label": "spends time with",
+        "locations": [
+          "New York City"
+        ],
+        "relation_type": "affiliation",
+        "sentiment": "positive",
+        "source_name": "Josh Baskin",
+        "sources": [],
+        "target_name": "Susan Lawrence",
+        "source": "Josh Baskin",
+        "target": "Susan Lawrence",
+        "key": 38
+      },
+      {
+        "date": null,
+        "dates": [],
+        "documents": [
+          0
+        ],
+        "label": "expresses doubts to",
+        "locations": [
+          "New York City"
+        ],
+        "relation_type": "communication",
+        "sentiment": "neutral",
+        "source_name": "Josh Baskin",
+        "sources": [],
+        "target_name": "Susan Lawrence",
+        "source": "Josh Baskin",
+        "target": "Susan Lawrence",
+        "key": 49
+      },
+      {
+        "date": null,
+        "dates": [],
+        "documents": [
+          0
+        ],
+        "label": "mingles with",
+        "locations": [
+          "New York City"
+        ],
+        "relation_type": "communication",
+        "sentiment": "neutral",
+        "source_name": "Josh Baskin",
+        "sources": [],
+        "target_name": "Susan Lawrence's friends",
+        "source": "Josh Baskin",
+        "target": "Susan Lawrence's friends",
+        "key": 39
+      },
+      {
+        "date": null,
+        "dates": [],
+        "documents": [
+          0
+        ],
+        "label": "is intimidated by",
+        "locations": [
+          "New York City"
+        ],
+        "relation_type": "other",
+        "sentiment": "negative",
+        "source_name": "Josh Baskin",
+        "sources": [],
+        "target_name": "the need to formulate the business aspects of the proposal",
+        "source": "Josh Baskin",
+        "target": "the need to formulate the business aspects of the proposal",
+        "key": 46
+      },
+      {
+        "date": null,
+        "dates": [],
+        "documents": [
+          0
+        ],
+        "label": "learns from Billy that the Zoltar machine is now at",
+        "locations": [
+          "New York City"
+        ],
+        "relation_type": "communication",
+        "sentiment": "neutral",
+        "source_name": "Josh Baskin",
+        "sources": [],
+        "target_name": "Sea Point Park",
+        "source": "Josh Baskin",
+        "target": "Sea Point Park",
+        "key": 52
+      },
+      {
+        "date": null,
+        "dates": [],
+        "documents": [
+          0
+        ],
+        "label": "leaves",
+        "locations": [
+          "New York City"
+        ],
+        "relation_type": "other",
+        "sentiment": "neutral",
+        "source_name": "Josh Baskin",
+        "sources": [],
+        "target_name": "the middle of his presentation to MacMillan and the other executives",
+        "source": "Josh Baskin",
+        "target": "the middle of his presentation to MacMillan and the other executives",
+        "key": 53
+      },
+      {
+        "date": null,
+        "dates": [],
+        "documents": [
+          0
+        ],
+        "label": "finds the machine at",
+        "locations": [
+          "New York City"
+        ],
+        "relation_type": "location",
+        "sentiment": "neutral",
+        "source_name": "Josh Baskin",
+        "sources": [],
+        "target_name": "the park",
+        "source": "Josh Baskin",
+        "target": "the park",
+        "key": 58
+      },
+      {
+        "date": null,
+        "dates": [],
+        "documents": [
+          0
+        ],
+        "label": "suggests the machine turn Susan Lawrence into",
+        "locations": [
+          "New York City"
+        ],
+        "relation_type": "other",
+        "sentiment": "neutral",
+        "source_name": "Josh Baskin",
+        "sources": [],
+        "target_name": "a little girl",
+        "source": "Josh Baskin",
+        "target": "a little girl",
+        "key": 63
+      },
+      {
+        "date": null,
+        "dates": [],
+        "documents": [
+          0
+        ],
+        "label": "transforms into",
+        "locations": [
+          "New York City"
+        ],
+        "relation_type": "other",
+        "sentiment": "neutral",
+        "source_name": "Josh Baskin",
+        "sources": [],
+        "target_name": "a child",
+        "source": "Josh Baskin",
+        "target": "a child",
+        "key": 65
+      },
+      {
+        "date": null,
+        "dates": [],
+        "documents": [
+          0
+        ],
+        "label": "panics and chases from the house",
+        "locations": [
+          "New York City"
+        ],
+        "relation_type": "conflict",
+        "sentiment": "negative",
+        "source_name": "Josh Baskin's mother",
+        "sources": [],
+        "target_name": "Josh Baskin",
+        "source": "Josh Baskin's mother",
+        "target": "Josh Baskin",
+        "key": 10
+      },
+      {
+        "date": null,
+        "dates": [],
+        "documents": [
+          0
+        ],
+        "label": "says she will handle",
+        "locations": [
+          "New York City"
+        ],
+        "relation_type": "communication",
+        "sentiment": "positive",
+        "source_name": "Susan Lawrence",
+        "sources": [],
+        "target_name": "the business end",
+        "source": "Susan Lawrence",
+        "target": "the business end",
+        "key": 47
+      },
+      {
+        "date": null,
+        "dates": [],
+        "documents": [
+          0
+        ],
+        "label": "says Josh Baskin will come up with",
+        "locations": [
+          "New York City"
+        ],
+        "relation_type": "communication",
+        "sentiment": "neutral",
+        "source_name": "Susan Lawrence",
+        "sources": [],
+        "target_name": "the ideas",
+        "source": "Susan Lawrence",
+        "target": "the ideas",
+        "key": 48
+      },
+      {
+        "date": null,
+        "dates": [],
+        "documents": [
+          0
+        ],
+        "label": "interprets Josh Baskin's explanation as",
+        "locations": [
+          "New York City"
+        ],
+        "relation_type": "other",
+        "sentiment": "negative",
+        "source_name": "Susan Lawrence",
+        "sources": [],
+        "target_name": "fear of commitment on Josh Baskin's part",
+        "source": "Susan Lawrence",
+        "target": "fear of commitment on Josh Baskin's part",
+        "key": 50
+      },
+      {
+        "date": null,
+        "dates": [],
+        "documents": [
+          0
+        ],
+        "label": "dismisses",
+        "locations": [
+          "New York City"
+        ],
+        "relation_type": "conflict",
+        "sentiment": "negative",
+        "source_name": "Susan Lawrence",
+        "sources": [],
+        "target_name": "Josh Baskin's explanation",
+        "source": "Susan Lawrence",
+        "target": "Josh Baskin's explanation",
+        "key": 51
+      },
+      {
+        "date": null,
+        "dates": [],
+        "documents": [
+          0
+        ],
+        "label": "follows",
+        "locations": [
+          "New York City"
+        ],
+        "relation_type": "other",
+        "sentiment": "neutral",
+        "source_name": "Susan Lawrence",
+        "sources": [],
+        "target_name": "Josh Baskin",
+        "source": "Susan Lawrence",
+        "target": "Josh Baskin",
+        "key": 54
+      },
+      {
+        "date": null,
+        "dates": [],
+        "documents": [
+          0
+        ],
+        "label": "realizes",
+        "locations": [
+          "New York City"
+        ],
+        "relation_type": "other",
+        "sentiment": "positive",
+        "source_name": "Susan Lawrence",
+        "sources": [],
+        "target_name": "Josh Baskin was telling the truth",
+        "source": "Susan Lawrence",
+        "target": "Josh Baskin was telling the truth",
+        "key": 61
+      },
+      {
+        "date": null,
+        "dates": [],
+        "documents": [
+          0
+        ],
+        "label": "becomes despondent that",
+        "locations": [
+          "New York City"
+        ],
+        "relation_type": "other",
+        "sentiment": "negative",
+        "source_name": "Susan Lawrence",
+        "sources": [],
+        "target_name": "their relationship will end",
+        "source": "Susan Lawrence",
+        "target": "their relationship will end",
+        "key": 62
+      },
+      {
+        "date": null,
+        "dates": [],
+        "documents": [
+          0
+        ],
+        "label": "offers to drive Josh Baskin back to",
+        "locations": [
+          "New York City"
+        ],
+        "relation_type": "location",
+        "sentiment": "neutral",
+        "source_name": "Susan Lawrence",
+        "sources": [],
+        "target_name": "New Jersey",
+        "source": "Susan Lawrence",
+        "target": "New Jersey",
+        "key": 64
+      }
+    ]
+  }
+}
