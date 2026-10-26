@@ -8,7 +8,7 @@
     "dev": "node build.js --serve"
   },
   "dependencies": {
-    "sharp": "^0.34.5",
+    "sharp": "^0.35.5",
     "yaml": "^2.9.1"
   }
 }
