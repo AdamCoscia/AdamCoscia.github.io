@@ -1,6 +1,5 @@
 /*
  * Jumpman Source Code
- * turtledude125@gmail.com
  * Last updated: 05/29/2020
  */
 

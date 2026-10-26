@@ -1,0 +1,617 @@
+# Single source of truth for adamcoscia.com (except the home-page prose, which lives in index.html).
+# `npm run build` turns this into the home page, /cv/, /publications/, /projects/, 404.html and sitemap.xml.
+# Text fields accept **bold**, *italic*, [links](url). Links in `publications[].links` that start with /papers/ resolve
+# against the lab site.
+
+site:
+  url: https://adamcoscia.com
+  lab: https://stevensvislab.github.io
+  title: Adam Coscia
+  description: Adam Coscia is an Assistant Professor at Stevens Institute of Technology and director of the Stevens Visualization Lab, building interactive visualizations. # fallback for pages without their own
+  googleSiteVerification: "" # TODO: paste the new Search Console token
+
+# The profile text under the photo (name, title, lab, address) is hand-written in index.html.
+# `links` are the socials listed under it (and in the page's structured data).
+profile:
+  name: Adam Coscia
+  fullName: Adam Joseph Coscia
+  title: Assistant Professor
+  email: acoscia@stevens.edu
+  links:
+    - { label: Google Scholar, icon: graduation-cap, url: "https://scholar.google.com/citations?hl=en&user=diVuti8AAAAJ" }
+    - { label: ORCID, icon: orcid, url: "https://orcid.org/0000-0002-0429-9295" }
+    - { label: GitHub, icon: github, url: "https://github.com/AdamCoscia" }
+    - { label: YouTube, icon: youtube, url: "https://www.youtube.com/@adamcoscia" }
+    - { label: LinkedIn, icon: linkedin, url: "https://www.linkedin.com/in/adam-coscia/" }
+    - { label: "Bluesky", icon: bluesky, url: "https://bsky.app/profile/adamcoscia.bsky.social" }
+    - { label: "X", icon: x-twitter, url: "https://x.com/AdamCoscia" }
+
+# Home page: ids of the papers and projects to feature (publication slug/id, project id).
+featured:
+  publications: [vispile, ongoal, deepsee, iscore, knowledgevis]
+  projects: [rerank, trust-in-ai, paintings-by-comparison]
+
+# /cv/ ---------------------------------------------------------------------------------------------------------
+bio:
+  - Adam Coscia is a Tenure-Track Assistant Professor in the School of Computing at Stevens Institute of Technology and member of the Stevens Institute for Artificial Intelligence (SIAI). He received his Ph.D. in Human-Centered Computing from the Georgia Institute of Technology and holds a B.S. in Physics from Stevens. His research helps people make sense of complex data through the design of interactive systems and visualizations. He has designed and deployed his tools for intelligence analysis, robotics, healthcare, and education, in collaboration with researchers, analysts, educators, and scientists at the NSF AI Institute for Adult Learning and Online Education, National Security Agency, MIT Lincoln Laboratory, NASA Jet Propulsion Laboratory, Adobe Research, the NC State Laboratory for Analytic Sciences, and the Monterey Bay Aquarium Research Institute. His work appears at premier HCI and visualization venues, including ACM CHI, ACM UIST, ACM IUI, IEEE VIS, and IEEE TVCG, and has received a best paper award and three best poster awards. He was also a finalist for the Foley Scholars Award and a recipient of Georgia Tech's President's Fellowship. He serves on the Organizing and Program Committees for both IEEE VIS and PacificVis.
+
+# Entries: date | title (bold) | sub (italic, e.g. org) | where | notes[] | url. A {heading: ...} entry starts a group.
+cv:
+  - title: Employment
+    items:
+      - { date: 2026 - present, title: Assistant Professor (Tenure-Track), sub: "School of Computing, Stevens Institute of Technology", where: "Hoboken, NJ", notes: ["Building visual analytics, human-centered artificial intelligence, and data science tools to solve pressing human-centered, data-driven problems."] }
+      - { date: 2020 - 2026, title: Graduate Research Assistant, sub: "School of Interactive Computing, Georgia Institute of Technology", where: "Atlanta, GA", notes: ["Visual Analytics Lab; advisor Alex Endert. Developed interactive visual analytics tools combining information visualization, machine learning, and human-computer interaction."] }
+  - title: Education
+    items:
+      - { date: May 2026, title: "Ph.D. in Human-Centered Computing", sub: "Georgia Institute of Technology", where: "Atlanta, GA", notes: ["Dissertation: [Detecting and Mitigating Pedagogical Risks in Large Language Models with Visual Analytics](/dissertation/)", "Committee: Alex Endert (advisor), Duen Horng (Polo) Chau, Cindy Bearfield-Xiong, Yalong Yang, Scott Crossley"] }
+      - { date: May 2020, title: "B.S. in Physics", sub: "Stevens Institute of Technology", where: "Hoboken, NJ", notes: ["Minors: Mathematics, Computer Science. GPA 3.98/4.00. Pinnacle Scholars; first in class (Physics)."] }
+  - title: Awards and Honors
+    items:
+      - { date: 2026, title: "VAST Challenge @ IEEE VIS Best Paper, Honorable Mention", notes: ["For “AgentK: Investigation of Multi-Agent LLM Dialogue via Semantic Bundling of Knowledge Graphs”"] }
+      - { date: 2025, title: Sigma Xi Scientific Research Honor Society, notes: [Inducted as a lifetime member.] }
+      - { date: 2025, title: CRIDC Best Poster Award, notes: ["For “VisPile: Incorporating Knowledge Graphs and Large Language Models into Visual Text Analysis Tools”"] }
+      - { date: 2024, title: Georgia Tech Foley Scholar Award Finalist, notes: [Awarded to top graduate students shaping the future of how people interact with and value technology.], url: "https://research.gatech.edu/foley-scholars-2024-winners-and-finalists" }
+      - { date: 2023, title: CRIDC Best Poster Award, notes: ["For “KnowledgeVIS: Visualizing What Language Models Have Learned”"] }
+      - { date: 2021, title: CRIDC Best Poster Award, notes: ["For “Lumos: Increasing Awareness of Biases during Visual Data Analysis”"] }
+      - { date: 2020, title: Georgia Tech President's Fellowship, notes: [Four-year semesterly stipend award; selected upon admission from top 10% of applicant pool.] }
+      - { date: 2020, title: Stevens Alfred M. Mayer Prize, notes: [Awarded to the senior ranked first in all physics courses taken during their undergraduate career.] }
+      - { date: 2019, title: Sigma Pi Sigma Physics Honor Society, notes: [Inducted as a lifetime member by the American Institute of Physics.] }
+      - { date: 2018, title: Stevens Distinguished Teaching Assistant, notes: [Awarded to the student faculty member nominated for creating an outstanding classroom environment.] }
+      - { date: 2016, title: Stevens Presidential Scholarship, notes: ["Four-year, half-tuition award; selected for academic excellence in high school."] }
+  - title: Invited Talks and Demos
+    headings: title # group headings are talk titles (shown in the right column)
+    items:
+      - { heading: "Collaborative Sensemaking with AI in Visual Analytics" }
+      - { date: Oct 2026, title: "Montclair State University" }
+      - { date: Apr 2026, title: "Emory University" }
+      - { date: Oct 2025, title: "Brown Visual Computing Seminar, Brown University" }
+      - { date: Oct 2025, title: "University of Massachusetts Boston" }
+      - { date: Oct 2025, title: "University of Massachusetts Amherst" }
+      - { date: Oct 2025, title: "Johns Hopkins University" }
+      - { date: Jul 2025, title: "MIT Lincoln Laboratory" }
+      - { heading: "Detecting and Mitigating Pedagogical Risks in LLMs with Visual Analytics" }
+      - { date: Jul 2025, title: "Tufts University" }
+      - { date: Apr 2025, title: "Institute for People and Technology (IPAT), Georgia Institute of Technology", url: /files/ipat-gvu-talk-apr-2025.pdf }
+      - { date: Apr 2024, title: "NSF AI Institute AI-ALOE Showcase, Georgia Institute of Technology" }
+      - { heading: "KnowledgeVIS: Interpreting Language Models by Comparing Fill-in-the-Blank Prompts" }
+      - { date: Oct 2024, title: "Invited Journal Paper Talk, IEEE Visualization Conference (VIS)" }
+      - { heading: "Preliminary Guidelines for Combining Data Integration and Visual Data Analysis" }
+      - { date: Oct 2024, title: "Invited Journal Paper Talk, IEEE Visualization Conference (VIS)" }
+      - { heading: "Visualizing What Large Language Models Have Learned" }
+      - { date: Mar 2023, title: "GVU Demo Day, Georgia Institute of Technology" }
+  # funder (optional): name listed on the home page ("Our research made possible by support and funding from: ...").
+  # award (optional): award number, shown in parentheses after the funder, e.g. NSF (2401234, 2405678).
+  - title: Grants and Funding
+    items:
+      - { date: 2026, title: "Agentic Visual Data Analysis: Knowledge Graph Synthesis using LLMs", funder: "Laboratory for Analytic Sciences (NC State)", sub: "Laboratory for Analytic Sciences, North Carolina State University", notes: ["Co-PI: Alex Endert. One-year funding (full tuition + graduate stipend)."] }
+      - { date: 2025, title: "Enabling Continuous Analytic Dialogues in Visual Analytics with LLMs and Knowledge Graphs", funder: "Laboratory for Analytic Sciences (NC State)", sub: "Laboratory for Analytic Sciences, North Carolina State University", notes: ["Co-PI: Alex Endert. One-year funding (full tuition + graduate stipend)."] }
+      - { date: 2024, title: "Incorporating Knowledge Graphs and Large Language Models into Visual Text Analysis Tools", funder: "Laboratory for Analytic Sciences (NC State)", sub: "Laboratory for Analytic Sciences, North Carolina State University", notes: ["Co-PI: Alex Endert. One-year funding (full tuition + graduate stipend)."] }
+      - { date: 2018, title: "Correlating Long-Term Innovation with Success in Career Progression", sub: "Pinnacle Scholar Summer Institutional Research Program, Stevens Institute of Technology", notes: ["Co-PI: Aron Lindberg. Funded $5000 for research expenses and living stipend."] }
+      - { date: 2017, title: "Managing Simulations of Ion Channeling in Single Crystals", sub: "International Summer Abroad Internship Program, Katholieke Universiteit Leuven", notes: ["Co-PI: Lino da Costa Pereira. Funded €3000 from KU Leuven and $5000 from Stevens."] }
+  # role: Instructor | TA. Instructor entries are also listed on the home page (title, link, date).
+  - title: Teaching
+    items:
+      - { role: Instructor, date: Spring 2027, title: "CS 538: Data Visualization", sub: "Stevens Institute of Technology", where: "Hoboken, NJ", notes: [Instructor.], url: "https://stevensvislab.github.io/" }
+      - { role: TA, date: "Fall 2022, Fall 2025", title: "Graduate Teaching Assistant, CS 6730: Data Visualization Principles", sub: "Georgia Institute of Technology", notes: ["Instructor: Alex Endert. Assisted with lectures, grading, and team projects; held office hours."] }
+      - { role: TA, date: 2018 - 2020, title: "Course Assistant, PEP 112S: Honors Electricity & Magnetism", sub: "Stevens Institute of Technology", notes: ["Semesterly. Instructor: Christopher Search. Assisted with grading, reviews, worksheets, and testing material preparation."] }
+      - { role: TA, date: 2018 - 2020, title: "Course Assistant, PEP 112: Electricity & Magnetism", sub: "Stevens Institute of Technology", notes: ["Semesterly. Instructor: Robert Pastore. Ran 3-hour exam reviews for an average class of 200 students."] }
+      - { role: TA, date: 2017 - 2020, title: "Teaching Assistant, CS 105: Intro to Scientific Computing", sub: "Stevens Institute of Technology", notes: ["Semesterly. Instructor: Dimitrios Damopoulos. Taught 15-25 students in weekly MATLAB labs; helped develop course materials."] }
+  # Students. advisees: also listed on the home page (current, then Alumni); on the CV ordered like Polo Chau's: Ph.D.,
+  # then Masters, then Undergraduate; within each, by role, then newest start first. mentees: CV only, by level, newest
+  # start first.
+  #   name, url (optional link), degree (short, e.g. "CS PhD"), level: phd | ms | bs (also postdoc, hs)
+  #   start, end: "Fall 2025" or "2025"; no end = current (home page: Students; with an end, Alumni)
+  #   role (advisees, required): advising | co-advising | thesis advisor | research advisor. Shown as the left-column
+  #     label; groups appear in that order within each level.
+  #   CV only (all optional): school, coadvisor, thesis, note, awards: [..], now (where they went after)
+  - title: Advising
+    advisees:
+      - { name: Xinge (Eve) Zhang, url: "", degree: Urban Spatial Analytics MS, level: ms, role: research advisor, school: UPenn, start: 2026, note: "" }
+      - { name: Astha Shah, url: "", degree: CS BS, level: bs, role: research advisor, school: Tufts, start: 2026, note: "" }
+      - { name: Meng Lincoln Ngy Tang, url: "", degree: CS BS, level: bs, role: research advisor, school: Stevens, start: 2026, note: "" }
+  - title: Service and Associations
+    items:
+      - { heading: Program Committee }
+      - { date: 2026, title: "IEEE VIS Short Papers" }
+      - { date: 2026 - 2027, title: "IEEE Pacific Visualization Conference (PacificVis) Short Papers" }
+      - { date: 2026, title: "VISxGenAI Workshop @ IEEE VIS" }
+      - { date: 2026, title: "VAxAutoSci Workshop @ IEEE VIS" }
+      - { heading: Organizing Committee }
+      - { date: 2026, title: "IEEE Visualization Conference (VIS), Tech Chair" }
+      - { date: 2025, title: "ACM Symposium on User Interface Software and Technology (UIST), Student Volunteer" }
+      - { heading: Reviewer }
+      - { date: 2022 - 2026, title: "IEEE Visualization Conference (VIS)" }
+      - { date: 2025 - 2027, title: "IEEE Pacific Visualization Conference (PacificVis)" }
+      - { date: 2022 - 2026, title: "IEEE Transactions on Visualization and Computer Graphics (TVCG)" }
+      - { date: 2026, title: "IEEE Computer Graphics and Applications (CG&A)" }
+      - { date: 2023 - 2026, title: "EuroVis Conference (EuroVis)" }
+      - { date: 2024 - 2027, title: "ACM Conference on Human Factors in Computing Systems (CHI)" }
+      - { date: 2025 - 2026, title: "ACM Symposium on User Interface Software and Technology (UIST)" }
+      - { date: 2026 - 2027, title: "ACM Conference on Intelligent User Interfaces (IUI)" }
+      - { date: 2025, title: "ACM Conference on Computer-Supported Cooperative Work & Social Computing (CSCW)" }
+      - { date: "2024, 2026", title: "ACM Transactions on Interactive Intelligent Systems (TIIS)" }
+      - { date: 2026, title: "Hawaii International Conference on System Sciences (HICSS)" }
+      - { date: 2026, title: "Human-Computer Interaction (HCI)" }
+      - { date: 2026, title: "Computer Graphics Forum (CGF)" }
+      - { date: 2025, title: "Computers and Graphics (C&G)" }
+      - { date: 2025, title: "Visual Informatics" }
+      - { heading: Outstanding Reviews }
+      - { date: "2023, 2026", title: IEEE VIS }
+      - { date: "2024, 2025", title: ACM CHI }
+      - { date: 2026, title: ACM IUI }
+      - { heading: Societies }
+      - { date: since 2025, title: Sigma Xi Scientific Research Honor Society }
+      - { date: since 2025, title: IEEE Computer Society }
+      - { date: since 2023, title: Association for Computing Machinery (ACM) }
+      - { date: since 2023, title: Special Interest Group on Computer-Human Interaction (SIGCHI) }
+      - { date: lifetime, title: Sigma Pi Sigma Physics Honor Society }
+      - { date: 2016 - 2020, title: American Physical Society (APS) }
+  - title: Programs and Outreach
+    items:
+      - { date: 2025 - 2026, title: Mentor, IC Buddies Mentorship Program, sub: "Georgia Institute of Technology", notes: [Paired one-on-one with a graduate student to help them adjust to grad school.] }
+      - { date: 2022 - 2023, title: Mentor, Beyond Mentorship Program, sub: "Encouraging Women Across All Borders (EWAAB)", notes: [Met monthly one-on-one with students on professional advice, job applications, and discovering new fields.] }
+      - { date: 2017 - 2019, title: Mentor, Pinnacle Scholar Peer Advisor Program, sub: "Stevens Institute of Technology", notes: [Mentored 4-6 honors freshmen each year on internships, classes, international experiences, and campus resources.] }
+  - title: Student Mentoring
+    mentees:
+      - { name: Zeyu (Abigail) Hua, url: "", degree: CS PhD, level: phd, school: Georgia Tech, start: 2026, end: 2026, note: Developing new LLM-powered algorithms for analyzing and visualizing knowledge graphs. }
+      - { name: Sujata Duwal, url: "", degree: HCC PhD, level: phd, school: Georgia Tech, start: 2025, end: 2026, note: Studying trust in decision-making when visualizing LLMs used in education. }
+      - { name: Jennifer Chandran, url: "", degree: HCI MS, level: ms, school: Georgia Tech, start: 2025, end: 2025, note: Created an LLM-augmented pipeline that automatically transforms document sets for data analysis. }
+      - { name: Ben Klassen, url: "", degree: Analytics MS, level: ms, school: Georgia Tech, start: 2024, end: 2025, note: Developed data science tools that leverage LLMs to enhance intelligence in classrooms and sports analytics. }
+      - { name: Sean Ru, url: "", degree: CS MS, level: ms, school: Georgia Tech, start: 2024, end: 2024, note: Created LLM-based algorithms that embed data visualizations for improved searchability. }
+  - title: Research Internships
+    items:
+      - { date: Summer 2025, title: "AI Research Lead, Artificial Intelligence Group", sub: "MIT Lincoln Laboratory", where: "Lexington, MA", notes: ["Advisors: Ho Chit Siu, Rohan Paleja. Developed visual analytics interfaces for human-in-the-loop decision-making in human-machine teaming."] }
+      - { date: Summer 2024, title: "Machine Learning Research Lead, AI Experiences Lab", sub: "Adobe Research", where: "San Jose, CA", notes: ["Advisors: Shunan Guo, Eunyee Koh. Built a chat interface to improve sensemaking of conversational LLM responses."] }
+      - { date: Summer 2023, title: "Machine Learning Research Lead, Human-Interfaces Group", sub: "NASA Jet Propulsion Laboratory (JPL)", where: "Pasadena, CA", notes: ["Advisors: Scott Davidoff, Tiago Vaquero. Developed automated science planning for planetary missions using a novel demonstration paradigm. See [ReRank](/projects/#rerank)."] }
+      - { date: Summer 2021, title: "Computer Science Lead, Data to Discovery Program", sub: "NASA Jet Propulsion Laboratory (JPL)", where: "Pasadena, CA", notes: ["Advisors: Scott Davidoff, Santiago Lombeyda, Hillary Mushkin, Maggie Hendrie. Built interactive visualizations linking 2D maps and 3D views of seafloor sediment cores."] }
+      - { date: 2018 - 2020, title: "Undergraduate Research Assistant, School of Information Systems and Architecture", sub: "Stevens Institute of Technology", where: "Hoboken, NJ", notes: ["Advisors: Aron Lindberg, Amir Gandomi. Built a statistical model in Python linking evolutionary trajectories of digital artifacts to performance outcomes."] }
+      - { date: Summer 2017, title: "Visiting Research Scholar, Department of Physics and Astronomy", sub: "Katholieke Universiteit Leuven", where: "Leuven, Belgium", notes: ["Advisors: Lino da Costa Pereira, Tiago Abel de Lemos Lima. Built a data visualization interface in Python for ion channeling simulations."] }
+  - title: Industry Internships
+    items:
+      - { date: Summer 2020, title: "Machine Learning / Operations Intern, Center for Data Science and Artificial Intelligence", sub: "New York Life Insurance Company", where: "New York, NY", notes: ["Supervisor: Paul Janis. Engineered feature extraction pipelines and model-monitoring reports."] }
+      - { date: Summer 2019, title: "Data Platform Engineering Intern, Center for Data Science and Analytics", sub: "New York Life Insurance Company", where: "New York, NY", notes: ["Supervisor: Paul Janis. Built scalable programs and data-handling procedures on low-level data lake tools."] }
+  - title: Press
+    items:
+      - { date: Apr 2026, title: "This New Tool Makes AI's Role in Student Writing Visible", sub: "Tess Malone, Georgia Tech Office of Research", url: "https://research.gatech.edu/new-tool-makes-ais-role-student-writing-visible" }
+      - { date: Feb 2025, title: "CRIDC 2025 Awards $40,000 to competition winners", sub: "Brittani Hill, Georgia Tech Office of Graduate and Postdoctoral Education", url: "https://grad.gatech.edu/news/cridc-2025-awards-40000-competition-winners" }
+      - { date: Nov 2024, title: "Foley Scholars 2024 Winners and Finalists", sub: "Walter Rich, Georgia Tech Office of Research", url: "https://research.gatech.edu/foley-scholars-2024-winners-and-finalists" }
+      - { date: Jul 2024, title: "Visualization Tool Helps Oceanographers Predict Sediment Sample Hotspots", sub: "Nathan Deen, Georgia Tech School of Interactive Computing", url: "https://www.cc.gatech.edu/news/visualization-tool-helps-oceanographers-predict-sediment-sample-hotspots" }
+      - { date: Apr 2023, title: "Adam Coscia Presents Visualizations for Interpreting Large Language Models at GVU Center Research Showcase", sub: "NSF AI Institute for Adult Learning in Online Education (AI-ALOE)", url: "https://aialoe.org/coscia-presents-visualizations-for-interpreting-large-language-models/" }
+      - { date: Nov 2021, title: "DeepSEE: A Virtual Window Under the Waves", sub: "Serg Parra, Schmidt Ocean Institute", url: "https://schmidtocean.org/cruise-log-post/deepsee-a-virtual-window-under-the-waves/" }
+
+# Projects (/projects/ and the home page). The card image is images/<id>.webp (or .png/.jpg), found by name. ---------
+projects:
+  - { id: rerank, title: ReRank, blurb: A visual programming tool for demonstrating autonomous robotic science target selection., venue: NASA JPL internship project 2023, links: [{ label: Slides, url: /projects/rerank/rerank-presentation.pdf }] }
+  - { id: conversational-vui, title: Conversational VUI, blurb: Web-based conversational voice user interface (VUI)., venue: CS 6456 Principles of User Interface Software, links: [{ label: Live demo, url: /projects/Conversational-VUI/ }, { label: Paper, url: /projects/Conversational-VUI/21-chatting_with_your_clock.pdf }, { label: Slides, url: /projects/Conversational-VUI/presentation.pdf }, { label: Code, url: "https://github.com/AdamCoscia/Conversational-VUI" }] }
+  - { id: paintings-by-comparison, title: Paintings By Comparison, blurb: Interactive visualization of painting data from WikiData., venue: CS 7450 Information Visualization, links: [{ label: Live demo, url: /projects/Paintings-By-Comparison/ }, { label: Video, url: "https://youtu.be/6aTiNRW_now" }, { label: Code, url: "https://github.com/AdamCoscia/Paintings-By-Comparison" }] }
+  - { id: trust-in-ai, title: Trust in AI, blurb: "The impact of transitivity, similarity and implicit bias on trust in AI.", venue: CS 6795 Introduction to Cognitive Science, award: Best paper in class out of 10 projects, links: [{ label: Paper, url: /projects/Impact-Trust-AI/21-trust_in_ai.pdf }, { label: Video, url: "https://youtu.be/NfrUjdmJHXQ" }, { label: Data, url: "https://github.com/AdamCoscia/Trust-In-AI" }] }
+  - { id: wellness-nurses, title: Wellness Management For Nurses, blurb: Ethnographic study investigating health and wellness priorities for nurses., venue: CS 6454 Qualitative Methods for Design of Human Computer Interaction, links: [{ label: Video, url: "https://youtu.be/HxeJD9Fzkpg" }, { label: Slides, url: /projects/Wellness-Management-Nurses/presentation.pdf }] }
+
+# Publications: copied from the lab's src/content/papers/*.md front matter (minus themes, builds_on, teaser*).
+# Teaser images need no field: save them as images/<slug>.webp (or .png/.jpg; papers without a slug use their id).
+# A grey box shows until the file exists.
+# `slug` is set only when a lab page exists (adds a "Project page" link). `status` defaults to published.
+# Add papers that are NOT on the lab site without `slug`; give them status: preprint | under review.
+publications:
+  - slug: agentk-vast
+    title: Targeted and Traceable Investigation of Multi-Agent LLM Dialogue via Semantic Bundling of Knowledge Graphs
+    short: AgentK
+    authors:
+      - Zeyu Hua
+      - Adam Coscia
+      - Alex Endert
+    venue: VAST Challenge 2026
+    venueFull: VAST Challenge at IEEE VIS, 2026
+    year: 2026
+    month: 11
+    type: workshop
+    award: VAST Challenge Honorable Mention, 2026
+    links:
+      pdf: https://arxiv.org/abs/2609.35786
+    bibtex: |
+      @inproceedings{Hua:2026:AgentK,
+        author = {Hua, Zeyu and Coscia, Adam and Endert, Alex},
+        title = {Targeted and Traceable Investigation of Multi-Agent LLM Dialogue via Semantic Bundling of Knowledge Graphs},
+        year = {2026},
+        booktitle = {VAST Challenge at IEEE VIS},
+        eprint = {2609.35786},
+        archivePrefix = {arXiv}
+      }
+  - slug: less-is-more
+    title: "Less Is More: Balancing Positive and Negative Space in Visual Concept Blending"
+    short: Less Is More
+    authors:
+      - Shishi Xiao
+      - Adam Coscia
+      - David H. Laidlaw
+    venue: UIST 2026
+    venueFull: ACM Symposium on User Interface Software and Technology (UIST), 2026
+    year: 2026
+    month: 11
+    type: conference
+    links:
+      pdf: https://arxiv.org/abs/2609.00476
+    bibtex: |
+      @inproceedings{Xiao:2026:LessIsMore,
+        author = {Xiao, Shishi and Coscia, Adam and Laidlaw, David H.},
+        title = {Less Is More: Balancing Positive and Negative Space in Visual Concept Blending},
+        year = {2026},
+        booktitle = {Proceedings of the 39th Annual ACM Symposium on User Interface Software and Technology},
+        location = {Detroit, MI, USA},
+        series = {UIST '26}
+      }
+  - slug: draftmarks
+    title: "DraftMarks: Enhancing Transparency in Human-AI Co-Writing Through Interactive Skeuomorphic Process Traces"
+    short: DraftMarks
+    authors:
+      - Momin N. Siddiqui
+      - Nikki Nasseri
+      - Adam Coscia
+      - Roy Pea
+      - Hari Subramonyam
+    venue: CHI 2026
+    venueFull: ACM Conference on Human Factors in Computing Systems (CHI), 2026
+    year: 2026
+    month: 5
+    type: conference
+    links:
+      pdf: https://arxiv.org/abs/2509.23505
+      doi: https://doi.org/10.1145/3772318.3791109
+    bibtex: |
+      @inproceedings{Siddiqui:2026:DraftMarks,
+        author = {Siddiqui, Momin N. and Nasseri, Nikki and Coscia, Adam J. and Pea, Roy and Subramonyam, Hari},
+        title = {DraftMarks: Enhancing Transparency in Human-AI Co-Writing Through Interactive Skeuomorphic Process Traces},
+        year = {2026},
+        publisher = {ACM},
+        doi = {10.1145/3772318.3791109},
+        booktitle = {Proceedings of the 2026 CHI Conference on Human Factors in Computing Systems},
+        pages = {1--22},
+        series = {CHI '26}
+      }
+  - slug: vispile
+    title: "VisPile: A Visual Analytics System for Analyzing Multiple Text Documents With Large Language Models and Knowledge Graphs"
+    short: VisPile
+    authors:
+      - Adam Coscia
+      - Alex Endert
+    venue: HICSS 2026
+    venueFull: Hawaii International Conference on System Sciences (HICSS), 2026
+    year: 2026
+    month: 1
+    type: conference
+    award: CRIDC Best Poster Award, 2025
+    links:
+      pdf: https://arxiv.org/abs/2510.09605
+      demo: /papers/vispile/demo/
+      talk: https://youtu.be/W3gHFm8xJTc
+      slides: /papers/vispile/24-las-vispile-video-slides.pdf
+      poster: /papers/vispile/24-las-vispile-poster.pdf
+      video: https://youtu.be/vY6SqkkNeMQ
+      code: https://github.com/AdamCoscia/VisPile
+    bibtex: |
+      @inproceedings{Coscia:2026:VisPile,
+        author = {Coscia, Adam and Endert, Alex},
+        title = {VisPile: A Visual Analytics System for Analyzing Multiple Text Documents With Large Language Models and Knowledge Graphs},
+        year = {2026},
+        booktitle = {Proceedings of the 59th Hawaii International Conference on System Sciences},
+        location = {Lahaina, HI, USA},
+        series = {HICSS-59}
+      }
+  - slug: ongoal
+    title: "OnGoal: Tracking and Visualizing Conversational Goals in Multi-Turn Dialogue with Large Language Models"
+    short: OnGoal
+    authors:
+      - Adam Coscia
+      - Shunan Guo
+      - Eunyee Koh
+      - Alex Endert
+    venue: UIST 2025
+    venueFull: ACM Symposium on User Interface Software and Technology (UIST), 2025
+    year: 2025
+    month: 9
+    type: conference
+    links:
+      pdf: https://arxiv.org/abs/2508.21061
+      doi: https://doi.org/10.1145/3746059.3747746
+      video: https://youtu.be/uobhmxo6EIE
+    bibtex: |
+      @inproceedings{Coscia:2025:OnGoal,
+        author = {Coscia, Adam J and Guo, Shunan and Koh, Eunyee and Endert, Alex},
+        title = {OnGoal: Tracking and Visualizing Conversational Goals in Multi-Turn Dialogue with Large Language Models},
+        year = {2025},
+        isbn = {9798400720376},
+        publisher = {Association for Computing Machinery},
+        address = {New York, NY, USA},
+        url = {https://doi.org/10.1145/3746059.3747746},
+        doi = {10.1145/3746059.3747746},
+        booktitle = {Proceedings of the 38th Annual ACM Symposium on User Interface Software and Technology},
+        articleno = {208},
+        numpages = {18},
+        location = {Busan, Republic of Korea},
+        series = {UIST '25}
+      }
+  - slug: prompt-eval
+    title: LLM Prompt Evaluation for Educational Applications
+    short: Prompt Evaluation
+    authors:
+      - Langdon Holmes
+      - Adam Coscia
+      - Scott Crossley
+      - Joon Suh Choi
+      - Wesley Morris
+    venue: AIED 2025 Workshop
+    venueFull: Workshop on Epistemics and Decision-Making in AI-Supported Education at AIED, 2025
+    year: 2025
+    month: 7
+    type: workshop
+    links:
+      pdf: https://arxiv.org/abs/2601.16134
+    bibtex: |
+      @inproceedings{Holmes:2025:PromptEvaluation,
+        author = {Holmes, Langdon and Coscia, Adam and Crossley, Scott and Choi, Joon Suh and Morris, Wesley},
+        title = {LLM Prompt Evaluation for Educational Applications},
+        year = {2025},
+        booktitle = {Workshop on Epistemics and Decision-Making in AI-Supported Education at the 26th International Conference on Artificial Intelligence in Education (AIED)},
+        location = {Palermo, Italy},
+        eprint = {2601.16134},
+        archivePrefix = {arXiv}
+      }
+  - slug: vista
+    title: Visualizing Intelligent Tutor Interactions for Responsive Pedagogy
+    short: VisTA
+    authors:
+      - Grace Guo
+      - Aishwarya Mudgal Sunil Kumar
+      - Adit Gupta
+      - Adam Coscia
+      - Chris MacLellan
+      - Alex Endert
+    venue: AVI 2024
+    venueFull: International Conference on Advanced Visual Interfaces (AVI), 2024
+    year: 2024
+    month: 6
+    type: conference
+    links:
+      pdf: https://arxiv.org/abs/2404.12944
+      doi: https://doi.org/10.1145/3656650.3656667
+    bibtex: |
+      @inproceedings{Guo:2024:VisTA,
+        author = {Guo, Grace and Kumar, Aishwarya Mudgal Sunil and Gupta, Adit and Coscia, Adam and Maclellan, Chris and Endert, Alex},
+        title = {Visualizing Intelligent Tutor Interactions for Responsive Pedagogy},
+        year = {2024},
+        publisher = {ACM},
+        doi = {10.1145/3656650.3656667},
+        booktitle = {Proceedings of the 2024 International Conference on Advanced Visual Interfaces},
+        pages = {1--9},
+        series = {AVI '24}
+      }
+  - slug: deepsee
+    title: "DeepSee: Multidimensional Visualizations of Seabed Ecosystems"
+    short: DeepSee
+    authors:
+      - Adam Coscia
+      - Haley M. Sapers
+      - Noah Deutsch
+      - Malika Khurana
+      - John S. Magyar
+      - Sergio A. Parra
+      - Daniel R. Utter
+      - Rebecca L. Wipfler
+      - David W. Caress
+      - Eric J. Martin
+      - Jennifer B. Paduan
+      - Maggie Hendrie
+      - Santiago Lombeyda
+      - Hillary Mushkin
+      - Alex Endert
+      - Scott Davidoff
+      - Victoria J. Orphan
+    venue: CHI 2024
+    venueFull: ACM Conference on Human Factors in Computing Systems (CHI), 2024
+    year: 2024
+    month: 5
+    type: conference
+    links:
+      pdf: https://arxiv.org/abs/2403.04761
+      doi: https://doi.org/10.1145/3613904.3642001
+      demo: https://www.its.caltech.edu/~datavis/deepsee/
+      talk: https://youtu.be/FqJIZJqfeTM
+      slides: /papers/deepsee/Coscia_DeepSee_CHI_May2024.pdf
+      video: https://youtu.be/HJ4zbueJ9cs
+      code: https://github.com/orphanlab/DeepSee
+    bibtex: |
+      @inproceedings{Coscia:2024:DeepSee,
+        author = {Coscia, Adam and Sapers, Haley M. and Deutsch, Noah and Khurana, Malika and Magyar, John S. and Parra, Sergio A. and Utter, Daniel R. and Wipfler, Rebecca L. and Caress, David W. and Martin, Eric J. and Paduan, Jennifer B. and Hendrie, Maggie and Lombeyda, Santiago and Mushkin, Hillary and Endert, Alex and Davidoff, Scott and Orphan, Victoria J.},
+        title = {DeepSee: Multidimensional Visualizations of Seabed Ecosystems},
+        year = {2024},
+        publisher = {Association for Computing Machinery},
+        address = {New York, NY, USA},
+        url = {https://doi.org/10.1145/3613904.3642001},
+        doi = {10.1145/3613904.3642001},
+        booktitle = {Proceedings of the 2024 CHI Conference on Human Factors in Computing Systems},
+        location = {Honolulu, HI, USA},
+        series = {CHI '24}
+      }
+  - slug: iscore
+    title: "iScore: Visual Analytics for Interpreting How Language Models Automatically Score Summaries"
+    short: iScore
+    authors:
+      - Adam Coscia
+      - Langdon Holmes
+      - Wesley Morris
+      - Joon Suh Choi
+      - Scott Crossley
+      - Alex Endert
+    venue: IUI 2024
+    venueFull: ACM Conference on Intelligent User Interfaces (IUI), 2024
+    year: 2024
+    month: 3
+    type: conference
+    links:
+      pdf: https://arxiv.org/abs/2403.04760
+      doi: https://doi.org/10.1145/3640543.3645142
+      slides: /papers/iscore/Coscia_iScore_IUI_Mar2024.pdf
+      poster: /papers/iscore/iScore_CRIDC_2024.pdf
+      video: https://youtu.be/EYJX-_fQPf0
+      code: https://github.com/AdamCoscia/iScore
+    bibtex: |
+      @inproceedings{Coscia:2024:iScore,
+        author = {Coscia, Adam and Holmes, Langdon and Morris, Wesley and Choi, Joon S. and Crossley, Scott and Endert, Alex},
+        title = {iScore: Visual Analytics for Interpreting How Language Models Automatically Score Summaries},
+        year = {2024},
+        publisher = {Association for Computing Machinery},
+        address = {New York, NY, USA},
+        url = {https://doi.org/10.1145/3640543.3645142},
+        doi = {10.1145/3640543.3645142},
+        booktitle = {Proceedings of the 2024 IUI Conference on Intelligent User Interfaces},
+        location = {Greenville, SC, USA},
+        series = {IUI '24}
+      }
+  - slug: guidelines
+    title: Preliminary Guidelines for Combining Data Integration and Visual Data Analysis
+    short: Integration Guidelines
+    authors:
+      - Adam Coscia
+      - Ashley Suh
+      - Remco Chang
+      - Alex Endert
+    venue: TVCG 2024
+    venueFull: IEEE Transactions on Visualization and Computer Graphics (TVCG), 2024
+    year: 2024
+    month: 1
+    type: journal
+    links:
+      pdf: https://arxiv.org/abs/2403.04757
+      doi: https://doi.org/10.1109/TVCG.2023.3334513
+      slides: /papers/guidelines/coscia-integration-vis-oct2024.pdf
+      video: https://youtu.be/NzVxHn-OpqQ
+      data: https://github.com/AdamCoscia/Integration-Guidelines-VA
+    bibtex: |
+      @article{Coscia:2023:Guidelines,
+        author = {Coscia, Adam and Suh, Ashley and Chang, Remco and Endert, Alex},
+        journal = {IEEE Transactions on Visualization and Computer Graphics},
+        title = {Preliminary Guidelines for Combining Data Integration and Visual Data Analysis},
+        year = {2024},
+        volume = {30},
+        number = {10},
+        pages = {6678-6690},
+        doi = {10.1109/TVCG.2023.3334513}
+      }
+  - slug: knowledgevis
+    title: "KnowledgeVIS: Interpreting Language Models by Comparing Fill-in-the-Blank Prompts"
+    short: KnowledgeVIS
+    authors:
+      - Adam Coscia
+      - Alex Endert
+    venue: TVCG 2024
+    venueFull: IEEE Transactions on Visualization and Computer Graphics (TVCG), 2024
+    year: 2024
+    month: 1
+    type: journal
+    award: CRIDC Best Poster Award, 2023
+    links:
+      pdf: https://arxiv.org/abs/2403.04758
+      doi: https://doi.org/10.1109/TVCG.2023.3346713
+      demo: /papers/knowledgevis/demo/
+      slides: /papers/knowledgevis/coscia-knowledgevis-vis-oct2024.pdf
+      poster: /papers/knowledgevis/KnowledgeVIS_CRIDC_2023.pdf
+      video: https://youtu.be/hBX4rSUMr_I
+      code: https://github.com/AdamCoscia/KnowledgeVIS
+    bibtex: |
+      @article{Coscia:2023:KnowledgeVIS,
+        author = {Coscia, Adam and Endert, Alex},
+        journal = {IEEE Transactions on Visualization and Computer Graphics},
+        title = {KnowledgeVIS: Interpreting Language Models by Comparing Fill-in-the-Blank Prompts},
+        year = {2024},
+        volume = {30},
+        number = {9},
+        pages = {6520-6532},
+        doi = {10.1109/TVCG.2023.3346713}
+      }
+  - slug: lrg
+    title: "Left, Right, and Gender: Exploring Interaction Traces to Mitigate Human Biases"
+    short: Left, Right, and Gender
+    authors:
+      - Emily Wall
+      - Arpit Narechania
+      - Adam Coscia
+      - Jamal Paden
+      - Alex Endert
+    venue: VIS 2021
+    venueFull: IEEE Transactions on Visualization and Computer Graphics (Proc. IEEE VIS 2021), 2022
+    year: 2021
+    month: 10
+    type: conference
+    links:
+      pdf: https://arxiv.org/abs/2108.03536
+      doi: https://doi.org/10.1109/TVCG.2021.3114862
+      talk: https://youtu.be/BScEMdLnskI
+      data: https://github.com/gtvalab/bias-mitigation-supplemental
+    bibtex: |
+      @article{Wall:2022:LeftRightandGender,
+        author = {Wall, Emily and Narechania, Arpit and Coscia, Adam and Paden, Jamal and Endert, Alex},
+        journal = {IEEE Transactions on Visualization and Computer Graphics},
+        title = {Left, Right, and Gender: Exploring Interaction Traces to Mitigate Human Biases},
+        year = {2022},
+        volume = {28},
+        number = {1},
+        pages = {966-975},
+        doi = {10.1109/TVCG.2021.3114862}
+      }
+  - slug: lumos
+    title: "Lumos: Increasing Awareness of Analytic Behavior during Visual Data Analysis"
+    short: Lumos
+    authors:
+      - Arpit Narechania
+      - Adam Coscia
+      - Emily Wall
+      - Alex Endert
+    venue: VIS 2021
+    venueFull: IEEE Transactions on Visualization and Computer Graphics (Proc. IEEE VIS 2021), 2022
+    year: 2021
+    month: 10
+    type: conference
+    award: CRIDC Best Poster Award, 2021
+    links:
+      project: https://lumos-vis.github.io/
+      pdf: https://arxiv.org/abs/2108.02909
+      doi: https://doi.org/10.1109/TVCG.2021.3114827
+      talk: https://youtu.be/G_pOu4OGtPI
+      slides: /papers/lumos/lumos-presentation.pdf
+      poster: /papers/lumos/lumos_cridc_2021.pdf
+      code: https://github.com/lumos-vis
+    bibtex: |
+      @article{Narechania:2022:Lumos,
+        author = {Narechania, Arpit and Coscia, Adam and Wall, Emily and Endert, Alex},
+        journal = {IEEE Transactions on Visualization and Computer Graphics},
+        title = {Lumos: Increasing Awareness of Analytic Behavior during Visual Data Analysis},
+        year = {2022},
+        volume = {28},
+        number = {1},
+        pages = {1009-1018},
+        doi = {10.1109/TVCG.2021.3114827}
+      }
+  - slug: biasfuture
+    title: Toward a Bias-Aware Future for Mixed-Initiative Visual Analytics
+    short: Bias-Aware Future
+    authors:
+      - Adam Coscia
+      - Duen Horng (Polo) Chau
+      - Alex Endert
+    venue: TREX @ VIS 2020
+    venueFull: Workshop on TRust and EXpertise in Visual Analytics (TREX) at IEEE VIS, 2020
+    year: 2020
+    month: 10
+    type: workshop
+    links:
+      pdf: https://arxiv.org/abs/2011.09988
+      talk: https://www.youtube.com/live/LTGzCvhv05M?si=KKeWt04fZQexDlVW&t=12272
+    bibtex: |
+      @inproceedings{Coscia:2020:BiasAwareVisualAnalytics,
+        title = {Toward a Bias-Aware Future for Mixed-Initiative Visual Analytics},
+        author = {Coscia, Adam and Chau, Duen Horng and Endert, Alex},
+        booktitle = {Workshop on TRust and EXpertise in Visual Analytics (TREX) at IEEE VIS},
+        year = {2020},
+        eprint = {2011.09988},
+        archivePrefix = {arXiv}
+      }

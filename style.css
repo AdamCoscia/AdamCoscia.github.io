@@ -1,0 +1,1504 @@
+/* adamcoscia.com — tokens → base → shell → components → pages → print */
+
+/* ---------- fonts ---------- */
+@font-face {
+  font-family: Lato;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/fonts/lato-latin-400-normal.woff2) format("woff2");
+}
+@font-face {
+  font-family: Lato;
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+  src: url(/fonts/lato-latin-400-italic.woff2) format("woff2");
+}
+@font-face {
+  font-family: Lato;
+  font-weight: 700;
+  font-display: swap;
+  src: url(/fonts/lato-latin-700-normal.woff2) format("woff2");
+}
+@font-face {
+  font-family: Lato;
+  font-weight: 900;
+  font-display: swap;
+  src: url(/fonts/lato-latin-900-normal.woff2) format("woff2");
+}
+
+/* ---------- tokens ---------- */
+:root {
+  --ink: #2b3338;
+  --text: #414f57;
+  --muted: #66727a;
+  --quiet: #9aa3a9;
+  --rule: #e7eaec;
+  --accent: #8fbc8f; /* darkseagreen */
+  --link: #357edd; /* the old site's blue */
+  --link-hover: #1f63c4;
+  --tint: #4263a612;
+  --tint-strong: #4263a624;
+  --card: rgba(0, 0, 0, 0.025);
+  --award: #c2410c;
+  --radius: 12px;
+  --pad: clamp(1.25rem, 4vw, 3rem);
+  /* Text sizing */
+  --fs-s: 0.9rem;
+  --fs-b: 1rem;
+  --fs-m: 1.5rem;
+  --fs-l: 2.5rem;
+  /* spacing on the same ratio */
+  --space-s: 0.618rem;
+  --space-m: 1rem;
+  --space-l: 1.618rem;
+  --space-xl: 2.618rem;
+  --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+/* ---------- base ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+body {
+  margin: 0;
+  min-width: 320px;
+  font:
+    var(--fs-s)/1.6 Lato,
+    Arial,
+    sans-serif;
+  color: var(--text);
+  background: #fff;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+/* original page background: dot overlay + pink/cyan gradient + photo, fixed */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background:
+    url(/images/overlay.png) top left/100px 100px repeat,
+    linear-gradient(60deg, rgba(255, 165, 150, 0.5) 5%, rgba(0, 228, 255, 0.35)),
+    url(/images/bg.webp) center/cover no-repeat;
+}
+::selection {
+  background: #8fbc8f55;
+}
+p {
+  text-wrap: pretty;
+}
+h1,
+h2,
+h3 {
+  color: var(--ink);
+  line-height: 1.25;
+  text-wrap: balance;
+}
+h1 {
+  font-size: var(--fs-l);
+  font-weight: 900;
+  letter-spacing: -0.01em;
+  margin: 0 0 1rem;
+}
+h2 {
+  display: inline-block;
+  font-size: var(--fs-m);
+  font-weight: 700;
+  margin: var(--space-xl) 0 var(--space-m);
+  padding-bottom: 0.35rem;
+  border-bottom: 3px solid var(--accent);
+}
+h2 a {
+  color: inherit;
+}
+h3 {
+  font-size: var(--fs-s);
+  margin: var(--space-l) 0 var(--space-s);
+}
+/* links: the old site's blue, underlined only on hover */
+a {
+  color: var(--link);
+  text-decoration: none;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+  transition:
+    color 0.15s,
+    text-decoration-color 0.15s,
+    background-color 0.15s;
+}
+a:hover {
+  text-decoration: underline;
+}
+:focus-visible {
+  outline: 2px solid var(--link);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
+i,
+em {
+  font-style: italic;
+}
+.muted {
+  color: var(--muted);
+}
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+/* small logos in running text (home intro, dissertation) */
+.inline-logo {
+  display: inline;
+  width: auto;
+  height: 1.4em;
+  margin-right: 0.25em;
+  vertical-align: -0.35em;
+}
+.lead {
+  color: var(--muted);
+  font-size: var(--fs-b);
+  margin-top: 0;
+}
+
+/* ---------- icons ----------
+   Every icon carries an ic-<name> class that sets --brand, its color everywhere. */
+.ic {
+  width: 1em;
+  height: 1em;
+  flex: none;
+  fill: currentColor;
+  color: var(--brand, currentColor);
+  vertical-align: -0.125em;
+  margin-right: 0.4em;
+  overflow: visible; /* some Font Awesome paths run past their viewBox (e.g. award) */
+  transition: color 0.15s;
+}
+.ic-address-card,
+.ic-chalkboard-user,
+.ic-newspaper,
+.ic-envelope,
+.ic-scroll {
+  --brand: #414f57;
+}
+.ic-pen-nib {
+  --brand: #2ca02c;
+}
+.ic-diagram-project {
+  --brand: #17becf;
+}
+.ic-gamepad {
+  --brand: #1db954;
+}
+.ic-house,
+.ic-chalkboard {
+  --brand: #5f6b72;
+}
+.ic-flask-vial {
+  --brand: #8e6cc2;
+}
+.ic-building,
+.ic-handshake,
+.ic-briefcase {
+  --brand: #9c6b4e;
+}
+.ic-book,
+.ic-user-graduate,
+.ic-handshake-angle {
+  --brand: #1f77b4;
+}
+.ic-award {
+  --brand: var(--award);
+}
+.ic-microphone {
+  --brand: #d62728;
+}
+.ic-hand-holding-dollar {
+  --brand: #2ca02c;
+}
+.ic-hands-holding-child {
+  --brand: #d4589f;
+}
+.ic-flask {
+  --brand: #17becf;
+}
+.ic-bluesky {
+  --brand: #1185fe;
+}
+.ic-x-twitter {
+  --brand: #000;
+}
+.ic-graduation-cap {
+  --brand: #4285f4;
+}
+.ic-orcid {
+  --brand: #a6ce39;
+}
+.ic-github {
+  --brand: #24292f;
+}
+.ic-linkedin {
+  --brand: #0a66c2;
+}
+.ic-youtube,
+.ic-video {
+  --brand: #f00;
+}
+.ic-file-pdf {
+  --brand: #e5252a;
+}
+.ic-file-powerpoint {
+  --brand: #d24726;
+}
+.ic-rocket {
+  --brand: #e8590c;
+}
+.ic-link {
+  --brand: var(--link);
+}
+.ic-quote-right {
+  --brand: #8e6cc2;
+}
+.ic-download {
+  --brand: currentColor;
+}
+.award .ic,
+.awards .ic {
+  color: inherit;
+}
+
+/* ---------- shell ---------- */
+#wrapper {
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: clamp(1.5rem, 2.5vh, 2rem) 0;
+}
+#main {
+  width: min(1000px, 92vw);
+  padding: var(--pad);
+  background: rgba(255, 255, 255, 0.97);
+  border-radius: 16px;
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.06),
+    0 12px 40px rgba(0, 0, 0, 0.12);
+}
+/* only the home page gets extra room at the top */
+#main.home {
+  padding-top: calc(var(--pad) + 1rem);
+}
+@media (max-width: 846px) {
+  #wrapper {
+    padding: 0;
+  }
+  #main {
+    width: 100%;
+    border-radius: 0;
+    box-shadow: none;
+  }
+  /* the card fills the screen here, so skip downloading the photo (the gradient and dots still show on short pages) */
+  body::before {
+    background:
+      url(/images/overlay.png) top left/100px 100px repeat,
+      linear-gradient(60deg, rgba(255, 165, 150, 0.5) 5%, rgba(0, 228, 255, 0.35)),
+      #9fb8c4;
+  }
+}
+
+/* header (subpages): the original centered name + link row, now as pills */
+#header {
+  text-align: center;
+  margin: calc(-0.5 * var(--pad)) 0 1.75rem;
+}
+.header-title {
+  margin: 0 0 1.5rem;
+}
+/* the old site's display type: "Lato 900" never loaded there, so browsers drew Arial Black */
+.header-title span,
+.greeting {
+  font-family: "Arial Black", Arial, sans-serif;
+  font-size: var(--fs-l);
+  font-weight: 900;
+  color: #414f57;
+}
+.header-title span {
+  letter-spacing: 0.08em;
+  line-height: 1.5;
+  padding-bottom: 0.5rem;
+  border-bottom: 3px solid var(--accent);
+}
+@media (max-width: 906px) {
+  .header-title span,
+  .greeting {
+    font-size: 2.25rem;
+  }
+}
+@media (max-width: 486px) {
+  .header-title span,
+  .greeting {
+    font-size: 2rem;
+    font-weight: 700;
+  }
+}
+.header-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.25rem 0.15rem;
+  font-weight: 700;
+  font-size: var(--fs-b);
+}
+.header-links a {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.3rem 0.75rem;
+  border-radius: 999px;
+  color: var(--text);
+  text-decoration: none;
+}
+.header-links a:hover {
+  background: var(--tint);
+  color: var(--ink);
+}
+.header-links a[aria-current] {
+  background: var(--tint-strong);
+  color: var(--ink);
+}
+@media (max-width: 600px) {
+  .header-links a {
+    padding: 0.3rem 0.6rem;
+  }
+}
+
+/* footer */
+#footer {
+  margin-top: 3rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--rule);
+  text-align: center;
+  color: var(--muted);
+  font-size: var(--fs-s);
+}
+#footer p {
+  margin: 0;
+}
+.footer-icons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.25rem;
+  margin-bottom: 0.75rem;
+}
+.footer-icons a {
+  display: inline-flex;
+  padding: 0.4rem;
+  border-radius: 8px;
+  font-size: 1.25rem;
+}
+.footer-icons a:hover {
+  background: var(--tint);
+}
+.footer-icons .ic {
+  margin: 0;
+}
+#footer .footer-bio {
+  max-width: 62ch;
+  margin: 0 auto 0.75rem;
+}
+
+/* ---------- components ---------- */
+.page-h {
+  margin-top: 0;
+  font-size: var(--fs-m);
+}
+.btn,
+.section-body a.pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.4rem 0.9rem;
+  border-radius: 8px;
+  background: var(--tint);
+  color: var(--link);
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.btn:hover,
+.section-body a.pill:hover {
+  background: var(--tint-strong);
+  color: var(--link-hover);
+}
+.award,
+.awards {
+  color: var(--award);
+  font-weight: 700;
+}
+.status {
+  display: inline-block;
+  padding: 0 8px;
+  margin-right: 6px;
+  border: 1px dashed var(--quiet);
+  border-radius: 4px;
+  color: var(--muted);
+  font-size: var(--fs-s);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  vertical-align: 0.1em;
+}
+.unreviewed h3 {
+  font-weight: 400;
+  font-style: italic;
+}
+/* link rows: quiet text + icons, brand color on hover */
+.extra-links,
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.15rem 1rem;
+  margin-top: 0.45rem;
+  font-size: var(--fs-s);
+}
+.extra-links a,
+.links a,
+.bib-label {
+  display: inline-flex;
+  align-items: center;
+  color: var(--text);
+  text-decoration: none;
+  white-space: nowrap;
+}
+.extra-links a:hover,
+.links a:hover,
+.bib-label:hover {
+  color: var(--link);
+  text-decoration: underline;
+}
+.extra-links .ic,
+.links .ic {
+  margin-right: 0.3em;
+}
+/* BibTeX without JS: the label sits in the link row and toggles a visually hidden checkbox; the <pre> shows while
+   it's checked and selects in one click (user-select: all). */
+.pub-body {
+  position: relative;
+}
+.bib-toggle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1px;
+  height: 1px;
+  margin: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+.bib-label {
+  cursor: pointer;
+  user-select: none;
+}
+.bib-label .ic {
+  margin-right: 0.3em;
+}
+.bib-label::after {
+  content: "";
+  width: 0.38em;
+  height: 0.38em;
+  margin: -0.2em 0 0 0.4em;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: rotate(45deg);
+  transition: transform 0.15s;
+}
+.bib-toggle:checked + .extra-links .bib-label {
+  color: var(--ink);
+  font-weight: 700;
+}
+.bib-toggle:checked + .extra-links .bib-label::after {
+  margin-top: 0.2em;
+  transform: rotate(-135deg);
+}
+.bib-toggle:focus-visible + .extra-links .bib-label {
+  outline: 2px solid var(--link);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+pre.bibtex {
+  display: none;
+}
+.bib-toggle:checked ~ pre.bibtex {
+  display: block;
+}
+pre.bibtex {
+  margin: 0.5rem 0 0;
+  padding: 0.75rem 0.9rem;
+  background: #f6f8f9;
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  font: 0.75rem/1.55 var(--mono); /* the one size below --fs-s: monospace reads large */
+  color: var(--ink);
+  white-space: pre-wrap;
+  overflow-x: auto;
+  user-select: all;
+  cursor: text;
+}
+/* cards (projects, fun) — the old site's soft tinted card */
+.project,
+.card {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  border-radius: var(--radius);
+  background: var(--card);
+  color: inherit;
+  text-decoration: none;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background-color 0.2s ease;
+}
+.project:hover,
+.card:hover {
+  background: #fff;
+  transform: translateY(-2px);
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.05),
+    0 8px 24px rgba(0, 0, 0, 0.09);
+}
+.card strong {
+  color: var(--ink);
+}
+.card img {
+  border-radius: 8px;
+}
+.project .title {
+  margin: 0 0 0.6rem;
+  font-size: var(--fs-b);
+  font-weight: 900;
+  line-height: 1.2;
+  color: var(--ink);
+}
+.project .preview-image {
+  display: block;
+  width: 100%;
+  height: 0;
+  padding-top: 58%;
+  border-radius: 8px;
+  border: 1px solid var(--rule);
+  background-size: cover;
+  background-position: 0 0;
+  transition: background-position 1.5s ease;
+}
+.project .preview-image:hover {
+  background-position: 100% 100%;
+}
+.project p {
+  margin: 0.6rem 0 0;
+  font-size: var(--fs-s);
+  line-height: 1.45;
+}
+.project .venue {
+  margin-top: 0.3rem;
+  font-size: var(--fs-s);
+  color: var(--muted);
+}
+.project .awards {
+  font-size: var(--fs-s);
+}
+.project .spacer {
+  flex: 1;
+}
+.project .links {
+  margin-top: 0.75rem;
+  padding-top: 0.6rem;
+  border-top: 1px solid var(--rule);
+  font-size: var(--fs-s);
+}
+.featured-projects,
+.projects .grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+@media (max-width: 800px) {
+  .featured-projects,
+  .projects .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 560px) {
+  .featured-projects,
+  .projects .grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* ---------- home ---------- */
+/* two columns from the top: greeting + text on the left, profile on the right */
+.greeting {
+  margin: calc(-0.5 * var(--pad)) 0 var(--space-l);
+  letter-spacing: 1px;
+  line-height: 1.5;
+}
+.home-top {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 212px;
+  gap: 2.75rem;
+  align-items: start;
+}
+.home-main > p:first-child {
+  margin-top: 0;
+}
+/* the intro paragraphs and the research-themes intro ("At Stevens, I lead…") */
+.home-main > p:not(.announcement) {
+  font-size: var(--fs-b);
+}
+.home-side {
+  grid-column: 2;
+  grid-row: 1;
+}
+.announcement {
+  font-size: var(--fs-b);
+  margin-top: -1rem;
+  padding: 0.9rem 1.1rem;
+  border-radius: var(--radius);
+  border: 1px solid #f1dc8f;
+  border-left: 3px solid #e3b23c;
+  background: #fff8dc;
+  color: var(--ink);
+}
+.sections {
+  list-style: none;
+  padding: 0;
+  margin: 1.75rem 0 0.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.sections a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  background: var(--tint);
+  color: var(--ink);
+  font-size: var(--fs-b);
+  font-weight: 700;
+  text-decoration: none;
+  transition:
+    background-color 0.15s,
+    transform 0.15s;
+}
+.sections a:hover {
+  background: var(--tint-strong);
+  transform: translateY(-1px);
+}
+.sections .ic {
+  margin: 0;
+}
+.themes {
+  display: grid;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+}
+.theme {
+  padding: 0.9rem 1.1rem 1rem;
+  background: var(--card);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 var(--radius) var(--radius) 0;
+}
+.theme h3 {
+  margin: 0 0 0.3rem;
+  font-size: var(--fs-b);
+}
+.theme p {
+  margin: 0;
+  font-size: var(--fs-b);
+}
+/* section heading with its "All …" link on the same row, right-aligned */
+.sec-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0 1rem;
+  margin: var(--space-xl) 0 var(--space-m);
+}
+.sec-head h2 {
+  margin: 0;
+}
+/* "All publications" becomes "See all" on small screens (the link's aria-label, "See all publications", contains both visible texts) */
+.more-short {
+  display: none;
+}
+@media (max-width: 600px) {
+  .sec-head {
+    column-gap: 0.5rem;
+  }
+  /* home section headings a bit smaller, so "Featured Publications" and "See all" share a row down to 360px screens */
+  #main.home h2 {
+    font-size: 1.3rem;
+  }
+  .more-long {
+    display: none;
+  }
+  .more-short {
+    display: inline;
+  }
+}
+.sec-head .more .ic {
+  margin: 0 0 0 0.35em;
+}
+/* profile column */
+.portrait {
+  display: block;
+  width: 212px;
+  height: auto;
+  border-radius: var(--radius);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.06);
+}
+.profile-id {
+  margin-top: 1rem;
+}
+.profile-card {
+  font-size: var(--fs-s);
+  line-height: 1.45;
+}
+.pg {
+  margin-bottom: 0.85rem;
+}
+.p-name {
+  font-size: var(--fs-m);
+  font-weight: 900;
+  line-height: 1.2;
+  color: var(--ink);
+  margin-bottom: 0.5rem;
+}
+.plinks {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.plinks a {
+  display: flex;
+  align-items: center;
+  min-height: 24px; /* comfortable tap target */
+  width: fit-content;
+  color: var(--text);
+  text-decoration: none;
+  padding: 0.05rem 0;
+}
+.plinks a:hover {
+  color: var(--ink);
+  text-decoration: underline;
+}
+/* sidebar headings: bold label over a hairline rule */
+.side-h {
+  margin: 1.25rem 0 0.4rem;
+  padding-bottom: 2px;
+  border-bottom: 1px solid #ddd;
+  font-size: var(--fs-s);
+  font-weight: 700;
+  color: var(--ink);
+}
+.side-subh {
+  margin: 0.6rem 0 0.25rem;
+  font-size: var(--fs-s);
+  font-weight: 700;
+  color: var(--muted);
+}
+.side-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: var(--fs-s);
+  line-height: 1.4;
+}
+.side-list li,
+.side-list p {
+  margin: 0 0 0.4rem;
+}
+/* featured publications (and the publications page): thumbnail left, text right; only the title links */
+.featured-publications .publication,
+.year-list .publication {
+  display: grid;
+  grid-template-columns: 250px minmax(0, 1fr);
+  gap: 0 1.5rem;
+  align-items: start;
+  padding: 1.25rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+.featured-publications .publication:last-child,
+.year-list .publication:last-child {
+  border-bottom: 0;
+}
+.thumb {
+  display: block;
+}
+.thumb img,
+.thumb-ph {
+  display: block;
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid var(--rule);
+}
+.thumb-ph {
+  aspect-ratio: 2 / 1;
+  background: var(--card);
+}
+/* every line of a publication row shares one text style (size, line height, wrapping); only weight/color/italic vary */
+.pub-body,
+.pub-body > * {
+  font-size: var(--fs-s);
+  line-height: 1.6;
+  letter-spacing: normal;
+  text-wrap: pretty;
+}
+.featured-publications .pub-title {
+  display: block;
+  font-weight: 700;
+  color: var(--ink);
+}
+.featured-publications .pub-title:hover {
+  color: var(--link);
+}
+.featured-publications .authors b,
+.pubs .authors b {
+  color: var(--ink);
+}
+.featured-publications .venue,
+.pubs .venue {
+  color: var(--muted);
+}
+.more {
+  display: inline-flex;
+  align-items: center;
+  font-weight: 700;
+  font-size: var(--fs-b);
+  text-decoration: none;
+}
+.more:hover {
+  text-decoration: underline;
+}
+@media (max-width: 600px) {
+  .featured-publications .publication,
+  .year-list .publication {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .thumb {
+    margin-bottom: 0.75rem;
+  }
+}
+@media (max-width: 906px) {
+  /* mobile: no greeting; a compact profile (name left, photo right), then the text. The profile column's socials,
+     sections, students, teaching, and funding are left out (the footer has the socials). */
+  .home-top {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .home-main,
+  .home-side {
+    display: contents;
+  }
+  .home-main > * {
+    order: 2;
+    margin-top: 0;
+    margin-bottom: 1rem;
+  }
+  .home-main > h2 {
+    margin-top: 1.5rem;
+  }
+  .side-socials,
+  .side-extras {
+    display: none;
+  }
+  /* hidden visually only, so the page keeps its main heading for screen readers */
+  .home-main > .greeting {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: 0;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+  .profile-card {
+    order: 1;
+    margin-bottom: 1.25rem;
+  }
+  /* profile: text on the left (name through email), photo on the right. The photo's box spans the text's rows and
+     adds no height of its own (height: 0; min-height: 100%), so it is exactly as tall as the text; the photo is the
+     largest square that fits in it: min(box width, box height). */
+  .profile-card {
+    display: grid;
+    align-self: stretch; /* full width (the stacked layout otherwise shrinks it to its text) */
+    grid-template-columns: auto minmax(0, 1fr);
+    column-gap: 1rem;
+  }
+  .profile-head {
+    display: contents;
+  }
+  .profile-id,
+  .profile-text {
+    text-align: right;
+  }
+  .profile-id {
+    grid-column: 1;
+    grid-row: 1;
+    margin-top: 0;
+  }
+  .profile-text {
+    grid-column: 1;
+    grid-row: 2;
+    margin-top: 0.85rem;
+  }
+  .portrait-box {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    height: 0;
+    min-height: 100%;
+    container-type: size;
+  }
+  .portrait {
+    width: min(100cqw, 100cqh);
+    height: min(100cqw, 100cqh);
+    object-fit: cover; /* left-aligned in its box, next to the text */
+  }
+  /* spacing between the text groups comes from margin-top, so the last line ends the text block (and the photo) */
+  .profile-card .pg {
+    margin-bottom: 0;
+  }
+  .profile-card .p-name {
+    margin-bottom: 0.5rem;
+  }
+  .profile-text .pg + .pg {
+    margin-top: 0.85rem;
+  }
+}
+
+/* ---------- publications page ---------- */
+.year-jump {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin: 0 0 1.5rem;
+}
+.year-jump a {
+  padding: 0.2rem 0.7rem;
+  border-radius: 999px;
+  background: var(--tint);
+  color: var(--text);
+  font-size: var(--fs-s);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  text-decoration: none;
+}
+.year-jump a:hover {
+  background: var(--tint-strong);
+  color: var(--ink);
+}
+/* each year is its own row above its papers; entries share the featured-publications layout (see home) */
+.pubs .year {
+  padding-top: var(--space-l);
+  scroll-margin-top: 1rem;
+}
+.pubs .year:first-child {
+  padding-top: 0;
+}
+.pub-year {
+  display: block;
+  margin: 0;
+  padding-bottom: 0.35rem;
+  border-bottom: 1px solid var(--rule);
+  font-size: var(--fs-m);
+  font-weight: 900;
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+  line-height: 1.2;
+}
+.pubs .publication h3 {
+  margin: 0;
+  font-weight: 700;
+}
+
+/* ---------- CV page (Polo layout: left = dates / labels, right = content) ---------- */
+.cv-title {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem 1.5rem;
+  margin: var(--space-xl) 0 var(--space-m);
+}
+.cv-title .page-h {
+  margin: 0;
+}
+.btn-note {
+  margin-left: 0.4em;
+  font-weight: 400;
+  color: var(--text); /* --muted is too light on the button tint */
+}
+/* sticky section nav: scrolls sideways (swipe, trackpad, or the arrow buttons) when it doesn't fit */
+.jump-bar {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  margin: 0 calc(-1 * var(--pad)) 0.5rem;
+  background: rgba(255, 255, 255, 0.9);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+.jump {
+  display: flex;
+  gap: 0;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-padding-inline: 2.5rem;
+  scrollbar-width: none;
+  white-space: nowrap;
+  padding: 0.5rem max(1rem, calc(var(--pad) - 1rem));
+}
+.jump::-webkit-scrollbar {
+  display: none;
+}
+.jump a:first-child {
+  margin-left: auto;
+}
+.jump a:last-child {
+  margin-right: auto;
+}
+.jump a {
+  flex: none;
+  padding: 0.25rem 0.3rem;
+  border-radius: 999px;
+  color: var(--text);
+  font-size: var(--fs-s);
+  font-weight: 700;
+  text-decoration: none;
+}
+.jump a:hover {
+  background: var(--tint);
+  color: var(--ink);
+}
+.jump-btn {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 2.75rem;
+  padding: 0;
+  border: 0;
+  color: var(--ink);
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s;
+}
+.jump-btn.on {
+  opacity: 1;
+  pointer-events: auto;
+}
+.jump-btn.prev {
+  left: 0;
+  background: linear-gradient(to right, #fff 60%, transparent);
+}
+.jump-btn.next {
+  right: 0;
+  background: linear-gradient(to left, #fff 60%, transparent);
+}
+.jump-btn::before {
+  content: "";
+  display: block;
+  width: 0.5rem;
+  height: 0.5rem;
+  margin: auto;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+}
+.jump-btn.prev::before {
+  transform: translateX(2px) rotate(135deg);
+}
+.jump-btn.next::before {
+  transform: translateX(-2px) rotate(-45deg);
+}
+.jump-btn:hover {
+  color: var(--link);
+}
+.cv-grid {
+  align-items: start;
+  display: grid;
+  grid-template-columns: 100px minmax(0, 1fr);
+  column-gap: 1rem;
+  scroll-margin-top: 3.25rem;
+}
+/* section headings sit on the grid: icon right-aligned in the date column, text in the content column */
+.cv-h {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 100px minmax(0, 1fr);
+  column-gap: 1rem;
+  align-items: center;
+  margin: var(--space-xl) 0 var(--space-s);
+  padding: 0;
+  border: 0;
+  font-size: var(--fs-m);
+}
+.cv-h .ic {
+  justify-self: end;
+  margin: 0;
+}
+/* left and right cells share padding and line height, so their first lines line up; a group label spans all of its
+   rows (grid-row: span N, set in build.js), so wrapping on one side never adds space to the other */
+.cv-grid .left {
+  padding: 0.45rem 0 0.25rem;
+  text-align: right;
+  font-size: var(--fs-s);
+  line-height: 1.55;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+.cv-grid .right {
+  grid-column: 2;
+}
+.cv-grid .left.label {
+  color: var(--ink);
+  font-weight: 700;
+}
+.cv-grid .right {
+  padding: 0.45rem 0 0.25rem;
+  font-size: var(--fs-s);
+  line-height: 1.55;
+}
+.cv-grid .right b {
+  color: var(--ink);
+}
+.cv-grid .right i {
+  color: var(--muted);
+}
+.cv-grid .group-title {
+  padding-top: 0.9rem;
+}
+.cv-grid .left.tight {
+  padding-top: 0.15rem;
+}
+.cv-grid .sub-row {
+  padding-top: 0.15rem;
+  padding-bottom: 0.05rem;
+}
+.cv-grid .date-inline {
+  margin-left: 0.3rem;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+.cv-grid .note {
+  margin-top: 0.1rem;
+}
+.cv-grid .ink-link {
+  color: inherit;
+}
+.cv-grid .ink-link:hover {
+  color: var(--link);
+}
+.cv-grid .right .award {
+  margin-top: 0.15rem;
+  font-size: var(--fs-s);
+}
+/* publications get a number column (C7, J2, …) between the labels and the entries; the column gap spaces it evenly */
+/* the number column has no grid gaps; its own padding does the spacing: 1rem (the usual label gap) plus an indent on
+   the left, the same indent on the right. Numbers are right-aligned, like a numbered list */
+.cv-pubs {
+  grid-template-columns: 100px auto minmax(0, 1fr);
+  column-gap: 0;
+  --num-indent: 0.6rem; /* gap between number and entry */
+  --num-indent-left: 0.35rem; /* how far the numbers sit in from the content edge */
+}
+.cv-pubs .cv-h {
+  column-gap: 1rem;
+}
+.cv-pubs .right {
+  grid-column: 3;
+}
+.cv-pubs .pub-num {
+  grid-column: 2;
+  text-align: right;
+  padding: 0.45rem var(--num-indent) 0.25rem calc(1rem + var(--num-indent-left));
+  line-height: 1.55;
+  color: var(--muted);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+@media (max-width: 700px) {
+  .cv-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .cv-h,
+  .cv-grid .right {
+    grid-column: 1;
+  }
+  .cv-h {
+    display: flex;
+    column-gap: 0.4em;
+  }
+  .cv-grid .left.label {
+    grid-row: auto !important;
+  }
+  .cv-pubs {
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+  .cv-pubs .cv-h,
+  .cv-pubs .left {
+    grid-column: 1 / -1;
+  }
+  .cv-pubs .pub-num {
+    grid-column: 1;
+    padding: 0.1rem var(--num-indent) 0 var(--num-indent-left);
+  }
+  .cv-pubs .right {
+    grid-column: 2;
+  }
+  .cv-grid .left {
+    text-align: left;
+    padding: 0.6rem 0 0;
+  }
+  .cv-grid .left:empty {
+    display: none;
+  }
+  .cv-grid .right {
+    padding-top: 0.1rem;
+  }
+  .cv-grid .right.group-title {
+    padding-top: 0.9rem;
+  }
+}
+
+/* ---------- dissertation (the original paper-page look) ---------- */
+.text-wrapper > div {
+  margin-bottom: 1.75rem;
+}
+.text-wrapper p {
+  margin: 0;
+}
+.paper-header > div {
+  margin-bottom: 1rem;
+}
+.paper-title span {
+  display: block;
+  font-size: var(--fs-m);
+  font-weight: 900;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  text-wrap: balance;
+}
+.paper-teaser img {
+  width: 100%;
+  border-radius: 8px;
+}
+.paper-teaser.family {
+  text-align: center;
+}
+.paper-teaser.family img {
+  width: 70%;
+}
+.paper-authors {
+  font-size: var(--fs-s);
+  line-height: 1.55;
+}
+.committee-h {
+  font-size: var(--fs-s);
+  font-weight: 700;
+  color: var(--muted);
+  margin-bottom: 0.2rem;
+}
+.paper-affiliations span {
+  white-space: nowrap;
+}
+.paper-venue span {
+  font-style: italic;
+  color: var(--muted);
+}
+.section-title {
+  margin: 0 0 0.6rem;
+}
+.section-title span {
+  font-size: var(--fs-m);
+  font-weight: 700;
+  color: var(--ink);
+  letter-spacing: 0.02em;
+}
+.section-body {
+  margin: 0 0 1rem;
+  line-height: 1.65;
+}
+.section-body .thrust {
+  color: var(--ink);
+}
+/* the original markup spaces paragraphs with <br> tags; collapse them onto the spacing scale */
+.section-body > br,
+.section-body p br + br {
+  display: none;
+}
+.section-body > p + p,
+.section-body > br + p {
+  margin-top: var(--space-m);
+}
+.section-body .thrust {
+  display: inline-block;
+  margin-top: var(--space-s);
+}
+.paper-links .section-body {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.paper-video {
+  text-align: center;
+}
+.paper-video iframe,
+.yt-facade {
+  width: 100%;
+  max-width: 800px;
+  aspect-ratio: 16 / 9;
+  border: 0;
+  border-radius: var(--radius);
+}
+/* video thumbnail + play button; the real player loads on click */
+.yt-facade {
+  position: relative;
+  display: block;
+  margin: 0 auto;
+  overflow: hidden;
+  background: #000;
+}
+.yt-facade img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.yt-play {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 68px;
+  height: 48px;
+  border-radius: 12px;
+  background: rgba(33, 33, 33, 0.8);
+  transition: background-color 0.15s;
+}
+.yt-play::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 0;
+  height: 0;
+  transform: translateX(3px);
+  border-style: solid;
+  border-width: 11px 0 11px 19px;
+  border-color: transparent transparent transparent #fff;
+}
+.yt-facade:hover .yt-play,
+.yt-facade:focus-visible .yt-play {
+  background: #f00;
+}
+@media (max-width: 600px) {
+  .paper-teaser.family img {
+    width: 100%;
+  }
+}
+
+/* fun page grid (items are .card) */
+.lead + h2 {
+  margin-top: 1.5rem;
+}
+
+/* internal/ password form */
+.gate {
+  max-width: 34rem;
+}
+.gate-row {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+.gate input {
+  flex: 1;
+  min-width: 0;
+  padding: 0.4rem 0.7rem;
+  border: 1px solid #c9cfd3;
+  border-radius: 8px;
+  font: inherit;
+}
+.gate .btn {
+  border: 0;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+.gate-err {
+  color: #b42318;
+}
+
+/* ---------- motion & print ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+  }
+  .project:hover,
+  .card:hover,
+  .sections a:hover {
+    transform: none;
+  }
+}
+@media print {
+  body {
+    font-size: 11pt;
+    color: #000;
+  }
+  body::before,
+  .header-links,
+  .jump-bar,
+  .btn,
+  #footer,
+  .bibtex,
+  .thumb,
+  script {
+    display: none !important;
+  }
+  #wrapper {
+    padding: 0;
+  }
+  #main {
+    width: 100%;
+    padding: 0;
+    box-shadow: none;
+    background: #fff;
+  }
+  a {
+    color: inherit;
+  }
+}
