@@ -21,9 +21,15 @@ const OUT = "_site";
 const PHOTO = "/images/profile.png"; // also hard-coded in index.html
 const CV_PDF = "/files/Coscia-Adam-CV.pdf";
 // Share cards (1200x630): the default, plus per-page cards. Both are static images in the repo.
-const SHARE_CARD = { src: "/images/share-card.jpg", alt: "Adam Coscia, Assistant Professor, Stevens Institute of Technology" };
+const SHARE_CARD = {
+  src: "/images/share-card.jpg",
+  alt: "Adam Coscia, Assistant Professor, Stevens Institute of Technology",
+};
 const PAGE_CARDS = {
-  "/dissertation/": { src: "/dissertation/share-card.jpg", alt: "Overview figure of Adam Coscia's dissertation chapters" },
+  "/dissertation/": {
+    src: "/dissertation/share-card.jpg",
+    alt: "Overview figure of Adam Coscia's dissertation chapters",
+  },
 };
 const STATIC = ["images", "fonts", "files", "dissertation", "projects", "fun"];
 const ROOT_FILES = ["CNAME", "robots.txt", "style.css"];
@@ -52,7 +58,9 @@ const externalTargets = (html) =>
     const href = (tag.match(/\shref="([^"]*)"/) || [])[1] || "";
     if (!/^https?:\/\//i.test(href) || /^https?:\/\/(www\.)?adamcoscia\.com(\/|$)/i.test(href) || /\starget=/.test(tag))
       return tag;
-    const t = /\srel="/.test(tag) ? tag.replace(/\srel="([^"]*)"/, ' rel="$1 noopener"') : tag.replace(/>$/, ' rel="noopener">');
+    const t = /\srel="/.test(tag)
+      ? tag.replace(/\srel="([^"]*)"/, ' rel="$1 noopener"')
+      : tag.replace(/>$/, ' rel="noopener">');
     return t.replace(/>$/, ' target="_blank">');
   });
 const write = (path, data) => {
@@ -84,7 +92,7 @@ const lastUpdated = (file) => {
     const iso = execFileSync("git", ["log", "-1", "--format=%cI", "--", file], { encoding: "utf8" }).trim();
     if (!dirty && iso) when = new Date(iso);
   } catch {}
-  return when.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
+  return when.toLocaleDateString("en-US", { month: "short", year: "numeric" });
 };
 
 // ---------- internal/: password-protected, never indexed ----------
@@ -174,8 +182,12 @@ async function optimizeImages() {
       const m = meta.get(file);
       if (!m) continue;
       // 1x/2x/3x the display width, plus 1x/2x any other fixed width named in `sizes` (e.g. a larger mobile size)
-      const named = [...((tag.match(/\ssizes="([^"]*)"/) || [])[1] || "").matchAll(/(?:^|[\s,)])(\d+)px/g)].map((x) => +x[1]);
-      const widths = [...new Set([w, 2 * w, 3 * w, ...named, ...named.map((x) => 2 * x)].map((x) => Math.min(x, m.width)))].sort((a, b) => a - b);
+      const named = [...((tag.match(/\ssizes="([^"]*)"/) || [])[1] || "").matchAll(/(?:^|[\s,)])(\d+)px/g)].map(
+        (x) => +x[1],
+      );
+      const widths = [
+        ...new Set([w, 2 * w, 3 * w, ...named, ...named.map((x) => 2 * x)].map((x) => Math.min(x, m.width))),
+      ].sort((a, b) => a - b);
       const base = src.replace(/\.[a-z]+$/i, "");
       for (const x of widths) {
         const rel = `${base}-${x}w.webp`;
@@ -188,7 +200,10 @@ async function optimizeImages() {
       }
       const h = Math.round((w * m.height) / m.width);
       let t = tag
-        .replace(/\ssrc="[^"]*"/, ` src="${base}-${widths[0]}w.webp" srcset="${widths.map((x) => `${base}-${x}w.webp ${x}w`).join(", ")}"`)
+        .replace(
+          /\ssrc="[^"]*"/,
+          ` src="${base}-${widths[0]}w.webp" srcset="${widths.map((x) => `${base}-${x}w.webp ${x}w`).join(", ")}"`,
+        )
         .replace(/\sheight="\d+"/, "");
       t = t.replace(/\swidth="\d+"/, ` width="${w}" height="${h}"`);
       if (!/\ssizes=/.test(t)) t = t.replace(/^<img/, `<img sizes="${w}px"`);
@@ -223,7 +238,10 @@ async function build() {
   const nav = (path) =>
     `<header id="header"><p class="header-title"><span>${esc(P.name)}</span></p><nav class="header-links" aria-label="Site">${NAV.map((n) => navLink(n, path)).join("")}</nav></header>`;
   // the home page's section links (left column and profile column): every page but Home
-  const sectionLinks = (cls) => `<ul class="${cls}">${NAV.slice(1).map((n) => `<li>${navLink(n)}</li>`).join("")}</ul>`;
+  const sectionLinks = (cls) =>
+    `<ul class="${cls}">${NAV.slice(1)
+      .map((n) => `<li>${navLink(n)}</li>`)
+      .join("")}</ul>`;
   const footer = `<footer id="footer">
 <nav class="footer-icons" aria-label="Social links"><a href="mailto:${esc(P.email)}" aria-label="Email" title="Email">${ic("envelope")}</a>${P.links.map((l) => `<a href="${esc(l.url)}" rel="me" aria-label="${esc(l.label)}" title="${esc(l.label)}">${ic(l.icon)}</a>`).join("")}</nav>
 <p class="footer-bio">${esc(P.name)} is a professor at Stevens Institute of Technology and the founding director of the Stevens Visualization Lab. He received his PhD from Georgia Tech. Read about his research group's work here: <a href="${lab}/">${lab.replace("https://", "")}</a></p>
@@ -252,7 +270,17 @@ async function build() {
   };
   const jsonld = JSON.stringify({
     "@context": "https://schema.org",
-    "@graph": [{ "@type": "WebSite", "@id": site.url + "/#website", url: site.url + "/", name: P.name, inLanguage: "en", publisher: { "@id": site.url + "/#person" } }, person],
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": site.url + "/#website",
+        url: site.url + "/",
+        name: P.name,
+        inLanguage: "en",
+        publisher: { "@id": site.url + "/#person" },
+      },
+      person,
+    ],
   });
   // Dissertation: Google Scholar citation tags and Thesis structured data. (No citation_pdf_url: the PDF isn't hosted here.)
   const diss = {
@@ -270,7 +298,10 @@ async function build() {
     "@type": "Thesis",
     name: diss.title,
     headline: diss.title,
-    description: desc.replace(/&amp;/g, "&").replace(/&#39;|&apos;/g, "'").replace(/&quot;/g, '"'),
+    description: desc
+      .replace(/&amp;/g, "&")
+      .replace(/&#39;|&apos;/g, "'")
+      .replace(/&quot;/g, '"'),
     url: site.url + "/dissertation/",
     image: site.url + PAGE_CARDS["/dissertation/"].src,
     inSupportOf: "Ph.D. in Human-Centered Computing",
@@ -293,8 +324,12 @@ ${site.googleSiteVerification ? `<meta name="google-site-verification" content="
 <meta property="og:type" content="${path === "/dissertation/" ? "article" : "website"}"><meta property="og:site_name" content="${esc(P.name)}"><meta property="og:locale" content="en_US">
 <meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(desc)}">
 <meta property="og:url" content="${site.url}${path}">
-${((card) => `<meta property="og:image" content="${site.url}${card.src}"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="${esc(card.alt)}">
-<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="${esc(title)}"><meta name="twitter:description" content="${esc(desc)}"><meta name="twitter:image" content="${site.url}${card.src}"><meta name="twitter:image:alt" content="${esc(card.alt)}">`)(PAGE_CARDS[path] || SHARE_CARD)}
+${((
+  card,
+) => `<meta property="og:image" content="${site.url}${card.src}"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="${esc(card.alt)}">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="${esc(title)}"><meta name="twitter:description" content="${esc(desc)}"><meta name="twitter:image" content="${site.url}${card.src}"><meta name="twitter:image:alt" content="${esc(card.alt)}">`)(
+  PAGE_CARDS[path] || SHARE_CARD,
+)}
 ${ld ? `<script type="application/ld+json">${ld}</script>` : ""}${path === "/dissertation/" ? "\n" + dissHead(desc) : ""}`;
 
   const page = ({ path, title, desc, body, ld, noindex }) => `<!doctype html>
@@ -346,7 +381,9 @@ ${footer}
       ? `<input type="checkbox" class="bib-toggle" id="bib-${pubId(p)}" aria-label="Show BibTeX for ${esc(p.short || p.title)}">`
       : "";
   const bibLabel = (p) =>
-    p.bibtex ? `<label class="bib-label" for="bib-${pubId(p)}" aria-hidden="true">${ic("quote-right")}BibTeX</label>` : "";
+    p.bibtex
+      ? `<label class="bib-label" for="bib-${pubId(p)}" aria-hidden="true">${ic("quote-right")}BibTeX</label>`
+      : "";
   const bibPre = (p) =>
     p.bibtex ? `<pre class="bibtex" title="Click to select, then copy">${esc(p.bibtex.trim())}</pre>` : "";
   // Images are found by name (no data.yaml field): images/<name>.(webp|png|jpg|jpeg|gif), where <name> is a paper's
@@ -418,7 +455,9 @@ ${img ? `<a href="${esc(first?.url || "#")}" class="preview-image" style="backgr
     if (!funders.has(g.funder)) funders.set(g.funder, []);
     if (g.award) funders.get(g.funder).push(...String(g.award).split(/\s*,\s*/));
   }
-  const fundingLine = [...funders].map(([f, awards]) => (awards.length ? `${f} (${[...new Set(awards)].join(", ")})` : f)).join("; ");
+  const fundingLine = [...funders]
+    .map(([f, awards]) => (awards.length ? `${f} (${[...new Set(awards)].join(", ")})` : f))
+    .join("; ");
   const LEVELS = [
     // [level, heading for advisees, left-column label for mentees]
     ["postdoc", "Postdocs", "Postdoc"],
@@ -435,16 +474,22 @@ ${img ? `<a href="${esc(first?.url || "#")}" class="preview-image" style="backgr
     ["thesis advisor", "Thesis Advisor"],
     ["research advisor", "Research Advisor"],
   ];
-  const roleOf = (s) => String(s.role || "").trim().toLowerCase();
+  const roleOf = (s) =>
+    String(s.role || "")
+      .trim()
+      .toLowerCase();
   /** "Fall 2025" → 20253 (Spring 1, Summer 2, Fall 3; a bare year sorts before its terms); missing → Infinity (present). */
   const termKey = (t) => {
     const m = String(t ?? "").match(/(spring|summer|fall)?\s*(\d{4})/i);
     return m ? +m[2] * 10 + ({ spring: 1, summer: 2, fall: 3 }[(m[1] || "").toLowerCase()] || 0) : Infinity;
   };
-  for (const s of [...advisees, ...mentees]) if (levelRank(s) < 0) console.warn(`student ${s.name}: unknown level "${s.level}"`);
+  for (const s of [...advisees, ...mentees])
+    if (levelRank(s) < 0) console.warn(`student ${s.name}: unknown level "${s.level}"`);
   for (const s of advisees)
     if (!ROLES.some(([r]) => r === roleOf(s)))
-      console.warn(`advisee ${s.name}: role should be one of ${ROLES.map(([r]) => r).join(" | ")} (got "${s.role ?? ""}")`);
+      console.warn(
+        `advisee ${s.name}: role should be one of ${ROLES.map(([r]) => r).join(" | ")} (got "${s.role ?? ""}")`,
+      );
   const current = advisees.filter((s) => !s.end);
   const alums = advisees.filter((s) => s.end);
   // Sidebar, as on Polo's: current students by seniority (earliest start first), alumni most recently finished first.
@@ -477,9 +522,22 @@ ${funders.size ? `<h3 class="side-h">Funding &amp; Support</h3><div class="side-
     "Industry Internships": "briefcase",
     Press: "newspaper",
   };
-  const slug = (t) => t.toLowerCase().replace(/[^a-z]+/g, "-").replace(/^-|-$/g, "");
+  const slug = (t) =>
+    t
+      .toLowerCase()
+      .replace(/[^a-z]+/g, "-")
+      .replace(/^-|-$/g, "");
   // Short labels for the CV jump-nav.
-  const JUMP = { "Awards and Honors": "Awards", "Invited Talks and Demos": "Talks", "Grants and Funding": "Grants", "Student Mentoring": "Mentoring", "Service and Associations": "Service", "Programs and Outreach": "Outreach", "Research Internships": "Research", "Industry Internships": "Industry" };
+  const JUMP = {
+    "Awards and Honors": "Awards",
+    "Invited Talks and Demos": "Talks",
+    "Grants and Funding": "Grants",
+    "Student Mentoring": "Mentoring",
+    "Service and Associations": "Service",
+    "Programs and Outreach": "Outreach",
+    "Research Internships": "Research",
+    "Industry Internships": "Industry",
+  };
   const h2 = (title) => `<h2 class="cv-h">${ic(SECTION_ICONS[title] || "scroll")}${esc(title)}</h2>`;
   // Advising (from `students.advising`), laid out like Polo Chau's CV: a heading row per level (Ph.D., Masters,
   // Undergraduate), role labels on the left (Advising, Co-advising, Thesis Advisor, Research Advisor), newest start first
@@ -487,11 +545,16 @@ ${funders.size ? `<h3 class="side-h">Funding &amp; Support</h3><div class="side-
   // Student Mentoring (from `students.mentoring`) is its own section: level labels on the left, newest start first.
   const studentEntry = (s) => {
     const name = s.url ? `<a class="ink-link" href="${esc(s.url)}">${esc(s.name)}</a>` : esc(s.name);
-    const when = !s.end ? `${s.start} - present` : String(s.start) === String(s.end) ? `${s.start}` : `${s.start} - ${s.end}`;
+    const when = !s.end
+      ? `${s.start} - present`
+      : String(s.start) === String(s.end)
+        ? `${s.start}`
+        : `${s.start} - ${s.end}`;
     return `<div class="right"><b>${name}</b>, ${esc(s.degree)}${s.school ? `, ${esc(s.school)}` : ""}.<br>${esc(when)}.${s.coadvisor ? ` Co-adv: ${esc(s.coadvisor)}.` : ""}${s.thesis ? `<br>Thesis: <i>${md(s.thesis)}</i>` : ""}${s.note ? `<div class="note">${md(s.note)}</div>` : ""}${(s.awards || []).map((a) => `<div class="award">${ic("award")}${md(a)}</div>`).join("")}${s.now ? `<div class="note">Now: ${md(s.now)}</div>` : ""}</div>`;
   };
   const byStart = (a, b) => termKey(b.start) - termKey(a.start);
-  const labeled = (label, g) => `<div class="left label" style="grid-row: span ${g.length}">${esc(label)}</div>${g.map(studentEntry).join("")}`;
+  const labeled = (label, g) =>
+    `<div class="left label" style="grid-row: span ${g.length}">${esc(label)}</div>${g.map(studentEntry).join("")}`;
   const mentoring = (sec) =>
     `<section class="cv-grid" id="${slug(sec.title)}">${h2(sec.title)}${LEVELS.map(([lv, , short]) => {
       const g = mentees.filter((s) => s.level === lv).sort(byStart);
@@ -502,7 +565,9 @@ ${funders.size ? `<h3 class="side-h">Funding &amp; Support</h3><div class="side-
       const list = advisees.filter((s) => s.level === lv);
       if (!list.length) return "";
       // the four roles in order, then any unrecognized value (warned about above) under its own label
-      const extra = [...new Set(list.map(roleOf))].filter((r) => !ROLES.some(([k]) => k === r)).map((r) => [r, r || "Advising"]);
+      const extra = [...new Set(list.map(roleOf))]
+        .filter((r) => !ROLES.some(([k]) => k === r))
+        .map((r) => [r, r || "Advising"]);
       const roles = [...ROLES, ...extra].filter(([r]) => list.some((s) => roleOf(s) === r));
       return `<div class="left"></div><div class="right group-title"><b>${label}</b></div>${roles
         .map((r) => {
@@ -518,7 +583,8 @@ ${funders.size ? `<h3 class="side-h">Funding &amp; Support</h3><div class="side-
     let inGroup = false;
     const rows = s.items.map((e, i) => {
       if (e.heading) {
-        if (titleHeadings) return `<div class="left"></div><div class="right group-title"><b>${md(e.heading)}</b></div>`;
+        if (titleHeadings)
+          return `<div class="left"></div><div class="right group-title"><b>${md(e.heading)}</b></div>`;
         const n = s.items.slice(i + 1).findIndex((x) => x.heading);
         const span = n < 0 ? s.items.length - i - 1 : n;
         inGroup = span > 0;
@@ -564,7 +630,7 @@ ${funders.size ? `<h3 class="side-h">Funding &amp; Support</h3><div class="side-
       title: `CV & Bio — ${P.name}`,
       desc: `CV and bio of ${P.name}, Assistant Professor at Stevens Institute of Technology: education, awards, publications, talks, grants, teaching, and service.`,
       body: `<section class="bio" id="bio"><h2 class="page-h">${ic("address-card")}Bio</h2>${d.bio.map((t) => `<p>${md(t)}</p>`).join("")}</section>
-<section class="cv" id="cv"><div class="cv-title"><h2 class="page-h">${ic("scroll")}CV</h2><a class="btn" href="${CV_PDF}" target="_blank" rel="noopener">${ic("file-pdf")}View CV (PDF)<span class="btn-note">(last updated: ${lastUpdated(CV_PDF.slice(1))})</span></a></div>
+<section class="cv" id="cv"><div class="cv-title"><h2 class="page-h">${ic("scroll")}CV</h2><a class="btn" href="${CV_PDF}" target="_blank" rel="noopener">${ic("file-pdf")}PDF <span class="btn-note">(updated ${lastUpdated(CV_PDF.slice(1))})</span></a></div>
 <div class="jump-bar"><button class="jump-btn prev" type="button" aria-label="Scroll section links left" tabindex="-1"></button><nav class="jump" aria-label="CV sections">${[...d.cv.slice(0, cutAt < 0 ? d.cv.length : cutAt).map((s) => s.title), "Publications", ...d.cv.slice(cutAt < 0 ? d.cv.length : cutAt).map((s) => s.title)].map((t) => `<a href="#${slug(t)}">${esc(JUMP[t] || t)}</a>`).join("")}</nav><button class="jump-btn next" type="button" aria-label="Scroll section links right" tabindex="-1"></button></div>
 ${sections.join("")}</section>
 <script>
@@ -653,9 +719,10 @@ n.addEventListener("scroll",s,{passive:true});addEventListener("resize",s);docum
     writeFileSync(f, externalTargets(h));
   }
   const img = await optimizeImages();
-  console.log(`built ${urls.length} pages, ${pubs.length} publications, ${img.count} responsive images (${img.files} WebP files)`);
-  if (missingImages.length)
-    console.log(`missing images (placeholder shown): ${missingImages.join(", ")}`);
+  console.log(
+    `built ${urls.length} pages, ${pubs.length} publications, ${img.count} responsive images (${img.files} WebP files)`,
+  );
+  if (missingImages.length) console.log(`missing images (placeholder shown): ${missingImages.join(", ")}`);
 }
 
 await build();
