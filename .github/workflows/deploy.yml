@@ -23,7 +23,7 @@ jobs:
           fetch-depth: 0 # full history: the CV button shows the PDF's last commit date
       - uses: actions/setup-node@v4
         with:
-          node-version: 22
+          node-version-file: .nvmrc # same Node version Cloudflare Pages uses
           cache: npm
       - run: npm ci
       - run: npm run build
