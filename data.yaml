@@ -33,36 +33,54 @@ featured:
 
 # /cv/ ---------------------------------------------------------------------------------------------------------
 bio:
-  - Adam Coscia is a Tenure-Track Assistant Professor in the School of Computing at Stevens Institute of Technology, where he directs the Stevens Visualization Lab. His research helps people make sense of complex data through the design of interactive systems for data visualization and analysis. He has designed and deployed his tools for intelligence analysis, robotics, healthcare, and education, in collaboration with engineers, analysts, educators, and scientists at the NSF AI ALOE Institute, NSA, MIT Lincoln Lab, NASA JPL, Adobe Research, the NC State Laboratory for Analytic Sciences, and the Monterey Bay Aquarium Research Institute. His work appears at premier HCI and visualization venues, including ACM CHI, UIST, IUI, and IEEE VIS and TVCG, and has received a best paper award and three best poster awards. He was also a finalist for the Foley Scholars Award and a recipient of Georgia Tech's President's Fellowship. He received his Ph.D. in Human-Centered Computing from the Georgia Institute of Technology and holds a B.S. in Physics from Stevens.
+  - Adam Coscia is a Tenure-Track Assistant Professor in the School of Computing at Stevens Institute of Technology, where he directs the Stevens Visualization Lab. His research helps people make sense of complex data through the design of interactive systems for data visualization and analysis. His tools are used by analysts, educators, engineers, and scientists in domains including education, intelligence analysis, autonomous robotics, space science, ocean science, and graphic design. His work has been generously supported by the NSF AI-ALOE Institute, NSA, MIT Lincoln Lab, NASA JPL, Adobe Research, the NC State Laboratory for Analytic Sciences, and the Monterey Bay Aquarium Research Institute. His work appears at premier HCI and visualization venues, including ACM CHI, UIST, IUI, and IEEE VIS and TVCG, and has received a best paper award and three best poster awards. He was also a finalist for the Foley Scholars Award and a recipient of Georgia Tech's President's Fellowship. He received his Ph.D. in Human-Centered Computing from the Georgia Institute of Technology and holds a B.S. in Physics from Stevens.
 
 # Entries: date | title (bold) | sub (italic, e.g. org) | where | notes[] | url. A {heading: ...} entry starts a group.
 cv:
-  - title: Employment
-    items:
-      - { date: 2026 - present, title: Assistant Professor (Tenure-Track), sub: "School of Computing, Stevens Institute of Technology", where: "Hoboken, NJ", notes: ["Building visual analytics, human-centered artificial intelligence, and data science tools to solve pressing human-centered, data-driven problems."] }
-      - { date: 2020 - 2026, title: Graduate Research Assistant, sub: "School of Interactive Computing, Georgia Institute of Technology", where: "Atlanta, GA", notes: ["Visual Analytics Lab; advisor Alex Endert. Developed interactive visual analytics tools combining information visualization, machine learning, and human-computer interaction."] }
   - title: Education
     items:
-      - { date: May 2026, title: "Ph.D. in Human-Centered Computing", sub: "Georgia Institute of Technology", where: "Atlanta, GA", notes: ["Dissertation: [Detecting and Mitigating Pedagogical Risks in Large Language Models with Visual Analytics](/dissertation/)", "Committee: Alex Endert (advisor), Duen Horng (Polo) Chau, Cindy Bearfield-Xiong, Yalong Yang, Scott Crossley"] }
-      - { date: May 2020, title: "B.S. in Physics", sub: "Stevens Institute of Technology", where: "Hoboken, NJ", notes: ["Minors: Mathematics, Computer Science. GPA 3.98/4.00. Pinnacle Scholars; first in class (Physics)."] }
+      - { date: May 2026, title: "Ph.D. in Human-Centered Computing", sub: "Georgia Institute of Technology", where: "Atlanta, GA", notes: ["Dissertation: [Detecting and Mitigating Pedagogical Risks in Large Language Models with Visual Analytics](/dissertation/)", "Committee: Dr. Alex Endert, Dr. Duen Horng (Polo) Chau, Dr. Cindy Bearfield-Xiong, Dr. Yalong Yang, Dr. Scott Crossley"] }
+      - { date: May 2020, title: "B.S. in Physics", sub: "Stevens Institute of Technology", where: "Hoboken, NJ", notes: ["Minors: Mathematics, Computer Science. GPA: 3.98/4.00. Achievements: Pinnacle Scholars, First in Class (Physics)."] }
+  - title: Employment
+    items:
+      - { date: 2026 - present, title: "Assistant Professor (Tenure-Track)", sub: "School of Computing, Stevens Institute of Technology", where: "Hoboken, NJ", notes: ["Building visual analytics, human-centered artificial intelligence, and data science tools to solve pressing human-centered, data-driven problems."] }
+      - { date: 2020 - 2026, title: "Graduate Research Assistant", sub: "School of Interactive Computing, Georgia Institute of Technology", where: "Atlanta, GA", notes: ["Advisor: Alex Endert", "Member of the Visual Analytics Lab developing interactive visual analytics tools that help people make sense of data by combining information visualization, machine learning, and human-computer interaction."] }
+      - { date: Summer 2025, title: "Artificial Intelligence Research Lead, Artificial Intelligence Group", sub: "MIT Lincoln Laboratory", where: "Lexington, MA", notes: ["Advisors: Ho Chit Siu, Rohan Paleja", "Developing novel visual analytics interfaces that enable human-in-the-loop decision-making and guidance in human-machine teaming scenarios."] }
+      - { date: Summer 2024, title: "Machine Learning Research Lead, AI Experiences Lab", sub: "Adobe Research", where: "San Jose, CA", notes: ["Advisors: Shunan Guo, Eunyee Koh", "Built a novel chat interface with large language models (LLMs) to improve sensemaking of conversational LLM responses for everyday users using LLM-powered Adobe products."] }
+      - { date: Summer 2023, title: "Machine Learning Research Lead, Human-Interfaces Group", sub: "NASA Jet Propulsion Laboratory (JPL)", where: "Pasadena, CA", notes: ["Advisors: Scott Davidoff, Tiago Vaquero", "Developed automated science planning capabilities for planetary missions to support multi-instrument and team-driven science using a novel demonstration paradigm. See [ReRank](/projects/#rerank)."] }
+      - { date: Summer 2021, title: "Computer Science Lead, Data to Discovery Program", sub: "NASA Jet Propulsion Laboratory (JPL)", where: "Pasadena, CA", notes: ["Advisors: Scott Davidoff, Santiago Lombeyda, Hillary Mushkin, Maggie Hendrie", "Built interactive data visualization combining linked 2D maps and 3D visualizations of taxa and geochemical values in sediment cores collected from the sea floor."] }
+      - { date: Summer 2020, title: "Machine Learning / Operations Intern, Center for Data Science and Artificial Intelligence", sub: "New York Life Insurance Company", where: "New York, NY", notes: ["Supervisor: Paul Janis", "Engineered multiple feature extraction pipelines interfaced by Domino platform and integrated with existing Hadoop infrastructure. Produced model monitoring metric reports for stakeholders and data science team."] }
+      - { date: Summer 2019, title: "Data Platform Engineering Intern, Center for Data Science and Analytics", sub: "New York Life Insurance Company", where: "New York, NY", notes: ["Supervisor: Paul Janis", "Built various scalable programs and data-handling procedures for multiple teams to leverage complex, low-level data lake tools with efficient, cost-effective, and easy-to-use interfaces."] }
+      - { date: 2018 - 2020, title: "Undergraduate Research Assistant, School of Information Systems and Architecture", sub: "Stevens Institute of Technology", where: "Hoboken, NJ", notes: ["Advisors: Aron Lindberg, Amir Gandomi", "Developed statistical model in Python for connecting evolutionary trajectories of digital artifacts to performance outcomes in online communities."] }
+      - { date: Summer 2017, title: "Visiting Research Scholar, Department of Physics and Astronomy", sub: "Katholieke Universiteit Leuven", where: "Leuven, Belgium", notes: ["Advisors: Lino da Costa Pereira, Tiago Abel de Lemos Lima", "Built data visualization interface in Python for managing simulations of ion channeling in single crystals, to be used in ion beam analysis of topological materials."] }
   - title: Awards and Honors
     items:
-      - { date: 2026, title: "VAST Challenge @ IEEE VIS Best Paper, Honorable Mention", notes: ["For “AgentK: Investigation of Multi-Agent LLM Dialogue via Semantic Bundling of Knowledge Graphs”"] }
-      - { date: 2025, title: Sigma Xi Scientific Research Honor Society, notes: [Inducted as a lifetime member.] }
-      - { date: 2025, title: CRIDC Best Poster Award, notes: ["For “VisPile: Incorporating Knowledge Graphs and Large Language Models into Visual Text Analysis Tools”"] }
-      - { date: 2024, title: Georgia Tech Foley Scholar Award Finalist, notes: [Awarded to top graduate students shaping the future of how people interact with and value technology.], url: "https://research.gatech.edu/foley-scholars-2024-winners-and-finalists" }
-      - { date: 2023, title: CRIDC Best Poster Award, notes: ["For “KnowledgeVIS: Visualizing What Language Models Have Learned”"] }
-      - { date: 2021, title: CRIDC Best Poster Award, notes: ["For “Lumos: Increasing Awareness of Biases during Visual Data Analysis”"] }
-      - { date: 2020, title: Georgia Tech President's Fellowship, notes: [Four-year semesterly stipend award; selected upon admission from top 10% of applicant pool.] }
-      - { date: 2020, title: Stevens Alfred M. Mayer Prize, notes: [Awarded to the senior ranked first in all physics courses taken during their undergraduate career.] }
-      - { date: 2019, title: Sigma Pi Sigma Physics Honor Society, notes: [Inducted as a lifetime member by the American Institute of Physics.] }
-      - { date: 2018, title: Stevens Distinguished Teaching Assistant, notes: [Awarded to the student faculty member nominated for creating an outstanding classroom environment.] }
-      - { date: 2016, title: Stevens Presidential Scholarship, notes: ["Four-year, half-tuition award; selected for academic excellence in high school."] }
+      - { date: 2026, title: "Best Paper, Honorable Mention, VAST Challenge @ IEEE VIS 2026", notes: ["For “AgentK: Investigation of Multi-Agent LLM Dialogue via Semantic Bundling of Knowledge Graphs”"] }
+      - { date: 2025, title: "Inductee, Sigma Xi Scientific Research Honor Society", notes: ["Inducted as a lifetime member."] }
+      - { date: 2025, title: "Best Poster Award, CRIDC 2025", notes: ["For “VisPile: Incorporating Knowledge Graphs and Large Language Models into Visual Text Analysis Tools”"] }
+      - { date: 2024, title: "Foley Scholar Award Finalist, Georgia Tech", notes: ["Awarded to top graduate students shaping the future of how people interact with and value technology."], url: "https://research.gatech.edu/foley-scholars-2024-winners-and-finalists" }
+      - { date: 2023, title: "Best Poster Award, CRIDC 2023", notes: ["For “KnowledgeVIS: Visualizing What Language Models Have Learned”"] }
+      - { date: 2021, title: "Best Poster Award, CRIDC 2021", notes: ["For “Lumos: Increasing Awareness of Biases during Visual Data Analysis”"] }
+      - { date: 2020, title: "President's Fellowship, Georgia Tech", notes: ["Four-year semesterly stipend award; selected upon admission from top 10% of applicant pool."] }
+      - { date: 2020, title: "Alfred M. Mayer Prize, Stevens Institute of Technology", notes: ["Awarded to senior ranked first in all physics courses taken during undergraduate career."] }
+      - { date: 2019, title: "Inductee, Sigma Pi Sigma Physics Honor Society", notes: ["Inducted as a lifetime member by the American Institute of Physics."] }
+      - { date: 2018, title: "Distinguished Teaching Assistant, Stevens Institute of Technology", notes: ["Awarded to student faculty member nominated for creating outstanding classroom environment."] }
+      - { date: 2016, title: "Presidential Scholarship, Stevens Institute of Technology", notes: ["Four-year, half-tuition award; selected for academic excellence in high school."] }
+  # Papers come from `publications` below (grouped by type). Posters are CV-only and listed here, newest first.
+  - title: Publications
+    posters:
+      - { title: "Incorporating Knowledge Graphs and Large Language Models into Visual Text Analysis Tools", authors: [Adam Coscia, Alex Endert, Liz Richerson, Sue Mi K., Stephen S., Tim S.], venue: "Career, Research, and Innovation Development Conference (CRIDC), Atlanta, GA, USA, 2025", award: "Best Poster Award (top 5%)" }
+      - { title: "Incorporating Knowledge Graphs and Large Language Models into Visual Text Analysis Tools", authors: [Adam Coscia, Alex Endert, Liz Richerson, Sue Mi K., Stephen S., Tim S.], venue: "NCSU LAS Research Symposium, Raleigh, NC, USA, 2024" }
+      - { title: "iScore: Visual Analytics for Interpreting How Language Models Automatically Score Summaries", authors: [Adam Coscia, Langdon Holmes, Wesley Morris, Joon Suh Choi, Scott Crossley, Alex Endert], venue: "Career, Research, and Innovation Development Conference (CRIDC), Atlanta, GA, USA, 2024" }
+      - { title: "KnowledgeVIS: Visualizing What Language Models Have Learned", authors: [Adam Coscia, Alex Endert], venue: "Career, Research, and Innovation Development Conference (CRIDC), Atlanta, GA, USA, 2023", award: "Best Poster Award (top 5%)" }
+      - { title: "Lumos: Increasing Awareness of Biases during Visual Data Analysis", authors: [Arpit Narechania, Adam Coscia, Emily Wall, Alex Endert], venue: "Career, Research, and Innovation Development Conference (CRIDC), Atlanta, GA, USA, 2021", award: "Best Poster Award (top 5%)" }
+      - { title: "Correlating Long-Term Innovation with Success in Career Progression", authors: [Adam Coscia, Aron Lindberg], venue: "Business Intelligence & Analytics (BI&A) Corporate Networking Event, Hoboken, NJ, USA, 2018" }
   - title: Invited Talks and Demos
     headings: title # group headings are talk titles (shown in the right column)
     items:
       - { heading: "Collaborative Sensemaking with AI in Visual Analytics" }
-      - { date: Oct 2026, title: "Montclair State University" }
+      - { date: Nov 2026, title: "Montclair State University" }
+      - { date: Nov 2026, title: "Boston University" }
       - { date: Apr 2026, title: "Emory University" }
       - { date: Oct 2025, title: "Brown Visual Computing Seminar, Brown University" }
       - { date: Oct 2025, title: "University of Massachusetts Boston" }
@@ -83,19 +101,19 @@ cv:
   # award (optional): award number, shown in parentheses after the funder, e.g. NSF (2401234, 2405678).
   - title: Grants and Funding
     items:
-      - { date: 2026, title: "Agentic Visual Data Analysis: Knowledge Graph Synthesis using LLMs", funder: "Laboratory for Analytic Sciences (NC State)", sub: "Laboratory for Analytic Sciences, North Carolina State University", notes: ["Co-PI: Alex Endert. One-year funding (full tuition + graduate stipend)."] }
-      - { date: 2025, title: "Enabling Continuous Analytic Dialogues in Visual Analytics with LLMs and Knowledge Graphs", funder: "Laboratory for Analytic Sciences (NC State)", sub: "Laboratory for Analytic Sciences, North Carolina State University", notes: ["Co-PI: Alex Endert. One-year funding (full tuition + graduate stipend)."] }
-      - { date: 2024, title: "Incorporating Knowledge Graphs and Large Language Models into Visual Text Analysis Tools", funder: "Laboratory for Analytic Sciences (NC State)", sub: "Laboratory for Analytic Sciences, North Carolina State University", notes: ["Co-PI: Alex Endert. One-year funding (full tuition + graduate stipend)."] }
-      - { date: 2018, title: "Correlating Long-Term Innovation with Success in Career Progression", sub: "Pinnacle Scholar Summer Institutional Research Program, Stevens Institute of Technology", notes: ["Co-PI: Aron Lindberg. Funded $5000 for research expenses and living stipend."] }
-      - { date: 2017, title: "Managing Simulations of Ion Channeling in Single Crystals", sub: "International Summer Abroad Internship Program, Katholieke Universiteit Leuven", notes: ["Co-PI: Lino da Costa Pereira. Funded €3000 from KU Leuven and $5000 from Stevens."] }
+      - { date: 2026, title: "Agentic Visual Data Analysis: Knowledge Graph Synthesis using LLMs", funder: "Laboratory for Analytic Sciences (NC State)", sub: "Laboratory for Analytic Sciences, North Carolina State University", notes: ["Co-PI: Alex Endert", "One-year funding (full tuition + graduate stipend)"] }
+      - { date: 2025, title: "Enabling Continuous Analytic Dialogues in Visual Analytics with LLMs and Knowledge Graphs", funder: "Laboratory for Analytic Sciences (NC State)", sub: "Laboratory for Analytic Sciences, North Carolina State University", notes: ["Co-PI: Alex Endert", "One-year funding (full tuition + graduate stipend)"] }
+      - { date: 2024, title: "Incorporating Knowledge Graphs and Large Language Models into Visual Text Analysis Tools", funder: "Laboratory for Analytic Sciences (NC State)", sub: "Laboratory for Analytic Sciences, North Carolina State University", notes: ["Co-PI: Alex Endert", "One-year funding (full tuition + graduate stipend)"] }
+      - { date: 2018, title: "Correlating Long-Term Innovation with Success in Career Progression", sub: "Pinnacle Scholar Summer Institutional Research Program, Stevens Institute of Technology", notes: ["Co-PI: Aron Lindberg", "Funded $5000 for research expenses and living stipend"] }
+      - { date: 2017, title: "Managing Simulations of Ion Channeling in Single Crystals", sub: "International Summer Abroad Internship Program, Katholieke Universiteit Leuven", notes: ["Co-PI: Lino da Costa Pereira", "Funded €3000 from Katholieke Universiteit Leuven and $5000 from Stevens Institute of Technology"] }
   # role: Instructor | TA. Instructor entries are also listed on the home page (title, link, date).
   - title: Teaching
     items:
       - { role: Instructor, date: Spring 2027, title: "CS 538: Data Visualization", sub: "Stevens Institute of Technology", where: "Hoboken, NJ", notes: [Instructor.], url: "https://stevensvislab.github.io/" }
-      - { role: TA, date: "Fall 2022, Fall 2025", title: "Graduate Teaching Assistant, CS 6730: Data Visualization Principles", sub: "Georgia Institute of Technology", notes: ["Instructor: Alex Endert. Assisted with lectures, grading, and team projects; held office hours."] }
-      - { role: TA, date: 2018 - 2020, title: "Course Assistant, PEP 112S: Honors Electricity & Magnetism", sub: "Stevens Institute of Technology", notes: ["Semesterly. Instructor: Christopher Search. Assisted with grading, reviews, worksheets, and testing material preparation."] }
-      - { role: TA, date: 2018 - 2020, title: "Course Assistant, PEP 112: Electricity & Magnetism", sub: "Stevens Institute of Technology", notes: ["Semesterly. Instructor: Robert Pastore. Ran 3-hour exam reviews for an average class of 200 students."] }
-      - { role: TA, date: 2017 - 2020, title: "Teaching Assistant, CS 105: Intro to Scientific Computing", sub: "Stevens Institute of Technology", notes: ["Semesterly. Instructor: Dimitrios Damopoulos. Taught 15-25 students in weekly MATLAB labs; helped develop course materials."] }
+      - { role: TA, date: "Fall 2022, Fall 2025", title: "Graduate Teaching Assistant, CS 6730: Data Visualization Principles", sub: "Georgia Institute of Technology", where: "Atlanta, GA", notes: ["Instructor: Alex Endert", "Assisted professor with lectures, grading, team projects; held office hours for student support."] }
+      - { role: TA, date: 2018 - 2020, title: "Course Assistant, PEP 112S: Honors Electricity & Magnetism", sub: "Stevens Institute of Technology", where: "Hoboken, NJ", notes: ["Semesterly. Instructor: Christopher Search", "Assisted professor with grading, reviews, worksheets, and testing material preparation."] }
+      - { role: TA, date: 2018 - 2020, title: "Course Assistant, PEP 112: Electricity & Magnetism", sub: "Stevens Institute of Technology", where: "Hoboken, NJ", notes: ["Semesterly. Instructor: Robert Pastore", "Ran 3-hour exam reviews for an average class size of 200 students."] }
+      - { role: TA, date: 2017 - 2020, title: "Teaching Assistant, CS 105: Intro to Scientific Computing", sub: "Stevens Institute of Technology", where: "Hoboken, NJ", notes: ["Semesterly. Instructor: Dimitrios Damopoulos", "Taught 15-25 students in weekly labs on CS concepts using MATLAB; helped develop course materials."] }
   # Students. advisees: also listed on the home page (current, then Alumni); on the CV ordered like Polo Chau's: Ph.D.,
   # then Masters, then Undergraduate; within each, by role, then newest start first. mentees: CV only, by level, newest
   # start first.
@@ -109,16 +127,37 @@ cv:
       - { name: Xinge (Eve) Zhang, url: "", degree: Urban Spatial Analytics MS, level: ms, role: research advisor, school: UPenn, start: 2026, note: "" }
       - { name: Astha Shah, url: "", degree: CS BS, level: bs, role: research advisor, school: Tufts, start: 2026, note: "" }
       - { name: Meng Lincoln Ngy Tang, url: "", degree: CS BS, level: bs, role: research advisor, school: Stevens, start: 2026, note: "" }
+  - title: Student Mentoring
+    mentees:
+      - { name: Zeyu (Abigail) Hua, url: "", degree: CS PhD, level: phd, school: Georgia Tech, start: 2026, end: 2026, note: Developing new LLM-powered algorithms for analyzing and visualizing knowledge graphs. }
+      - { name: Sujata Duwal, url: "", degree: HCC PhD, level: phd, school: Georgia Tech, start: 2025, end: 2026, note: Studying trust in decision-making when visualizing LLMs used in education. }
+      - { name: Jennifer Chandran, url: "", degree: HCI MS, level: ms, school: Georgia Tech, start: 2025, end: 2025, note: Created an LLM-augmented pipeline that automatically transforms document sets for data analysis. }
+      - { name: Ben Klassen, url: "", degree: Analytics MS, level: ms, school: Georgia Tech, start: 2024, end: 2025, note: Developed data science tools that leverage LLMs to enhance intelligence in classrooms and sports analytics. }
+      - { name: Sean Ru, url: "", degree: CS MS, level: ms, school: Georgia Tech, start: 2024, end: 2024, note: Created LLM-based algorithms that embed data visualizations for improved searchability. }
+  - title: Programs and Outreach
+    items:
+      - { date: 2025 - 2026, title: "Mentor, IC Buddies Mentorship Program", sub: "Georgia Institute of Technology", where: "Atlanta, GA", notes: ["Paired one-on-one with a graduate student, helping them adjust to grad school. Introduced them to faculty connections, discussed graduate research opportunities, and provided guidance on time/workload management."] }
+      - { date: 2022 - 2023, title: "Mentor, Beyond Mentorship Program", sub: "Encouraging Women Across All Borders (EWAAB)", where: "New York, NY", notes: ["Connected monthly one-on-one with students to discuss professional topics ranging from general professional advice, to applying for job opportunities, to discovering new fields of study."] }
+      - { date: 2017 - 2019, title: "Mentor, Pinnacle Scholar Peer Advisor Program", sub: "Stevens Institute of Technology", where: "Hoboken, NJ", notes: ["Mentored 4-6 honors freshmen each academic year representing different majors. Provided guidance on internships, classes, international experiences, campus resources. Took students on excursions into Hoboken."] }
   - title: Service and Associations
     items:
+      - { heading: Professional Societies }
+      - { date: since 2025, title: "Sigma Xi Scientific Research Honor Society (Sigma Xi)" }
+      - { date: since 2025, title: "IEEE Computer Society (IEEE)" }
+      - { date: since 2023, title: "Association for Computing Machinery (ACM)" }
+      - { date: since 2023, title: "Special Interest Group on Computer-Human Interaction (SIGCHI)" }
+      - { date: "Lifetime, since 2019", title: "Sigma Pi Sigma (SPS) Physics Honor Society" }
+      - { date: 2016 - 2020, title: "American Physical Society (APS)" }
       - { heading: Program Committee }
-      - { date: 2026, title: "IEEE VIS Short Papers" }
+      - { date: 2026, title: "IEEE Visualization Conference (VIS) Short Papers" }
       - { date: 2026 - 2027, title: "IEEE Pacific Visualization Conference (PacificVis) Short Papers" }
+      - { date: 2027, title: "EuroVis Conference (EuroVis) Full Papers" }
       - { date: 2026, title: "VISxGenAI Workshop @ IEEE VIS" }
       - { date: 2026, title: "VAxAutoSci Workshop @ IEEE VIS" }
       - { heading: Organizing Committee }
-      - { date: 2026, title: "IEEE Visualization Conference (VIS), Tech Chair" }
-      - { date: 2025, title: "ACM Symposium on User Interface Software and Technology (UIST), Student Volunteer" }
+      - { date: 2026, title: "IEEE Visualization Conference (VIS) Tech Chair" }
+      - { heading: Student Volunteer }
+      - { date: 2025, title: "ACM Symposium on User Interface Software and Technology (UIST)" }
       - { heading: Reviewer }
       - { date: 2022 - 2026, title: "IEEE Visualization Conference (VIS)" }
       - { date: 2025 - 2027, title: "IEEE Pacific Visualization Conference (PacificVis)" }
@@ -131,45 +170,15 @@ cv:
       - { date: 2025, title: "ACM Conference on Computer-Supported Cooperative Work & Social Computing (CSCW)" }
       - { date: "2024, 2026", title: "ACM Transactions on Interactive Intelligent Systems (TIIS)" }
       - { date: 2026, title: "Hawaii International Conference on System Sciences (HICSS)" }
-      - { date: 2026, title: "Human-Computer Interaction (HCI)" }
+      - { date: 2026, title: "Human–Computer Interaction (HCI)" }
       - { date: 2026, title: "Computer Graphics Forum (CGF)" }
       - { date: 2025, title: "Computers and Graphics (C&G)" }
       - { date: 2025, title: "Visual Informatics" }
       - { heading: Outstanding Reviews }
       - { date: "2023, 2026", title: IEEE VIS }
-      - { date: "2024, 2025", title: ACM CHI }
+      - { date: "2024, 2025, 2027", title: ACM CHI }
       - { date: 2026, title: ACM IUI }
-      - { heading: Societies }
-      - { date: since 2025, title: Sigma Xi Scientific Research Honor Society }
-      - { date: since 2025, title: IEEE Computer Society }
-      - { date: since 2023, title: Association for Computing Machinery (ACM) }
-      - { date: since 2023, title: Special Interest Group on Computer-Human Interaction (SIGCHI) }
-      - { date: lifetime, title: Sigma Pi Sigma Physics Honor Society }
-      - { date: 2016 - 2020, title: American Physical Society (APS) }
-  - title: Programs and Outreach
-    items:
-      - { date: 2025 - 2026, title: Mentor, IC Buddies Mentorship Program, sub: "Georgia Institute of Technology", notes: [Paired one-on-one with a graduate student to help them adjust to grad school.] }
-      - { date: 2022 - 2023, title: Mentor, Beyond Mentorship Program, sub: "Encouraging Women Across All Borders (EWAAB)", notes: [Met monthly one-on-one with students on professional advice, job applications, and discovering new fields.] }
-      - { date: 2017 - 2019, title: Mentor, Pinnacle Scholar Peer Advisor Program, sub: "Stevens Institute of Technology", notes: [Mentored 4-6 honors freshmen each year on internships, classes, international experiences, and campus resources.] }
-  - title: Student Mentoring
-    mentees:
-      - { name: Zeyu (Abigail) Hua, url: "", degree: CS PhD, level: phd, school: Georgia Tech, start: 2026, end: 2026, note: Developing new LLM-powered algorithms for analyzing and visualizing knowledge graphs. }
-      - { name: Sujata Duwal, url: "", degree: HCC PhD, level: phd, school: Georgia Tech, start: 2025, end: 2026, note: Studying trust in decision-making when visualizing LLMs used in education. }
-      - { name: Jennifer Chandran, url: "", degree: HCI MS, level: ms, school: Georgia Tech, start: 2025, end: 2025, note: Created an LLM-augmented pipeline that automatically transforms document sets for data analysis. }
-      - { name: Ben Klassen, url: "", degree: Analytics MS, level: ms, school: Georgia Tech, start: 2024, end: 2025, note: Developed data science tools that leverage LLMs to enhance intelligence in classrooms and sports analytics. }
-      - { name: Sean Ru, url: "", degree: CS MS, level: ms, school: Georgia Tech, start: 2024, end: 2024, note: Created LLM-based algorithms that embed data visualizations for improved searchability. }
-  - title: Research Internships
-    items:
-      - { date: Summer 2025, title: "AI Research Lead, Artificial Intelligence Group", sub: "MIT Lincoln Laboratory", where: "Lexington, MA", notes: ["Advisors: Ho Chit Siu, Rohan Paleja. Developed visual analytics interfaces for human-in-the-loop decision-making in human-machine teaming."] }
-      - { date: Summer 2024, title: "Machine Learning Research Lead, AI Experiences Lab", sub: "Adobe Research", where: "San Jose, CA", notes: ["Advisors: Shunan Guo, Eunyee Koh. Built a chat interface to improve sensemaking of conversational LLM responses."] }
-      - { date: Summer 2023, title: "Machine Learning Research Lead, Human-Interfaces Group", sub: "NASA Jet Propulsion Laboratory (JPL)", where: "Pasadena, CA", notes: ["Advisors: Scott Davidoff, Tiago Vaquero. Developed automated science planning for planetary missions using a novel demonstration paradigm. See [ReRank](/projects/#rerank)."] }
-      - { date: Summer 2021, title: "Computer Science Lead, Data to Discovery Program", sub: "NASA Jet Propulsion Laboratory (JPL)", where: "Pasadena, CA", notes: ["Advisors: Scott Davidoff, Santiago Lombeyda, Hillary Mushkin, Maggie Hendrie. Built interactive visualizations linking 2D maps and 3D views of seafloor sediment cores."] }
-      - { date: 2018 - 2020, title: "Undergraduate Research Assistant, School of Information Systems and Architecture", sub: "Stevens Institute of Technology", where: "Hoboken, NJ", notes: ["Advisors: Aron Lindberg, Amir Gandomi. Built a statistical model in Python linking evolutionary trajectories of digital artifacts to performance outcomes."] }
-      - { date: Summer 2017, title: "Visiting Research Scholar, Department of Physics and Astronomy", sub: "Katholieke Universiteit Leuven", where: "Leuven, Belgium", notes: ["Advisors: Lino da Costa Pereira, Tiago Abel de Lemos Lima. Built a data visualization interface in Python for ion channeling simulations."] }
-  - title: Industry Internships
-    items:
-      - { date: Summer 2020, title: "Machine Learning / Operations Intern, Center for Data Science and Artificial Intelligence", sub: "New York Life Insurance Company", where: "New York, NY", notes: ["Supervisor: Paul Janis. Engineered feature extraction pipelines and model-monitoring reports."] }
-      - { date: Summer 2019, title: "Data Platform Engineering Intern, Center for Data Science and Analytics", sub: "New York Life Insurance Company", where: "New York, NY", notes: ["Supervisor: Paul Janis. Built scalable programs and data-handling procedures on low-level data lake tools."] }
+      - { date: 2027, title: IEEE PacificVis }
   - title: Press
     items:
       - { date: Apr 2026, title: "This New Tool Makes AI's Role in Student Writing Visible", sub: "Tess Malone, Georgia Tech Office of Research", url: "https://research.gatech.edu/new-tool-makes-ais-role-student-writing-visible" }

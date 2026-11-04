@@ -8,6 +8,7 @@ Everything is built from a few files into `_site/` by `build.js`.
 
 - **Home page prose** (intro, research themes) **and the profile text** (name, title, lab, address): edit `index.html` directly.
 - **Everything else** (socials, students, teaching, funding, CV sections, publications, projects): edit `data.yaml`.
+- **CV order and posters:** CV sections appear in the order of `cv:` in `data.yaml`. The `Publications` entry marks where the paper list goes (papers come from `publications`, grouped Conference, Journal, Workshop); its `posters` list adds a numbered Poster group at the end (CV only, newest first).
 - **Students, teaching, funding:** these live in their CV sections in `data.yaml`, and the home page's profile column summarizes them.
   - **Students:** `advisees` (under Advising) appear on the home page (current, then Alumni once they have an `end`) and on the CV, ordered like Polo Chau's CV (Ph.D., then Masters, then Undergraduate; within each, by `role`, newest `start` first). `mentees` (under Student Mentoring) appear only on the CV, by level, newest first. The field list is in the comment above Advising.
   - **Teaching:** give each entry `role: Instructor` or `role: TA`. Instructor entries also appear on the home page.

@@ -16,6 +16,8 @@ import { execFileSync } from "node:child_process";
 import { randomBytes, pbkdf2Sync, createCipheriv } from "node:crypto";
 import YAML from "yaml";
 import sharp from "sharp";
+// sharp's cache keeps image files open; on Windows that blocks the next rebuild from deleting _site/ (EBUSY)
+sharp.cache(false);
 
 const OUT = "_site";
 const PHOTO = "/images/profile.png"; // also hard-coded in index.html
@@ -174,7 +176,8 @@ async function optimizeImages() {
       const src = (tag.match(/\ssrc="(\/[^"?#]+\.(?:png|jpe?g|webp))"/i) || [])[1];
       const w = +((tag.match(/\swidth="(\d+)"/) || [])[1] || 0);
       if (!src || !w || /\ssrcset=/.test(tag)) continue;
-      const file = join(OUT, src);
+      // read the original in the repo, not its copy in _site/ (nothing in _site/ stays open between builds)
+      const file = existsSync("." + src) ? "." + src : join(OUT, src);
       if (!meta.has(file)) {
         const ok = existsSync(file) && statSync(file).size >= IMG_MIN_BYTES;
         meta.set(file, ok ? await sharp(file).metadata() : null);
@@ -553,23 +556,29 @@ ${funders.size ? `<h3 class="side-h">Funding &amp; Support</h3><div class="side-
     return `<div class="right"><b>${name}</b>, ${esc(s.degree)}${s.school ? `, ${esc(s.school)}` : ""}.<br>${esc(when)}.${s.coadvisor ? ` Co-adv: ${esc(s.coadvisor)}.` : ""}${s.thesis ? `<br>Thesis: <i>${md(s.thesis)}</i>` : ""}${s.note ? `<div class="note">${md(s.note)}</div>` : ""}${(s.awards || []).map((a) => `<div class="award">${ic("award")}${md(a)}</div>`).join("")}${s.now ? `<div class="note">Now: ${md(s.now)}</div>` : ""}</div>`;
   };
   const byStart = (a, b) => termKey(b.start) - termKey(a.start);
-  const labeled = (label, g) =>
-    `<div class="left label" style="grid-row: span ${g.length}">${esc(label)}</div>${g.map(studentEntry).join("")}`;
-  const mentoring = (sec) =>
-    `<section class="cv-grid" id="${slug(sec.title)}">${h2(sec.title)}${LEVELS.map(([lv, , short]) => {
-      const g = mentees.filter((s) => s.level === lv).sort(byStart);
-      return g.length ? labeled(short, g) : "";
-    }).join("")}</section>`;
+  // Subsections after the first in a section get extra space above them (class "gap" on the first row's cells).
+  const gapCls = (first) => (first ? "" : " gap");
+  const labeled = (label, g, first = true) =>
+    `<div class="left label${gapCls(first)}${g.length === 1 ? " solo" : ""}" style="grid-row: span ${g.length}">${esc(label)}</div>${g
+      .map((s, i) => studentEntry(s).replace('<div class="right">', `<div class="right${i ? "" : gapCls(first)}">`))
+      .join("")}`;
+  const mentoring = (sec) => {
+    const groups = LEVELS.map(([lv, , short]) => [short, mentees.filter((s) => s.level === lv).sort(byStart)]).filter(
+      ([, g]) => g.length,
+    );
+    return `<section class="cv-grid" id="${slug(sec.title)}">${h2(sec.title)}${groups.map(([short, g], i) => labeled(short, g, i === 0)).join("")}</section>`;
+  };
   const advising = (sec) =>
-    `<section class="cv-grid" id="${slug(sec.title)}">${h2(sec.title)}${LEVELS.map(([lv, label]) => {
+    `<section class="cv-grid" id="${slug(sec.title)}">${h2(sec.title)}${LEVELS.filter(([lv]) =>
+      advisees.some((s) => s.level === lv),
+    ).map(([lv, label], li) => {
       const list = advisees.filter((s) => s.level === lv);
-      if (!list.length) return "";
       // the four roles in order, then any unrecognized value (warned about above) under its own label
       const extra = [...new Set(list.map(roleOf))]
         .filter((r) => !ROLES.some(([k]) => k === r))
         .map((r) => [r, r || "Advising"]);
       const roles = [...ROLES, ...extra].filter(([r]) => list.some((s) => roleOf(s) === r));
-      return `<div class="left"></div><div class="right group-title"><b>${label}</b></div>${roles
+      return `<div class="left${gapCls(li === 0)}"></div><div class="right group-title${gapCls(li === 0)}"><b>${label}</b></div>${roles
         .map((r) => {
           return labeled(r[1], list.filter((s) => roleOf(s) === r[0]).sort(byStart));
         })
@@ -578,23 +587,31 @@ ${funders.size ? `<h3 class="side-h">Funding &amp; Support</h3><div class="side-
   const cvSection = (s) => {
     if (s.mentees) return mentoring(s);
     if (s.advisees) return advising(s);
+    if (s.title === "Publications") return cvPubs(s);
     const titleHeadings = s.headings === "title"; // headings are titles shown in the right column (talks)
     const grouped = !titleHeadings && s.items.some((e) => e.heading);
     let inGroup = false;
+    let groupNo = -1; // which subsection we're in (0 = the first)
+    let startRow = false; // the next entry is the first row of a labeled subsection after the first
     const rows = s.items.map((e, i) => {
       if (e.heading) {
+        groupNo++;
+        const gap = gapCls(groupNo === 0);
         if (titleHeadings)
-          return `<div class="left"></div><div class="right group-title"><b>${md(e.heading)}</b></div>`;
+          return `<div class="left${gap}"></div><div class="right group-title${gap}"><b>${md(e.heading)}</b></div>`;
         const n = s.items.slice(i + 1).findIndex((x) => x.heading);
         const span = n < 0 ? s.items.length - i - 1 : n;
         inGroup = span > 0;
-        return inGroup ? `<div class="left label" style="grid-row: span ${span}">${esc(e.heading)}</div>` : "";
+        startRow = inGroup && groupNo > 0;
+        return inGroup ? `<div class="left label${gap}${span === 1 ? " solo" : ""}" style="grid-row: span ${span}">${esc(e.heading)}</div>` : "";
       }
       const left = grouped ? (inGroup ? null : "") : e.date || "";
       const text = md(e.title);
       const title = e.url ? `<a class="ink-link" href="${esc(e.url)}">${text}</a>` : text;
       const date = grouped && e.date ? ` <span class="date-inline">${esc(e.date)}</span>` : "";
-      return `${left === null ? "" : `<div class="left${titleHeadings ? " tight" : ""}">${esc(left)}</div>`}<div class="right${titleHeadings ? " sub-row" : ""}">${titleHeadings ? title : `<b>${title}</b>`}${date}${e.sub ? `<br><i>${md(e.sub)}</i>${e.where ? `, ${esc(e.where)}` : ""}` : e.where ? `<br>${esc(e.where)}` : ""}${(e.notes || []).map((n) => `<div class="note">${md(n)}</div>`).join("")}</div>`;
+      const gap = startRow ? " gap" : "";
+      startRow = false;
+      return `${left === null ? "" : `<div class="left${titleHeadings ? " tight" : ""}">${esc(left)}</div>`}<div class="right${titleHeadings ? " sub-row" : ""}${gap}">${titleHeadings ? title : `<b>${title}</b>`}${date}${e.sub ? `<br><i>${md(e.sub)}</i>${e.where ? `, ${esc(e.where)}` : ""}` : e.where ? `<br>${esc(e.where)}` : ""}${(e.notes || []).map((n) => `<div class="note">${md(n)}</div>`).join("")}</div>`;
     });
     return `<section class="cv-grid" id="${slug(s.title)}">${h2(s.title)}${rows.join("")}</section>`;
   };
@@ -602,27 +619,36 @@ ${funders.size ? `<h3 class="side-h">Funding &amp; Support</h3><div class="side-
     ["conference", "Conference", "C"],
     ["journal", "Journal", "J"],
     ["workshop", "Workshop", "W"],
+    ["poster", "Poster", "P"],
   ];
+  // The Publications section: papers from `publications` (by type), then the section's own `posters` list (CV only).
   // Numbered oldest-first within each type (J1 is the oldest journal paper), listed newest-first; the number is a
   // column of its own between the labels and the entries.
-  const cvPubs = () =>
-    `<section class="cv-grid cv-pubs" id="publications">${h2("Publications")}${GROUPS.map(([t, label, k]) => {
-      const list = pubs.filter((p) => p.type === t);
-      return list.length
-        ? `<div class="left label" style="grid-row: span ${list.length}">${label}</div>` +
-            list
-              .map(
-                (p, i) =>
-                  `<div class="pub-num">${k}${list.length - i}</div><div class="right"><b>${esc(p.title)}</b>.<br>${p.authors.map(authorHtml).join(", ")}.<br><i>${esc(p.venueFull || p.venue)}</i>.${p.award ? `<div class="award">${ic("award")}${esc(p.award)}</div>` : ""}</div>`,
-              )
-              .join("")
-        : "";
-    }).join("")}</section>`;
+  const cvPubs = (sec) => {
+    const posters = (sec.posters || []).map((p) => ({ ...p, type: "poster", venueFull: p.venue }));
+    const groups = GROUPS.map(([t, label, k]) => [label, k, [...pubs, ...posters].filter((p) => p.type === t)]).filter(
+      ([, , list]) => list.length,
+    );
+    return `<section class="cv-grid cv-pubs" id="publications">${h2("Publications")}${groups
+      .map(([label, k, list], gi) => {
+        const gap = gapCls(gi === 0);
+        return (
+          `<div class="left label${gap}${list.length === 1 ? " solo" : ""}" style="grid-row: span ${list.length}">${label}</div>` +
+          list
+            .map(
+              (p, i) =>
+                `<div class="pub-num${i ? "" : gap}">${k}${list.length - i}</div><div class="right${i ? "" : gap}"><b>${esc(p.title)}</b>.<br>${p.authors.map(authorHtml).join(", ")}${p.authors.at(-1).endsWith(".") ? "" : "."}<br><i>${esc(p.venueFull || p.venue)}</i>.${p.award ? `<div class="award">${ic("award")}${esc(p.award)}</div>` : ""}</div>`,
+            )
+            .join("")
+        );
+      })
+      .join("")}</section>`;
+  };
 
   // --- pages ---
-  const cutAt = d.cv.findIndex((s) => s.title === "Invited Talks and Demos");
+  // CV sections appear in data.yaml order; the Publications entry there marks where the publications list goes.
+  if (!d.cv.some((s) => s.title === "Publications")) console.warn("cv: no Publications entry; publications are left out");
   const sections = d.cv.map(cvSection);
-  sections.splice(cutAt < 0 ? sections.length : cutAt, 0, cvPubs());
   write(
     "cv/index.html",
     page({
@@ -631,7 +657,7 @@ ${funders.size ? `<h3 class="side-h">Funding &amp; Support</h3><div class="side-
       desc: `CV and bio of ${P.name}, Assistant Professor at Stevens Institute of Technology: education, awards, publications, talks, grants, teaching, and service.`,
       body: `<section class="bio" id="bio"><h2 class="page-h">${ic("address-card")}Bio</h2>${d.bio.map((t) => `<p>${md(t)}</p>`).join("")}</section>
 <section class="cv" id="cv"><div class="cv-title"><h2 class="page-h">${ic("scroll")}CV</h2><a class="btn" href="${CV_PDF}" target="_blank" rel="noopener">${ic("file-pdf")}PDF <span class="btn-note">(updated ${lastUpdated(CV_PDF.slice(1))})</span></a></div>
-<div class="jump-bar"><button class="jump-btn prev" type="button" aria-label="Scroll section links left" tabindex="-1"></button><nav class="jump" aria-label="CV sections">${[...d.cv.slice(0, cutAt < 0 ? d.cv.length : cutAt).map((s) => s.title), "Publications", ...d.cv.slice(cutAt < 0 ? d.cv.length : cutAt).map((s) => s.title)].map((t) => `<a href="#${slug(t)}">${esc(JUMP[t] || t)}</a>`).join("")}</nav><button class="jump-btn next" type="button" aria-label="Scroll section links right" tabindex="-1"></button></div>
+<div class="jump-bar"><button class="jump-btn prev" type="button" aria-label="Scroll section links left" tabindex="-1"></button><nav class="jump" aria-label="CV sections">${d.cv.map((s) => s.title).map((t) => `<a href="#${slug(t)}">${esc(JUMP[t] || t)}</a>`).join("")}</nav><button class="jump-btn next" type="button" aria-label="Scroll section links right" tabindex="-1"></button></div>
 ${sections.join("")}</section>
 <script>
 // jump-nav arrows: shown only on the side(s) with more links to scroll to
@@ -742,21 +768,43 @@ if (process.argv.includes("--serve")) {
     ".ico": "image/x-icon",
     ".xml": "application/xml",
   };
-  let t;
+  // One build at a time: a save during a build queues one more build after it, instead of starting a second one
+  // that deletes _site/ while the first is still writing it.
+  let t, building = false, queued = false;
+  const rebuild = async () => {
+    if (building) return void (queued = true);
+    building = true;
+    try {
+      await build();
+    } catch (e) {
+      console.error(`build failed: ${e.message}`);
+    }
+    building = false;
+    if (queued) {
+      queued = false;
+      rebuild();
+    }
+  };
   for (const f of ["data.yaml", "style.css", "index.html", "dissertation/index.html", "fun/index.html"])
     watch(f, () => {
       clearTimeout(t);
-      t = setTimeout(() => build().catch((e) => console.error(e.message)), 100);
+      t = setTimeout(rebuild, 100);
     });
   createServer((req, res) => {
-    const p = decodeURIComponent(req.url.split("?")[0]);
-    let f = join(OUT, p);
-    if (existsSync(f) && statSync(f).isDirectory()) f = join(f, "index.html");
-    if (!existsSync(f)) {
-      res.writeHead(404, { "content-type": "text/html" });
-      return res.end(readFileSync(join(OUT, "404.html")));
+    try {
+      const p = decodeURIComponent(req.url.split("?")[0]);
+      let f = join(OUT, p);
+      if (existsSync(f) && statSync(f).isDirectory()) f = join(f, "index.html");
+      if (!existsSync(f)) {
+        res.writeHead(404, { "content-type": "text/html" });
+        return res.end(existsSync(join(OUT, "404.html")) ? readFileSync(join(OUT, "404.html")) : "Not found (rebuilding?)");
+      }
+      res.writeHead(200, { "content-type": MIME[extname(f)] || "application/octet-stream" });
+      res.end(readFileSync(f));
+    } catch (e) {
+      // e.g. a file removed mid-rebuild: answer this request, keep the server running
+      res.writeHead(503, { "content-type": "text/plain" });
+      res.end(`Rebuilding, refresh in a moment (${e.code || e.message})`);
     }
-    res.writeHead(200, { "content-type": MIME[extname(f)] || "application/octet-stream" });
-    res.end(readFileSync(f));
   }).listen(8000, () => console.log("http://localhost:8000"));
 }

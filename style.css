@@ -1193,8 +1193,14 @@ pre.bibtex {
 .cv-grid .right i {
   color: var(--muted);
 }
-.cv-grid .group-title {
-  padding-top: 0.9rem;
+/* extra space above each subsection after the first in a section (class "gap", set in build.js) */
+.cv-grid .gap {
+  margin-top: 1.5rem;
+}
+/* a label over a single entry may wrap into the space below instead of making that one row taller */
+.cv-grid .left.solo {
+  height: 0;
+  overflow: visible;
 }
 .cv-grid .left.tight {
   padding-top: 0.15rem;
@@ -1211,10 +1217,13 @@ pre.bibtex {
 .cv-grid .note {
   margin-top: 0.1rem;
 }
-.cv-grid .ink-link {
-  color: inherit;
+/* every link in the bio and CV is ink, fading to link blue (and underlined) on hover, like the Press titles */
+.bio a,
+.cv-grid a {
+  color: var(--ink);
 }
-.cv-grid .ink-link:hover {
+.bio a:hover,
+.cv-grid a:hover {
   color: var(--link);
 }
 .cv-grid .right .award {
@@ -1284,8 +1293,13 @@ pre.bibtex {
   .cv-grid .right {
     padding-top: 0.1rem;
   }
-  .cv-grid .right.group-title {
-    padding-top: 0.9rem;
+  .cv-grid .left.solo {
+    height: auto;
+  }
+  /* the label above already carries the subsection space */
+  .cv-grid .right.gap:not(.group-title),
+  .cv-pubs .pub-num.gap {
+    margin-top: 0;
   }
 }
 
